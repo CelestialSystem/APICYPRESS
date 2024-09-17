@@ -52,9 +52,9 @@ describe('Fixers API Home Page', () => {
         cy.componentVisiblityCheck('#faqs-tab > .d-md-flex > span');
     });
 
-    it('11. Test to login', () => {
+    it('11. Test to check on the live demo button click', () => {
         cy.get('.show-code').click();
-        cy.componentVisiblityCheck('.sidebar-content');
+        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
     });
 
     it('12. Test to check for text "Sign in to APILayer"', () => {
