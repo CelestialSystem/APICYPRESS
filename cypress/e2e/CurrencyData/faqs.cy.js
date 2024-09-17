@@ -20,7 +20,6 @@ describe('FAQ Page', () => {
 
     it('2. Test to on click of FAQ button', () => {
         cy.get('#faqs-tab').click();
-        // cy.get('#heading-43 > .btn')
         cy.componentVisiblityCheck('#heading-43 > .btn');
     });
 

@@ -63,5 +63,4 @@ describe('Home Page', () => {
     it('12. Test to check footer is visible', () => {
         cy.componentVisiblityCheck('footer.bg-primary');
     });
-
   }); 

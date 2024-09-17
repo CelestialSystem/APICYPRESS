@@ -20,6 +20,7 @@ describe('API Info Page', () => {
   
     it('2. Test to click Api Info', () => {
         cy.get('#details-tab > .d-md-flex > span').click();
+        cy.componentVisiblityCheck('#details');
     });
   
     it('3. Test to check features subtitle is visible', () => {
