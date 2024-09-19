@@ -1,4 +1,4 @@
-describe('Documentation Page', () => {
+describe('Affiliates Page', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
         // Returning false here prevents Cypress from failing the test
         return false;

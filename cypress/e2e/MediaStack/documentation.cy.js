@@ -117,7 +117,7 @@ describe('Documentation Page', () => {
         // cy.get(':nth-child(18) > .heading').should('be.visible', 'Billing');
     });
 
-    it('20. Test to navigate to Billing Overages section', () => {
+    it('20. Test to navigate to Billing Overages section', () => { 
         cy.componentVisiblityCheck('.menu > :nth-child(5) > :nth-child(2) > a', 'Billing Overages')
         cy.get('.menu > :nth-child(5) > :nth-child(2) > a').click();
         cy.componentVisiblityCheck('#billing-overages', 'Business Continuity - API Overages')
