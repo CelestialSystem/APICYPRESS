@@ -19,6 +19,7 @@ describe('Fixer Documentation Page', () => {
 
     it('2. Test to click on the Documentation tab', () => {
         cy.get('.d-md-flex > .d-none').click();
+        cy.wait(2000);
     });
 
     it('3. Test to check the text in the documentation', () => {
