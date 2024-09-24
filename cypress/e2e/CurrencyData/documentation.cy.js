@@ -14,19 +14,19 @@ describe('Documentation Page', () => {
         cy.AcceptCookies();
     });
   
-    it('1. Test to check title is visible', () => {
-        cy.componentVisiblityCheck('.h2', 'Currency Data API');
+    it('1. Test to check Documentation tab visiblity', () => {
+        cy.componentVisiblityCheck('.d-md-flex > .d-none');
+        cy.wait(3000);
     });
   
-    it('2. Test to click Documentation', () => {
-        cy.get('#documentation-tab').click();
-        cy.wait(3000);
-        // cy.componentVisiblityCheck('#documentation');
+    it('2. Test to click Documentation)', () => {
+        cy.get('.d-md-flex > .d-none').click();
+        cy.wait(5000);
     });
   
     it('3. Test to check Number Verification API Reference title is visible', () => {
-        cy.wait(5000);
-        cy.componentVisiblityCheck('h3.mb-4', 'Currency Data API Reference');
+        cy.wait(4000);
+        cy.checkTextVisibility('Currency Data API Reference');
     });
   
     it('4. Test to check content is visible', () => {
@@ -68,4 +68,4 @@ describe('Documentation Page', () => {
         cy.get('.sticky-top > ul > :nth-child(4) > a').click();
         cy.componentVisiblityCheck(':nth-child(19) > a', 'Error Codes');
     });
-  }); 
+  });

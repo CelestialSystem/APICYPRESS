@@ -21,4 +21,29 @@ describe('Stock Search Page', () => {
     it('2. Test to click on Stock Search hyperlink', () => {
         cy.get('.header > .container > ul > :nth-child(3) > a').click();
     });
+
+    it('3. Test to check title is visible', () => {
+        cy.componentVisiblityCheck('h2', 'Stock Tickers & Exchanges');
+    });
+    
+    it('4. Test to check "Stock Ticker input" is visible', () => {
+        cy.componentVisiblityCheck('#ticker');
+    });
+
+    it('5. Test to check "Stock Exchange dropdown" is visible', () => {
+        cy.componentVisiblityCheck('#exchange');
+    });
+
+    it('6. Test to check "Search Stock Button" is visible', () => {
+        cy.componentVisiblityCheck('#exchange');
+    });
+
+    it('6. Test to check "Previous Button" is visible', () => {
+      cy.get('[data-paginate="prev"]').scrollIntoView();
+        cy.componentVisiblityCheck('[data-paginate="prev"]');
+    });
+
+    it('7. Test to check "Next Button" is visible', () => {
+        cy.componentVisiblityCheck('[data-paginate="next"]');
+    });
   });

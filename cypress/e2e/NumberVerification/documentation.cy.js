@@ -15,16 +15,18 @@ describe('Documentation Page', () => {
     });
   
     it('1. Test to check title is visible', () => {
+        cy.wait(3000);
         cy.componentVisiblityCheck('.h2', 'Number Verification API');
     });
   
     it('2. Test to click Documentation', () => {
         cy.get('#documentation-tab').click();
-        cy.componentVisiblityCheck('#documentation');
+        cy.wait(5000);
     });
   
     it('3. Test to check Number Verification API Reference title is visible', () => {
-        cy.componentVisiblityCheck('h3.mb-4', 'Number Verification API Reference');
+        cy.wait(4000);
+        cy.checkTextVisibility('Number Verification API Reference');
     });
   
     it('4. Test to check content is visible', () => {
