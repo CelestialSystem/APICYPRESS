@@ -115,4 +115,6 @@ Cypress.Commands.add('checkPlanFeatures', (planClass, features) => {
     features.forEach(feature => {
         cy.get(featureSelector).should('contain.text', feature);
     });
+});Cypress.Commands.add('checkTextVisibility', (text) => {
+    cy.contains(text).should('be.visible');
 });

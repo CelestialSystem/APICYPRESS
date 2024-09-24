@@ -20,7 +20,7 @@ describe('Documentation Page', () => {
   
     it('2. Test to click Documentation', () => {
         cy.get('#documentation-tab').click();
-        cy.componentVisiblityCheck('#details');
+        cy.componentVisiblityCheck('#documentation');
     });
   
     it('3. Test to check Number Verification API Reference title is visible', () => {

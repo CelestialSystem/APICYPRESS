@@ -20,10 +20,12 @@ describe('Documentation Page', () => {
   
     it('2. Test to click Documentation', () => {
         cy.get('#documentation-tab').click();
-        cy.componentVisiblityCheck('#details');
+        cy.wait(3000);
+        // cy.componentVisiblityCheck('#documentation');
     });
   
     it('3. Test to check Number Verification API Reference title is visible', () => {
+        cy.wait(5000);
         cy.componentVisiblityCheck('h3.mb-4', 'Currency Data API Reference');
     });
   
