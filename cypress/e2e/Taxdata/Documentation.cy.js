@@ -18,12 +18,13 @@ describe('Taxdata Documentation Page', () => {
     });
 
     it('2. Test to click on the Documentation tab', () => {
-        cy.wait(3000);
         cy.get('.d-md-flex > .d-none').click();
+        cy.wait(4000);
     });
 
     it('3. Test to check the text Tax Data API Reference', () => {
-        cy.componentVisiblityCheck('h3.mb-4','Tax Data API Reference');
+        cy.wait(2000);
+        cy.checkTextVisibility('Tax Data API Reference');
     });
 
     it('4. Test to check contents section is there or not', () => {

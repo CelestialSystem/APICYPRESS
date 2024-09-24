@@ -91,11 +91,16 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .btn');
     });
 
-    it('20. Test to check button text for Custom Plan is "Contact Us"', () => {
+    it('20. Test to check button text for "Contact Us" and redirect to contact page', () => {
+        cy.get(':nth-child(5) > .card > .card-header > .btn').scrollIntoView();
         cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .btn', 'Contact\nUs');
         cy.get(':nth-child(5) > .card > .card-header > .btn').click();
-        cy.wait(4000);
-        cy.componentVisiblityCheck('h1','Contact Sales & Customer Support')
+    });
+
+    it('21. Test to check Contact Sales & customer support text in the contact page and back to Taxdata"', () => {
+        cy.wait(2000);
+        cy.checkTextVisibility('Contact Sales & Customer Support')
         cy.navigateUrlwithCookies('https://apilayer.com/marketplace/tax_data-api');
     });
+
 });
