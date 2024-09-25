@@ -1,4 +1,4 @@
-describe('Reviews Page', () => {
+describe('Number Verification Reviews Page', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
         // Returning false here prevents Cypress from failing the test
         return false;
@@ -14,25 +14,24 @@ describe('Reviews Page', () => {
         cy.AcceptCookies();
     });
   
-    it('1. Test to check title is visible', () => {
+    it('1. Test to check title "Number Verification API" is present', () => {
         cy.componentVisiblityCheck('.h2', 'Number Verification API');
     });
 
-    it('2. Test to click on reviews tab, reviews card should be visible', () => {
+    it('2. Test to click on "Reviews" tab, "Reviews" card should be present', () => {
         cy.get('#reviews-tab').click();
         cy.componentVisiblityCheck('.col-lg-4 > .card');
     });
 
-    it('3. Test to check review count is visible', () => {
+    it('3. Test to check "Review count" is present', () => {
         cy.componentVisiblityCheck('.display-4');
     });
     
-    it('4. Test to check star count is visible', () => {
+    it('4. Test to check "Star count" is present', () => {
         cy.componentVisiblityCheck('.card > .list-inline');
     });
     
-    it('5. Test to check rating container is visible', () => {
+    it('5. Test to check "Rating" container is present', () => {
         cy.componentVisiblityCheck('.mb-7 > .row > .col-lg-8');
     });
-    
   }); 

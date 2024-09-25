@@ -1,4 +1,4 @@
-describe('Documentation Page', () => {
+describe('MarketStack Documentation Page', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
         // Returning false here prevents Cypress from failing the test
         return false;
@@ -8,18 +8,18 @@ describe('Documentation Page', () => {
         cy.visit('https://marketStack.com/');
     });
 
-    it('1. Test to naviagate to the Doc', () => {
+    it('1. Test to naviagate to the "Documentation" page', () => {
         cy.AcceptCookies();
         cy.get('.header > .container > ul > :nth-child(2) > a').click();
         cy.assertPathname('/documentation');
     });
 
-    it('2. Test to check the text in the documentation', () => {
+    it('2. Test to check "API Documentation" title in the present', () => {
         cy.AcceptCookies();
         cy.componentVisiblityCheck('h1', 'API Documentation');
     });
 
-    it('3. Test to check the text "Getting Started" is visible', () => {
+    it('3. Test to check the text "Getting Started" is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .doc_heading', 'Getting Started');
     });
 
@@ -59,7 +59,7 @@ describe('Documentation Page', () => {
         cy.componentVisiblityCheck('#splits > h3', 'Splits Data Available on: All plans');
     });
     
-    it('10.Test to navigate "Dividends data"', () => {
+    it('10.Test to navigate "Dividends data" section', () => {
         cy.componentVisiblityCheck('.menu > :nth-child(2) > :nth-child(5) > a', 'Dividends data');
         cy.get('.menu > :nth-child(2) > :nth-child(5) > a').click();
         cy.componentVisiblityCheck('#dividends > h3', 'Dividends Data Available on: All plans');
@@ -89,21 +89,21 @@ describe('Documentation Page', () => {
         cy.componentVisiblityCheck('#timezones > h3', 'Timezones Available on: All plans');
     });
     
-    it('15. Test to navigate to Billing Overages section', () => { 
-        cy.componentVisiblityCheck('.menu > :nth-child(3) > :nth-child(2) > a', 'Billing Overages')
+    it('15. Test to navigate to "Billing Overages" section', () => { 
+        cy.componentVisiblityCheck('.menu > :nth-child(3) > :nth-child(2) > a', 'Billing Overages');
         cy.get('.menu > :nth-child(3) > :nth-child(2) > a').click();
         cy.componentVisiblityCheck('#billing-overages', 'FAQ');
     });
 
-    it('16. Test to click on upgrade button', () => { 
-        cy.componentVisiblityCheck('.platinum-btn', 'Upgrade now')
+    it('16. Test to click on "Upgrade" button', () => { 
+        cy.componentVisiblityCheck('.platinum-btn', 'Upgrade now');
         cy.get('.platinum-btn').click();
         cy.assertPathname('/product');
         cy.go('back');
     });
 
     it('16. Test to click on upgrade button', () => { 
-        cy.componentVisiblityCheck('.container > p > a', 'Get Instant Access')
+        cy.componentVisiblityCheck('.container > p > a', 'Get Instant Access');
         cy.get('.container > p > a').click();
         cy.assertPathname('/signup/free');
     });

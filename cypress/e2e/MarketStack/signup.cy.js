@@ -1,36 +1,36 @@
-describe('Free Signup page', () => {
+describe('MarketStack Free Signup page', () => {
 
     before(() => {
         // Visit the main page before running any tests
         cy.navigateUrlwithCookies('https://marketstack.com/');
     });
 
-    it('1. Test to click the free signup button', () => {
+    it('1. Test to click the "Free Signup" button', () => {
         cy.get('.cta > a').click({ force: true });
         cy.AcceptCookies();
     });
 
-    it('2. Test to redirect to the signup page', () => {
+    it('2. Test to redirect to the "Signup" page', () => {
         cy.assertPathname('/signup/free');
     });
 
-    it('3. Test to display the signup page container', () => {
+    it('3. Test to check signup page is present', () => {
         cy.get('.preapp > .container').should('be.visible');
     });
 
-    it('4. Test to display the signup page heading', () => {
+    it('4. Test to check  "Sign Up" heading is present', () => {
         cy.componentVisiblityCheck('strong', 'Sign Up: ');
     });
 
-    it('5. Test to check the subscription text', () => {
+    it('5. Test to check the "Subscription" text', () => {
         cy.componentVisiblityCheck('.bar_bg', 'Subscription');
     });
 
-    it('6. Test to check montlhy and yearly toggle button is there or not', () => {
+    it('6. Test to check "Montlhy" and "Yearly" toggle button is there or not', () => {
         cy.componentVisiblityCheck('.cycle');
     });
 
-    it('7. Test to display the subscription options', () => {
+    it('7. Test to check the subscription options', () => {
         cy.componentVisiblityCheck(':nth-child(1) > :nth-child(1) > .d-flex', 'Free');
         cy.componentVisiblityCheck(':nth-child(2) > :nth-child(1) > .d-flex', 'Basic');
         cy.componentVisiblityCheck(':nth-child(3) > :nth-child(1) > .d-flex', 'Professional');
@@ -41,32 +41,32 @@ describe('Free Signup page', () => {
         cy.get(':nth-child(1) > :nth-child(1) > .d-flex > .radio-btn').should('be.checked');
     })
 
-    it('9. Test to display the correct subscription details for monthly period', () => {
+    it('9. Test to check the correct subscription details for monthly period', () => {
         cy.componentVisiblityCheck(':nth-child(1) > :nth-child(3) > .table-plan-text > .monthly_data', '$0.00 / Monthly');
         cy.componentVisiblityCheck(':nth-child(2) > :nth-child(3) > .table-plan-text > .monthly_data', '$9.99 / Monthly');
         cy.componentVisiblityCheck(':nth-child(3) > :nth-child(3) > .table-plan-text > .monthly_data', '$49.99 / Monthly');
         cy.componentVisiblityCheck(':nth-child(4) > :nth-child(3) > .table-plan-text > .monthly_data',  '\n                                                    $149.99 / Monthly\n                                                    ');
     });
 
-    it('10. Test to click on the yearly billing toggle button', () => {
+    it('10. Test to click on the "Yearly Billing" toggle button', () => {
         cy.get('.yearly').click();
     });
 
-    it('11. Test to display the correct subscription details for yearly period', () => {
+    it('11. Test to check the correct subscription details for yearly period', () => {
         cy.componentVisiblityCheck(':nth-child(1) > :nth-child(3) > .table-plan-text > .yearly_data', '\n                                                    $0.00 / Yearly\n                                                    ');
         cy.componentVisiblityCheck(':nth-child(2) > :nth-child(3) > .table-plan-text > :nth-child(2)', '$107.99 / Yearly');
         cy.componentVisiblityCheck(':nth-child(3) > :nth-child(3) > .table-plan-text > :nth-child(2)', '$524.99 / Yearly');
         cy.componentVisiblityCheck(':nth-child(4) > :nth-child(3) > .table-plan-text > :nth-child(2)',  '\n                                                    $1529.99 / Yearly\n                                                    ');
     });
 
-    it('12. Test to display all account detail fields', () => {
+    it('12. Test to check all account detail fields', () => {
         cy.componentVisiblityCheck('#first_name');
         cy.componentVisiblityCheck('#last_name');
         cy.componentVisiblityCheck('#email');
         cy.componentVisiblityCheck('#password');
     });
 
-    it('13. Test to display all billing detail fields', () => {
+    it('13. Test to check all billing detail fields', () => {
         cy.componentVisiblityCheck('#address');
         cy.componentVisiblityCheck('#post_code');
         cy.componentVisiblityCheck('#country_code');
@@ -78,7 +78,7 @@ describe('Free Signup page', () => {
         cy.componentVisiblityCheck('#company_name');
         cy.componentVisiblityCheck('#website_url');
         cy.componentVisiblityCheck('#tax_id');
-        cy.componentVisiblityCheck('#HowDidYouHear');
+        cy.componentVisiblityCheck('#didYouHere');
     });
 
     it('15. Test to validate that required fields are filled before submission', () => {

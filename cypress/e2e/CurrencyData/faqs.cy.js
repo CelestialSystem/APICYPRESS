@@ -1,4 +1,4 @@
-describe('FAQ Page', () => {
+describe('Currency Data FAQ Page', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
         // Returning false here prevents Cypress from failing the test
         return false;
@@ -14,11 +14,11 @@ describe('FAQ Page', () => {
         cy.AcceptCookies();
     });
   
-    it('1. Test to check title is visible', () => {
+    it('1. Test to check "Currency Data API" title is present', () => {
         cy.componentVisiblityCheck('.h2', 'Currency Data API');
     });
 
-    it('2. Test to on click of FAQ button', () => {
+    it('2. Test to on click of "FAQ" button', () => {
         cy.get('#faqs-tab').click();
         cy.componentVisiblityCheck('#heading-43 > .btn');
     });

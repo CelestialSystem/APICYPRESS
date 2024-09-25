@@ -1,20 +1,20 @@
-describe('Documentation Page', () => {
+describe('MediaStack Documentation Page', () => {
     before(() => {
         cy.visit('https://mediastack.com/');
     });
 
-    it('1. Test to naviagate to the Doc', () => {
+    it('1. Test to naviagate to the "Documentation"', () => {
         cy.AcceptCookies();
         cy.get('.header > .container > ul > :nth-child(2) > a').click();
         cy.assertPathname('/documentation');
     });
 
-    it('2. Test to check the text in the documentation', () => {
+    it('2. Test to check the text "API Documentation" in the documentation is present', () => {
         cy.AcceptCookies();
         cy.componentVisiblityCheck(':nth-child(1) > h2', 'API Documentation');
     });
 
-    it('3. Test to check the text "Getting Started" is visible', () => {
+    it('3. Test to check the text "Getting Started" is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .doc_heading', 'Getting Started');
     });
 
@@ -54,7 +54,7 @@ describe('Documentation Page', () => {
         cy.componentVisiblityCheck('#news_sources > h3', 'News Sources');
     });
     
-    it('10.Test to navigate Specify Sources', () => {
+    it('10.Test to navigate "Specify Sources"', () => {
         cy.componentVisiblityCheck('.menu > :nth-child(3) > :nth-child(2) > a', 'Specify Sources');
         cy.get('.menu > :nth-child(3) > :nth-child(2) > a').click();
         cy.componentVisiblityCheck('#specify_sources > h3', 'Specify Sources');
@@ -114,10 +114,9 @@ describe('Documentation Page', () => {
         cy.componentVisiblityCheck('.menu > :nth-child(4) > :nth-child(6) > a', 'Ruby');
         cy.get('.menu > :nth-child(4) > :nth-child(6) > a').click();
         cy.componentVisiblityCheck('#ruby > h3', 'Code Example - Ruby');
-        // cy.get(':nth-child(18) > .heading').should('be.visible', 'Billing');
     });
 
-    it('20. Test to navigate to Billing Overages section', () => { 
+    it('20. Test to navigate to "Billing Overages" section', () => { 
         cy.componentVisiblityCheck('.menu > :nth-child(5) > :nth-child(2) > a', 'Billing Overages')
         cy.get('.menu > :nth-child(5) > :nth-child(2) > a').click();
         cy.componentVisiblityCheck('#billing-overages', 'Business Continuity - API Overages')
