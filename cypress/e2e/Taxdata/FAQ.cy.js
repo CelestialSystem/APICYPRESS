@@ -8,15 +8,15 @@ describe('FAQ Page', () => {
       cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
 
-    it('0. Test to Accept Cookies if not already accepted', () => { 
+    it('0. Test to accept cookies if not already accepted', () => { 
         cy.AcceptCookies();
     });
 
-    it('1. Test to check the FAQs tab', () => {
+    it('1. Test to check the "FAQs" tab', () => {
         cy.componentVisiblityCheck('#faqs-tab > .d-md-flex > span');
     });
 
-    it('2. Test to click on FAQ tab', () => {
+    it('2. Test to click on "FAQs" tab', () => {
         cy.get('#faqs-tab > .d-md-flex > span').click();
     });
 

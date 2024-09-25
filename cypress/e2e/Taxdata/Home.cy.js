@@ -8,47 +8,47 @@ describe('Fixers API Home Page', () => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to accept cookies if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('1. Test to check for the Fixer API text is there or not', () => {
+    it('1. Test to check for the "Tax Data API" text present or not', () => {
         cy.checkTextVisibility('Tax Data API');
     });
 
-    it('2. Test to check for the caption of the Fixer API', () => {
+    it('2. Test to check for the caption of the taxdata api', () => {
         cy.checkTextVisibility('Instant VAT number and tax validation across the globe');
     });
 
-    it('3. Test to check the code response window is there or not', () => {
+    it('3. Test to check the code response window present or not', () => {
         cy.componentVisiblityCheck('.col-9 > :nth-child(2)');
     });
 
-    it('4. Test to check the Subscribe for free button"', () => {
+    it('4. Test to check the "Subscribe for Free" button"', () => {
         cy.componentVisiblityCheck('#subscribeButton')
     });
 
-    it('5. Test to check the Live demo button', () => {
+    it('5. Test to check the "Live demo" button', () => {
         cy.componentVisiblityCheck('.show-code');
     });
 
-    it('6. Test to check the text Prcing tab is there or not', () => {
+    it('6. Test to check the "Prcing" tab present or not', () => {
         cy.componentVisiblityCheck('#pricing-tab > .d-md-flex > span');
     });
 
-    it('7. Test to check the API Info tab', () => {
+    it('7. Test to check the "API info" tab present or not', () => {
         cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
     });
 
-    it('8. Test to check the Documentation tab', () => {
+    it('8. Test to check the "Documentation" tab present or not', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
     });
 
-    it('9. Test to check the FAQs tab', () => {
+    it('9. Test to check the "FAQs" tab present or not', () => {
         cy.componentVisiblityCheck('#faqs-tab > .d-md-flex > span');
     });
 
-    it('10. Test to check on the live demo button click', () => {
+    it('10. Test to check on the "Live Demo" button click', () => {
         cy.get('.show-code').click();
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
     });
