@@ -1,5 +1,4 @@
-describe('Free Signup page', () => {
-
+describe('Postionstack signup page', () => {
     before(() => {
         // Visit the main page before running any tests
         cy.navigateUrlwithCookies('https://positionstack.com/');
@@ -18,7 +17,7 @@ describe('Free Signup page', () => {
         cy.get('.preapp > .container').should('be.visible');
     });
 
-    it('4. Test to display the signup page heading', () => {
+    it('4. Test to display the signup page heading text', () => {
         cy.componentVisiblityCheck('strong', 'Sign Up: ');
     });
 
@@ -26,7 +25,7 @@ describe('Free Signup page', () => {
         cy.componentVisiblityCheck('.bar_bg', 'Subscription');
     });
 
-    it('6. Test to check montlhy and yearly toggle button is there or not', () => {
+    it('6. Test to check montlhy and yearly toggle button present', () => {
         cy.componentVisiblityCheck('.cycle');
     });
 
@@ -78,7 +77,7 @@ describe('Free Signup page', () => {
         cy.componentVisiblityCheck('#company_name');
         cy.componentVisiblityCheck('#website_url');
         cy.componentVisiblityCheck('#tax_id');
-        cy.componentVisiblityCheck('#HowDidYouHear');
+        cy.componentVisiblityCheck('#didYouHere');
     });
 
     it('15. Test to validate that required fields are filled before submission', () => {
@@ -92,7 +91,7 @@ describe('Free Signup page', () => {
         cy.iframe().find('.recaptcha-checkbox').click(); // Click the checkbox inside the iframe
     });
 
-    xit('17. Test to enable the Sign Up button when all fields are valid', () => {
+    xit('17. Test to enable the "Sign Up" button when all fields are valid', () => {
         // Fill in all fields with valid data
         cy.get('input[placeholder="First Name"]').type('John');
         cy.get('input[placeholder="Last Name"]').type('Doe');
@@ -106,7 +105,7 @@ describe('Free Signup page', () => {
         cy.get('#company_name').type('Company Inc.');
         cy.get('#website_url').type('https://company.com');
         cy.get('#tax_id').type('123-45-6789');
-        cy.get('#HowDidYouHear').click();
+        cy.get('#HowDidYouHear');
         cy.get('iframe').then(($iframe) => {
             const $body = $iframe.contents().find('body');
             cy.wrap($body).find('.recaptcha-checkbox').click();

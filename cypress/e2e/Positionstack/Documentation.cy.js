@@ -1,20 +1,20 @@
-describe('Test cases for Documentation Page', () => {
+describe('Postionstack documentation page', () => {
     before(() => {
         cy.visit('https://positionstack.com/');
     });
 
-    it('1. Test to naviagate to the Doc', () => {
+    it('1. Test to naviagate to the "Documentation" page', () => {
         cy.AcceptCookies();
         cy.get('.header > .container > ul > :nth-child(2) > a').click();
         cy.assertPathname('/documentation');
     });
 
-    it('2. Test to check the text in the documentation', () => {
+    it('2. Test to check the text "API Documentation"', () => {
         cy.AcceptCookies();
         cy.componentVisiblityCheck(':nth-child(1) > h2', 'API Documentation');
     });
 
-    it('3. Test to check the text "Getting Started" is visible', () => {
+    it('3. Test to check the text "Getting Started" is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .doc_heading', 'Getting Started');
     });
 
@@ -60,7 +60,7 @@ describe('Test cases for Documentation Page', () => {
         cy.componentVisiblityCheck('#batch_requests > h3', 'Batch Requests');
     });
 
-    it('11. Test to navigate Embeddable Maps', () => {
+    it('11. Test to navigate "Embeddable Maps" section', () => {
         cy.componentVisiblityCheck('.menu > :nth-child(3) > :nth-child(2) > a', 'Embeddable Maps');
         cy.get('.menu > :nth-child(3) > :nth-child(2) > a').click();
         cy.componentVisiblityCheck('#embeddable_maps > h3', 'Embeddable Maps');
@@ -112,6 +112,7 @@ describe('Test cases for Documentation Page', () => {
 
     it('19. Test to navigate to "Python" section', () => {
         cy.wait(1000);
+          //Added an 1-second wait to navigate to load the python section. A more reliable solution should be implemented to handle this wait.
         cy.get('.menu > :nth-child(5) > :nth-child(3) > a').scrollIntoView();
         cy.componentVisiblityCheck('.menu > :nth-child(5) > :nth-child(3) > a', 'Python');
         cy.get('.menu > :nth-child(5) > :nth-child(3) > a').click();
@@ -121,6 +122,7 @@ describe('Test cases for Documentation Page', () => {
 
     it('20. Test to navigate to "Nodejs" section', () => {
         cy.wait(1000);
+          //Added an 1-second wait to navigate to the nodejs section. A more reliable solution should be implemented to handle this wait.
         cy.componentVisiblityCheck(':nth-child(5) > :nth-child(4) > a', 'Nodejs');
         cy.get(':nth-child(5) > :nth-child(4) > a').click();
         cy.componentVisiblityCheck('#nodejs > h3', 'Code Example - Nodejs');
@@ -144,19 +146,19 @@ describe('Test cases for Documentation Page', () => {
         cy.componentVisiblityCheck('#ruby > h3', 'Code Example - Ruby');
     });
 
-    it('24. Test to navigate to Billing Overages section', () => {
+    it('24. Test to navigate to "Billing Overages" section', () => {
         cy.componentVisiblityCheck('.menu > :nth-child(6) > :nth-child(2) > a', 'Billing Overages')
         cy.get('.menu > :nth-child(5) > :nth-child(2) > a').click();
         cy.componentVisiblityCheck('#billing-overages', 'Business Continuity - API Overages')
     });
 
-    it('25. Test to navigate to Platinum Support section', () => {
+    it('25. Test to navigate to "Platinum Support" section', () => {
         cy.componentVisiblityCheck(':nth-child(6) > :nth-child(3) > a', 'Platinum Support');
         cy.get(':nth-child(6) > :nth-child(3) > a').click();
         cy.componentVisiblityCheck(':nth-child(22) > :nth-child(22)', 'What does Platinum Support include?');
     });
 
-    it('26. Test to check Upgrade Now visible or not', () => {
+    it('26. Test to check "Upgrade Now" button present', () => {
         cy.componentVisiblityCheck('.platinum-btn');
         cy.get('.platinum-btn').click();
         cy.go('back');
