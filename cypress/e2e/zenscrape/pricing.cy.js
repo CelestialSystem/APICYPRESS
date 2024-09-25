@@ -1,4 +1,4 @@
-describe('Pricing page', () => {
+describe('Zensrape pricing page', () => {
 
     Cypress.on('uncaught:exception', (err, runnable) => {
         // Returning false here prevents Cypress from failing the test
@@ -9,48 +9,48 @@ describe('Pricing page', () => {
         cy.navigateUrlwithCookies('https://zenscrape.com/');
     });
 
-    it('1.Test to navigate to the Pricing ', () => {
+    it('1.Test to navigate to the pricing page', () => {
         cy.get('[href="/#pricingSection"]').click();
     });
 
-    it('2.Test to check the presence of Pricing text', () => {
+    it('2.Test to check the presence of pricing  title text', () => {
         cy.componentVisiblityCheck('.py-12', 'Simple and Economical Pricing')
     });
 
-    it('3.Test to check the caption text availble or not', () => {
+    it('3.Test to check the caption of the pricing page is present or not', () => {
         cy.componentVisiblityCheck('.py-12 > .text-xl', 'From hobby projects to large-scale scraping projects, we offer a range of pricing options tailored to fit your specific needs.');
     });
 
-    it('4.Test to chek the Free plan', () => {
+    it('4.Test to chek the free plan', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .p-6 > .text-lg', 'Free');
         cy.componentVisiblityCheck(':nth-child(3) > .text-3xl', '$0');
     });
 
-    it('5.Test to chek the Small plan', () => {
+    it('5.Test to chek the small plan', () => {
         cy.componentVisiblityCheck(':nth-child(2) > .p-6 > .text-lg', 'Small');
         cy.componentVisiblityCheck(':nth-child(2) > .p-6 > :nth-child(3)', '$59.99');
     });
 
-    it('6.Test to chek the Medium plan', () => {
+    it('6.Test to chek the medium plan', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .p-6 > .text-lg', 'Medium');
         cy.componentVisiblityCheck(':nth-child(3) > .p-6 > :nth-child(3)', '$99.99');
     });
 
-    it('7.Test to chek the Large plan', () => {
+    it('7.Test to chek the large plan', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .p-6 > .text-lg', 'Large');
         cy.componentVisiblityCheck(':nth-child(4) > .p-6 > :nth-child(3)', '$249.99');
     });
 
-    it('8.Test to chek the Professional plan', () => {
+    it('8.Test to chek the professional plan', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .p-6 > .text-lg', 'Professional');
         cy.componentVisiblityCheck(':nth-child(5) > .p-6 > :nth-child(3)', '$349.99');
     });
 
-    it('9.Test to check the Free plan features', () => {
+    it('9.Test to check the free plan features', () => {
         cy.get(':nth-child(1) > .pt-6 > .mt-6 > .flex > .text-sm')
     });
 
-    it('10.Test to check the features in the Small plan', () => {
+    it('10.Test to check the features in the small plan', () => {
         cy.get(':nth-child(2) > .pt-6 > .mt-6').should('contain.text', '250,000 Credits')
             .and('contain.text', '10 Concurrent Requests')
             .and('contain.text', 'Worldwide Geotargeting')
@@ -59,7 +59,7 @@ describe('Pricing page', () => {
             .and('contain.text', 'Self-Service Onboarding');
     });
 
-    it('11. Test to check the features in the Medium plan', () => {
+    it('11. Test to check the features in the medium plan', () => {
         cy.get(':nth-child(3) > .pt-6 > .mt-6').should('contain.text', '1,000,000 Credits')
             .and('contain.text', '25 Concurrent Requests')
             .and('contain.text', 'Worldwide Geotargeting')
@@ -68,7 +68,7 @@ describe('Pricing page', () => {
             .and('contain.text', 'Concierge Onboarding')
             .and('contain.text', 'Service Level Agreement');
     });
-    it('12. Test to check the features in the Large plan', () => {
+    it('12. Test to check the features in the large plan', () => {
         cy.get(':nth-child(4) > .pt-6 > .mt-6').should('contain.text', '3,000,000 Credits')
             .and('contain.text', '50 Concurrent Requests')
             .and('contain.text', 'Worldwide Geotargeting')
@@ -78,7 +78,7 @@ describe('Pricing page', () => {
             .and('contain.text', 'Service Level Agreement');
     });
 
-    it('13. Test to check the features in the Professional plan', () => {
+    it('13. Test to check the features in the professional plan', () => {
         cy.get(':nth-child(5) > .pt-6 > .mt-6').should('contain.text', '5,000,000 Credits')
             .and('contain.text', '100 Concurrent Requests')
             .and('contain.text', 'Worldwide Geotargeting')
@@ -89,31 +89,31 @@ describe('Pricing page', () => {
             .and('contain.text', 'Prioritized Queue');
     });
 
-    it('14. Test to check Get free plan button', () => {
+    it('14. Test to check "Get free" plan button', () => {
         cy.get(':nth-child(1) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Get Free').click();
         cy.navigateUrlwithCookies('https://app.zenscrape.com/register?plan=free');
         cy.go('back');
     });
 
-    it('15. Test to check Buy Small plan  button', () => {
+    it('15. Test to check "Buy Small" plan  button', () => {
         cy.get(':nth-child(2) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Buy Small').click();
         cy.navigateUrlwithCookies('https://app.zenscrape.com/register?plan=medium');
         cy.go('back');
     });
 
-    it('16. Test to check  Medium plan button', () => {
+    it('16. Test to check "Buy Medium" plan button', () => {
         cy.get(':nth-child(3) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Buy Medium').click();
         cy.navigateUrlwithCookies('https://app.zenscrape.com/register?plan=large');
         cy.go('back');
     });
 
-    it('17. Test to check Large plan button', () => {
+    it('17. Test to check "Buy Large" plan button', () => {
         cy.get(':nth-child(4) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Buy Large').click();
         cy.navigateUrlwithCookies('https://app.zenscrape.com/register?plan=very-large');
         cy.go('back');
     });
 
-    it('18. Test to check  Enterprise plan sign up button', () => {
+    it('18. Test to check "Buy Very Large" button', () => {
         cy.get(':nth-child(5) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Buy Very Large').click();
         cy.navigateUrlwithCookies("https://app.zenscrape.com/register?plan=professional");
         cy.go('back');
