@@ -5,30 +5,26 @@ describe('Number Verification Documentation Page', () => {
     });
 
     before(() => {
-      cy.visit('https://apilayer.com/marketplace/number_verification-api');
-      cy.wait(2000); // Wait for the page to load
+      cy.visit('https://apilayer.com/marketplace/number_verification-api', {timeout: 2000});
     });
   
-    it('1. Test to Accept Cookies if not already accepted', () => {
-        // Check if the "Accept Cookies" button is visible or exists
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
+        cy.intercept('GET', '/collect*').as('apiRequest');
         cy.AcceptCookies();
+        cy.wait('@apiRequest');
     });
   
     it('2. Test to check "Number Verification API" title is present', () => {
-        cy.wait(3000);
-        //TODO //Added an 3-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
         cy.componentVisiblityCheck('.h2', 'Number Verification API');
     });
   
     it('3. Test to click "Documentation" tab', () => {
+        cy.intercept('GET', '/marketplace/number_verification-api/tabs/api_docs').as('apiRequest');
         cy.get('#documentation-tab').click();
-        cy.wait(5000);
-        //TODO //Added an 5-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
+        cy.wait('@apiRequest');
     });
   
     it('4. Test to check "Number Verification API Reference" title is present', () => {
-        cy.wait(4000);
-        //TODO //Added an 4-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
         cy.checkTextVisibility('Number Verification API Reference');
     });
   

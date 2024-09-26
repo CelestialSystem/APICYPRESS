@@ -5,30 +5,27 @@ describe('Currency Data Documentation Page', () => {
     });
 
     before(() => {
-      cy.visit('https://apilayer.com/marketplace/currency_data-api');
-      cy.wait(2000); // Wait for the page to load
+      cy.visit('https://apilayer.com/marketplace/currency_data-api', {timeout: 2000}); // we are using time so that page can load
     });
-  
+    
     it('1. Test to Accept Cookies if not already accepted', () => {
         // Check if the "Accept Cookies" button is visible or exists
+        cy.intercept('GET', '/collect*').as('apiRequest');
         cy.AcceptCookies();
+        cy.wait('@apiRequest');
     });
   
     it('2. Test to check Documentation tab visibility', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
-        cy.wait(3000);
-        //TODO //Added an 3-second wait to allow the documentation to load. A more reliable solution should be implemented to handle this wait.
     });
   
     it('3. Test to click "Documentation" tab', () => {
+        cy.intercept('GET', '/marketplace/currency_data-api/tabs/api_docs').as('apiRequest');
         cy.get('.d-md-flex > .d-none').click();
-        cy.wait(5000);
-        //TODO //Added an 5-second wait to allow the documentation to load. A more reliable solution should be implemented to handle this wait.
+        cy.wait('@apiRequest');
     });
   
     it('4. Test to check "Currency Data API Reference" title is present', () => {
-        cy.wait(4000);
-        //TODO //Added an 4-second wait to allow this tab to load. A more reliable solution should be implemented to handle this wait.
         cy.checkTextVisibility('Currency Data API Reference');
     });
   
