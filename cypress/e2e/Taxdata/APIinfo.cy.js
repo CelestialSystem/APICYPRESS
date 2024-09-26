@@ -1,9 +1,4 @@
 describe('Taxdata APIs info page ', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Preventing Cypress from failing the test on uncaught exceptions
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
@@ -12,7 +7,7 @@ describe('Taxdata APIs info page ', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "API info" tab present or not', () => {
+    it('2. Test to check for the "API info" tab present', () => {
         cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
     });
 

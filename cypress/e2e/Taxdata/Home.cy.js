@@ -1,9 +1,4 @@
 describe('Fixers API Home Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
@@ -12,15 +7,15 @@ describe('Fixers API Home Page', () => {
         cy.AcceptCookies();
     });
 
-    it('1. Test to check for the "Tax Data API" text present or not', () => {
+    it('1. Test to check for the "Tax Data API" text present', () => {
         cy.checkTextVisibility('Tax Data API');
     });
 
-    it('2. Test to check for the caption of the taxdata api', () => {
+    it('2. Test to check for the caption "Instant VAT number and tax validation across the globe" present', () => {
         cy.checkTextVisibility('Instant VAT number and tax validation across the globe');
     });
 
-    it('3. Test to check the code response window present or not', () => {
+    it('3. Test to check the code response window present', () => {
         cy.componentVisiblityCheck('.col-9 > :nth-child(2)');
     });
 
@@ -32,19 +27,19 @@ describe('Fixers API Home Page', () => {
         cy.componentVisiblityCheck('.show-code');
     });
 
-    it('6. Test to check the "Prcing" tab present or not', () => {
+    it('6. Test to check the "Prcing" tab present', () => {
         cy.componentVisiblityCheck('#pricing-tab > .d-md-flex > span');
     });
 
-    it('7. Test to check the "API info" tab present or not', () => {
+    it('7. Test to check the "API info" tab present', () => {
         cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
     });
 
-    it('8. Test to check the "Documentation" tab present or not', () => {
+    it('8. Test to check the "Documentation" tab present', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
     });
 
-    it('9. Test to check the "FAQs" tab present or not', () => {
+    it('9. Test to check the "FAQs" tab present', () => {
         cy.componentVisiblityCheck('#faqs-tab > .d-md-flex > span');
     });
 
@@ -56,5 +51,5 @@ describe('Fixers API Home Page', () => {
     it('11. Test to check for text "Sign in to APILayer"', () => {
         cy.checkTextVisibility('Sign in to APILayer');
         cy.get('.hs-unfold > .js-hs-unfold-invoker').click();
-    })
+    });
 });

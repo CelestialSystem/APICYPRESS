@@ -1,18 +1,13 @@
 describe('Pricing Page Test Suite', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Preventing Cypress from failing the test on uncaught exceptions
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
 
-    it('1. Test to accept Cookies if not already accepted', () => {
+    it('1. Test to accept cookies if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "Pricing" tab present or not', () => {
+    it('2. Test to check for the "Pricing" tab present', () => {
         cy.componentVisiblityCheck('#pricing-tab > .d-md-flex > span');
     });
 
@@ -20,7 +15,7 @@ describe('Pricing Page Test Suite', () => {
         cy.get('#pricing-tab > .d-md-flex > span').click();
     });
 
-    it('4. Test to check for "Free Plan" present or not', () => {
+    it('4. Test to check for the text "Free Plan" present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .card > .card-header > .h3', 'Free Plan');
     });
 
@@ -34,7 +29,7 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .media-body', 'No Credit Card Required');
     });
 
-    it('7. Test to check "Starter Plan" present or not', () => {
+    it('7. Test to check "Starter Plan" present', () => {
         cy.componentVisiblityCheck(':nth-child(2) > .card > .card-header > .h3','Starter Plan');
     });
 
@@ -47,11 +42,11 @@ describe('Pricing Page Test Suite', () => {
         cy.checkTextVisibility('1,000 Requests / Monthly');
     });
 
-    it('10. Test to check "MOST POPULAR" label on Starter Plan', () => {
+    it('10. Test to check "MOST POPULAR" label on "Starter" plan', () => {
         cy.componentVisiblityCheck('.card > .badge','MOST POPULAR');
     });
 
-    it('11. Test to check "Pro Plan" present or not', () => {
+    it('11. Test to check "Pro Plan" present', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .card > .card-header > .h3', 'Pro Plan');
     });
 
@@ -65,7 +60,7 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
     });
 
-    it('14. Test to check "Enterprise Plan" present or not', () => {
+    it('14. Test to check "Enterprise Plan" present', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .h3', 'Enterprise Plan');
     });
 
@@ -78,7 +73,7 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
     });
 
-    it('17. Test to check "Custom Plan" present or not', () => {
+    it('17. Test to check "Custom Plan" present', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .h3', 'Custom Plan');
     });
 
@@ -86,20 +81,20 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck('#pricing > .row > :nth-child(5) > .card > .card-body > .media > .media-body', 'Any requests volume you need');
     });
 
-    it('19. Test to check "Subscribe" button is present or not in all plans', () => {
+    it('19. Test to check "Subscribe" button is present in all plans', () => {
         cy.componentVisiblityCheck('.row > :nth-child(1) > .card > .card-header > .btn');
         cy.componentVisiblityCheck(':nth-child(2) > .card > .card-header > .btn');
         cy.componentVisiblityCheck(':nth-child(3) > .card > .card-header > .btn');
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .btn');
     });
 
-    it('20. Test to check button text for "Contact Us" and redirect to contact page', () => {
+    it('20. Test to check button text for "Contact Us" and redirect to "Contact" page', () => {
         cy.get(':nth-child(5) > .card > .card-header > .btn').scrollIntoView();
         cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .btn', 'Contact\nUs');
         cy.get(':nth-child(5) > .card > .card-header > .btn').click();
     });
 
-    it('21. Test to check "Contact Sales & Customer Support" text in the contact page and back to "Taxdata" main page', () => {
+    it('21. Test to check "Contact Sales & Customer Support" text in the "Contact" page and navigate back to "Taxdata" main page', () => {
         cy.wait(2000);
         cy.checkTextVisibility('Contact Sales & Customer Support')
         cy.navigateUrlwithCookies('https://apilayer.com/marketplace/tax_data-api');
