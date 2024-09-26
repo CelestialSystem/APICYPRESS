@@ -17,11 +17,11 @@ describe('Login Page Test Suite', () => {
     cy.get('.custom-container > :nth-child(4) > :nth-child(2)').scrollIntoView();
   });
 
-  it('4. Test to display the email input field', () => {
+  it('4. Test to display the "Email" input field', () => {
     cy.get('#email').should('be.visible');
   });
 
-  it('5. Test to display the password input field', () => {
+  it('5. Test to display the "Password" input field', () => {
     cy.get('#password').should('be.visible');
   });
 
@@ -29,7 +29,7 @@ describe('Login Page Test Suite', () => {
     cy.get('.submit').should('be.visible');
   });
 
-  it('7. Test to show an error for empty email and password', () => {
+  it('7. Test to show an error for empty "Email" and "Password"', () => {
     cy.get('#email').clear();
     cy.get('#password').clear();
     cy.get('.submit').click();
@@ -38,7 +38,7 @@ describe('Login Page Test Suite', () => {
       .and('contain.text', 'Please enter your account email and password.');
   });
 
-  it('8. Test to show an error for invalid email format', () => {
+  it('8. Test to show an error for invalid Email format', () => {
     cy.get('#email').type('invalid-email');
     cy.get('#password').type('password123');
     cy.get('.submit').click();
@@ -67,19 +67,19 @@ describe('Login Page Test Suite', () => {
     cy.get('#password').should('have.attr', 'type', 'password');
   });
 
-  it('12. Test to check for Forgot password', () => {
+  it('12. Test to click for "Forgot password" button', () => {
     cy.get('.forgot').click();
   })
 
-  it('13. Test to load the Forgot Password page', () => {
+  it('13. Test to load the "Forgot Password" is present', () => {
     cy.get('strong').should('contain.text', 'Forgot Password');
   });
 
-  it('14. Test to have the email input field', () => {
+  it('14. Test to have the "Email" input field', () => {
     cy.get('#email').should('be.visible');
   });
 
-  it('15. Test to allow navigating back to login page', () => {
+  it('15. Test to allow navigating back to "Login" page', () => {
     cy.get('.log_in_instead').click();
     cy.url().should('include', '/login');
   });

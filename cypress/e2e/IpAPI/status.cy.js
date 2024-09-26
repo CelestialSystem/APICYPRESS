@@ -13,11 +13,11 @@ describe('IpApi Status Page', () => {
         cy.AcceptCookies();
     });
 
-    it('1. Test to check status hyperlink is there', () => {
+    it('1. Test to check "Status" hyperlink is there', () => {
         cy.componentVisiblityCheck('.status > a', 'Status');
     });
 
-    it('2. Test to click on status hyperlink', () => {
+    it('2. Test to click on "Status" hyperlink', () => {
         cy.get('.status > a').click();
         cy.visit('https://status.ipapi.com/');
         cy.wait(2000);
@@ -28,7 +28,7 @@ describe('IpApi Status Page', () => {
         });
     });
 
-    it('3. Test to check the title', () => {
+    it('3. Test to check the title "All systems operational" is present', () => {
         cy.componentVisiblityCheck('.psp-main-status-wrap', 'All systems operational');
     });
 
@@ -40,42 +40,42 @@ describe('IpApi Status Page', () => {
         cy.componentVisiblityCheck('.psp-monitor-row');
     });
 
-    it('6. Test to check calender button is tere', () => {
+    it('6. Test to check "Calender" button is tere', () => {
         cy.componentVisiblityCheck('.psp-calendar-link', 'Calendar view')
     });
 
-    it('7. Test to click on calender', () => {
+    it('7. Test to click on "Calender"', () => {
         cy.get('.psp-calendar-link').click();
         cy.assertPathname('/781010288/calendar');
         cy.go('back')
     });
 
-    it('8. Test to check subtitle "Overall Uptime"', () => {
+    it('8. Test to check subtitle "Overall Uptime" is present', () => {
         cy.get('body > :nth-child(2) > :nth-child(3)').scrollIntoView();
         cy.componentVisiblityCheck('body > :nth-child(2) > :nth-child(3)', 'Overall Uptime');
     });
 
-    it('9. Test to check subtitle "Last 24 hours"', () => {
+    it('9. Test to check subtitle "Last 24 hours" is present', () => {
         cy.componentVisiblityCheck('.uk-first-column > .uk-text-muted', 'Last 24 hours');
     });
 
-    it('10. Test to check subtitle "Last 7 days"', () => {
+    it('10. Test to check subtitle "Last 7 days" is present', () => {
         cy.componentVisiblityCheck('#overall-uptime > :nth-child(2) > .uk-text-muted', 'Last 7 days');
     });
 
-    it('11. Test to check subtitle "Last 30 days"', () => {
+    it('11. Test to check subtitle "Last 30 days" is present', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .uk-text-muted', 'Last 30 days');
     });
 
-    it('12. Test to check subtitle "Last 90 days"', () => {
+    it('12. Test to check subtitle "Last 90 days" is present', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .uk-text-muted', 'Last 90 days');
     });
 
-    it('13. Test to check subtitle "Status updates Last 30 days"', () => {
+    it('13. Test to check subtitle "Status updates Last 30 days" is present', () => {
         cy.componentVisiblityCheck('.anouncement-header > .uk-h3', 'Status updates Last 30 days');
     });
 
-    it('14. Test to check "Status update history" button', () => {
+    it('14. Test to check "Status update history" button is present', () => {
         cy.componentVisiblityCheck('.announcement-empty > .psp-history-link', 'Status update history');
     });
 
@@ -84,7 +84,7 @@ describe('IpApi Status Page', () => {
         cy.assertPathname('/history');
     });
 
-    it('16. Test to check title of history page', () => {
+    it('16. Test to check title "Status update history" is present', () => {
         cy.componentVisiblityCheck('.uk-flex-between > .uk-margin-remove', 'Status update history');
         cy.go('back')
     });
