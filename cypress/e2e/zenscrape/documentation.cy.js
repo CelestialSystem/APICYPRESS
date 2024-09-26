@@ -1,10 +1,4 @@
 describe('Zenscrape documentation page', () => {
-
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://zenscrape.com/');
     });
@@ -13,15 +7,15 @@ describe('Zenscrape documentation page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to click the documentation hyperlink', () => {
+    it('2. Test to click on the "Documentation" hyperlink', () => {
         cy.get('.gap-8 > [href="//app.zenscrape.com/documentation"]').click();
     });
 
-    it('3. Test to check the text in the documentation section', () => {
+    it('3. Test to check the text "Documentation" title present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .col-md-12 > h4', 'Documentation');
     });
 
-    it('4. Test to check if the "Register Free API Key" button is present', () => {
+    it('4. Test to check the "Register Free API Key" button is present', () => {
         cy.componentVisiblityCheck('aside > .btn', 'Register Free Apikey');
     });
 
@@ -30,11 +24,11 @@ describe('Zenscrape documentation page', () => {
         cy.navigateUrlwithCookies('https://app.zenscrape.com/documentation');
     });
 
-    it('6. Test to check if the pro tip alert message is present', () => {
+    it('6. Test to check the "Pro Tip: Register your free apikey here and all code snippets below will contain your private apikey. If you have already registered, login before viewing the documentation." alert message is present', () => {
         cy.componentVisiblityCheck('.alert', 'Pro Tip: Register your free apikey here and all code snippets below will contain your private apikey. If you have already registered, login before viewing the documentation.');
     });
 
-    it('7. Test to check if the "Postman Collection" text and "Run in Postman" button are present', () => {
+    it('7. Test to check the "Postman Collection" text and "Run in Postman" button are present', () => {
         cy.componentVisiblityCheck('#postman', 'Postman Collection');
         cy.componentVisiblityCheck('.postman-run-button');
     });

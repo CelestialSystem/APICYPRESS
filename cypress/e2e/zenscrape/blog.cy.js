@@ -1,24 +1,18 @@
 describe('Zenscrape blog page', () => {
-
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://zenscrape.com/');
     });
 
-    it('1. Test to navigate to the blog page', () => {
+    it('1. Test to click on the "Blog" hyperlink navigate to the "Blog" page', () => {
         cy.get('.gap-8 > [href="/blog"]').should('be.visible').click();
         cy.navigateUrlwithCookies('https://zenscrape.com/blog/');
     });
 
-    it('2. Test to check the text "Web Scraping Blog"', () => {
+    it('2. Test to check the text "Web Scraping Blog" present', () => {
         cy.componentVisiblityCheck('.text-3xl', 'Web Scraping Blog');
     });
 
-    it('3. Test to check the web scraping caption', () => {
+    it('3. Test to check the "Enjoy our web scraping tutorials! We hope to help you with your next web scraping project." caption', () => {
         cy.componentVisiblityCheck('.text-center > .mt-3', 'Enjoy our web scraping tutorials! We hope to help you with your next web scraping project.');
     });
 

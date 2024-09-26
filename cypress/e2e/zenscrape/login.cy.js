@@ -1,20 +1,14 @@
 describe('Zenscrape login page  ', () => {
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    // Returning false here prevents Cypress from failing the test
-    return false;
-  });
-
   before(() => {
     cy.navigateUrlwithCookies('https://zenscrape.com/');
-    // cy.wait(2000);
   });
 
-  it('1. Test to click on the login button and check the actual url', () => {
+  it('1. Test to click on the "Login" button and check the actual url', () => {
     cy.get('.bg-transparent').click();
     cy.url().should('include', '/login');
   });
 
-  it('2. Test to check the login page should match the actual URL, if not redirect to the actual URL to ensure other test cases do not fail', () => {
+  it('2. Test to check the "Login" page should match the actual URL, if not redirect to the actual URL to ensure other test cases do not fail', () => {
     cy.url().then((currentUrl) => {
       if (!currentUrl.includes('/login')) {
         // Redirect to the actual URL if not already there
@@ -26,19 +20,19 @@ describe('Zenscrape login page  ', () => {
     cy.get('.card-header').should('contain.text', 'Login');
   });
 
-  it('3. Test to display the email input field', () => {
+  it('3. Test to display the "Email" input field', () => {
     cy.get(':nth-child(2) > .col-md-6 > .form-control').should('be.visible');
   });
 
-  it('4. Test to display the password input field', () => {
+  it('4. Test to display the "Password" input field', () => {
     cy.get(':nth-child(3) > .col-md-6 > .form-control').should('be.visible');
   });
 
-  it('5. Test to display the login button', () => {
+  it('5. Test to display the "Login" button', () => {
     cy.get('.btn-primary').should('be.visible');
   });
 
-  it('6. Test to show an error for empty email and password', () => {
+  it('6. Test to show an error for empty "Email" and "Password"', () => {
     cy.get(':nth-child(2) > .col-md-6 > .form-control').clear();
     cy.get(':nth-child(3) > .col-md-6 > .form-control').clear();
     cy.get('.btn-primary').click();
@@ -78,20 +72,20 @@ describe('Zenscrape login page  ', () => {
     cy.get(':nth-child(3) > .col-md-6 > .form-control').should('have.attr', 'type', 'password');
   });
 
-  it('11. Test to check for forgot password', () => {
+  it('11. Test to check for "Forgot Password" button click', () => {
     cy.get('.btn-link').click();
     cy.navigateUrlwithCookies('https://app.zenscrape.com/password/reset');
   })
 
-  it('12. Test to load the forgot password page', () => {
+  it('12. Test to check the text "Reset Password" present', () => {
     cy.get('.card-header').should('contain.text', 'Reset Password');
   });
 
-  it('13.Test to have the email input field', () => {
+  it('13.Test to have the "Email" input field', () => {
     cy.get('.form-control').should('be.visible');
   });
 
-  it('14. Test to allow navigating back to login page', () => {
+  it('14. Test to allow navigating back to "Login" page', () => {
     cy.navigateUrlwithCookies('https://app.zenscrape.com/login');
   });
 });
