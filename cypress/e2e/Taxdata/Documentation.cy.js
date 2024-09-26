@@ -20,12 +20,12 @@ describe('Taxdata documentation page', () => {
     it('2. Test to click on the "Documentation" tab', () => {
         cy.get('.d-md-flex > .d-none').click();
         cy.wait(5000);
-        // Added an 5-second wait to allow the documentation tab to load. A more reliable solution should be implemented to handle this wait.
+        //TODO: Added an 5-second wait to allow the documentation tab to load. A more reliable solution should be implemented to handle this wait.
     });
 
     it('3. Test to check the text "Tax Data API Reference" text present or not', () => {
         cy.wait(5000);
-        // Added an 5-second wait to allow the documentation tab to load. A more reliable solution should be implemented to handle this wait.
+        //TODO: Added an 5-second wait to allow the documentation tab to load. A more reliable solution should be implemented to handle this wait.
         cy.checkTextVisibility('Tax Data API Reference');
     });
 
