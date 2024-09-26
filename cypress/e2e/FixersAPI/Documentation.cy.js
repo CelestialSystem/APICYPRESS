@@ -9,26 +9,24 @@ describe('Fixer Documentation Page', () => {
         cy.visit('https://apilayer.com/marketplace/fixer-api');
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
+        cy.intercept('GET', '/collect*').as('apiRequest');
         cy.AcceptCookies();
+        cy.wait('@apiRequest');
     });
 
     it('2. Test to check for the "Documentation" tab is present', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
-        cy.wait(3000);
-        //TODO // Added an 3 second wait to load Documentation tab. A more reliable solution should be implemented to handle this wait.
     });
 
     it('3. Test to click on the "Documentation" tab', () => {
+        cy.intercept('GET', '/marketplace/fixer-api/tabs/api_docs').as('apiRequest');
         cy.get('.d-md-flex > .d-none').click();
-        cy.wait(5000);
-        //TODO // Added an 5 second wait to load a documentation tab. A more reliable solution should be implemented to handle this wait.
+        cy.wait('@apiRequest');
     });
 
     it('4. Test to check "Fixer API Reference" title is present', () => {
         cy.componentVisiblityCheck('h3.mb-4','Fixer API Reference');
-        //TODO // Added an 4 second wait to load the webpage. A more reliable solution should be implemented to handle this wait.
-        cy.wait(4000);
     });
 
     it('5. Test to check "Contents" section is present', () => {
