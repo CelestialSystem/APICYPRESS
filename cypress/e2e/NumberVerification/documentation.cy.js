@@ -15,18 +15,20 @@ describe('Number Verification Documentation Page', () => {
     });
   
     it('2. Test to check "Number Verification API" title is present', () => {
-        cy.wait(3000);//Added an 3-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
+        cy.wait(3000);
+        //TODO //Added an 3-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
         cy.componentVisiblityCheck('.h2', 'Number Verification API');
     });
   
     it('3. Test to click "Documentation" tab', () => {
         cy.get('#documentation-tab').click();
         cy.wait(5000);
-        //Added an 5-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
+        //TODO //Added an 5-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
     });
   
     it('4. Test to check "Number Verification API Reference" title is present', () => {
-        cy.wait(4000);//Added an 4-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
+        cy.wait(4000);
+        //TODO //Added an 4-second wait to allow the webpage to load. A more reliable solution should be implemented to handle this wait.
         cy.checkTextVisibility('Number Verification API Reference');
     });
   

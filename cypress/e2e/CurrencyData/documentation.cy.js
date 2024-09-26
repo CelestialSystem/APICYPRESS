@@ -16,16 +16,19 @@ describe('Currency Data Documentation Page', () => {
   
     it('2. Test to check Documentation tab visibility', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
-        cy.wait(3000); //Added an 3-second wait to allow the documentation to load. A more reliable solution should be implemented to handle this wait.
+        cy.wait(3000);
+        //TODO //Added an 3-second wait to allow the documentation to load. A more reliable solution should be implemented to handle this wait.
     });
   
     it('3. Test to click "Documentation" tab', () => {
         cy.get('.d-md-flex > .d-none').click();
-        cy.wait(5000); //Added an 5-second wait to allow the documentation to load. A more reliable solution should be implemented to handle this wait.
+        cy.wait(5000);
+        //TODO //Added an 5-second wait to allow the documentation to load. A more reliable solution should be implemented to handle this wait.
     });
   
     it('4. Test to check "Currency Data API Reference" title is present', () => {
-        cy.wait(4000); //Added an 4-second wait to allow this tab to load. A more reliable solution should be implemented to handle this wait.
+        cy.wait(4000);
+        //TODO //Added an 4-second wait to allow this tab to load. A more reliable solution should be implemented to handle this wait.
         cy.checkTextVisibility('Currency Data API Reference');
     });
   
