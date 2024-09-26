@@ -18,8 +18,6 @@ describe('Zenscrape documentation page', () => {
     });
 
     it('3. Test to check the text in the documentation section', () => {
-        cy.wait(8000);
-        //Added an 8-second wait to allow the documentation to load. A more reliable solution should be implemented to handle this wait.
         cy.componentVisiblityCheck(':nth-child(1) > .col-md-12 > h4', 'Documentation');
     });
 
@@ -43,10 +41,8 @@ describe('Zenscrape documentation page', () => {
 
     xit('8. Test to check the "Run in Postman" button functionality', () => {
         cy.get('.postman-run-button').click();
-        cy.wait(5000);
-        //Added an 5-second wait to allow the postman web page to load. A more reliable solution should be implemented to handle this wait.
         cy.url().should('eq', 'https://app.getpostman.com/run-collection/85f8b936e3e1870c3fa9');
-        cy.go('back');
+        cy.navigateUrlwithCookies('https://app.zenscrape.com/documentation');
     });
 
     it('9. Test to navigate to the "Credit Costs & Failed Requests" section', () => {

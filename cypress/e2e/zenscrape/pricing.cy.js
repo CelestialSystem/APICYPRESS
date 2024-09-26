@@ -17,7 +17,7 @@ describe('Zensrape pricing page', () => {
         cy.componentVisiblityCheck('.py-12', 'Simple and Economical Pricing')
     });
 
-    it('3.Test to check the caption of the pricing page is present or not', () => {
+    it('3.Test to check the caption of the pricing page is present', () => {
         cy.componentVisiblityCheck('.py-12 > .text-xl', 'From hobby projects to large-scale scraping projects, we offer a range of pricing options tailored to fit your specific needs.');
     });
 

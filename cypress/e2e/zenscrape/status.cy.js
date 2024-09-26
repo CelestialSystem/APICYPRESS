@@ -10,11 +10,11 @@ describe('Zenscrape status page', () => {
         cy.wait(2000);
     });
 
-    it('1. Test to check for the all service operational text is there or not', () => {
+    it('1. Test to check for the all service operational text is there', () => {
         cy.componentVisiblityCheck('.statusbar-text', 'All Services Operational');
     });
 
-    it('2. Test to check for zenscarpe webscrape title text present or not', () => {
+    it('2. Test to check for zenscarpe webscrape title text present', () => {
         cy.componentVisiblityCheck('.page-description > p', 'Zenscrape | Web Scraping API');
     });
 
@@ -38,7 +38,7 @@ describe('Zenscrape status page', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .ComponentStatusListContainer > .maintenance', ' Maintenance');
     });
 
-    it('8. Test to check the "Subscribe" button present or not', () => {
+    it('8. Test to check the "Subscribe" button present', () => {
         cy.componentVisiblityCheck('.subscribe');
     });
 
@@ -46,7 +46,7 @@ describe('Zenscrape status page', () => {
         cy.get('.subscribe').click();
     });
 
-    it('10. Test to check the email text,caption, email input field, and the subscribe button present or not', () => {
+    it('10. Test to check the email text,caption, email input field, and the subscribe button present', () => {
         cy.wait(4000);
         cy.get('.popover.open').should('have.css', 'opacity', '1'); 
         cy.componentVisiblityCheck('.tab > .label');
@@ -65,7 +65,7 @@ describe('Zenscrape status page', () => {
         cy.get('.Subscription__Redirection-sc-1lmxftv-4 > a').click();
     });
 
-    it('13. Test to check the login button present or not', () => {
+    it('13. Test to check the login button present', () => {
         cy.componentVisiblityCheck('.btn-group > .Link--primary')
     });
 
@@ -75,7 +75,7 @@ describe('Zenscrape status page', () => {
         cy.componentVisiblityCheck('[href="/login"]');
     });
 
-    it('14. Test to check the 100% last day button is present or not and click on that link', () => {
+    it('14. Test to check the 100% last day button is present and click on that link', () => {
         cy.componentVisiblityCheck('.history').click();
     });
 
@@ -83,11 +83,11 @@ describe('Zenscrape status page', () => {
         cy.componentVisiblityCheck('h2', 'Uptime History');
     });
 
-    it('16. Test to check month picker present or not', () => {
+    it('16. Test to check month picker present', () => {
         cy.componentVisiblityCheck('.id__MonthPicker-sc-1fem2nn-2');
     });
 
-    it('17. Test to check month picker is present or not', () => {
+    it('17. Test to check month picker is present', () => {
         cy.componentVisiblityCheck('.id__DropdownButton-sc-1fem2nn-7');
     });
 
@@ -95,15 +95,15 @@ describe('Zenscrape status page', () => {
         cy.componentVisiblityCheck('.id__Breadcrumps-sc-1fem2nn-0').click();
     });
 
-    it('19. Test to check the active tab button present or not', () => {
+    it('19. Test to check the active tab button present', () => {
         cy.componentVisiblityCheck('.active', 'Incident History');
     });
 
-    it('20. Test to check the Upcoming Maintaince tab button present or not', () => {
+    it('20. Test to check the Upcoming Maintaince tab button present', () => {
         cy.componentVisiblityCheck('.tab', 'Upcoming Maintenance');
     });
 
-    it('21. Test to check the dropdown for days present or not', () => {
+    it('21. Test to check the dropdown for days present', () => {
         cy.componentVisiblityCheck('.dropdown_selected');
     });
 
@@ -115,19 +115,19 @@ describe('Zenscrape status page', () => {
         cy.get('.pages__HomepageContent-sc-1g5814v-0 > .Link--primary').click();
     });
 
-    it('24. Test to check "Incidents History" text is present or not', () => {
+    it('24. Test to check "Incidents History" text is present', () => {
         cy.componentVisiblityCheck('.filter-panel > h2', 'Incidents History')
     });
 
-    it('25. Test to check year drop down is present or not', () => {
+    it('25. Test to check year drop down is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .btn-group > .dropdown_selected')
     });
 
-    it('26. Test to check sort drop down is present or not', () => {
+    it('26. Test to check sort drop down is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .btn-group > .dropdown_selected')
     });
 
-    it('27. Test to check filter drop down is present or not', () => {
+    it('27. Test to check filter drop down is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .btn-group > .dropdown_selected')
     });
 
@@ -135,11 +135,11 @@ describe('Zenscrape status page', () => {
         cy.get('.IncidentHistory__Breadcrumps-sc-1shesrj-0').click();
     });
 
-    it('29. Test to check home icon present in the footer or not', () => {
+    it('29. Test to check home icon present in the footer', () => {
         cy.componentVisiblityCheck('.www');
     });
 
-    it('30. Test to check time zone present in the footer or not', () => {
+    it('30. Test to check time zone present in the footer', () => {
         cy.componentVisiblityCheck('.tz__control')
     });
 });

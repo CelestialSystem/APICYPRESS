@@ -56,7 +56,6 @@ describe('Zenscrape blog page', () => {
 
     it('12. Test to check the "Top Python Web Scraping Tools" blog in detail', () => {
         cy.get('.text-sm > [href="https://zenscrape.com/top-python-web-scraping-tools-comparison/"]').should('be.visible').click();
-        cy.wait(8000);
         cy.componentVisiblityCheck('.post-title > .text-4xl', 'Top Python Tools for Web Scraping: A Comparative Analysis');
         cy.componentVisiblityCheck('.w-full > .text-4xl', 'Top Python Tools for Web Scraping: A Comparative Analysis');
         cy.go('back');
