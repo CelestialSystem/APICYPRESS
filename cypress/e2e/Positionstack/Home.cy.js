@@ -1,9 +1,4 @@
 describe('Positionstack home page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Preventing Cypress from failing the test on uncaught exceptions
-        return false;
-    });
-
     before(() => {
         cy.visit('https://positionstack.com/');
     });
@@ -12,7 +7,7 @@ describe('Positionstack home page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the position stack Logo', () => {
+    it('2. Test to check for the "Positionstack" logo', () => {
         cy.componentVisiblityCheck('.logo > a > img');
     });
 
@@ -20,15 +15,15 @@ describe('Positionstack home page', () => {
         cy.componentVisiblityCheck('.inline > h2', 'Accurate Forward & Reverse\n                        Batch Geocoding REST API\n                     ')
     });
 
-    it('4. Test to check map in the page', () => {
+    it('4. Test to check "Map" in the home page', () => {
         cy.componentVisiblityCheck('.map');
     });
 
-    it('5. Test to check address section is present in the map', () => {
+    it('5. Test to check "Address" section is present in the map', () => {
         cy.componentVisiblityCheck('.address');
     });
 
-    it('6. Test to check country detals section present', () => {
+    it('6. Test to check "Country" details section present', () => {
         cy.componentVisiblityCheck('.meta')
     });
 
@@ -45,7 +40,7 @@ describe('Positionstack home page', () => {
         cy.get('.inline > .cta').click();
     });
 
-    it('10. Test to check the sign up text in the sign up page', () => {
+    it('10. Test to check the "Sign Up" text in the "Sign Up" page', () => {
         cy.componentVisiblityCheck('strong', 'Sign Up: ');
         cy.go('back');
     });
@@ -76,7 +71,7 @@ describe('Positionstack home page', () => {
         cy.componentVisiblityCheck('.pricing > .heading', 'Fair Pricing')
     });
 
-    it('17. Test to check for the text effortles geocoding and embeded maps text is present', () => {
+    it('17. Test to check for the text "Effortless geocoding and embeddable maps. Integration takes less than 5 minutes" present', () => {
         cy.componentVisiblityCheck('.left_side > h2', 'Effortless geocoding and embeddable maps. Integration takes less than 5 minutes.')
     });
 
@@ -104,7 +99,7 @@ describe('Positionstack home page', () => {
         cy.componentVisiblityCheck('ul > .languages', 'Multiple Languages');
     });
 
-    it('24. Test to check for Input field of the geo code', () => {
+    it('24. Test to check for input field of location in the "GEO CODE" section', () => {
         cy.componentVisiblityCheck('input');
     });
 
@@ -112,7 +107,7 @@ describe('Positionstack home page', () => {
         cy.componentVisiblityCheck('.button');
     });
 
-    it('26. Test to check for Input field of the geo Code', () => {
+    it('26. Test to check for input field of the GEO CODE" section', () => {
         cy.get('input').type('United States');
     });
 

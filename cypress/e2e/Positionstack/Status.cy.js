@@ -1,9 +1,4 @@
 describe('Positionstack status page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.navigateUrlwithCookies('https://status.positionstack.com/');
         cy.wait(2000);
@@ -18,19 +13,19 @@ describe('Positionstack status page', () => {
         });
     });
 
-    it('2. Test to check status hyperlink is there', () => {
+    it('2. Test to check text "Service status"', () => {
         cy.componentVisiblityCheck('.uk-h4', 'Service status')
     });
 
-    it('3. Test to check the title', () => {
+    it('3. Test to check the title "All systems operational" present', () => {
         cy.componentVisiblityCheck('.psp-main-status', 'All systems operational');
     });
 
-    it('4. Test to check the sub title', () => {
+    it('4. Test to check the text "Uptime Last 90 days" present', () => {
         cy.componentVisiblityCheck('.uk-flex-between.uk-flex-middle > .uk-h3', 'Uptime\n                    Last 90 days\n                ');
     });
 
-    it('5. Test to click on the api stack.com link', () => {
+    it('5. Test to click on the "api.positionstack.com is operational" link', () => {
         cy.get('.psp-monitor-name').click();
         cy.componentVisiblityCheck('.psp-main-status', 'api.positionstack.com is operational');
     });
@@ -44,15 +39,15 @@ describe('Positionstack status page', () => {
         cy.get('.logo-wrapper > .font-14').click();
     });
 
-    it('8. Test to check the monitor row', () => {
+    it('8. Test to check the "Monitor row" present', () => {
         cy.componentVisiblityCheck('.psp-monitor-row');
     });
 
-    it('9. Test to check calender button present', () => {
+    it('9. Test to check "Calendar view" button present', () => {
         cy.componentVisiblityCheck('.psp-calendar-link', 'Calendar view')
     });
 
-    it('10. Test to click on calender button', () => {
+    it('10. Test to click on "Calendar view" button', () => {
         cy.get('.psp-calendar-link').click();
         cy.wait(2000);
           //Added an 2-second wait to allow the calender page to load. A more reliable solution should be implemented to handle this wait.
@@ -94,7 +89,7 @@ describe('Positionstack status page', () => {
         cy.assertPathname('/history');
     });
 
-    it('19. Test to check title of history page', () => {
+    it('19. Test to check text "Status update history"', () => {
         cy.componentVisiblityCheck('.uk-flex-between > .uk-margin-remove', 'Status update history');
         cy.go('back')
     });

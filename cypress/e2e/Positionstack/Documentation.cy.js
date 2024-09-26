@@ -3,13 +3,13 @@ describe('Postionstack documentation page', () => {
         cy.visit('https://positionstack.com/');
     });
 
-    it('1. Test to naviagate to the "Documentation" page', () => {
+    it('1. Test to click on the "Documentation" hyperlink and naviagate to the "Documentation" page', () => {
         cy.AcceptCookies();
         cy.get('.header > .container > ul > :nth-child(2) > a').click();
         cy.assertPathname('/documentation');
     });
 
-    it('2. Test to check the text "API Documentation"', () => {
+    it('2. Test to check the text "API Documentation" present', () => {
         cy.AcceptCookies();
         cy.componentVisiblityCheck(':nth-child(1) > h2', 'API Documentation');
     });
@@ -18,7 +18,7 @@ describe('Postionstack documentation page', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .doc_heading', 'Getting Started');
     });
 
-    it('4. Test to navigate to "API Authentication" section', () => {
+    it('4. Test to navigate to "API Access Key" section', () => {
         cy.componentVisiblityCheck('.menu > :nth-child(1) > :nth-child(2) > a', 'API Access Key');
         cy.get('.menu > :nth-child(1) > :nth-child(2) > a').click();
         cy.componentVisiblityCheck('#access_keys > h3', 'API Access Key');

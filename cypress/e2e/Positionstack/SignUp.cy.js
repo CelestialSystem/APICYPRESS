@@ -4,28 +4,28 @@ describe('Postionstack signup page', () => {
         cy.navigateUrlwithCookies('https://positionstack.com/');
     });
 
-    it('1. Test to click the free signup button', () => {
+    it('1. Test to click the "SIGN UP FREE" button', () => {
         cy.get('.cta > a').click({ force: true });
         cy.AcceptCookies();
     });
 
-    it('2. Test to redirect to the signup page', () => {
+    it('2. Test to redirect to the "Sign up" page', () => {
         cy.assertPathname('/signup/free');
     });
 
-    it('3. Test to display the signup page container', () => {
+    it('3. Test to check the "Sign up" page container present', () => {
         cy.get('.preapp > .container').should('be.visible');
     });
 
-    it('4. Test to display the signup page heading text', () => {
+    it('4. Test to check the text "Sign Up" present', () => {
         cy.componentVisiblityCheck('strong', 'Sign Up: ');
     });
 
-    it('5. Test to check the subscription text', () => {
+    it('5. Test to check the "Subscription" text', () => {
         cy.componentVisiblityCheck('.bar_bg', 'Subscription');
     });
 
-    it('6. Test to check montlhy and yearly toggle button present', () => {
+    it('6. Test to check "Montlhy" and "Yearly" toggle button present', () => {
         cy.componentVisiblityCheck('.cycle');
     });
 
@@ -36,36 +36,36 @@ describe('Postionstack signup page', () => {
         cy.componentVisiblityCheck(':nth-child(4) > :nth-child(1) > .d-flex', 'Business');
     });
 
-    it('8. Test check the free radio button should be checked by default', () => {
+    it('8. Test check the "Free" radio button should be checked by default', () => {
         cy.get(':nth-child(1) > :nth-child(1) > .d-flex > .radio-btn').should('be.checked');
     })
 
-    it('9. Test to display the correct subscription details for monthly period', () => {
+    it('9. Test to display the correct subscription details for "Monthly" period', () => {
         cy.componentVisiblityCheck(':nth-child(1) > :nth-child(3) > .table-plan-text > .monthly_data', '$0.00 / Monthly');
         cy.componentVisiblityCheck(':nth-child(2) > :nth-child(3) > .table-plan-text > .monthly_data', '$9.99 / Monthly');
         cy.componentVisiblityCheck(':nth-child(3) > :nth-child(3) > .table-plan-text > .monthly_data', '$49.99 / Monthly');
         cy.componentVisiblityCheck(':nth-child(4) > :nth-child(3) > .table-plan-text > .monthly_data', '$99.99 / Monthly');
     });
 
-    it('10. Test to click on the yearly billing toggle button', () => {
+    it('10. Test to click on the "Yearly" billing toggle button', () => {
         cy.get('.yearly').click();
     });
 
-    it('11. Test to display the correct subscription details for yearly period', () => {
+    it('11. Test to display the correct subscription details for "Yearly" period', () => {
         cy.componentVisiblityCheck(':nth-child(1) > :nth-child(3) > .table-plan-text > .yearly_data', '\n                                                    $0.00 / Yearly\n                                                    ');
         cy.componentVisiblityCheck(':nth-child(2) > :nth-child(3) > .table-plan-text > :nth-child(2)', '$107.99 / Yearly');
         cy.componentVisiblityCheck(':nth-child(3) > :nth-child(3) > .table-plan-text > :nth-child(2)', '$524.99 / Yearly');
         cy.componentVisiblityCheck(':nth-child(4) > :nth-child(3) > .table-plan-text > :nth-child(2)', '$1019.99 / Yearly');
     });
 
-    it('12. Test to display all account detail fields', () => {
+    it('12. Test to display all "Account Details" fields', () => {
         cy.componentVisiblityCheck('#first_name');
         cy.componentVisiblityCheck('#last_name');
         cy.componentVisiblityCheck('#email');
         cy.componentVisiblityCheck('#password');
     });
 
-    it('13. Test to display all billing detail fields', () => {
+    it('13. Test to display all "Billing details" fields', () => {
         cy.componentVisiblityCheck('#address');
         cy.componentVisiblityCheck('#post_code');
         cy.componentVisiblityCheck('#country_code');
@@ -73,7 +73,7 @@ describe('Postionstack signup page', () => {
         cy.componentVisiblityCheck('#city');
     });
 
-    it('14.Test to display all company detail fields', () => {
+    it('14.Test to display all "Company Details" fields', () => {
         cy.componentVisiblityCheck('#company_name');
         cy.componentVisiblityCheck('#website_url');
         cy.componentVisiblityCheck('#tax_id');
@@ -113,7 +113,7 @@ describe('Postionstack signup page', () => {
         cy.get('.submit').should('not.be.disabled');
     });
 
-    xit('18. Test to require password to be at least 6 characters', () => {
+    xit('18. Test to check the alert message "Please enter a password of at least 6 and maximum 48 characters"', () => {
         cy.get('input[placeholder="Min 6 characters"]').type('123');
         cy.get('body').click();
         cy.get('.alerts').should('be.visible').and('contain.text', 'Please enter a password of at least 6 and maximum 48 characters');
