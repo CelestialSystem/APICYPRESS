@@ -6,8 +6,8 @@ describe('Blog Page', () => {
 
     it('1. Test naviagate to the Blog page', () => {
         cy.AcceptCookies();
-        cy.get('.header > .container > ul > :nth-child(6) > a').click();
-        cy.visit('https://ipstack.com/blog');
+        cy.get('.main-menu > :nth-child(4)').trigger('mouseover');
+        cy.get(':nth-child(4) > .submenu > :nth-child(2) > a').click({force: true});
         cy.AcceptCookies();
     });
 

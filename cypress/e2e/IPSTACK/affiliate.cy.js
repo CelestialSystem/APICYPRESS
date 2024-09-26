@@ -11,9 +11,8 @@ describe('Contact Form Page', () => {
     
     it('1. Test to naviagate to the Affiliates page', () => {
         cy.AcceptCookies();
-        cy.get('.header > .container > ul > :nth-child(5) > a').click();
-        cy.visit('https://affiliate.ipstack.com/')
-     
+        cy.get('.main-menu > :nth-child(4)').trigger('mouseover');
+        cy.get(':nth-child(4) > .submenu > :nth-child(3) > a').click({force: true});
     });
 
     it('2. Test to check for the heading', () => {
@@ -74,4 +73,5 @@ describe('Contact Form Page', () => {
         cy.get('.custom-container > :nth-child(2) > :nth-child(6) > a').click();
         cy.visit('https://affiliate.ipstack.com/');
     })
+
 });
