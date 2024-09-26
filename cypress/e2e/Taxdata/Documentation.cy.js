@@ -10,7 +10,9 @@ describe('Taxdata documentation page', () => {
     });
 
     it('0. Test to Accept Cookies if not already accepted', () => {
+        cy.intercept('GET', '/collect*').as('apiRequest');
         cy.AcceptCookies();
+        cy.wait('@apiRequest');
     });
 
     it('1. Test to check for the "Documentation" tab present or not', () => {
@@ -18,15 +20,14 @@ describe('Taxdata documentation page', () => {
     });
 
     it('2. Test to click on the "Documentation" tab', () => {
+        cy.intercept('GET', '/marketplace/tax_data-api/tabs/api_docs').as('apiRequest');
         cy.get('.d-md-flex > .d-none').click();
-        cy.wait(5000);
-        //TODO: Added an 5-second wait to allow the documentation tab to load. A more reliable solution should be implemented to handle this wait.
+        cy.wait('@apiRequest');
     });
 
     it('3. Test to check the text "Tax Data API Reference" text present or not', () => {
-        cy.wait(5000);
-        //TODO: Added an 5-second wait to allow the documentation tab to load. A more reliable solution should be implemented to handle this wait.
         cy.checkTextVisibility('Tax Data API Reference');
+        
     });
 
     it('4. Test to check contents section present or not', () => {
