@@ -112,7 +112,7 @@ describe('Postionstack documentation page', () => {
 
     it('19. Test to navigate to "Python" section', () => {
         cy.wait(1000);
-          //Added an 1-second wait to navigate to load the python section. A more reliable solution should be implemented to handle this wait.
+        //TODO: Added an 1-second wait to navigate to load the python section. A more reliable solution should be implemented to handle this wait.
         cy.get('.menu > :nth-child(5) > :nth-child(3) > a').scrollIntoView();
         cy.componentVisiblityCheck('.menu > :nth-child(5) > :nth-child(3) > a', 'Python');
         cy.get('.menu > :nth-child(5) > :nth-child(3) > a').click();
@@ -122,7 +122,7 @@ describe('Postionstack documentation page', () => {
 
     it('20. Test to navigate to "Nodejs" section', () => {
         cy.wait(1000);
-          //Added an 1-second wait to navigate to the nodejs section. A more reliable solution should be implemented to handle this wait.
+        //TODO:Added an 1-second wait to navigate to the nodejs section. A more reliable solution should be implemented to handle this wait.
         cy.componentVisiblityCheck(':nth-child(5) > :nth-child(4) > a', 'Nodejs');
         cy.get(':nth-child(5) > :nth-child(4) > a').click();
         cy.componentVisiblityCheck('#nodejs > h3', 'Code Example - Nodejs');

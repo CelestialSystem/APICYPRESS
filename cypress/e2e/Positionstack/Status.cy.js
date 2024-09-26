@@ -7,7 +7,7 @@ describe('Positionstack status page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://status.positionstack.com/');
         cy.wait(2000);
-        //Added an 2-second wait to allow the postionstack status page to load. A more reliable solution should be implemented to handle this wait.
+        //TODO:Added an 2-second wait to allow the postionstack status page to load. A more reliable solution should be implemented to handle this wait.
     });
 
     it('1. Test to accept cookies if not already accepted', () => {
