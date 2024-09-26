@@ -12,19 +12,19 @@ describe('Fixers APIs Info Test Suite', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the Api info tab visibility', () => {
+    it('2. Test to check for the "Api info" tab visibility', () => {
         cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
     });
 
-    it('3. Test to click on the API info tab', () => {
+    it('3. Test to click on the "API info" tab', () => {
         cy.get('#details-tab > .d-md-flex > span').click();
     });
 
-    it('4. Test to check for Avaialble Endpoint section', () => {
+    it('4. Test to check for "Avaialble Endpoint" section', () => {
         cy.componentVisiblityCheck('article > :nth-child(2)');
     });
 
-    it('5. Test to check Available Endpoint list', () => {
+    it('5. Test to check "Available Endpoint" list', () => {
         cy.componentVisiblityCheck('ul > :nth-child(1) > .badge', '/symbols');
         cy.componentVisiblityCheck(':nth-child(2) > .badge', '/latest');
         cy.componentVisiblityCheck(':nth-child(3) > .badge', '/convert');
@@ -33,11 +33,11 @@ describe('Fixers APIs Info Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(6) > .badge', 'fluctuation');
     });
 
-    it('6. Test to check for Supported symbols', () => {
+    it('6. Test to check for "Supported" symbols', () => {
         cy.componentVisiblityCheck('article > :nth-child(4)', 'Supported Symbols');
     });
 
-    it('7. Test to check Tips section', () => {
+    it('7. Test to check "Tips" section', () => {
         cy.componentVisiblityCheck('article > :nth-child(7)', 'Tips');
     });
 });
