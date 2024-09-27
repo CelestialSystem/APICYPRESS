@@ -89,8 +89,9 @@ describe('Fixers pricing page', () => {
     it('20. Test to check "Contact Us" button text for Custom Plan  is present', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .btn', 'Contact\nUs');
         cy.get(':nth-child(5) > .card > .card-header > .btn').click();
-        cy.wait(2000);
-        //Todo: Added an 2 second wait to load the contact us page. A more reliable solution should be implemented to handle this wait.
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.componentVisiblityCheck('h1','Contact Sales & Customer Support')
         cy.navigateUrlwithCookies('https://apilayer.com/marketplace/fixer-api');
     });
