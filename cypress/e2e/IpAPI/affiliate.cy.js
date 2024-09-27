@@ -1,15 +1,10 @@
-describe('IpApi Affiliate Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
+describe('IpApi affiliate page', () => {
     before(() => {
         cy.visit('https://ipapi.com');
         cy.wait(2000); // Wait for the page to load
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
@@ -38,7 +33,7 @@ describe('IpApi Affiliate Page', () => {
         cy.componentVisiblityCheck('.puser_email', 'Email');
     });
 
-    it('8. Test to check user can type on email input field', () => {
+    it('8. Test to check user can type on "Email" input field', () => {
         cy.get('#puser_email').type('cypresstest@gmail.com');
         cy.get('#puser_email').should('have.value', 'cypresstest@gmail.com');
     });

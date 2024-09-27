@@ -1,14 +1,14 @@
-describe('IpApi Documentation Page', () => {
+describe('IpApi documentation page', () => {
   before(() => {
     cy.visit('https://ipapi.com');
     cy.wait(2000); 
   });
 
-  it('1. Test to Accept Cookies if not already accepted', () => {
+  it('1. Test to "Accept Cookies" if not already accepted', () => {
     cy.AcceptCookies();
   });
 
-  it('2. Test to Click to the Documentation hyperlink', () => {
+  it('2. Test to Click to the "Documentation" hyperlink', () => {
     cy.get('.header > .container > ul > :nth-child(2) > a').click();
   });
 
@@ -40,13 +40,13 @@ describe('IpApi Documentation Page', () => {
     cy.componentVisiblityCheck(':nth-child(1) > .doc_heading', 'Basics')
   });
 
-  it('9. Test to Navigate to "API Access Key"', () => {
+  it('9. Test to navigate to "API Access Key"', () => {
     cy.get('.menu > :nth-child(1) > :nth-child(2) > a').click();
     cy.get('#access_keys > h3').scrollIntoView();
     cy.componentVisiblityCheck('#access_keys > h3', 'API Access Key & Authentication');
   });
 
-  it('10. Test to Navigate to "API Response" section', () => {
+  it('10. Test to navigate to "API Response" section', () => {
     cy.get('.menu > :nth-child(3) > :nth-child(3) > a').scrollIntoView();
     cy.get('.menu > :nth-child(3) > :nth-child(3) > a').click();
     cy.get('#api_response > h3').scrollIntoView();

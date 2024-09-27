@@ -1,10 +1,10 @@
-describe('IpApi Pricing page', () => {
+describe('IpApi pricing page', () => {
     before(() => {
         cy.visit('https://ipapi.com/login');
         cy.wait(2000); // Wait for the page to load
     });
 
-    it('0. Test to Accept Cookies if not already accepted', () => {
+    it('0. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
@@ -12,7 +12,7 @@ describe('IpApi Pricing page', () => {
         cy.get('ul > :nth-child(1) > a').click();
     });
 
-    it('2.Test to check the presence of "Pricing" text', () => {
+    it('2.Test to check the presence of "Plans that scale with your business" text', () => {
         cy.componentVisiblityCheck('.hero > .container > h2', 'Plans that scale with your business');
     });
 
@@ -51,7 +51,7 @@ describe('IpApi Pricing page', () => {
         cy.componentVisiblityCheck('.business > .main_container > .price > .monthly_data', '$50');
     });
 
-    it('10.Test to chek the "Buisness Pro"', () => {
+    it('10.Test to chek the "Buisness Pro" plan', () => {
         cy.componentVisiblityCheck('.business_pro > .main_container > .mc_header > heading', 'Business Pro');
         cy.componentVisiblityCheck('.business_pro > .main_container > .price > .monthly_data', '$100');
     });
@@ -68,7 +68,7 @@ describe('IpApi Pricing page', () => {
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_https', 'HTTPS Encryption');
     });
 
-    it('13.Test to check the features in the "Standard" plan', () => {
+    it('13.Test to check the "Features" in the "Standard" plan', () => {
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_api_requests', '50,000 Lookups')
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_support', 'Standard Support')
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_location', 'Location Data')
@@ -78,7 +78,7 @@ describe('IpApi Pricing page', () => {
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_connection', 'Connection Data');
     });
 
-    it('14. Test to check the features in the "Buisness" plan', () => {
+    it('14. Test to check the "Features" in the "Buisness" plan', () => {
         cy.componentVisiblityCheck('.business > .features_container > ul > .feature_api_requests', '500,000 Lookups')
         cy.componentVisiblityCheck('.business > .features_container > ul > .feature_support', 'Standard Support')
         cy.componentVisiblityCheck('.business > .features_container > ul > .feature_location', 'Location Data')
@@ -89,7 +89,7 @@ describe('IpApi Pricing page', () => {
         cy.componentVisiblityCheck('.business > .features_container > ul > .feature_bulk', 'Bulk Lookups');
     });
 
-    it('15. Test to check the features in the "Buisness Pro" plan', () => {
+    it('15. Test to check the "Features" in the "Buisness Pro" plan', () => {
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_api_requests', '2,000,000 Lookups')
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_support', 'Standard Support')
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_location', 'Location Data')
@@ -101,8 +101,7 @@ describe('IpApi Pricing page', () => {
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_security', 'Security Data');
     });
 
-    it('16. Test to check the features in the "Enterprise" plan', () => {
-        // Directly target the .enterprise > .features selector and verify its content
+    it('16. Test to check the "Features" in the "Enterprise" plan', () => {
         cy.componentVisiblityCheck('.enterprise > .features_container > ul > .feature_api_requests', 'Volume Lookups')
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_location', 'Location Data')
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_https', 'HTTPS Encryption')
@@ -152,22 +151,22 @@ describe('IpApi Pricing page', () => {
         cy.go('back');
     });
 
-    it('25. Test to check Standard plan "Sign Up" button', () => {
+    it('25. Test to check "Standard" plan "Sign Up" button', () => {
         cy.get('.standard > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
 
-    it('26. Test to check  Buisness plan "Sign Up" button', () => {
+    it('26. Test to check  "Buisness" plan "Sign Up" button', () => {
         cy.get('.business > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
 
-    it('27. Test to check  Buisness pro plus plan "Sign Up" button', () => {
+    it('27. Test to check  "Buisness pro plus" plan "Sign Up" button', () => {
         cy.get('.business_pro > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
 
-    xit('28. Test to check  Enterprise plan "Sign Up" button', () => {
+    xit('28. Test to check  "Enterprise" plan "Sign Up" button', () => {
         cy.get('.enterprise > .main_container > .signup_link').should('be.visible', 'contain.text', 'CONTACT US').click();
         cy.go('back');
     });

@@ -1,9 +1,4 @@
-describe('IpApi Home Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
+describe('IpApi home page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://ipapi.com');
     });
@@ -77,28 +72,28 @@ describe('IpApi Home Page', () => {
         cy.get('.ny').should('be.visible')
     });
 
-    it('16. Test to check Button "Language Redirection" is present', () => {
+    it('16. Test to check button "Language Redirection" is present', () => {
         cy.get('[data-grid-menu="lr"]').scrollIntoView();
         cy.componentVisiblityCheck('[data-grid-menu="lr"]', "Language Redirection");
         cy.get('[data-grid-menu="lr"]').click();
         cy.get('.es').should('be.visible')
     });
 
-    it('17. Test to check Button "Currency Detection" is present', () => {
+    it('17. Test to check button "Currency Detection" is present', () => {
         cy.get('[data-grid-menu="cd"]').scrollIntoView();
         cy.componentVisiblityCheck('[data-grid-menu="cd"]', "Currency Detection");
         cy.get('[data-grid-menu="cd"]').click();
         cy.get('.jpy').should('be.visible')
     });
 
-    it('18. Test to check Button " Time Zone Lookup" is present', () => {
+    it('18. Test to check button " Time Zone Lookup" is present', () => {
         cy.get('[data-grid-menu="tz"]').scrollIntoView();
         cy.componentVisiblityCheck('[data-grid-menu="tz"]', "Time Zone Lookup");
         cy.get('[data-grid-menu="tz"]').click();
         cy.get('.aest').should('be.visible')
     });
 
-    it('19. Test to check Button "Fraud Prevention" is present', () => {
+    it('19. Test to check button "Fraud Prevention" is present', () => {
         cy.get('[data-grid-menu="fp"]').scrollIntoView();
         cy.componentVisiblityCheck('[data-grid-menu="fp"]', "Fraud Prevention");
         cy.get('[data-grid-menu="fp"]').click();
