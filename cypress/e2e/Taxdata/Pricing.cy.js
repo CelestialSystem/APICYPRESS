@@ -3,7 +3,7 @@ describe('Pricing Page Test Suite', () => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
 
-    it('1. Test to accept cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
