@@ -1,15 +1,9 @@
 describe('MarketStack Affiliates Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
       cy.visit('https://marketstack.com/');
-      cy.wait(2000); // Wait for the page to load
     });
   
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
       // Check if the "Accept Cookies" button is visible or exists
       cy.AcceptCookies();
     });
@@ -63,7 +57,7 @@ describe('MarketStack Affiliates Page', () => {
         cy.get('#puser_password').should('have.value', '1234abc');
     });
   
-    it('13. Test to check the checkbox', () => {
+    it('13. Test to check the "checkbox"', () => {
         cy.get('.checkbox').click();
         cy.get('#puser_promoter_marketing_consent').should('be.checked');
     });
@@ -112,12 +106,12 @@ describe('MarketStack Affiliates Page', () => {
         cy.componentVisiblityCheck('.Accordions > .container > :nth-child(1)', 'Get Answers to Your Questions (FAQ)');
     });
 
-    it('23. Test to Click on "Expand" button', () => {
+    it('23. Test to Click on expand button', () => {
         cy.get(':nth-child(2) > .accordion').click();
         cy.componentVisiblityCheck(':nth-child(2) > .accordion-content');
     });
 
-    it('24. Test to Click on "Collapse" button', () => {
+    it('24. Test to Click on collapse button', () => {
         cy.get(':nth-child(2) > .accordion').click();
         cy.get(':nth-child(2) > .accordion-content').should('not.be.visible');
     });

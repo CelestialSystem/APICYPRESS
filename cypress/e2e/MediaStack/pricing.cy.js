@@ -1,15 +1,14 @@
 describe('MediaStack Pricing page', () => {
     before(() => {
         cy.visit('https://mediastack.com/');
-        cy.wait(2000); // Wait for the page to load
     });
 
-    it('0. Test to Accept Cookies if not already accepted', () => {
+    it('0. Test to "Accept Cookies" if not already accepted', () => {
         // Check if the "Accept Cookies" button is visible or exists
         cy.AcceptCookies();
     });
  
-    it('1.Test to navigate to the Pricing page', () => {
+    it('1.Test to navigate to the "Pricing" page', () => {
         cy.get('ul > :nth-child(1) > a').click();
     });
  
@@ -131,7 +130,7 @@ describe('MediaStack Pricing page', () => {
         cy.componentVisiblityCheck('.feature_custom', 'Custom Solutions');
     });
  
-    it('17. Toggle the subscription button to yearly', () => {
+    it('17. Toggle the "Subscription" button to yearly', () => {
         cy.get('.yearly').click();
     });
  
@@ -155,7 +154,7 @@ describe('MediaStack Pricing page', () => {
         cy.componentVisiblityCheck('.professional > .main_container > .price > .yearly_data', '\n                                    $87.99\n                                    per month\n                                    billed yearly\n                                ');
     });
  
-    it('22.Test to check "Platinum Support!" button is there or not', () => {
+    it('22.Test to check "Platinum Support!" button is present', () => {
         cy.componentVisiblityCheck('.platinum_right_section > div',  '\n                            FIND OUT MORE \n                        ');
     });
  
@@ -164,7 +163,7 @@ describe('MediaStack Pricing page', () => {
         cy.go('back');
     });
  
-    it('24. Test to check "Get free api key" button', () =>{
+    it('24. Test to click "Get free api key" button', () =>{
         cy.get('.free > .main_container > .signup_link').should('be.visible', 'contain.text', 'GET FREE API KEY').click();
         cy.go('back');
     });

@@ -1,15 +1,9 @@
 describe('MediaStack Affiliates Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
       cy.visit('https://mediastack.com/');
-      cy.wait(2000); // Wait for the page to load
     });
   
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
       // Check if the "Accept Cookies" button is visible or exists
       cy.AcceptCookies();
     });
@@ -22,7 +16,7 @@ describe('MediaStack Affiliates Page', () => {
         cy.get('.header > .container > ul > :nth-child(4) > a').click();
     });
   
-    it('4. Test to Check the title of "Affiliates" page', () => {
+    it('4. Test to Check the title of "Affiliates" page is present', () => {
         cy.componentVisiblityCheck('h1', '\n                        Earn Passive Income with                                                     Mediastack Affiliate Program\n                                            ');
     });
   
@@ -35,7 +29,7 @@ describe('MediaStack Affiliates Page', () => {
         cy.componentVisiblityCheck('.description-label');
     });
   
-    it('7. Test to check "Email" input field is there', () => {
+    it('7. Test to check "Email" input field is present', () => {
         cy.componentVisiblityCheck('.puser_email', 'Email');
     });
   
@@ -44,7 +38,7 @@ describe('MediaStack Affiliates Page', () => {
         cy.get('#puser_email').should('have.value', 'cypresstest@gmail.com');
     });
   
-    it('9. Test to check "First Name" input field is there', () => {
+    it('9. Test to check "First Name" input field is present', () => {
         cy.componentVisiblityCheck('.puser_profile_first_name', 'First name');
     });
   
@@ -53,7 +47,7 @@ describe('MediaStack Affiliates Page', () => {
         cy.get('#puser_profile_attributes_first_name').should('have.value', 'Test User');
     });
   
-    it('11. Test to check "Password" input field is there', () => {
+    it('11. Test to check "Password" input field is present', () => {
         cy.componentVisiblityCheck('.puser_password', 'Password');
     });
   
@@ -62,7 +56,7 @@ describe('MediaStack Affiliates Page', () => {
         cy.get('#puser_password').should('have.value', '1234abc');
     });
   
-    it('13. Test to check the checkbox', () => {
+    it('13. Test to check the "Checkbox"', () => {
         cy.get('.checkbox').click();
         cy.get('#puser_promoter_marketing_consent').should('be.checked');
     });
@@ -77,7 +71,7 @@ describe('MediaStack Affiliates Page', () => {
         cy.componentVisiblityCheck('.aboutSection > h2', 'Why Join the Mediastack Affiliate Program?');
     });
 
-    it('16. Test to check title "Simplify Promotion with Comprehensive Resources" present', () => {
+    it('16. Test to check title "Simplify Promotion with Comprehensive Resources" is present', () => {
         cy.get('.heading > h2').scrollIntoView();
         cy.componentVisiblityCheck('.heading > h2', 'Simplify Promotion with Comprehensive Resources');
     });

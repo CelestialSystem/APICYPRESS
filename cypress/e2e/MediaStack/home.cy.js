@@ -1,14 +1,9 @@
 describe('Mediastack Home Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.navigateUrlwithCookies('https://mediastack.com/');
     });
 
-    it('1. Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 

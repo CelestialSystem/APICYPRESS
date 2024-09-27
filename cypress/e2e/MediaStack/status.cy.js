@@ -1,24 +1,18 @@
 describe('MediaStack Status Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
       cy.visit('https://mediastack.com/');
-      cy.wait(2000); // Wait for the page to load
     });
   
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
       // Check if the "Accept Cookies" button is visible or exists
       cy.AcceptCookies();
     });
   
-    it('2. Test to check status hyperlink is there', () => {
+    it('2. Test to check "Status" hyperlink is there', () => {
         cy.get('.status > a').should('be.visible', 'contains.text', 'Status');
     });
 
-    it('3. Test to click on status hyperlink', () => {
+    it('3. Test to click on "Status" hyperlink', () => {
         cy.get('.status > a').click();
         cy.visit('https://status.mediastack.com/');
         cy.wait(2000);
@@ -57,7 +51,6 @@ describe('MediaStack Status Page', () => {
     });
 
     it('10. Test to check subtitle "Last 24 hours" is present', () => {
-        // cy.get('body > :nth-child(2) > :nth-child(3)').scrollIntoView();
         cy.componentVisiblityCheck('.uk-first-column > .uk-text-muted', 'Last 24 hours');
     });
 

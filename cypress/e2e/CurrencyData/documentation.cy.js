@@ -1,18 +1,11 @@
 describe('Currency Data Documentation Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
       cy.visit('https://apilayer.com/marketplace/currency_data-api'); // we are using time so that page can load
     });
     
     it('1. Test to "Accept Cookies" if not already accepted', () => {
         // Check if the "Accept Cookies" button is visible or exists
-        cy.intercept('GET', '/collect*').as('apiRequest');
         cy.AcceptCookies();
-        cy.wait('@apiRequest');
     });
   
     it('2. Test to check "Documentation" tab visibility', () => {
@@ -37,7 +30,7 @@ describe('Currency Data Documentation Page', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(1) > a', 'Authentication');
     });
   
-    it('7. Test to click on "Authentication" and check "Authentication" title is present', () => {
+    it('7. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(1) > a').click();
         cy.componentVisiblityCheck('.col-sm-12 > :nth-child(4)', 'Authentication');
     });
@@ -46,7 +39,7 @@ describe('Currency Data Documentation Page', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(2) > a', 'Endpoints');
     });
   
-    it('9. Test to click on "Endpoints" and check "Endpoints" title is present', () => {
+    it('9. Test to click on "Endpoints" hyperlink and check "Endpoints" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(2) > a').click();
         cy.componentVisiblityCheck(':nth-child(9) > a', 'Endpoints');
     });
@@ -64,7 +57,7 @@ describe('Currency Data Documentation Page', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(4) > a', 'Error Codes');
     });
   
-    it('13. Test to click on "Error Codes" and check "Error Codes" title is present', () => {
+    it('13. Test to click on "Error Codes" hyperlink and check "Error Codes" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(4) > a').click();
         cy.componentVisiblityCheck(':nth-child(19) > a', 'Error Codes');
     });

@@ -1,8 +1,6 @@
 describe('MarketStack Free Signup page', () => {
-
     before(() => {
-        // Visit the main page before running any tests
-        cy.navigateUrlwithCookies('https://marketstack.com/');
+        cy.navigateUrlwithCookies('https://marketstack.com/')// Visit the main page before running any tests
     });
 
     it('1. Test to click the "Free Signup" button', () => {
@@ -30,18 +28,18 @@ describe('MarketStack Free Signup page', () => {
         cy.componentVisiblityCheck('.cycle');
     });
 
-    it('7. Test to check the subscription options', () => {
+    it('7. Test to check the "Subscription" options', () => {
         cy.componentVisiblityCheck(':nth-child(1) > :nth-child(1) > .d-flex', 'Free');
         cy.componentVisiblityCheck(':nth-child(2) > :nth-child(1) > .d-flex', 'Basic');
         cy.componentVisiblityCheck(':nth-child(3) > :nth-child(1) > .d-flex', 'Professional');
         cy.componentVisiblityCheck(':nth-child(4) > :nth-child(1) > .d-flex', 'Business');
     });
 
-    it('8. Test check the free radio button should be checked by default', () => {
+    it('8. Test check the "free" radio button should be checked by default', () => {
         cy.get(':nth-child(1) > :nth-child(1) > .d-flex > .radio-btn').should('be.checked');
     })
 
-    it('9. Test to check the correct subscription details for monthly period', () => {
+    it('9. Test to check the correct "Subscription Details" for "Monthly" period', () => {
         cy.componentVisiblityCheck(':nth-child(1) > :nth-child(3) > .table-plan-text > .monthly_data', '$0.00 / Monthly');
         cy.componentVisiblityCheck(':nth-child(2) > :nth-child(3) > .table-plan-text > .monthly_data', '$9.99 / Monthly');
         cy.componentVisiblityCheck(':nth-child(3) > :nth-child(3) > .table-plan-text > .monthly_data', '$49.99 / Monthly');
@@ -52,7 +50,7 @@ describe('MarketStack Free Signup page', () => {
         cy.get('.yearly').click();
     });
 
-    it('11. Test to check the correct subscription details for yearly period', () => {
+    it('11. Test to check the correct "Subscription Details" for "Yearly" period', () => {
         cy.componentVisiblityCheck(':nth-child(1) > :nth-child(3) > .table-plan-text > .yearly_data', '\n                                                    $0.00 / Yearly\n                                                    ');
         cy.componentVisiblityCheck(':nth-child(2) > :nth-child(3) > .table-plan-text > :nth-child(2)', '$107.99 / Yearly');
         cy.componentVisiblityCheck(':nth-child(3) > :nth-child(3) > .table-plan-text > :nth-child(2)', '$524.99 / Yearly');
@@ -92,7 +90,7 @@ describe('MarketStack Free Signup page', () => {
         cy.iframe().find('.recaptcha-checkbox').click(); // Click the checkbox inside the iframe
     });
 
-    xit('17. Test to enable the Sign Up button when all fields are valid', () => {
+    xit('17. Test to enable the "Sign Up" button when all fields are valid', () => {
         // Fill in all fields with valid data
         cy.get('input[placeholder="First Name"]').type('John');
         cy.get('input[placeholder="Last Name"]').type('Doe');
@@ -114,7 +112,7 @@ describe('MarketStack Free Signup page', () => {
         cy.get('.submit').should('not.be.disabled');
     });
 
-    xit('18. Test to require password to be at least 6 characters', () => {
+    xit('18. Test to require "Password" to be at least 6 characters', () => {
         cy.get('input[placeholder="Min 6 characters"]').type('123');
         cy.get('body').click();
         cy.get('.alerts').should('be.visible').and('contain.text', 'Please enter a password of at least 6 and maximum 48 characters');

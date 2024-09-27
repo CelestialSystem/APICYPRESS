@@ -1,15 +1,14 @@
 describe('MarketStack Pricing page', () => {
     before(() => {
         cy.visit('https://marketstack.com/');
-        cy.wait(2000); // Wait for the page to load
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         // Check if the "Accept Cookies" button is visible or exists
         cy.AcceptCookies();
     });
  
-    it('2.Test to navigate to the Pricing page', () => {
+    it('2.Test to navigate to the "Pricing" page', () => {
         cy.get('ul > :nth-child(1) > a').click();
     });
  
@@ -36,7 +35,7 @@ describe('MarketStack Pricing page', () => {
  
     });
  
-    it('7.Test to check the Discount text', () => {
+    it('7.Test to check the "Discount" text', () => {
         cy.get('a.yearly').then(($element) => {
             // Access the pseudo-element's content using JavaScript
             const afterContent = window.getComputedStyle($element[0], '::after').getPropertyValue('content');
@@ -71,7 +70,7 @@ describe('MarketStack Pricing page', () => {
         cy.componentVisiblityCheck('.enterprise > .main_container > .price > div', 'Custom Pricing');
     });
  
-    it('13.Test to check the "Free plan" features', () => {
+    it('13.Test to check the features in the "Free plan"', () => {
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_api_requests',  '100 Requests / mo');
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_exchanges', '70 Stock Exchanges');
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_history', '1 Year History');

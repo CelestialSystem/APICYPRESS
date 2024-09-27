@@ -1,14 +1,9 @@
 describe('MarketStack Home Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.navigateUrlwithCookies('https://marketstack.com/');
     });
 
-    it('1. Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
@@ -36,7 +31,7 @@ describe('MarketStack Home Page', () => {
         cy.componentVisiblityCheck('.header > .container > ul > :nth-child(6)', 'Status');
     });
 
-    it('8. Test to check title is "Historical Market Data API"', () => {
+    it('8. Test to check title is "Historical Market Data API" is present', () => {
         cy.componentVisiblityCheck('h1', 'Real-Time, Intraday &\n                        Historical Market Data API\n                     ');
     });
 

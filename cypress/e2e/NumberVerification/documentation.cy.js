@@ -1,17 +1,10 @@
 describe('Number Verification Documentation Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
-      cy.visit('https://apilayer.com/marketplace/number_verification-api', {timeout: 2000});
+      cy.visit('https://apilayer.com/marketplace/number_verification-api');
     });
   
     it('1. Test to "Accept Cookies" if not already accepted', () => {
-        cy.intercept('GET', '/collect*').as('apiRequest');
         cy.AcceptCookies();
-        cy.wait('@apiRequest');
     });
   
     it('2. Test to check "Number Verification API" title is present', () => {
