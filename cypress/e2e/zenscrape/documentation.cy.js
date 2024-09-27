@@ -3,7 +3,7 @@ describe('Zenscrape documentation page', () => {
         cy.visit('https://zenscrape.com/');
     });
 
-    it('1. Test to accept cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
