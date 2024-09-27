@@ -1,8 +1,6 @@
 describe('Positionstack status page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://status.positionstack.com/');
-        cy.wait(2000);
-        //TODO:Added an 2-second wait to allow the postionstack status page to load. A more reliable solution should be implemented to handle this wait.
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -49,8 +47,6 @@ describe('Positionstack status page', () => {
 
     it('10. Test to click on "Calendar view" button', () => {
         cy.get('.psp-calendar-link').click();
-        // cy.wait(2000);
-          //Added an 2-second wait to allow the calender page to load. A more reliable solution should be implemented to handle this wait.
         cy.componentVisiblityCheck('.monitor-name', 'api.positionstack.com history logs');
         cy.go('back');
     });
