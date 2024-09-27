@@ -1,22 +1,17 @@
-describe('Fixers APIs Info Test Suite', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Preventing Cypress from failing the test on uncaught exceptions
-        return false;
-    });
-
+describe('Fixers APIs info page', () => {
     before(() => {
         cy.visit('https://apilayer.com/marketplace/fixer-api');
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "Api info" tab visibility', () => {
+    it('2. Test to check for the "API Info" tab present', () => {
         cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
     });
 
-    it('3. Test to click on the "API info" tab', () => {
+    it('3. Test to click on the "API Info" tab', () => {
         cy.get('#details-tab > .d-md-flex > span').click();
     });
 
@@ -33,7 +28,7 @@ describe('Fixers APIs Info Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(6) > .badge', 'fluctuation');
     });
 
-    it('6. Test to check for "Supported" symbols', () => {
+    it('6. Test to check for "Supported Symbols" section', () => {
         cy.componentVisiblityCheck('article > :nth-child(4)', 'Supported Symbols');
     });
 

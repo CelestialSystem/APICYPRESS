@@ -1,14 +1,9 @@
-describe('Pricing Page Test Suite', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Preventing Cypress from failing the test on uncaught exceptions
-        return false;
-    });
-
+describe('Fixers pricing page', () => {
     before(() => {
         cy.visit('https://apilayer.com/marketplace/fixer-api');
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 

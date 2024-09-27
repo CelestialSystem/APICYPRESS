@@ -1,10 +1,4 @@
-describe('Fixer Documentation Page', () => {
-
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
+describe('Fixer documentation page', () => {
     before(() => {
         cy.visit('https://apilayer.com/marketplace/fixer-api');
     });
