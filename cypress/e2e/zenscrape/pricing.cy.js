@@ -62,6 +62,7 @@ describe('Zensrape pricing page', () => {
             .and('contain.text', 'Concierge Onboarding')
             .and('contain.text', 'Service Level Agreement');
     });
+    
     it('12. Test to check the "Features" button in the "Large" plan', () => {
         cy.get(':nth-child(4) > .pt-6 > .mt-6').should('contain.text', '3,000,000 Credits')
             .and('contain.text', '50 Concurrent Requests')

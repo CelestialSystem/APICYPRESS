@@ -54,54 +54,34 @@ describe('Zenscrape register page  ', () => {
         cy.get(':nth-child(4) > :nth-child(3) > .table-plan-text').contains('$249.99 / Monthly');
         cy.get(':nth-child(5) > :nth-child(3) > .table-plan-text').contains('$349.99 / Monthly');
     });
-
-    it('11. Test to verify the "Features" button of the "Free" monthly plan and should open the popup for "Free" monthly plan', () => {
+    
+    it('11. Test to verify the "Features" button of the "Free" monthly plan opens the popup', () => {
         cy.get(':nth-child(1) > :nth-child(2) > .btn').contains('Features').click({ force: true });
-        cy.get('.modal-header').contains('Free');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '1.000 requests per month');
-        cy.get('.modal-footer > .btn').click({ force: true });
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
+        cy.checkModal('Free', '1.000 requests per month');
     });
 
-    it('12. Test to verify the "Features" button of "Small" monthly plan and should open the popup for "Small" monthly plan', () => {
-        cy.get(':nth-child(2) > :nth-child(2) > .btn').contains('Features').click({ force: true })
-        cy.get('.modal-header').contains('Small').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '250.000 requests per month');
-        cy.get('.modal-footer > .btn').click({ force: true });
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
+    it('12. Test to verify the "Features" button of "Small" monthly plan opens the popup', () => {
+        cy.get(':nth-child(2) > :nth-child(2) > .btn').contains('Features').click({ force: true });
+        cy.checkModal('Small', '250.000 requests per month');
     });
 
-    it('13. Test to verify the "Features" button of "Medium" monthly plan and should open the popup for "Medium" monthly plan', () => {
+    it('13. Test to verify the "Features" button of "Medium" monthly plan opens the popup', () => {
         cy.get(':nth-child(3) > :nth-child(2) > .btn').contains('Features').click({ force: true });
-        cy.get('.modal-header').contains('Medium').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '1.000.000 requests per month');
-        cy.get('.modal-footer > .btn').click({ force: true });
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
+        cy.checkModal('Medium', '1.000.000 requests per month');
     });
 
-    it('14. Test to verify the "Features" button of "Large" monthly plan and should open the popup for "Large" monthly plan', () => {
+    it('14. Test to verify the "Features" button of "Large" monthly plan opens the popup', () => {
         cy.get(':nth-child(4) > :nth-child(2) > .btn').contains('Features').click({ force: true });
-        cy.get('.modal-header').contains('Large').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '3.000.000 requests per month');
-        cy.get('.modal-footer > .btn').click({ force: true });
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
+        cy.checkModal('Large', '3.000.000 requests per month');
     });
 
-    it('15. Test to verify the "Features" button of "Professional" monthly plan and should open the popup for "Professional" monthly plan', () => {
+    it('15. Test to verify the "Features" button of "Professional" monthly plan opens the popup', () => {
         cy.get(':nth-child(5) > :nth-child(2) > .btn').contains('Features').click({ force: true });
-        cy.get('.modal-header').contains('Professional').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '5 000 000 requests per month');
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
-        cy.get('.modal-footer > .btn').click({ force: true });
+        cy.checkModal('Professional', '5 000 000 requests per month');
     });
-
+    
     it('16. Test to toggle "Yearly" subscription plan', () => {
-        cy.get('.btn-group > :nth-child(2)').contains('Yearly').click();
+        cy.get('.btn-group > :nth-child(2)').contains('Yearly').click({ force: true });
     });
 
     it('17. Test to verify the "Yearly" prices for the all subscriptions plans', () => {
@@ -114,47 +94,27 @@ describe('Zenscrape register page  ', () => {
 
     it('18. Test to verify the "Features" button of the "Free" plan and should open the popup for "Free" yearly plan', () => {
         cy.get(':nth-child(1) > :nth-child(2) > .btn').contains('Features').click({ force: true });
-        cy.get('.modal-header').contains('Free').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '1.000 requests per month');
-        cy.get('.modal-footer > .btn').click({ force: true });
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
+        cy.checkModal('Free', '1.000 requests per month');
     });
 
     it('19. Test to verify the "Features" button of "Small" yearly plan and should open the popup for "Small" yearly plan', () => {
-        cy.get(':nth-child(2) > :nth-child(2) > .btn').contains('Features').click({ force: true })
-        cy.get('.modal-header').contains('Small Yearly').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '250 000 requests per month');
-        cy.get('.modal-footer > .btn').click({ force: true });
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
+        cy.get(':nth-child(2) > :nth-child(2) > .btn').contains('Features').click({ force: true });
+        cy.checkModal('Small Yearly', '250 000 requests per month');
     });
 
     it('20. Test to verify the "Features" button of "Medium" yearly plan and should open the popup for "Medium" yearly plan', () => {
         cy.get(':nth-child(3) > :nth-child(2) > .btn').contains('Features').click({ force: true });
-        cy.get('.modal-header').contains('Medium').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '1.000.000 requests per month');
-        cy.get('.modal-footer > .btn').click({ force: true });
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
+        cy.checkModal('Medium', '1.000.000 requests per month');
     });
 
     it('21. Test to verify the "Features" button of "Large" yearly plan and should open the popup for "Large" yearly plan', () => {
         cy.get(':nth-child(4) > :nth-child(2) > .btn').contains('Features').click({ force: true });
-        cy.get('.modal-header').contains('Large').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '3.000.000 requests per month');
-        cy.get('.modal-footer > .btn').click({ force: true });
-        cy.wait(500);
-        //Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
+        cy.checkModal('Large', '3.000.000 requests per month');
     });
 
     it('22. Test to verify the "Features" button of "Professional" yearly plan and should open the popup for "Professional" yearly plan', () => {
         cy.get(':nth-child(5) > :nth-child(2) > .btn').contains('Features').click({ force: true });
-        cy.get('.modal-header').contains('Professional').should('be.visible');
-        cy.get('.plan-feature-list > li').should('be.visible', 'contain.text', '5 000 000 requests per month');
-        cy.wait(500);
-        // Todo: Added an 0.5 second wait to load the features pop up. A more reliable solution should be implemented to handle this wait.
-        cy.get('.modal-footer > .btn').click({ force: true });
+        cy.checkModal('Professional', '5 000 000 requests per month');
     });
 
     it('23.Test to verify the "Profile" text is present', () => {
@@ -186,7 +146,7 @@ describe('Zenscrape register page  ', () => {
         cy.get(':nth-child(1) > :nth-child(1) > .d-flex > .radio-select').click();
     });
 
-    it('28. Tes to validate all fields accepts input', () => {
+    it('28. Test to validate all fields accepts input', () => {
         cy.get(':nth-child(3) > .col-lg-8 > .card > .card-body > form > :nth-child(1) > .col-md-6 > .form-control').type('Test User');
         cy.get(':nth-child(2) > .col-md-6 > .form-control').type('Testuser2@gmail.com');
         cy.get(':nth-child(3) > .col-md-6 > .form-control').type('Password123!');

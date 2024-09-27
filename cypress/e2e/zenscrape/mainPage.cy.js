@@ -31,6 +31,10 @@ describe('Zenscrape home page', () => {
         cy.get('.mr-auto > .mt-5 > .rounded-sm > .w-full').click();
         cy.navigateUrlwithCookies('https://app.zenscrape.com/register?plan=free');
         cy.get('.float-left').should('be.visible');
+        //Added the doc.readyState to load document properly.
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.get('.m-4').should('be.visible', 'contian.text', 'All Subscription plan prices are excluding applicable VAT.');
         cy.navigateUrlwithCookies('https://zenscrape.com/');
     });
@@ -64,6 +68,9 @@ describe('Zenscrape home page', () => {
 
     it('14. Test to check "CONTACT US FOR A QUOTE" button and should redirect to "CONTACT US" page', () => {
         cy.get('.shadow > .inline-flex').click();
+        cy.navigateUrlwithCookies('https://apilayer.com/support');
+        cy.document().its('readyState').should('eq', 'complete');
+        cy.get('h1').should('contains.text', 'Contact Sales & Customer Support');
         cy.navigateUrlwithCookies('https://zenscrape.com/');
     });
 

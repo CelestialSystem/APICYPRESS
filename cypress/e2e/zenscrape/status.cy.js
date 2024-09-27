@@ -40,7 +40,10 @@ describe('Zenscrape status page', () => {
     });
 
     it('10. Test to check the "Email" text, "Get notified when zenscrape creates, updates or resolves an incident" caption, "Email" input field and the "Subscribe" button present', () => {
-        cy.wait(4000);
+        //Added the doc.readyState to load document properly.
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.get('.popover.open').should('have.css', 'opacity', '1'); 
         cy.componentVisiblityCheck('.tab > .label', 'Email');
         cy.componentVisiblityCheck('.styles__Message-sc-1ej8vf0-2', 'Get notified when zenscrape creates, updates or resolves an incident');

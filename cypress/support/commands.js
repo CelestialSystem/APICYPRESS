@@ -116,3 +116,13 @@ Cypress.Commands.add('checkPlanFeatures', (planClass, features) => {
         cy.get(featureSelector).should('contain.text', feature);
     });
 });
+
+//code to check the modal and text present in that.
+Cypress.Commands.add('checkModal', (headerText, featureText) => {
+    cy.get('.modal-content').should('exist').and('be.visible');
+    cy.get('.modal-header').contains(headerText).should('be.visible');
+    cy.get('.plan-feature-list > li').should('be.visible').and('contain.text', featureText);
+    cy.get('.modal-footer > .btn').click();
+    // Added wait of 1 second because there is 3s transition delay added in the css for the model
+    cy.wait(1000);
+  });
