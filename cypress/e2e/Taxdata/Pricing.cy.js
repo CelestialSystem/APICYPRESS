@@ -88,16 +88,12 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .btn');
     });
 
-    it('20. Test to check button text for "Contact Us" and redirect to "Contact" page', () => {
+    it('20. Test to check button text for "Contact Us" and redirect to "Contact" page and check the text "Contact Sales & Customer Support"', () => {
         cy.get(':nth-child(5) > .card > .card-header > .btn').scrollIntoView();
         cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .btn', 'Contact\nUs');
         cy.get(':nth-child(5) > .card > .card-header > .btn').click();
-    });
-
-    it('21. Test to check "Contact Sales & Customer Support" text in the "Contact" page and navigate back to "Taxdata" main page', () => {
-        cy.wait(2000);
+        cy.document().its('readyState').should('eq', 'complete');
         cy.checkTextVisibility('Contact Sales & Customer Support')
         cy.navigateUrlwithCookies('https://apilayer.com/marketplace/tax_data-api');
     });
-
 });
