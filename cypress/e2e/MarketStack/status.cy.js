@@ -15,7 +15,7 @@ describe('MarketStack Status Page', () => {
     it('3. Test to click on "Status" hyperlink', () => {
         cy.get('.status > a').click();
         cy.visit('https://status.marketstack.com/');
-        cy.wait(2000);
+        // cy.wait(2000);
         cy.get('body').then((body) => {
             if (body.find('.lcc-modal--alert').is(':visible')) {
                 cy.get('.lcc-modal__actions > .js-lcc-accept').click();
