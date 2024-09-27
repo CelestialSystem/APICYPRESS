@@ -1,7 +1,6 @@
 describe('IpApi Status Page', () => {
     before(() => {
         cy.visit('https://ipapi.com');
-        cy.wait(2000);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -15,7 +14,9 @@ describe('IpApi Status Page', () => {
     it('3. Test to click on "Status" hyperlink', () => {
         cy.get('.status > a').click();
         cy.visit('https://status.ipapi.com/');
-        cy.wait(2000);
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.get('body').then((body) => {
             if (body.find('.lcc-modal--alert').is(':visible')) {
                 cy.get('.lcc-modal__actions > .js-lcc-accept').click();

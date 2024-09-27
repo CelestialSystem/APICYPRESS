@@ -1,7 +1,6 @@
 describe('IpApi affiliate page', () => {
     before(() => {
         cy.visit('https://ipapi.com');
-        cy.wait(2000); // Wait for the page to load
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {

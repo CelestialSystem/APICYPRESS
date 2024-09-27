@@ -1,7 +1,6 @@
 describe('IpApi free signup page', () => {
     before(() => {
         cy.visit('https://ipapi.com');
-        cy.wait(2000); // Wait for the page
     });
 
     it('1. Test to click the "SIGN UP FREE" button', () => {

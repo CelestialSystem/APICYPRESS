@@ -1,7 +1,6 @@
 describe('IpApi documentation page', () => {
   before(() => {
     cy.visit('https://ipapi.com');
-    cy.wait(2000); 
   });
 
   it('1. Test to "Accept Cookies" if not already accepted', () => {
