@@ -31,7 +31,7 @@ describe('Postionstack login page  ', () => {
         cy.get('#email').clear();
         cy.get('#password').clear();
         cy.get('.submit').click();
-        cy.checkAlert('Please enter your account "Email" and "Password".');
+        cy.checkAlert('Please enter your account email and password.');
     });
 
     it('8. Test to show an error for invalid "Email" and "Passowrd"', () => {
