@@ -3,7 +3,7 @@ describe('Taxdata documentation page', () => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
 
-    it('0. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to accept cookies if not already accepted', () => {
         cy.intercept('GET', '/collect*').as('apiRequest');
         cy.AcceptCookies();
         cy.wait('@apiRequest');
@@ -13,15 +13,14 @@ describe('Taxdata documentation page', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
     });
 
-    it('2. Test to click on the "Documentation" tab', () => {
+    it('3. Test to click on the "Documentation" tab', () => {
         cy.intercept('GET', '/marketplace/tax_data-api/tabs/api_docs').as('apiRequest');
         cy.get('.d-md-flex > .d-none').click();
         cy.wait('@apiRequest');
     });
 
-    it('3. Test to check the text "Tax Data API Reference" text present or not', () => {
+    it('4. Test to check the text "Tax Data API Reference" present', () => {
         cy.checkTextVisibility('Tax Data API Reference');
-        
     });
 
     it('5. Test to check "Contents" section present', () => {
