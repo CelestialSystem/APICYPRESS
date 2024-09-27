@@ -5,7 +5,7 @@ describe('Positionstack status page', () => {
         //TODO:Added an 2-second wait to allow the postionstack status page to load. A more reliable solution should be implemented to handle this wait.
     });
 
-    it('1. Test to accept cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.get('body').then((body) => {
             if (body.find('.lcc-modal--alert').is(':visible')) {
                 cy.get('.lcc-modal__actions > .js-lcc-accept').click();

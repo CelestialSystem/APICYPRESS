@@ -3,7 +3,7 @@ describe('Positionstack pricing page', () => {
         cy.visit('https://positionstack.com/');
     });
 
-    it('1. Test to accept cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
