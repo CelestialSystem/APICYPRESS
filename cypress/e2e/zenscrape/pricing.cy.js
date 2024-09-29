@@ -1,4 +1,4 @@
-describe('Zensrape pricing page', () => {
+describe('Zensrape Pricing page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://zenscrape.com/');
     });

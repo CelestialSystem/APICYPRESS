@@ -1,37 +1,37 @@
-describe('Zenscrape status page', () => {
+describe('Zenscrape Status page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://zenscrape.freshstatus.io/');
     });
 
-    it('1. Test to check for the "All Services Operational" text present', () => {
+    it('1. Test to check for the "All Services Operational" text is present', () => {
         cy.componentVisiblityCheck('.statusbar-text', 'All Services Operational');
     });
 
-    it('2. Test to check for "Zenscrape | Web Scraping API" title text present', () => {
+    it('2. Test to check for "Zenscrape | Web Scraping API" title text is present', () => {
         cy.componentVisiblityCheck('.page-description > p', 'Zenscrape | Web Scraping API');
     });
 
-    it('3. Test to check the "Operational" option text present' , () => {
+    it('3. Test to check the "Operational" option text is present' , () => {
         cy.componentVisiblityCheck(':nth-child(5) > .ComponentStatusListContainer > .operational', 'Operational');
     });
 
-    it('4. Test to check "Degraded Performance" option text present', () => {
+    it('4. Test to check "Degraded Performance" option text is present', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .ComponentStatusListContainer > .degraded', 'Degraded Performance');
     });
 
-    it('5. Test to check "Partial Outage" option text present', () => {
+    it('5. Test to check "Partial Outage" option text is present', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .ComponentStatusListContainer > .partial', 'Partial Outage');
     });
 
-    it('6. Test to check the "Major Outage" option text present', () => {
+    it('6. Test to check the "Major Outage" option text is present', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .ComponentStatusListContainer > .major', 'Major Outage');
     });
 
-    it('7. Test to check the "Maintaince" option text present', () => {
+    it('7. Test to check the "Maintaince" option text is present', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .ComponentStatusListContainer > .maintenance', ' Maintenance');
     });
 
-    it('8. Test to check the "Subscribe" button present', () => {
+    it('8. Test to check the "Subscribe" button is present', () => {
         cy.componentVisiblityCheck('.subscribe');
     });
 
@@ -61,7 +61,7 @@ describe('Zenscrape status page', () => {
         cy.get('.Subscription__Redirection-sc-1lmxftv-4 > a').click();
     });
 
-    it('13. Test to check the "Login" button present', () => {
+    it('13. Test to check the "Login" button is present', () => {
         cy.componentVisiblityCheck('.btn-group > .Link--primary')
     });
 
@@ -75,11 +75,11 @@ describe('Zenscrape status page', () => {
         cy.componentVisiblityCheck('.history').click();
     });
 
-    it('16. Test to check the "Uptime History" text present', () => {
+    it('16. Test to check the "Uptime History" text is present', () => {
         cy.componentVisiblityCheck('h2', 'Uptime History');
     });
 
-    it('17. Test to check "Month" picker present', () => {
+    it('17. Test to check "Month" picker is present', () => {
         cy.componentVisiblityCheck('.id__MonthPicker-sc-1fem2nn-2');
     });
 
@@ -99,11 +99,11 @@ describe('Zenscrape status page', () => {
         cy.componentVisiblityCheck('.tab', 'Upcoming Maintenance');
     });
 
-    it('22. Test to check the dropdown for "Days" present', () => {
+    it('22. Test to check the dropdown for "Days" is present', () => {
         cy.componentVisiblityCheck('.dropdown_selected');
     });
 
-    it('23. Test to check the "See Incident History" button present', () => {
+    it('23. Test to check the "See Incident History" button is present', () => {
         cy.componentVisiblityCheck('.pages__HomepageContent-sc-1g5814v-0 > .Link--primary', 'See Incident History');
     });
 
@@ -131,11 +131,11 @@ describe('Zenscrape status page', () => {
         cy.get('.IncidentHistory__Breadcrumps-sc-1shesrj-0').click();
     });
 
-    it('30. Test to check "Home" icon present in the footer', () => {
+    it('30. Test to check "Home" icon is present in the footer', () => {
         cy.componentVisiblityCheck('.www');
     });
 
-    it('31. Test to check "Timezone" dropdown present in the footer', () => {
+    it('31. Test to check "Timezone" dropdown is present in the footer', () => {
         cy.componentVisiblityCheck('.tz__input-container');
     });
 });

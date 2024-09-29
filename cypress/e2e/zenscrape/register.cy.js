@@ -1,4 +1,4 @@
-describe('Zenscrape register page  ', () => {
+describe('Zenscrape Register page  ', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://zenscrape.com/');
     });
@@ -121,7 +121,7 @@ describe('Zenscrape register page  ', () => {
         cy.get('.card-header > span').should('contain.text', 'Profile');
     })
 
-    it('24. Test to verify all the "Profile" fields are available and present', () => {
+    it('24. Test to verify all the "Profile" fields are available and is present', () => {
         cy.contains('Name').should('be.visible');
         cy.contains('E-Mail Address').should('be.visible');
         cy.contains('Password').should('be.visible');

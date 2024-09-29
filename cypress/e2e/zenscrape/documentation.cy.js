@@ -1,4 +1,4 @@
-describe('Zenscrape documentation page', () => {
+describe('Zenscrape Documentation page', () => {
     before(() => {
         cy.visit('https://zenscrape.com/');
     });
@@ -11,7 +11,7 @@ describe('Zenscrape documentation page', () => {
         cy.get('.gap-8 > [href="//app.zenscrape.com/documentation"]').click();
     });
 
-    it('3. Test to check the text "Documentation" title present', () => {
+    it('3. Test to check the text "Documentation" title is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .col-md-12 > h4', 'Documentation');
     });
 
@@ -28,7 +28,7 @@ describe('Zenscrape documentation page', () => {
         cy.componentVisiblityCheck('.alert', 'Pro Tip: Register your free apikey here and all code snippets below will contain your private apikey. If you have already registered, login before viewing the documentation.');
     });
 
-    it('7. Test to check the "Postman Collection" text and "Run in Postman" button are present', () => {
+    it('7. Test to check the "Postman Collection" text and "Run in Postman" button are is present', () => {
         cy.componentVisiblityCheck('#postman', 'Postman Collection');
         cy.componentVisiblityCheck('.postman-run-button');
     });

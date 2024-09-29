@@ -1,4 +1,4 @@
-describe('Zenscrape blog page', () => {
+describe('Zenscrape Blog page', () => {
     before(() => {
         cy.visit('https://zenscrape.com/');
     });
@@ -8,7 +8,7 @@ describe('Zenscrape blog page', () => {
         cy.navigateUrlwithCookies('https://zenscrape.com/blog/');
     });
 
-    it('2. Test to check the text "Web Scraping Blog" present', () => {
+    it('2. Test to check the text "Web Scraping Blog" is present', () => {
         cy.componentVisiblityCheck('.text-3xl', 'Web Scraping Blog');
     });
 

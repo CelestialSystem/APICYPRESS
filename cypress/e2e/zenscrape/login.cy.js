@@ -1,4 +1,4 @@
-describe('Zenscrape login page  ', () => {
+describe('Zenscrape Login page  ', () => {
   before(() => {
     cy.navigateUrlwithCookies('https://zenscrape.com/');
   });
@@ -43,7 +43,7 @@ describe('Zenscrape login page  ', () => {
     cy.get('.alert > ul > :nth-child(2)').should('be.visible', 'The password field is required.');
   });
 
-  it('7. Test to show an error for invalid email format', () => {
+  it('7. Test to show an error for invalid "Email" format', () => {
     cy.get(':nth-child(2) > .col-md-6 > .form-control').type('invalid-email');
     cy.get(':nth-child(3) > .col-md-6 > .form-control').type('password123');
     cy.get('.btn-primary').click();
@@ -52,7 +52,7 @@ describe('Zenscrape login page  ', () => {
     cy.get('.alert > ul > :nth-child(2)').should('be.visible', 'The password field is required.');
   });
 
-  it('8. Test to show an error for incorrect password', () => {
+  it('8. Test to show an error for incorrect "Password"', () => {
     cy.get(':nth-child(2) > .col-md-6 > .form-control').type('TestUserApiLayer@gmail.com');
     cy.get(':nth-child(3) > .col-md-6 > .form-control').type('wrongpassword');
     cy.get('.btn-primary').click();
@@ -60,7 +60,7 @@ describe('Zenscrape login page  ', () => {
     cy.get('.alert > ul > li').should('be.visible', 'These credentials do not match our records');
   });
 
-  it('9. Test to show an error for incorrect email', () => {
+  it('9. Test to show an error for incorrect "Email"', () => {
     cy.get(':nth-child(2) > .col-md-6 > .form-control').clear().type('testinvalid@gmail.com');
     cy.get(':nth-child(3) > .col-md-6 > .form-control').clear().type('Test@123');
     cy.get('.btn-primary').click();
@@ -68,7 +68,7 @@ describe('Zenscrape login page  ', () => {
     cy.get('.alert > ul > li').should('be.visible', 'These credentials do not match our records');
   });
 
-  it('10. Test to check password field of type password', () => {
+  it('10. Test to check "Password" field of type password', () => {
     cy.get(':nth-child(3) > .col-md-6 > .form-control').should('have.attr', 'type', 'password');
   });
 
@@ -77,7 +77,7 @@ describe('Zenscrape login page  ', () => {
     cy.navigateUrlwithCookies('https://app.zenscrape.com/password/reset');
   })
 
-  it('12. Test to check the text "Reset Password" present', () => {
+  it('12. Test to check the text "Reset Password" is present', () => {
     cy.get('.card-header').should('contain.text', 'Reset Password');
   });
 
