@@ -75,7 +75,7 @@ describe('Fixers Pricing page', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .h3', 'Custom Plan');
     });
 
-    it('18. Test to check "Custom" Plan description for "Any requests volume you need"', () => {
+    it('18. Test to check "Custom" plan description for "Any requests volume you need"', () => {
         cy.componentVisiblityCheck('#pricing > .row > :nth-child(5) > .card > .card-body > .media > .media-body', 'Any requests volume you need');
     });
 
