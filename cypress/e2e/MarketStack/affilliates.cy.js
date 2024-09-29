@@ -12,7 +12,7 @@ describe('MarketStack Affiliates Page', () => {
         cy.componentVisiblityCheck('.header > .container > ul > :nth-child(4) > a', 'Affiliates');
     });
 
-    it('3. Test to Click on "Affiliate" hyperlink', () => {
+    it('3. Test to click on "Affiliate" hyperlink', () => {
         cy.get('.header > .container > ul > :nth-child(4) > a').click();
         cy.url().should('eq', 'https://affiliate.marketstack.com/');
     });
@@ -106,12 +106,12 @@ describe('MarketStack Affiliates Page', () => {
         cy.componentVisiblityCheck('.Accordions > .container > :nth-child(1)', 'Get Answers to Your Questions (FAQ)');
     });
 
-    it('23. Test to Click on expand button', () => {
+    it('23. Test to click on expand button', () => {
         cy.get(':nth-child(2) > .accordion').click();
         cy.componentVisiblityCheck(':nth-child(2) > .accordion-content');
     });
 
-    it('24. Test to Click on collapse button', () => {
+    it('24. Test to click on collapse button', () => {
         cy.get(':nth-child(2) > .accordion').click();
         cy.get(':nth-child(2) > .accordion-content').should('not.be.visible');
     });
