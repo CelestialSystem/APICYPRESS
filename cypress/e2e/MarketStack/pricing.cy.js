@@ -158,7 +158,7 @@ describe('MarketStack Pricing page', () => {
         cy.componentVisiblityCheck('.professional > .main_container > .price > .yearly_data', '\n                                    $43.99\n                                    per month\n                                    billed yearly\n                                ');
     });
  
-    it('23.Test to check "Platinum Support!" button is visible', () => {
+    it('23.Test to check "Platinum Support!" button is present', () => {
         cy.componentVisiblityCheck('.platinum_right_section > div',  '\n                            FIND OUT MORE \n                        ');
     });
  

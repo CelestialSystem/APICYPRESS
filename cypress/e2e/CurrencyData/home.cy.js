@@ -4,7 +4,7 @@ describe('Currency Data Home Page', () => {
     });
   
     it('1. Test to "Accept Cookies" if not already accepted', () => {
-        // Check if the "Accept Cookies" button is visible or exists
+        // Check if the "Accept Cookies" button is present or exists
         cy.AcceptCookies();
     });
   
@@ -30,31 +30,31 @@ describe('Currency Data Home Page', () => {
         cy.get('body').click(0, 0);
     });
     
-    it('7. Test to check "Pricing tab"  is visible', () => {
+    it('7. Test to check "Pricing tab"  is present', () => {
         cy.componentVisiblityCheck('#pricing-tab', 'Pricing');
     });
 
-    it('8. Test to check "API info" tab  is visible', () => {
+    it('8. Test to check "API info" tab  is present', () => {
         cy.componentVisiblityCheck('#details-tab', 'API info');
     });
 
-    it('9. Test to check "Documentation" tab  is visible', () => {
+    it('9. Test to check "Documentation" tab  is present', () => {
         cy.componentVisiblityCheck('#documentation-tab', 'Documentation');
     });
 
-    it('10. Test to check "Reviews" tab  is visible', () => {
+    it('10. Test to check "Reviews" tab  is present', () => {
         cy.componentVisiblityCheck('#reviews-tab', 'Reviews');
     });
 
-    it('11. Test to check "FAQS" tab  is visible', () => {
+    it('11. Test to check "FAQS" tab  is present', () => {
         cy.componentVisiblityCheck('#faqs-tab', 'FAQs');
     });
 
-    it('12. Test to check "Related Products" container is visible', () => {
+    it('12. Test to check "Related Products" container is present', () => {
         cy.componentVisiblityCheck('.h1', 'Related Products');
     });
 
-    it('13. Test to check footer is visible', () => {
+    it('13. Test to check footer is present', () => {
         cy.componentVisiblityCheck('footer.bg-primary');
     });
   }); 

@@ -35,15 +35,15 @@ describe('Mediastack Home Page', () => {
         cy.componentVisiblityCheck('h2',  'Free, Simple REST API for\n                        Live News & Blog Articles\n                     ');
     });
 
-    it('9. Test to check "GET FREE API KEY" button is visible present', () => {
+    it('9. Test to check "GET FREE API KEY" button is present present', () => {
         cy.componentVisiblityCheck('div > .cta', "Get API Key");
     });
 
-    it('10. Test to check "Global News" title is visible present', () => {
+    it('10. Test to check "Global News" title is present present', () => {
         cy.componentVisiblityCheck('.global_news > .heading', "Global News, Made Easy");
     });
 
-    it('11. Test to Check "Sources and Country" title is visible present', () => {
+    it('11. Test to Check "Sources and Country" title is present present', () => {
         cy.componentVisiblityCheck('.sources_countries > .heading', "7,500+ Sources, 50 Countries");
     });
 

@@ -43,7 +43,7 @@ describe('Number Verification Documentation Page', () => {
         cy.componentVisiblityCheck(':nth-child(9) > a', 'Endpoints');
     });
   
-    it('10. Test to check "Rate Limiting" hyperlink is visible', () => {
+    it('10. Test to check "Rate Limiting" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(3) > a',  'Rate Limiting');
     });
   
@@ -52,11 +52,11 @@ describe('Number Verification Documentation Page', () => {
         cy.componentVisiblityCheck(':nth-child(11) > a',  'Rate Limiting');
     });
   
-    it('12. Test to check "Error Codes" hyperlink is visible', () => {
+    it('12. Test to check "Error Codes" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(4) > a', 'Error Codes');
     });
   
-    it('13. Test to click on "Error Codes", "Error Codes" title is visible', () => {
+    it('13. Test to click on "Error Codes", "Error Codes" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(4) > a').click();
         cy.componentVisiblityCheck(':nth-child(19) > a', 'Error Codes');
     });
