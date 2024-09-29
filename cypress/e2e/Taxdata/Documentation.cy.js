@@ -1,4 +1,4 @@
-describe('Taxdata documentation page', () => {
+describe('Taxdata Documentation page', () => {
     before(() => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
@@ -9,7 +9,7 @@ describe('Taxdata documentation page', () => {
         cy.wait('@apiRequest');
     });
 
-    it('2. Test to check for the "Documentation" tab present', () => {
+    it('2. Test to check for the "Documentation" tab pis resent', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
     });
 
@@ -19,11 +19,11 @@ describe('Taxdata documentation page', () => {
         cy.wait('@apiRequest');
     });
 
-    it('4. Test to check the text "Tax Data API Reference" present', () => {
+    it('4. Test to check the text "Tax Data API Reference" is present', () => {
         cy.checkTextVisibility('Tax Data API Reference');
     });
 
-    it('5. Test to check "Contents" section present', () => {
+    it('5. Test to check "Contents" section is present', () => {
         cy.componentVisiblityCheck('.sticky-top > .text-muted');
     });
 

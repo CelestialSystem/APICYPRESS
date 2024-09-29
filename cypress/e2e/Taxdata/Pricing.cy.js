@@ -1,4 +1,4 @@
-describe('Pricing Page Test Suite', () => {
+describe('Taxdata Pricing page', () => {
     before(() => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
@@ -7,7 +7,7 @@ describe('Pricing Page Test Suite', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "Pricing" tab present', () => {
+    it('2. Test to check for the "Pricing" tab is present', () => {
         cy.componentVisiblityCheck('#pricing-tab > .d-md-flex > span');
     });
 
@@ -15,7 +15,7 @@ describe('Pricing Page Test Suite', () => {
         cy.get('#pricing-tab > .d-md-flex > span').click();
     });
 
-    it('4. Test to check for the text "Free Plan" present', () => {
+    it('4. Test to check for the text "Free Plan" is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .card > .card-header > .h3', 'Free Plan');
     });
 
@@ -29,7 +29,7 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .media-body', 'No Credit Card Required');
     });
 
-    it('7. Test to check "Starter Plan" present', () => {
+    it('7. Test to check "Starter Plan" is present', () => {
         cy.componentVisiblityCheck(':nth-child(2) > .card > .card-header > .h3','Starter Plan');
     });
 
@@ -46,7 +46,7 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck('.card > .badge','MOST POPULAR');
     });
 
-    it('11. Test to check "Pro Plan" present', () => {
+    it('11. Test to check "Pro Plan" is present', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .card > .card-header > .h3', 'Pro Plan');
     });
 
@@ -60,7 +60,7 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
     });
 
-    it('14. Test to check "Enterprise Plan" present', () => {
+    it('14. Test to check "Enterprise Plan" is present', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .h3', 'Enterprise Plan');
     });
 
@@ -73,7 +73,7 @@ describe('Pricing Page Test Suite', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
     });
 
-    it('17. Test to check "Custom Plan" present', () => {
+    it('17. Test to check "Custom Plan" is present', () => {
         cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .h3', 'Custom Plan');
     });
 

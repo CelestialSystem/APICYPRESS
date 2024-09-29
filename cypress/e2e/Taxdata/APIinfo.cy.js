@@ -1,4 +1,4 @@
-describe('Taxdata APIs info page ', () => {
+describe('Taxdata APIs Info page ', () => {
     before(() => {
         cy.visit('https://apilayer.com/marketplace/tax_data-api');
     });
@@ -7,7 +7,7 @@ describe('Taxdata APIs info page ', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "API info" tab present', () => {
+    it('2. Test to check for the "API info" tab is present', () => {
         cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
     });
 
