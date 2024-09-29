@@ -1,4 +1,4 @@
-describe('Postionstack login page  ', () => {
+describe('Postionstack Login page  ', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://positionstack.com/');
     });
@@ -7,15 +7,15 @@ describe('Postionstack login page  ', () => {
         cy.get('.login > a').click({ force: true });
     });
 
-    it('2. Test to check the text "Log in" present', () => {
+    it('2. Test to check the text "Log in" is present', () => {
         cy.componentVisiblityCheck('strong', 'Log in');
     });
 
-    it('3. Test to check the "Email" input field present', () => {
+    it('3. Test to check the "Email" input field is present', () => {
         cy.componentVisiblityCheck('#email');
     });
 
-    it('4. Test to check the "Password" input field present', () => {
+    it('4. Test to check the "Password" input field is present', () => {
         cy.componentVisiblityCheck('#password');
     });
 
@@ -64,7 +64,7 @@ describe('Postionstack login page  ', () => {
         cy.assertPathname('/forgot');
     })
 
-    it('13. Test to check the text "Forgot Password" present', () => {
+    it('13. Test to check the text "Forgot Password" is present', () => {
         cy.componentVisiblityCheck('strong', 'Forgot Password');
     });
 
@@ -72,11 +72,11 @@ describe('Postionstack login page  ', () => {
         cy.componentVisiblityCheck('p > span', 'Enter Account Email');
     });
 
-    it('15.Test to check the "Email" input field present', () => {
+    it('15.Test to check the "Email" input field is present', () => {
         cy.componentVisiblityCheck('#email');
     });
 
-    it('16.Test to check the "Submit" button present', () => {
+    it('16.Test to check the "Submit" button is present', () => {
         cy.componentVisiblityCheck('.submit');
     });
 

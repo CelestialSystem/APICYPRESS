@@ -1,4 +1,4 @@
-describe('Positionstack home page', () => {
+describe('Positionstack Home page', () => {
     before(() => {
         cy.visit('https://positionstack.com/');
     });
@@ -11,7 +11,7 @@ describe('Positionstack home page', () => {
         cy.componentVisiblityCheck('.logo > a > img');
     });
 
-    it('3. Test to check the text "Accurate Forward & Reverse Batch Geocoding REST API" present', () => {
+    it('3. Test to check the text "Accurate Forward & Reverse Batch Geocoding REST API" is present', () => {
         cy.componentVisiblityCheck('.inline > h2', 'Accurate Forward & Reverse\n                        Batch Geocoding REST API\n                     ')
     });
 
@@ -23,11 +23,11 @@ describe('Positionstack home page', () => {
         cy.componentVisiblityCheck('.address');
     });
 
-    it('6. Test to check "Country" details section present', () => {
+    it('6. Test to check "Country" details section is present', () => {
         cy.componentVisiblityCheck('.meta')
     });
 
-    it('7. Test to check the "Try Demo" button present', () => {
+    it('7. Test to check the "Try Demo" button is present', () => {
         cy.componentVisiblityCheck('.try_demo');
     });
 
@@ -45,7 +45,7 @@ describe('Positionstack home page', () => {
         cy.go('back');
     });
 
-    it('11. Test to check the "API Documentation" button present', () => {
+    it('11. Test to check the "API Documentation" button is present', () => {
         cy.componentVisiblityCheck('.secondary', 'API Documentation');
     });
 
@@ -71,7 +71,7 @@ describe('Positionstack home page', () => {
         cy.componentVisiblityCheck('.pricing > .heading', 'Fair Pricing')
     });
 
-    it('17. Test to check for the text "Effortless geocoding and embeddable maps. Integration takes less than 5 minutes" present', () => {
+    it('17. Test to check for the text "Effortless geocoding and embeddable maps. Integration takes less than 5 minutes" is present', () => {
         cy.componentVisiblityCheck('.left_side > h2', 'Effortless geocoding and embeddable maps. Integration takes less than 5 minutes.')
     });
 
@@ -111,7 +111,7 @@ describe('Positionstack home page', () => {
         cy.get('input').type('United States');
     });
 
-    it('27. Test to check "GEO CODE" button and check the code present', () => {
+    it('27. Test to check "GEO CODE" button and check the code is present', () => {
         cy.get('button').click({ multiple: true });
         cy.componentVisiblityCheck('.prettyprint');
     });

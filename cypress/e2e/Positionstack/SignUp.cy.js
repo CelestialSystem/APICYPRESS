@@ -1,4 +1,4 @@
-describe('Postionstack signup page', () => {
+describe('Postionstack Signup page', () => {
     before(() => {
         // Visit the main page before running any tests
         cy.navigateUrlwithCookies('https://positionstack.com/');
@@ -13,11 +13,11 @@ describe('Postionstack signup page', () => {
         cy.assertPathname('/signup/free');
     });
 
-    it('3. Test to check the "Sign up" page container present', () => {
+    it('3. Test to check the "Sign up" page container is present', () => {
         cy.get('.preapp > .container').should('be.visible');
     });
 
-    it('4. Test to check the text "Sign Up" present', () => {
+    it('4. Test to check the text "Sign Up" is present', () => {
         cy.componentVisiblityCheck('strong', 'Sign Up: ');
     });
 
@@ -25,7 +25,7 @@ describe('Postionstack signup page', () => {
         cy.componentVisiblityCheck('.bar_bg', 'Subscription');
     });
 
-    it('6. Test to check "Montlhy" and "Yearly" toggle button present', () => {
+    it('6. Test to check "Montlhy" and "Yearly" toggle button is present', () => {
         cy.componentVisiblityCheck('.cycle');
     });
 

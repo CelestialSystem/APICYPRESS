@@ -1,4 +1,4 @@
-describe('Postionstack documentation page', () => {
+describe('Postionstack Documentation page', () => {
     before(() => {
         cy.visit('https://positionstack.com/');
     });
@@ -9,7 +9,7 @@ describe('Postionstack documentation page', () => {
         cy.assertPathname('/documentation');
     });
 
-    it('2. Test to check the text "API Documentation" present', () => {
+    it('2. Test to check the text "API Documentation" is present', () => {
         cy.AcceptCookies();
         cy.componentVisiblityCheck(':nth-child(1) > h2', 'API Documentation');
     });
@@ -154,7 +154,7 @@ describe('Postionstack documentation page', () => {
         cy.componentVisiblityCheck(':nth-child(22) > :nth-child(22)', 'What does Platinum Support include?');
     });
 
-    it('26. Test to check "Upgrade Now" button present', () => {
+    it('26. Test to check "Upgrade Now" button is present', () => {
         cy.componentVisiblityCheck('.platinum-btn');
         cy.get('.platinum-btn').click();
         cy.go('back');

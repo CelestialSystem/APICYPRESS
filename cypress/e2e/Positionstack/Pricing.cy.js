@@ -1,4 +1,4 @@
-describe('Positionstack pricing page', () => {
+describe('Positionstack Pricing page', () => {
     before(() => {
         cy.visit('https://positionstack.com/');
     });
@@ -19,7 +19,7 @@ describe('Positionstack pricing page', () => {
         cy.componentVisiblityCheck('.cycle');
     });
 
-    it('5.Test to check the "Monthly" toggle field present', () => {
+    it('5.Test to check the "Monthly" toggle field is present', () => {
         cy.componentVisiblityCheck('.monthly');
     });
 
@@ -157,7 +157,7 @@ describe('Positionstack pricing page', () => {
         cy.componentVisiblityCheck('.business_pro > .main_container > .price > .yearly_data', '\n                                    $84.99per month\n                                    billed yearly\n                                ');
     });
 
-    it('23. Test to check the "Platinum Support!" text present', () => {
+    it('23. Test to check the "Platinum Support!" text is present', () => {
         cy.componentVisiblityCheck('.platinum_right_section > h3', 'Platinum Support!')
     });
 
@@ -195,7 +195,7 @@ describe('Positionstack pricing page', () => {
         cy.go('back');
     });
 
-    it('31. Test to check "Frequently Asked Questions" section present', () => {
+    it('31. Test to check "Frequently Asked Questions" section is present', () => {
         cy.componentVisiblityCheck('.faq', 'Frequently Asked Questions');
     });
 

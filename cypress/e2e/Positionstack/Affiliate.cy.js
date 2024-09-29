@@ -1,4 +1,4 @@
-describe('Positionstack affiliate page', () => {
+describe('Positionstack Affiliate page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://positionstack.com/');
     });
@@ -8,7 +8,7 @@ describe('Positionstack affiliate page', () => {
         cy.navigateUrlwithCookies("https://affiliate.positionstack.com/")
     });
 
-    it('2. Test to check for the text "Earn Passive Income with" present', () => {
+    it('2. Test to check for the text "Earn Passive Income with" is present', () => {
         cy.componentVisiblityCheck('h1', 'Earn Passive Income with');
     });
 
@@ -20,19 +20,19 @@ describe('Positionstack affiliate page', () => {
         cy.componentVisiblityCheck('.content > .btn');
     });
 
-    it('5. Test to check the text "Why Join the Positionstack Affiliate Program?" present', () => {
+    it('5. Test to check the text "Why Join the Positionstack Affiliate Program?" is present', () => {
         cy.componentVisiblityCheck('.aboutSection > h2', 'Why Join the Positionstack Affiliate Program?')
     });
 
-    it('6. Test to check the text "Boost Your Income and Partner with a Leader" present', () => {
+    it('6. Test to check the text "Boost Your Income and Partner with a Leader" is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > .contentBox > h6', 'Boost Your Income and Partner with a Leader')
     });
 
-    it('7. Test to check the text "Seamless Integration and Effortless Tracking" present', () => {
+    it('7. Test to check the text "Seamless Integration and Effortless Tracking" is present', () => {
         cy.componentVisiblityCheck(':nth-child(2) > .contentBox > h6', 'Seamless Integration and Effortless Tracking')
     });
 
-    it('8. Test to check the text "Dedicated Support and Performance Rewards" present', () => {
+    it('8. Test to check the text "Dedicated Support and Performance Rewards" is present', () => {
         cy.componentVisiblityCheck('.flex > :nth-child(3) > .contentBox > h6', 'Dedicated Support and Performance Rewards')
     });
 
@@ -88,17 +88,17 @@ describe('Positionstack affiliate page', () => {
         cy.componentVisiblityCheck(':nth-child(2) > .accordion > h5', 'How do I join the APILayer Affiliate Program?');
     });
 
-    it('22. Test to verify clicking on the "How do I Join the APIlayer Affiliate program?" present', () => {
+    it('22. Test to verify clicking on the "How do I Join the APIlayer Affiliate program?" is present', () => {
         cy.get(':nth-child(2) > .accordion > h5').click();
         cy.componentVisiblityCheck(':nth-child(2) > .accordion-content > :nth-child(1)', 'You can join the APILayer Affiliate Program by visiting the affiliate pages:')
         cy.get(':nth-child(2) > .accordion > .arrow').click();
     });
 
-    it('23. Test to check "Affiliate Links" present', () => {
+    it('23. Test to check "Affiliate Links" is present', () => {
         cy.componentVisiblityCheck('.Our_links > h2.text-center', 'Affiliate Links');
     });
 
-    it('24. Test to check "Sign Up Now and Become an Postionstack Affiliate" button present', () => {
+    it('24. Test to check "Sign Up Now and Become an Postionstack Affiliate" button is present', () => {
         cy.componentVisiblityCheck('.container > .btn', 'Sign Up Now and Become an Positionstack Affiliate!');
     });
 

@@ -1,4 +1,4 @@
-describe('Positionstack status page', () => {
+describe('Positionstack Status page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://status.positionstack.com/');
     });
@@ -15,11 +15,11 @@ describe('Positionstack status page', () => {
         cy.componentVisiblityCheck('.uk-h4', 'Service status')
     });
 
-    it('3. Test to check the title "All systems operational" present', () => {
+    it('3. Test to check the title "All systems operational" is present', () => {
         cy.componentVisiblityCheck('.psp-main-status', 'All systems operational');
     });
 
-    it('4. Test to check the text "Uptime Last 90 days" present', () => {
+    it('4. Test to check the text "Uptime Last 90 days" is present', () => {
         cy.componentVisiblityCheck('.uk-flex-between.uk-flex-middle > .uk-h3', 'Uptime\n                    Last 90 days\n                ');
     });
 
@@ -37,11 +37,11 @@ describe('Positionstack status page', () => {
         cy.get('.logo-wrapper > .font-14').click();
     });
 
-    it('8. Test to check the "Monitor row" present', () => {
+    it('8. Test to check the "Monitor row" is present', () => {
         cy.componentVisiblityCheck('.psp-monitor-row');
     });
 
-    it('9. Test to check "Calendar view" button present', () => {
+    it('9. Test to check "Calendar view" button is present', () => {
         cy.componentVisiblityCheck('.psp-calendar-link', 'Calendar view')
     });
 
