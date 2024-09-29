@@ -1,4 +1,4 @@
-describe('IpApi home page', () => {
+describe('IpApi Home page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://ipapi.com');
     });

@@ -1,4 +1,4 @@
-describe('IpApi free signup page', () => {
+describe('IpApi Signup page', () => {
     before(() => {
         cy.visit('https://ipapi.com');
     });

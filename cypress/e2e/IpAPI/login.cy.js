@@ -1,4 +1,4 @@
-describe('Login Page Test Suite', () => {
+describe('IpApi Login page ', () => {
   before(() => {
     cy.navigateUrlwithCookies('https://ipapi.com/login');
   });

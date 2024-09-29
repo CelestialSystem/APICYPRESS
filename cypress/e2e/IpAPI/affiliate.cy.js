@@ -1,4 +1,4 @@
-describe('IpApi affiliate page', () => {
+describe('IpApi Affiliate page', () => {
     before(() => {
         cy.visit('https://ipapi.com');
     });

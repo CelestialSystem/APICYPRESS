@@ -1,4 +1,4 @@
-describe('IpApi Status Page', () => {
+describe('IpApi Status page', () => {
     before(() => {
         cy.visit('https://ipapi.com');
     });
@@ -28,15 +28,15 @@ describe('IpApi Status Page', () => {
         cy.componentVisiblityCheck('.psp-main-status-wrap', 'All systems operational');
     });
 
-    it('5. Test to check the "Uptime Last 90 days" present', () => {
+    it('5. Test to check the "Uptime Last 90 days" is present', () => {
         cy.componentVisiblityCheck('.uk-flex-between.uk-flex-middle > .uk-h3', 'Uptime\n                    Last 90 days\n                ');
     });
 
-    it('6. Test to check the "Monitor row" present', () => {
+    it('6. Test to check the "Monitor row" is present', () => {
         cy.componentVisiblityCheck('.psp-monitor-row');
     });
 
-    it('7. Test to check "Calender View" button present', () => {
+    it('7. Test to check "Calender View" button is present', () => {
         cy.componentVisiblityCheck('.psp-calendar-link', 'Calendar view')
     });
 
