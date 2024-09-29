@@ -1,4 +1,4 @@
-describe('MediaStack Documentation Page', () => {
+describe('MediaStack Documentation page', () => {
     before(() => {
         cy.visit('https://mediastack.com/');
     });
@@ -8,12 +8,12 @@ describe('MediaStack Documentation Page', () => {
         cy.AcceptCookies();
       });
 
-    it('2. Test to naviagate to the "Documentation"', () => {
+    it('2. Test to naviagate to the "Documentation" tab', () => {
         cy.get('.header > .container > ul > :nth-child(2) > a').click();
         cy.assertPathname('/documentation');
     });
 
-    it('3. Test to check the text "API Documentation" in the documentation is present', () => {
+    it('3. Test to check the text "API Documentation" in documentation is present', () => {
         cy.componentVisiblityCheck(':nth-child(1) > h2', 'API Documentation');
     });
 
@@ -81,7 +81,6 @@ describe('MediaStack Documentation Page', () => {
         cy.componentVisiblityCheck('#specify_languages > h3', 'Specify Language');
     });
     
-    // Adding tests for the "Options" section
     it('15. Test to navigate to "Search Keyword" section', () => {
         cy.componentVisiblityCheck('.menu > :nth-child(3) > :nth-child(6) > a', 'Search Keyword');
         cy.get('.menu > :nth-child(3) > :nth-child(6) > a').click();

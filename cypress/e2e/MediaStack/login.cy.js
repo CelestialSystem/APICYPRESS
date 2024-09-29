@@ -1,9 +1,9 @@
-describe('MediaStack Login Page', () => {
+describe('MediaStack Login page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://mediastack.com/');
     });
 
-    it('1. Test to navigate to the login page', () => {
+    it('1. Test to navigate to the "Login" page', () => {
         cy.get('.login > a').click({ force: true });
         cy.assertPathname('/login');
     });

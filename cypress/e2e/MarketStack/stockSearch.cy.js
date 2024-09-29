@@ -1,4 +1,4 @@
-describe('MarketStack Stock Search Page', () => {
+describe('MarketStack Stock Search page', () => {
   before(() => {
     cy.visit('https://marketstack.com/');
   });

@@ -1,4 +1,4 @@
-describe('Number Verification Api Info Page', () => {
+describe('Number Verification Api Info page', () => {
     before(() => {
       cy.visit('https://apilayer.com/marketplace/number_verification-api');
     });
@@ -17,7 +17,7 @@ describe('Number Verification Api Info Page', () => {
         cy.componentVisiblityCheck('#details');
     });
   
-    it('4. Test to check "features" subtitle is present', () => {
+    it('4. Test to check "Features" subtitle is present', () => {
         cy.componentVisiblityCheck('article > :nth-child(4)', 'Features')
     });
   

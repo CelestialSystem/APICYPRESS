@@ -1,4 +1,4 @@
-describe('MediaStack Status Page', () => {
+describe('MediaStack Status page', () => {
     before(() => {
       cy.visit('https://mediastack.com/');
     });
@@ -38,7 +38,7 @@ describe('MediaStack Status Page', () => {
         cy.componentVisiblityCheck('.psp-calendar-link', 'Calendar view')
     });
 
-    it('8. Test to click on "Calender" button', () => {
+    it('8. Test to click on "Calender view" button', () => {
         cy.get('.psp-calendar-link').click();
         cy.assertPathname('/785735369/calendar');
         cy.go('back')

@@ -1,4 +1,4 @@
-describe('MarketStack Home Page', () => {
+describe('MarketStack Home page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://marketstack.com/');
     });

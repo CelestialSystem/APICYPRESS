@@ -1,4 +1,4 @@
-describe('Mediastack Home Page', () => {
+describe('Mediastack Home page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://mediastack.com/');
     });
@@ -43,15 +43,15 @@ describe('Mediastack Home Page', () => {
         cy.componentVisiblityCheck('.global_news > .heading', "Global News, Made Easy");
     });
 
-    it('11. Test to Check "Sources and Country" title is present present', () => {
+    it('11. Test to check "Sources and Country" title is present', () => {
         cy.componentVisiblityCheck('.sources_countries > .heading', "7,500+ Sources, 50 Countries");
     });
 
-    it('12. Test to Check "Scalable JSON REST API" title present', () => {
+    it('12. Test to check "Scalable JSON REST API" title is present', () => {
         cy.componentVisiblityCheck('.scalable_api > .heading', "Scalable JSON REST API");
     });
 
-    it('13. Test to Check "Free Plan Available" title is present', () => {
+    it('13. Test to check "Free Plan Available" title is present', () => {
         cy.componentVisiblityCheck('.free_plan_available > .heading', "Free Plan Available");
     });
 

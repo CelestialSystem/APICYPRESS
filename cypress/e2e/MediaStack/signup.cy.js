@@ -1,4 +1,4 @@
-describe('MediaStack Login Page', () => {
+describe('MediaStack Login page', () => {
     before(() => {
         cy.navigateUrlwithCookies('https://mediastack.com/');
     });

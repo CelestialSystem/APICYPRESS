@@ -177,17 +177,17 @@ describe('MarketStack Pricing page', () => {
         cy.go('back');
     });
  
-    it('27. Test to check  Buisness plan "Sign up" button', () =>{
+    it('27. Test to check Buisness plan "Sign up" button', () =>{
         cy.get('.business > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
     
-    it('28. Test to check  Buisness pro plus plan "Sign up" button', () =>{
+    it('28. Test to check Buisness pro plus plan "Sign up" button', () =>{
         cy.get('.professional > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
  
-    xit('29. Test to check  Enterprise plan "Sign up" button', () =>{
+    xit('29. Test to check Enterprise plan "Sign up" button', () =>{
         cy.get('.enterprise > .main_container > .signup_link').should('be.visible', 'contain.text', 'CONTACT US').click();
         cy.go('back');
     });

@@ -1,4 +1,4 @@
-describe('MarketStack Affiliates Page', () => {
+describe('MarketStack Affiliates page', () => {
     before(() => {
       cy.visit('https://marketstack.com/');
     });

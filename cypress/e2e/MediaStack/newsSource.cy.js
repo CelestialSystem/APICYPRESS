@@ -3,7 +3,7 @@ describe('MediaStack News Source page', () => {
         cy.visit('https://mediastack.com/');
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         // Check if the "Accept Cookies" button is visible or exists
         cy.AcceptCookies();
     });

@@ -1,4 +1,4 @@
-describe('Currency Data Reviews Page', () => {
+describe('Currency Data Reviews page', () => {
     before(() => {
       cy.visit('https://apilayer.com/marketplace/currency_data-api');
     });

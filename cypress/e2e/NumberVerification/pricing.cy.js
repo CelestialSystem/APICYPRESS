@@ -1,4 +1,4 @@
-describe('Number Verification Pricing Page', () => {
+describe('Number Verification Pricing page', () => {
     before(() => {
       cy.visit('https://apilayer.com/marketplace/number_verification-api');
     });

@@ -26,7 +26,7 @@ describe('MarketStack Status Page', () => {
         cy.componentVisiblityCheck('.psp-status > .uk-flex-between', 'All systems operational');
     });
 
-    it('5. Test to check "Uptime" sub title is present', () => {
+    it('5. Test to check "Uptime Last 90 days" sub title is present', () => {
         cy.componentVisiblityCheck('.uk-flex-between.uk-flex-middle > .uk-h3', 'Uptime\n                    Last 90 days\n                ');
     });
 
@@ -34,7 +34,7 @@ describe('MarketStack Status Page', () => {
         cy.componentVisiblityCheck('.psp-monitor-row');
     });
 
-    it('7. Test to check "Calendar" button is present', () => {
+    it('7. Test to check "Calendar view" button is present', () => {
         cy.componentVisiblityCheck('.psp-calendar-link', 'Calendar view')
     });
 

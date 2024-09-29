@@ -8,7 +8,7 @@ describe('MarketStack Login Page', () => {
         cy.AcceptCookies();
       });
 
-    it('2. Test to navigate to the "login" page', () => {
+    it('2. Test to navigate to the "Login" page', () => {
         cy.get('.login > a').click({ force: true });
         cy.assertPathname('/login');
     });
