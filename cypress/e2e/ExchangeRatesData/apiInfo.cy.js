@@ -1,10 +1,5 @@
 describe('API Info Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
-    before(() => {
+before(() => {
       cy.visit('https://apilayer.com/marketplace/exchangerates_data-api');
     });
   

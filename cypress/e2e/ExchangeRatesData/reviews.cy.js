@@ -17,7 +17,7 @@ describe('Reviews Page', () => {
         cy.componentVisiblityCheck('.h2', 'Exchange Rates Data API');
     });
 
-    it('3. Test to click on reviews tab, reviews card should be present', () => {
+    it('3. Test to click on "Reviews" tab, "Reviews" card should be present', () => {
         cy.get('#reviews-tab').click();
         cy.componentVisiblityCheck('.col-lg-4 > .card');
     });
