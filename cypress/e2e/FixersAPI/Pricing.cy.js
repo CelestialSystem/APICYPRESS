@@ -1,4 +1,4 @@
-describe('Fixers pricing page', () => {
+describe('Fixers Pricing page', () => {
     before(() => {
         cy.visit('https://apilayer.com/marketplace/fixer-api');
     });

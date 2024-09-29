@@ -7,7 +7,7 @@ describe('Fixers FAQs page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check the "FAQs" tab present', () => {
+    it('2. Test to check the "FAQs" tab is present', () => {
         cy.componentVisiblityCheck('#faqs-tab > .d-md-flex > span');
     });
 

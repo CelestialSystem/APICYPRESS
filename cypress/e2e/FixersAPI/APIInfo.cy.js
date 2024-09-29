@@ -1,4 +1,4 @@
-describe('Fixers APIs info page', () => {
+describe('Fixers APIs Info page', () => {
     before(() => {
         cy.visit('https://apilayer.com/marketplace/fixer-api');
     });
@@ -7,7 +7,7 @@ describe('Fixers APIs info page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "API Info" tab present', () => {
+    it('2. Test to check for the "API Info" tab is present', () => {
         cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
     });
 
