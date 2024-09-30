@@ -4,9 +4,7 @@ describe('Fixer Documentation page', () => {
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
-        cy.intercept('GET', '/collect*').as('apiRequest');
         cy.AcceptCookies();
-        cy.wait('@apiRequest');
     });
 
     it('2. Test to check for the "Documentation" tab is present', () => {
