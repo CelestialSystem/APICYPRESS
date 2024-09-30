@@ -7,48 +7,48 @@ describe('Fixers Home page', () => {
         cy.AcceptCookies();
     });
 
-    it('1. Test to check for the "Tax Data API" text is present', () => {
+    it('2. Test to check for the "Tax Data API" text is present', () => {
         cy.checkTextVisibility('Tax Data API');
     });
 
-    it('2. Test to check for the caption "Instant VAT number and tax validation across the globe" is present', () => {
+    it('3. Test to check for the caption "Instant VAT number and tax validation across the globe" is present', () => {
         cy.checkTextVisibility('Instant VAT number and tax validation across the globe');
     });
 
-    it('3. Test to check the code response window is present', () => {
+    it('4. Test to check the code response window is present', () => {
         cy.componentVisiblityCheck('.col-9 > :nth-child(2)');
     });
 
-    it('4. Test to check the "Subscribe for Free" button"', () => {
+    it('5. Test to check the "Subscribe for Free" button"', () => {
         cy.componentVisiblityCheck('#subscribeButton')
     });
 
-    it('5. Test to check the "Live demo" button', () => {
+    it('6. Test to check the "Live demo" button', () => {
         cy.componentVisiblityCheck('.show-code');
     });
 
-    it('6. Test to check the "Prcing" tab is present', () => {
+    it('7. Test to check the "Prcing" tab is present', () => {
         cy.componentVisiblityCheck('#pricing-tab > .d-md-flex > span');
     });
 
-    it('7. Test to check the "API info" tab is present', () => {
+    it('8. Test to check the "API info" tab is present', () => {
         cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
     });
 
-    it('8. Test to check the "Documentation" tab is present', () => {
+    it('9. Test to check the "Documentation" tab is present', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
     });
 
-    it('9. Test to check the "FAQs" tab is present', () => {
+    it('10. Test to check the "FAQs" tab is present', () => {
         cy.componentVisiblityCheck('#faqs-tab > .d-md-flex > span');
     });
 
-    it('10. Test to check on the "Live Demo" button click', () => {
+    it('11. Test to check on the "Live Demo" button click', () => {
         cy.get('.show-code').click();
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
     });
 
-    it('11. Test to check for text "Sign in to APILayer"', () => {
+    it('12. Test to check for text "Sign in to APILayer"', () => {
         cy.checkTextVisibility('Sign in to APILayer');
         cy.get('.hs-unfold > .js-hs-unfold-invoker').click();
     });

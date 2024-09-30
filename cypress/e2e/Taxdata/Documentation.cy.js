@@ -9,7 +9,7 @@ describe('Taxdata Documentation page', () => {
         cy.wait('@apiRequest');
     });
 
-    it('2. Test to check for the "Documentation" tab pis resent', () => {
+    it('2. Test to check for the "Documentation" tab is present', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
     });
 
