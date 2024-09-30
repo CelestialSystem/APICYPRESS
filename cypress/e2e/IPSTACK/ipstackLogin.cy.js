@@ -1,9 +1,4 @@
 describe('Login Page Test Suite', () => {
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    // Returning false here prevents Cypress from failing the test
-    return false;
-  });
-
   before(() => {
     // Visit the login page before running any tests
     cy.visit('https://ipstack.com/');
