@@ -47,7 +47,9 @@ Cypress.Commands.add('AcceptCookies', () => {
     // Check if the "Accept Cookies" button is visible or exists
     cy.get('body').then((body) => {
         if (body.find('#cookiescript_accept').length > 0) {
+            cy.intercept('GET', '/collect*').as('apiRequest');
             cy.get('#cookiescript_accept').click(); // Click the button if it exists
+            cy.wait('@apiRequest');
             cy.log('Cookies accepted.');
         } else {
             cy.log('Cookies already accepted or not present.');
@@ -119,4 +121,14 @@ Cypress.Commands.add('checkPlanFeatures', (planClass, features) => {
 
 Cypress.Commands.add('checkTextVisibility', (text) => {
     cy.contains(text).should('be.visible');
+});
+
+//code to check the modal and text present in that.
+Cypress.Commands.add('checkModal', (headerText, featureText) => {
+    cy.get('.modal-content').should('exist').and('be.visible');
+    cy.get('.modal-header').contains(headerText).should('be.visible');
+    cy.get('.plan-feature-list > li').should('be.visible').and('contain.text', featureText);
+    cy.get('.modal-footer > .btn').click();
+    // Added wait of 1 second because there is 3s transition delay added in the css for the model
+    cy.wait(1000);
 });
