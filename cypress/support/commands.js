@@ -47,7 +47,9 @@ Cypress.Commands.add('AcceptCookies', () => {
     // Check if the "Accept Cookies" button is visible or exists
     cy.get('body').then((body) => {
         if (body.find('#cookiescript_accept').length > 0) {
+            cy.intercept('GET', '/collect*').as('apiRequest');
             cy.get('#cookiescript_accept').click(); // Click the button if it exists
+            cy.wait('@apiRequest');
             cy.log('Cookies accepted.');
         } else {
             cy.log('Cookies already accepted or not present.');
