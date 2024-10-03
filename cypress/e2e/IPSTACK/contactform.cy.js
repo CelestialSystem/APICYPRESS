@@ -63,8 +63,8 @@ describe('Ipstack Contact page', () => {
 
     it('14. Test to  click on the "FAQ" link and verify it navigates to the "FAQ" section', () => {
         cy.contains('FAQ section').click();
-        cy.url().should('include', 'https://ipstack.com/faq');
-        cy.navigateUrlwithCookies('https://ipstack.com/contact');
+        cy.url().should('include', `${IPSTACK_BASE_URL}/faq`);
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/contact`);
     });
 
     it('15. Test to display validation error "Please enter your first name." when submitting empty form', () => {
@@ -115,13 +115,13 @@ describe('Ipstack Contact page', () => {
 
     it('22. Test to  navigate to the "Docmentation" page after clicking the "EXPLORE THE DOCS" button', () => {
         cy.get('.docs').click();
-        cy.navigateUrlwithCookies('https://ipstack.com/documentation');
-        cy.navigateUrlwithCookies('https://ipstack.com/contact');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/documentation`);
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/contact`);
     })
 
     it('23. Test to  navigate to the "Sign Up" page after clicking the "GET FREE API KEY" button', () => {
         cy.get('.container > .cta').click();
-        cy.navigateUrlwithCookies('https://ipstack.com/signup/free');
-        cy.navigateUrlwithCookies('https://ipstack.com/contact');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/signup/free`);
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/contact`);
     });
 });

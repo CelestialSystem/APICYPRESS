@@ -10,7 +10,7 @@ describe('Ipstack FAQs page', () => {
         cy.AcceptCookies();
         cy.get('.main-menu > :nth-child(4)').trigger('mouseover');
         cy.get(':nth-child(4) > .submenu > :nth-child(1) > a').click({force: true});
-        cy.visit('https://ipstack.com/faq');
+        cy.visit(`${IPSTACK_BASE_URL}/faq`);
         cy.AcceptCookies();
     });
 

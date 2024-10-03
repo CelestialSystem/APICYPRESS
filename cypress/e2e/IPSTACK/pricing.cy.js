@@ -3,7 +3,7 @@ import { IPSTACK_BASE_URL } from '../../resources/data';
 describe('Pricing Page', () => {
     before(() => {
         // Visit the contact form page before running any tests
-        cy.visit('https://ipstack.com');
+        cy.visit(IPSTACK_BASE_URL);
     });
 
     it('1. Test to navigate to the "Pricing" page', () => {
@@ -150,7 +150,7 @@ describe('Pricing Page', () => {
 
     it('26.Test to check "Platinum Support" button click', () => {
         cy.get('.platinum_right_section > div').should('be.visible').click();
-        cy.visit('https://ipstack.com/documentation#support-section');
+        cy.visit(`${IPSTACK_BASE_URL}/documentation#support-section`);
         cy.go('back');
     });
 

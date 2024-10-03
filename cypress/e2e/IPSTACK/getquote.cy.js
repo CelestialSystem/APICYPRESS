@@ -90,13 +90,13 @@ describe('Ipstack Get Quote page', () => {
 
     it('17. Test to navigate to the "Documentation" page after clicking the "EXPLORE THE DOCS" button', () => {
         cy.get('.docs').click();
-        cy.navigateUrlwithCookies('https://ipstack.com/documentation');
-        cy.navigateUrlwithCookies('https://ipstack.com/contact');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/documentation`);
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/contact`);
     });
 
     it('18. Test to navigate to the "Sign Up" page after clicking the "GET FREE API KEY" button', () => {
         cy.get('.container > .cta').click();
-        cy.navigateUrlwithCookies('https://ipstack.com/signup/free');
-        cy.navigateUrlwithCookies('https://ipstack.com/contact');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/signup/free`);
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/contact`);
     });
 });

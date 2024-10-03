@@ -8,7 +8,7 @@ describe(' Ipstack Glosssary page ', () => {
     it('1. Test to naviagate to the "Api Glossary" page', () => {
         cy.AcceptCookies();
         cy.get('.custom-container > :nth-child(3) > :nth-child(5) > a').click();
-        cy.visit('https://ipstack.com/api-glossary');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/api-glossary`);
         cy.AcceptCookies();
     });
 

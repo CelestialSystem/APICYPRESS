@@ -9,7 +9,7 @@ describe('Ipstack Documentation page', () => {
         cy.AcceptCookies();
         cy.get('.main-menu > :nth-child(2)').trigger('mouseover');
         cy.get(':nth-child(2) > .submenu > :nth-child(1) > a').click({force: true});
-        cy.navigateUrlwithCookies('https://ipstack.com/documentation');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/documentation`);
     });
 
     it('2. Test to check the text "Ipstack API" is present', () => {
@@ -111,7 +111,7 @@ describe('Ipstack Documentation page', () => {
 
     it('22. Test to check for "Upgrade now" button and click on that', () => {
         cy.get('.platinum-btn').contains('Upgrade now').click();
-        cy.navigateUrlwithCookies('https://ipstack.com/product');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/product`);
         cy.go('back');
     });
 

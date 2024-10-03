@@ -64,7 +64,7 @@ describe('Ipstack Login page ', () => {
   it('11. Test to click on "Forgot password" link', () => {
     cy.componentVisiblityCheck('.forgot');
     cy.get('.forgot').click();
-    cy.navigateUrlwithCookies('https://ipstack.com/forgot');
+    cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/forgot`);
   });
 
   it('12. Test to load the "Forgot Password" page', () => {
@@ -89,7 +89,7 @@ describe('Ipstack Login page ', () => {
 
   xit('16. Test to allow navigating back to "Login" page by clicking the "Sign Out" button', () => {
     cy.contains('Sign Out').click();
-    cy.navigateUrlwithCookies('https://ipstack.com/login/');
+    cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/login/`);
     cy.checkTextVisibility('Log in');
   });
 

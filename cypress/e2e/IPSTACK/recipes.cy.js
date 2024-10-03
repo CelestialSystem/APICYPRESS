@@ -8,7 +8,7 @@ describe('Ipstack Recipe page', () => {
     it('1. Test to naviagate to the "Recipes" page', () => {
         cy.AcceptCookies();
         cy.get('.custom-container > :nth-child(3) > :nth-child(6) > a').click();
-        cy.navigateUrlwithCookies('https://ipstack.com/recipe');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/recipe`);
     });
 
     it('2. Test to show the text "Ipstack Fraud Detection Recipe" is present', () => {

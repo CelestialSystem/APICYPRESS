@@ -2,7 +2,7 @@ import { IPSTACK_BASE_URL } from '../../resources/data';
 
 describe('IPstack Social media icons', () => {
     before(() => {
-        cy.visit('https://ipstack.com');
+        cy.visit(IPSTACK_BASE_URL);
     });
 
     it('1.Test to check "Twitter" icon is present', () => {
@@ -18,33 +18,33 @@ describe('IPstack Social media icons', () => {
     });
 
     it('3. Test to check "Facebook" icon is present', () => {
-        cy.visit('https://ipstack.com')
+        cy.visit(IPSTACK_BASE_URL)
         cy.scrollTo('bottom');
         cy.componentVisiblityCheck('.facebook > a > img').should('be.visible');
     });
 
     it('4. Test to click on "Facebook" icon', () => {
-        cy.visit('https://ipstack.com')
+        cy.visit(IPSTACK_BASE_URL)
         cy.scrollTo('bottom');
         cy.get('.facebook > a > img').click();
         cy.url('eq', 'https://facebook.com/apilayer/')
     });
 
     it('5. Test to check "Instagram" icon is present', () => {
-        cy.visit('https://ipstack.com')
+        cy.visit(IPSTACK_BASE_URL)
         cy.scrollTo('bottom');
         cy.componentVisiblityCheck('.twitter > a > img');
     });
 
     it('6. Test to click on "Instagram" icon', () => {
-        cy.visit('https://ipstack.com')
+        cy.visit(IPSTACK_BASE_URL)
         cy.scrollTo('bottom');
         cy.get('.twitter > a > img').click();
         cy.url('eq', 'https://instagram.com/apilayer/');
     });
 
     it('7. Test to check "Youtube" icon is present', () => {
-        cy.visit('https://ipstack.com')
+        cy.visit(IPSTACK_BASE_URL)
         cy.scrollTo('bottom');
         cy.componentVisiblityCheck('.youtube > a > img');
     });
@@ -56,7 +56,7 @@ describe('IPstack Social media icons', () => {
     });
 
     it('9. Test to check "Linkdin" icon is present', () => {
-        cy.visit('https://ipstack.com')
+        cy.visit(IPSTACK_BASE_URL)
         cy.scrollTo('bottom');
         cy.componentVisiblityCheck('.instagram > a > img');
     });

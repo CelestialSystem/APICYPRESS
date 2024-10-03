@@ -28,7 +28,7 @@ describe('Contact Form Page', () => {
     it('4. Test to naviagate to the "FAQ" page', () => {
         cy.get('.main-menu > :nth-child(4)').trigger('mouseover');
         cy.get(':nth-child(4) > .submenu > :nth-child(1) > a').click({force: true});
-        cy.visit('https://ipstack.com/faq');
+        cy.visit(`${IPSTACK_BASE_URL}/faq`);
         cy.AcceptCookies();
         cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
     });
@@ -36,7 +36,7 @@ describe('Contact Form Page', () => {
     it('5. Test to naviagate to the "Documentation" page', () => {
         cy.get('.main-menu > :nth-child(2)').trigger('mouseover');
         cy.get(':nth-child(2) > .submenu > :nth-child(1) > a').click({force: true});
-        cy.navigateUrlwithCookies('https://ipstack.com/documentation');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/documentation`);
         cy.AcceptCookies();
         cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
     });

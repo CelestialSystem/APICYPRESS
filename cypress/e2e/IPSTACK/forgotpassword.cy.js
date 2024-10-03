@@ -2,8 +2,7 @@ import { IPSTACK_BASE_URL } from '../../resources/data';
 
 describe('Ipstack Forgot Password page', () => {
     before(() => {
-        // Visit the login page before running any tests
-        cy.visit('https://ipstack.com/forgot');
+        cy.visit(`${IPSTACK_BASE_URL}/forgot`);
     });
 
     it('1. Test to click the "Forgot Password" button and navigate to the "Forgot Password" page', () => {
