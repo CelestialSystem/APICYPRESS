@@ -1,3 +1,5 @@
+import { APILAYER_BASE_URL } from '../../resources/data';
+
 describe('Contact us page', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
         // Returning false here prevents Cypress from failing the test
@@ -5,7 +7,7 @@ describe('Contact us page', () => {
     });
 
     before(() => {
-        cy.visit('https://apilayer.com/');
+        cy.visit(APILAYER_BASE_URL);
     });
 
     it('1. Test to Accept Cookies if not already accepted', () => {

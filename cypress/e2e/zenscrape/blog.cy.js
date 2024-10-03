@@ -1,6 +1,8 @@
+import { ZENSCRAPE_BASE_URL } from '../../resources/data';
+
 describe('Zenscrape Blog page', () => {
     before(() => {
-        cy.visit('https://zenscrape.com/');
+        cy.visit(ZENSCRAPE_BASE_URL);
     });
 
     it('1. Test to click on the "Blog" hyperlink navigate to the "Blog" page', () => {

@@ -1,6 +1,8 @@
+import { ZENSCRAPE_BASE_URL } from '../../resources/data';
+
 describe('Zenscrape Home page', () => {
     before(() => {
-        cy.navigateUrlwithCookies('https://zenscrape.com/');
+        cy.navigateUrlwithCookies(ZENSCRAPE_BASE_URL);
     });
 
     it('1. Test to check for the "Web scraping without the hassle" text is present', () => {
@@ -36,7 +38,7 @@ describe('Zenscrape Home page', () => {
             expect(doc.readyState).to.equal('complete');
         });
         cy.get('.m-4').should('be.visible', 'contian.text', 'All Subscription plan prices are excluding applicable VAT.');
-        cy.navigateUrlwithCookies('https://zenscrape.com/');
+        cy.navigateUrlwithCookies(ZENSCRAPE_BASE_URL);
     });
 
     it('8. Test to check the text "Start Web scraping for FREE" is present', () => {
@@ -51,7 +53,7 @@ describe('Zenscrape Home page', () => {
         cy.get('.max-w-2xl > .mt-5 > .rounded-sm > .w-full').click();
         cy.get('.float-left').should('be.visible');
         cy.get('.m-4').should('be.visible', 'contian.text', 'All Subscription plan prices are excluding applicable VAT.');
-        cy.navigateUrlwithCookies('https://zenscrape.com/');
+        cy.navigateUrlwithCookies(ZENSCRAPE_BASE_URL);
     });
 
     it('11. Test to check the "Simple and Economical Pricing" section', () => {
@@ -71,7 +73,7 @@ describe('Zenscrape Home page', () => {
         cy.navigateUrlwithCookies('https://apilayer.com/support');
         cy.document().its('readyState').should('eq', 'complete');
         cy.get('h1').should('contains.text', 'Contact Sales & Customer Support');
-        cy.navigateUrlwithCookies('https://zenscrape.com/');
+        cy.navigateUrlwithCookies(ZENSCRAPE_BASE_URL);
     });
 
     it('15. Test to verify the "Web Scraping API Use Cases" section is present', () => {

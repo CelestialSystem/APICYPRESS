@@ -1,6 +1,8 @@
+import { MEDIASTACK_BASE_URL } from '../../resources/data';
+
 describe('MediaStack Documentation page', () => {
     before(() => {
-        cy.visit('https://mediastack.com/');
+        cy.visit(MEDIASTACK_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {

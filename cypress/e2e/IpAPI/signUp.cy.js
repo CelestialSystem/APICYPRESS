@@ -1,6 +1,8 @@
+import { IPAPI_BASE_URL } from '../../resources/data';
+
 describe('IpApi Signup page', () => {
     before(() => {
-        cy.visit('https://ipapi.com');
+        cy.visit(IPAPI_BASE_URL);
     });
 
     it('1. Test to click the "SIGN UP FREE" button', () => {
@@ -28,10 +30,10 @@ describe('IpApi Signup page', () => {
     });
 
     it('6. Test to display the correct "Subscription" details', () => {
-        cy.componentVisiblityCheck('tbody > :nth-child(1) > :nth-child(3)', '$0 / Monthly');
-        cy.componentVisiblityCheck('tbody > :nth-child(2) > :nth-child(3)', '$10 / Monthly');
-        cy.componentVisiblityCheck('tbody > :nth-child(3) > :nth-child(3)', '$50 / Monthly');
-        cy.componentVisiblityCheck('tbody > :nth-child(4) > :nth-child(3)', '$100 / Monthly');
+        cy.componentVisiblityCheck(':nth-child(1) > :nth-child(3) > .table-plan-text > .monthly_data',  '\n                                                    $0 / Monthly\n                                                    ');
+        cy.componentVisiblityCheck(':nth-child(2) > :nth-child(3) > .table-plan-text > .monthly_data', '\n                                                    $12.99 / Monthly\n                                                    ');
+        cy.componentVisiblityCheck(':nth-child(3) > :nth-child(3) > .table-plan-text > .monthly_data', '\n                                                    $59.99 / Monthly\n                                                    ');
+        cy.componentVisiblityCheck(':nth-child(4) > :nth-child(3) > .table-plan-text > .monthly_data', '\n                                                    $99.99 / Monthly\n                                                    ');
     });
 
     it('7. Test to display all "Account Detail" fields', () => {

@@ -1,8 +1,9 @@
 /// <reference types="cypress" />
+import { APILAYER_BASE_URL } from '../../resources/data';
 
 describe("Test for Signup and Login for API layer Main page", function () {
   before(() => {
-    cy.visit('https://apilayer.com/');
+    cy.visit(APILAYER_BASE_URL);
   });
 
   describe("Test for Signup for API layer Main page", function () {

@@ -1,6 +1,8 @@
+import { CURRENCY_BASE_URL } from '../../resources/data';
+
 describe('Currency Data Pricing page', () => {
     before(() => {
-      cy.visit('https://apilayer.com/marketplace/currency_data-api');
+      cy.visit(CURRENCY_BASE_URL);
     });
   
     it('1. Test to "Accept Cookies" if not already accepted', () => {

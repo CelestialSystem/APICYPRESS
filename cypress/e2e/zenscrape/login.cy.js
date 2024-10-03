@@ -1,6 +1,8 @@
+import { ZENSCRAPE_BASE_URL } from '../../resources/data';
+
 describe('Zenscrape Login page  ', () => {
   before(() => {
-    cy.navigateUrlwithCookies('https://zenscrape.com/');
+    cy.navigateUrlwithCookies(ZENSCRAPE_BASE_URL);
   });
 
   it('1. Test to click on the "Login" button and check the actual url', () => {

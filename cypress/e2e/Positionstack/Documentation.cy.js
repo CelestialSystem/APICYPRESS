@@ -1,6 +1,8 @@
+import { POSITIONSTACK_BASE_URL } from '../../resources/data';
+
 describe('Postionstack Documentation page', () => {
     before(() => {
-        cy.visit('https://positionstack.com/');
+        cy.visit(POSITIONSTACK_BASE_URL);
     });
 
     it('1. Test to click on the "Documentation" hyperlink and naviagate to the "Documentation" page', () => {
