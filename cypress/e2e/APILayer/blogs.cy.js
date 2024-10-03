@@ -1,9 +1,4 @@
 describe('Blogs', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com/');
     });
@@ -37,7 +32,6 @@ describe('Blogs', () => {
 
     it('5.Test to Click on "Automation" button on the blog route should change to automation', () => {
         cy.visit('https://blog.apilayer.com/');
-        cy.wait(3000);
         cy.get('#post-11156 > .saxon-grid-post > .saxon-post-image-wrapper > .post-categories > [href="https://blog.apilayer.com/category/automation/"]').click();
         // cy.get('.saxon-post-image-wrapper > .post-categories > [href="https://blog.apilayer.com/category/automation/"]').click();
         cy.location('pathname').should('eq', '/category/automation/');

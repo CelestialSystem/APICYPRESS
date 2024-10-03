@@ -1,9 +1,4 @@
 describe('Test Caes for Docs/ Documentation', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com');
     });

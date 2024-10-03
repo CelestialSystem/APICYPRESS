@@ -1,9 +1,4 @@
 describe('Account Section', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com/');
     });
@@ -14,7 +9,6 @@ describe('Account Section', () => {
 
     it('2. Test to click on "Sign In"', () => {
         cy.scrollTo('bottom');
-        cy.wait(2000);
         cy.get(':nth-child(4) > .nav > :nth-child(1) > .nav-link').click();
         cy.get('.sidebar-content').should('be.visible')
     })
@@ -25,7 +19,6 @@ describe('Account Section', () => {
     })
 
     it('4. Test to click on "Sign In"', () => {
-        cy.wait(1000);
         cy.scrollTo('bottom');
         cy.get(':nth-child(4) > .nav > :nth-child(2) > .nav-link').click();
         cy.location('pathname').should('eq', '/recover-password');
@@ -39,7 +32,6 @@ describe('Account Section', () => {
 
     it('6. Test to click on "Sign In"', () => {
         cy.scrollTo('bottom');
-        cy.wait(2000);
         cy.get(':nth-child(4) > .nav > :nth-child(3) > .nav-link').click();
     })
 

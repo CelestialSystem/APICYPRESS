@@ -1,9 +1,4 @@
 describe('API Glosssary Form Page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com/');
     });
@@ -46,7 +41,6 @@ describe('API Glosssary Form Page', () => {
     it('9. test to check if we can type in "Search Bar"', () => {
         cy.get('#s_p').type('filter', { force: true });
         cy.get('#s_p').should('have.value', 'filter');
-        cy.wait(3000);
         cy.AcceptCookies();
     });
 

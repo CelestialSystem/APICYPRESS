@@ -1,9 +1,4 @@
 describe('Test Cases for Why Choose us', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com/');
     });
@@ -14,7 +9,6 @@ describe('Test Cases for Why Choose us', () => {
 
     it('2 . Test to click on "Why Choose Button" link', () => {
         cy.scrollTo('bottom');
-        cy.wait(2000);
         cy.get('.row > :nth-child(2) > .nav > :nth-child(3) > .nav-link').click();
         cy.location('pathname').should('eq', '/why-choose-apilayer');
     });

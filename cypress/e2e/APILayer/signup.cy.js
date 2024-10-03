@@ -12,7 +12,6 @@ describe("Test for Signup and Login for API layer Main page", function () {
     });
 
     it('2. Test to select "Sign Up" button from APi layer', () => {
-      cy.wait(1000);
       cy.get('#signUpButton').click();
       cy.get('.h2').should('be.visible');
       cy.get('.h2').should('have.text', 'Welcome to APILayer');

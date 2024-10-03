@@ -1,9 +1,4 @@
 describe('Write For us', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit('https://apilayer.com/');
     });
@@ -14,7 +9,6 @@ describe('Write For us', () => {
 
     it('2. Test to click on "Wrtie to Us" link', () => {
         cy.scrollTo('bottom');
-        // cy.wait(3000);
         cy.get(':nth-child(3) > .nav > :nth-child(4) > .nav-link').click();
         cy.location('pathname').should('eq', '/docs/write-for-us');
         cy.get('.display-4').should('contains.text', 'Get paid with credits')
