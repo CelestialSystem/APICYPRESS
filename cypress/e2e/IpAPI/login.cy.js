@@ -2,7 +2,7 @@ import { IPAPI_BASE_URL } from '../../resources/data';
 
 describe('IpApi Login page ', () => {
   before(() => {
-    cy.navigateUrlwithCookies('https://ipapi.com/login');
+    cy.navigateUrlwithCookies(`${IPAPI_BASE_URL}/login`);
   });
 
   // Check if the login page loads correctly

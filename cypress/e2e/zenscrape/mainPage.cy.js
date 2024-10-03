@@ -70,7 +70,7 @@ describe('Zenscrape Home page', () => {
 
     it('14. Test to check "CONTACT US FOR A QUOTE" button and should redirect to "CONTACT US" page', () => {
         cy.get('.shadow > .inline-flex').click();
-        cy.navigateUrlwithCookies('https://apilayer.com/support');
+        cy.navigateUrlwithCookies(`${APILAYER_BASE_URL}/support`);
         cy.document().its('readyState').should('eq', 'complete');
         cy.get('h1').should('contains.text', 'Contact Sales & Customer Support');
         cy.navigateUrlwithCookies(ZENSCRAPE_BASE_URL);
