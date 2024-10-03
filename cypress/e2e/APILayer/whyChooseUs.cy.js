@@ -8,11 +8,11 @@ describe('Test Cases for Why Choose us', () => {
         cy.visit('https://apilayer.com/');
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('2 . Test to click on Why Choose Button link', () => {
+    it('2 . Test to click on "Why Choose Button" link', () => {
         cy.scrollTo('bottom');
         cy.wait(2000);
         cy.get('.row > :nth-child(2) > .nav > :nth-child(3) > .nav-link').click();
@@ -39,7 +39,7 @@ describe('Test Cases for Why Choose us', () => {
         cy.get(':nth-child(3) > .pr-lg-4 > .h2').should('contains.text', 'Strict Uptime')
     });
 
-    it('8 . Test to click on Why Choose Button link', () => {
+    it('8 . Test to click on "Why Choose Us" Button link from footer', () => {
         cy.get('.d-block > .btn').click();
         cy.location('pathname').should('eq', '/');
     });

@@ -6,11 +6,7 @@ describe("Test for launch of IPSTACK Geo Page from Featured APIS", function () {
   });
 
   it("1. Test to accept cookies if exists", () => {
-    cy.get('#cookiescript_accept').then(($el) => {
-      if ($el.length > 0) {
-        $el.click();
-      }
-    });
+    cy.AcceptCookies();
   })
 
   it("2. Test to scroll to last to see all content is loaded or not", () => {
