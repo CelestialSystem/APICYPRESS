@@ -1,5 +1,8 @@
 module.exports = {
   e2e: {
+    //Added the viewport width and height
+    viewportWidth: 1920,
+    viewportHeight: 1080,
     testIsolation: false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
