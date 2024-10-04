@@ -1,6 +1,8 @@
+import { EXCHANGERATES_BASE_URL } from '../../resources/data';
+
 describe('Documentation Page', () => {
 before(() => {
-      cy.visit('https://apilayer.com/marketplace/exchangerates_data-api');
+      cy.visit(EXCHANGERATES_BASE_URL);
     });
   
     it('1. Test to "Accept Cookies" if not already accepted', () => {

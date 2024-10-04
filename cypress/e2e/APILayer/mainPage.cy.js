@@ -1,16 +1,13 @@
 /// <reference types="cypress" />
+import { APILAYER_BASE_URL } from '../../resources/data';
 
 describe("Test for launch of IPSTACK Geo Page from Featured APIS", function () {
   before(() => {
-    cy.switchToURL('https://apilayer.com/');
+    cy.switchToURL(APILAYER_BASE_URL);
   });
 
   it("1. Test to accept cookies if exists", () => {
-    cy.get('#cookiescript_accept').then(($el) => {
-      if ($el.length > 0) {
-        $el.click();
-      }
-    });
+    cy.AcceptCookies();
   })
 
   it("2. Test to scroll to last to see all content is loaded or not", () => {

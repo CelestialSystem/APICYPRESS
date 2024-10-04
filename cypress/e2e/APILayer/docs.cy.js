@@ -1,31 +1,25 @@
+import { APILAYER_BASE_URL } from '../../resources/data';
+
 describe('Test Caes for Docs/ Documentation', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
-        cy.visit('https://apilayer.com');
+        cy.visit(APILAYER_BASE_URL);
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to click on docs link and check if it is redirecting', () => {
+    it('2. Test to click on "Docs" link and check if it is redirecting', () => {
         cy.scrollTo('bottom');
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click();
-
-        // cy.location('pathname').should('eq', '/docs');
-
     });
 
-    it('3. Test to Click on Account Card', () => {
+    it('3. Test to Click on "Account" Card', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(1) > .card > .card-body').click();
     });
 
-    it('4. Account Card content should have Purchase history', () => {
+    it('4. Account Card content should have "Purchase history"', () => {
         cy.get('[href="/docs/article/purchase-history"] > .card-body').should('contains.text', 'Purchase history')
     });
 
@@ -45,7 +39,7 @@ describe('Test Caes for Docs/ Documentation', () => {
         cy.get('[href="/docs/article/managing-payment-methods"] > .card-body').should('contains.text', '\n\n\n\n\n\n\nManaging payment methods\n')
     });
 
-    it('9. Test to Click on FAQ Card', () => {
+    it('9. Test to Click on "FAQ" Card', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(2) > .card > .card-body').click();
     });
@@ -58,7 +52,7 @@ describe('Test Caes for Docs/ Documentation', () => {
         cy.get('[href="/docs/article/marketplace-faq"] > .card-body').should('contains.text', 'Marketplace FAQ')
     });
 
-    it('12. Test to Click on Introduction Card', () => {
+    it('12. Test to Click on "Introduction" Card', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(3) > .card > .card-body').click();
     });
@@ -71,7 +65,7 @@ describe('Test Caes for Docs/ Documentation', () => {
         cy.get('[href="/docs/article/getting-started"] > .card-body').should('contains.text', 'Getting Started')
     });
 
-    it('15. Test to Click on Subscription Card', () => {
+    it('15. Test to Click on "Subscription" Card', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(4) > .card > .card-body').click();
     });
@@ -96,7 +90,7 @@ describe('Test Caes for Docs/ Documentation', () => {
         cy.get('[href="/docs/article/downgrading-a-subscription"] > .card-body').should('contains.text', '\n\n\n\n\n\n\nDowngrading a subscription\n')
     });
 
-    it('21. Test to Click on Tips and Tricks Card', () => {
+    it('21. Test to Click on "Tips and Tricks" Card', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(5) > .card > .card-body').click();
     });
@@ -109,53 +103,53 @@ describe('Test Caes for Docs/ Documentation', () => {
         cy.get('[href="/docs/article/asking-for-support"] > .card-body').should('contains.text', 'Asking for support')
     });
 
-    it('24. Test to check Navigate to Docs', () => {
+    it('24. Test to check Navigate to "Docs"', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
     });
 
-    it('25. Test to Featured arting should have following links', () => {
+    it('25. Test to "Featured arting" should have following links', () => {
         cy.get('.container.space-2 > .row > :nth-child(1)').should('contains.text', 'Provider FAQ')
         cy.get('.container.space-2 > .row > :nth-child(1)').should('contains.text', 'GDPR Compliance')
         cy.get('.container.space-2 > .row > :nth-child(1)').should('contains.text', 'Managing API Keys')
         cy.get('.container.space-2 > .row > :nth-child(1)').should('contains.text', 'Upgrading a subscription')
     })
 
-    it('26. Test to Click on Provider FAQ', () => {
+    it('26. Test to Click on "Provider FAQ"', () => {
         cy.get(':nth-child(1) > .list-unstyled > :nth-child(1) > .link-underline').click();
         cy.location('pathname').should('eq', '/docs/article/provider-faq');
     })
 
-    it('27. Test to Click on GDPR Compliance', () => {
+    it('27. Test to Click on "GDPR Compliance"', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(1) > .list-unstyled > :nth-child(2) > .link-underline').click();
         cy.location('pathname').should('eq', '/docs/article/gdpr-compliance');
     })
 
-    it('28. Test to Click on Managing API Keys', () => {
+    it('28. Test to Click on "Managing API Keys"', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(1) > .list-unstyled > :nth-child(3) > .link-underline').click();
         cy.location('pathname').should('eq', '/docs/article/upgrading-a-subscription');
     })
 
-    it('29. Test to Click on Upgrading a subscription', () => {
+    it('29. Test to Click on "Upgrading a subscription"', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(1) > .list-unstyled > :nth-child(4) > .link-underline').click();
         cy.location('pathname').should('eq', '/docs/article/managing-api-keys');
     })
 
-    it('30. Test to Click on Getting started', () => {
+    it('30. Test to Click on "Getting started"', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(2) > .list-unstyled > :nth-child(1) > .link-underline').click();
         cy.location('pathname').should('eq', '/docs/article/getting-started');
     })
 
-    it('31. Test to Click on Managing API Keys', () => {
+    it('31. Test to Click on "Managing API Keys"', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(2) > .list-unstyled > :nth-child(2) > .link-underline').click();
         cy.location('pathname').should('eq', '/docs/article/managing-api-keys');
     })
 
-    it('32. Test to Click on Marketplace FAQ', () => {
+    it('32. Test to Click on "Marketplace FAQ"', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(1) > .nav-link').click()
         cy.get(':nth-child(2) > .list-unstyled > :nth-child(3) > .link-underline').click();
         cy.location('pathname').should('eq', '/docs/article/marketplace-faq');

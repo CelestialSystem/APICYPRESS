@@ -1,7 +1,9 @@
+import { POSITIONSTACK_BASE_URL } from '../../resources/data';
+
 describe('Positionstack FAQ page', () => {
     before(() => {
         // Visit the contact form page before running any tests
-        cy.navigateUrlwithCookies('https://positionstack.com/');
+        cy.navigateUrlwithCookies(POSITIONSTACK_BASE_URL);
     });
 
     it('1. Test to naviagate to the "FAQs" page', () => {

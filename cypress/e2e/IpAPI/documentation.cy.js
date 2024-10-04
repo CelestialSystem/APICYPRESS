@@ -1,6 +1,8 @@
+import { IPAPI_BASE_URL } from '../../resources/data';
+
 describe('IpApi Documentation page', () => {
   before(() => {
-    cy.visit('https://ipapi.com');
+    cy.visit(IPAPI_BASE_URL);
   });
 
   it('1. Test to "Accept Cookies" if not already accepted', () => {

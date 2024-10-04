@@ -1,43 +1,59 @@
-describe('API Glosssary Form Page', () => {
+import { IPSTACK_BASE_URL } from '../../resources/data';
+
+describe(' Ipstack Glosssary page ', () => {
     before(() => {
-        // Visit the contact form page before running any tests
-        cy.visit('https://ipstack.com/');
+        cy.visit(IPSTACK_BASE_URL);
     });
 
-    it('1. Test to naviagate to the Blog page', () => {
+    it('1. Test to naviagate to the "Api Glossary" page', () => {
         cy.AcceptCookies();
         cy.get('.custom-container > :nth-child(3) > :nth-child(5) > a').click();
-        cy.visit('https://ipstack.com/api-glossary');
+        cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/api-glossary`);
         cy.AcceptCookies();
     });
 
-    it('2. Test to  show the Blog page', () => {
-        cy.get('h1').should('be.visible', 'contain.text', "Ipstack API Glossary");
+    it('2. Test to check the text "Ipstack API Glossary" is present', () => {
+        cy.checkTextVisibility("Ipstack API Glossary");
     });
 
-    it('3. Test to check the Glossary text available or not', () => {
-        cy.get('.hero_small > .container > h2').should('contain.text', "Glossary of API Terms, Definitions & Programming Acronyms");
+    it('3. Test to check the text "Glossary of API Terms, Definitions & Programming Acronyms" is present', () => {
+        cy.checkTextVisibility("Glossary of API Terms, Definitions & Programming Acronyms");
     });
 
-    it('4. Test to check what is API Glossary text', () => {
-        cy.get('h3').should('contain.text', 'What is the API Glossary?');
+    it('4. Test to check text "what is API Glossary" is present', () => {
+        cy.checkTextVisibility('What is the API Glossary?');
     });
 
-    it('5. Test to check the sub-heading of the glossary ', () => {
-        cy.get('.glossary-sub-heading').should('contain.text', 'Ipstack’s API glossary contains an alphabetical list of API-related special terms, definitions, acronyms, and related phrases to help developers understand the terminology. Browse the Ipstack glossary and learn to speak the language of professional API developers!');
+    it('5. Test to check the sub-heading of the glossary "Ipstack’s API glossary contains an alphabetical list of API-related special terms, definitions, acronyms, and related phrases to help developers understand the terminology. Browse the Ipstack glossary and learn to speak the language of professional API developers!" is present ', () => {
+        cy.checkTextVisibility('Ipstack’s API glossary contains an alphabetical list of API-related special terms, definitions, acronyms, and related phrases to help developers understand the terminology. Browse the Ipstack glossary and learn to speak the language of professional API developers!');
     });
 
     it('6. Test to check the orderwise alphabetical grossary sections.', () => {
-        cy.get('#A').should('be.visible');
-        cy.get('#C').should('be.visible');
-        cy.get('#D').should('be.visible');
-        cy.get('#G').should('be.visible');
-        cy.get('#I').should('be.visible');
-        cy.get('#U').should('be.visible');
-        cy.get('#W').should('be.visible');
+        cy.componentVisiblityCheck('#A');
+        cy.componentVisiblityCheck('#C');
+        cy.componentVisiblityCheck('#D');
+        cy.componentVisiblityCheck('#G');
+        cy.componentVisiblityCheck('#I');
+        cy.componentVisiblityCheck('#U');
+        cy.componentVisiblityCheck('#W');
     });
 
-    it('7. Test to click on the footer link blog', () => {
+    it('7. Test to chek the "API Access" link', ()=> {
+        cy.contains('API Access').click();
+        cy.go('back');
+    });
+
+    it('8. Test to chek the "DDos" link', ()=> {
+        cy.contains('DDoS').click();
+        cy.go('back');
+    });
+
+    it('9. Test to chek the "ICANN" link', ()=> {
+        cy.contains('ICANN').click();
+        cy.go('back');
+    });
+
+    it('10. Test to click on the "Api Glossary" footer link ', () => {
         cy.get('.custom-container > :nth-child(3) > :nth-child(5) > a').click();
     });
 });

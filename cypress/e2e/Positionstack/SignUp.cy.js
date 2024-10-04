@@ -1,7 +1,9 @@
+import { POSITIONSTACK_BASE_URL } from '../../resources/data';
+
 describe('Postionstack Signup page', () => {
     before(() => {
         // Visit the main page before running any tests
-        cy.navigateUrlwithCookies('https://positionstack.com/');
+        cy.navigateUrlwithCookies(POSITIONSTACK_BASE_URL);
     });
 
     it('1. Test to click the "SIGN UP FREE" button', () => {

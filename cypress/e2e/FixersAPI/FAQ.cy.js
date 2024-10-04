@@ -1,6 +1,8 @@
+import { FIXER_BASE_URL } from '../../resources/data';
+
 describe('Fixers FAQs page', () => {
     before(() => {
-      cy.visit('https://apilayer.com/marketplace/fixer-api');
+      cy.visit(FIXER_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => { 

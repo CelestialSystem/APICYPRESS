@@ -1,6 +1,8 @@
+import { FIXER_BASE_URL } from '../../resources/data';
+
 describe('Fixers Pricing page', () => {
     before(() => {
-        cy.visit('https://apilayer.com/marketplace/fixer-api');
+        cy.visit(FIXER_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -93,6 +95,6 @@ describe('Fixers Pricing page', () => {
             expect(doc.readyState).to.equal('complete');
         });
         cy.componentVisiblityCheck('h1','Contact Sales & Customer Support')
-        cy.navigateUrlwithCookies('https://apilayer.com/marketplace/fixer-api');
+        cy.navigateUrlwithCookies(FIXER_BASE_URL);
     });
 });

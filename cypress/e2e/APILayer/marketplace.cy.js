@@ -1,18 +1,15 @@
-describe('Test Cases for marketplace page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
+import { APILAYER_BASE_URL } from '../../resources/data';
 
+describe('Test Cases for marketplace page', () => {
     before(() => {
-        cy.visit('https://apilayer.com/');
+        cy.visit(APILAYER_BASE_URL);
     });
 
     it('1. Test to Accept Cookies if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to click on marketplace link', () => {
+    it('2. Test to click on "Marketplace" link', () => {
         cy.scrollTo('bottom');
         cy.location('pathname').should('eq', '/');
         cy.get('.row > :nth-child(2) > .nav > :nth-child(1) > .nav-link').click({force: true});
@@ -35,28 +32,28 @@ describe('Test Cases for marketplace page', () => {
         cy.get('.p-3').should('be.visible')
     });
 
-    it('6. Test to Side Container should contains Explore', () => {
+    it('6. Test to Side Container should contains "Explore"', () => {
         cy.get('.p-3').should('contains.text', 'Explore')
     });
 
-    it('7. Side Container should contains Categories', () => {
+    it('7. Side Container should contains "Categories"', () => {
         cy.get('.p-3').should('contains.text', 'Categories')
     });
 
-    it('8. Test to Side Container should contains Filters', () => {
+    it('8. Test to Side Container should contains "Filters"', () => {
         cy.get('.p-3').should('contains.text', 'Filters')
     });
 
-    it('9. Test to On click of see all button of featured API', () => {
+    it('9. Test to On click of "See all" button of featured API', () => {
         cy.get(':nth-child(2) > .justify-content-left > .small').click({force: true});
         cy.location('pathname').should('eq', '/marketplace/explore/featured');
     });
 
-    it('10. Test to When rediterc to featured API page it should contain "Browse API Marketplace"', () => {
+    it('10. Test to check redirect to featured API page it should contain "Browse API Marketplace"', () => {
         cy.get('.col-lg-7 > .align-items-center > :nth-child(1) > .btn').should('contains.text', 'Browse API Marketplace')
     });
 
-    it('11. Test to When rediterc to featured API page it should contain "Add your API to our MArketplace"', () => {
+    it('11. Test to check redirect to featured API page should contain "Add your API to our MArketplace"', () => {
         cy.get('.p-0 > .btn').should('contains.text', 'Add your API to our Marketplace')
     });
 
@@ -66,18 +63,18 @@ describe('Test Cases for marketplace page', () => {
             .should('have.length', 6);
     });
 
-    it('13. Test to On click of see all button of Bestseller APIs', () => {
+    it('13. Test to On click of "See all" button of Bestseller APIs', () => {
         cy.scrollTo('bottom');
         cy.get('.row > :nth-child(2) > .nav > :nth-child(1) > .nav-link').click({force: true});
         cy.get('#bestSellers > .justify-content-left > .small').click({force: true});
         cy.location('pathname').should('eq', '/marketplace/explore/latest');
     });
 
-    it('14. Test to On click of see all button , Browse API marketplace button should be there', () => {
+    it('14. Test to On click of "See all" button , Browse API marketplace button should be there', () => {
         cy.get('[style="max-width:809px"] > .col-md-5 > .btn').should('contains.text', '\n\nBrowse API Marketplace\n')
     });
 
-    it('15. Test to On click Browse API marketplace button route should change', () => {
+    it('15. Test to On click "Browse API marketplace" button route should change', () => {
         cy.get('[style="max-width:809px"] > .col-md-5 > .btn').click({force: true});
         cy.location('pathname').should('eq', '/marketplace/explore/latest');
     });

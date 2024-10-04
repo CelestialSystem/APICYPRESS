@@ -1,6 +1,8 @@
+import { NUMBERVERIFICATION_BASE_URL } from '../../resources/data';
+
 describe('Number Verification Documentation page', () => {
     before(() => {
-      cy.visit('https://apilayer.com/marketplace/number_verification-api');
+      cy.visit(NUMBERVERIFICATION_BASE_URL);
     });
   
     it('1. Test to "Accept Cookies" if not already accepted', () => {

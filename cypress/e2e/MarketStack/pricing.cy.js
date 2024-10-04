@@ -1,6 +1,8 @@
+import { MARKETSTACK_BASE_URL } from '../../resources/data';
+
 describe('MarketStack Pricing page', () => {
     before(() => {
-        cy.visit('https://marketstack.com/');
+        cy.visit(MARKETSTACK_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {

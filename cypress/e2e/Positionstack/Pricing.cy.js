@@ -1,6 +1,8 @@
+import { POSITIONSTACK_BASE_URL } from '../../resources/data';
+
 describe('Positionstack Pricing page', () => {
     before(() => {
-        cy.visit('https://positionstack.com/');
+        cy.visit(POSITIONSTACK_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {

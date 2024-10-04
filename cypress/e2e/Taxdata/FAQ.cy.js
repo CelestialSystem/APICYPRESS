@@ -1,6 +1,8 @@
+import { TAXDATA_BASE_URL } from '../../resources/data';
+
 describe('Taxdata FAQs page', () => {
     before(() => {
-      cy.visit('https://apilayer.com/marketplace/tax_data-api');
+      cy.visit(TAXDATA_BASE_URL);
     });
 
     it('1 Test to "Accept Cookies" if not already accepted', () => { 
