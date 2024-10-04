@@ -1,6 +1,8 @@
+import { TAXDATA_BASE_URL } from '../../resources/data';
+
 describe('Taxdata Pricing page', () => {
     before(() => {
-        cy.visit('https://apilayer.com/marketplace/tax_data-api');
+        cy.visit(TAXDATA_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -94,6 +96,6 @@ describe('Taxdata Pricing page', () => {
         cy.get(':nth-child(5) > .card > .card-header > .btn').click();
         cy.document().its('readyState').should('eq', 'complete');
         cy.checkTextVisibility('Contact Sales & Customer Support')
-        cy.navigateUrlwithCookies('https://apilayer.com/marketplace/tax_data-api');
+        cy.navigateUrlwithCookies(TAXDATA_BASE_URL);
     });
 });

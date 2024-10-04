@@ -1,6 +1,8 @@
+import { MEDIASTACK_BASE_URL } from '../../resources/data';
+
 describe('MediaStack Login page', () => {
     before(() => {
-        cy.navigateUrlwithCookies('https://mediastack.com/');
+        cy.navigateUrlwithCookies(MEDIASTACK_BASE_URL);
     });
 
     it('1. Test to navigate to the "Login" page', () => {

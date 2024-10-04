@@ -1,3 +1,5 @@
+import { APILAYER_BASE_URL } from '../../resources/data';
+
 describe('API Glosssary Form Page', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
         // Returning false here prevents Cypress from failing the test
@@ -6,7 +8,7 @@ describe('API Glosssary Form Page', () => {
 
     before(() => {
         // Visit the contact form page before running any tests
-        cy.visit('https://apilayer.com/');
+        cy.visit(APILAYER_BASE_URL);
     });
 
     it('1. Accept Cookies if not already accepted', () => {

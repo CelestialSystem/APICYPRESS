@@ -1,3 +1,5 @@
+import { APILAYER_BASE_URL } from '../../resources/data';
+
 describe('FAQs', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
         // Returning false here prevents Cypress from failing the test
@@ -5,7 +7,7 @@ describe('FAQs', () => {
     });
 
     before(() => {
-        cy.visit('https://apilayer.com/');
+        cy.visit(APILAYER_BASE_URL);
     });
 
     it('1. Test to accept Cookies if not already accepted', () => {
@@ -15,7 +17,7 @@ describe('FAQs', () => {
     it('2. Click on FAQs button from footer', () => {
         cy.get(':nth-child(3) > .nav > :nth-child(3) > .nav-link').scrollIntoView({ behaviour: 'smooth' });
         cy.get(':nth-child(3) > .nav > :nth-child(3) > .nav-link').click();
-        cy.visit('https://apilayer.com/docs/article/marketplace-faq');
+        cy.visit(`${APILAYER_BASE_URL}/docs/article/marketplace-faq`);
         cy.AcceptCookies();
     });
 

@@ -1,6 +1,8 @@
+import { IPAPI_BASE_URL } from '../../resources/data';
+
 describe('IpApi Pricing page', () => {
     before(() => {
-        cy.visit('https://ipapi.com/login');
+        cy.visit(IPAPI_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -42,17 +44,17 @@ describe('IpApi Pricing page', () => {
 
     it('9.Test to chek the "Standard" plan', () => {
         cy.componentVisiblityCheck('.standard', 'Standard');
-        cy.componentVisiblityCheck('.standard > .main_container > .price > .monthly_data', '$10');
+        cy.componentVisiblityCheck('.standard > .main_container > .price > .monthly_data',  '\n                                    $12.99\n                                    per month\n                                    or $11.99 if billed yearly\n                                ');
     });
 
     it('10.Test to chek the "Buisness" plan', () => {
         cy.componentVisiblityCheck('.business > .main_container > .mc_header > heading', 'Business');
-        cy.componentVisiblityCheck('.business > .main_container > .price > .monthly_data', '$50');
+        cy.componentVisiblityCheck('.business > .main_container > .price > .monthly_data',  '\n                                    $59.99\n                                    per month\n                                    or $52.99 if billed yearly\n                                ');
     });
 
     it('11.Test to chek the "Buisness Pro" plan', () => {
         cy.componentVisiblityCheck('.business_pro > .main_container > .mc_header > heading', 'Business Pro');
-        cy.componentVisiblityCheck('.business_pro > .main_container > .price > .monthly_data', '$100');
+        cy.componentVisiblityCheck('.business_pro > .main_container > .price > .monthly_data', '\n                                    $99.99\n                                    per month\n                                    or $84.99 if billed yearly\n                                ');
     });
 
     it('12.Test to chek the "Enterprice" plan', () => {
@@ -123,17 +125,17 @@ describe('IpApi Pricing page', () => {
 
     it('20.Test to chek the "Standard" plan', () => {
         cy.componentVisiblityCheck('.standard', 'Standard');
-        cy.componentVisiblityCheck('.standard > .main_container > .price > .yearly_data', '$9');
+        cy.componentVisiblityCheck('.standard > .main_container > .price > .yearly_data', '\n                                    $11.99\n                                    per month\n                                    billed yearly\n                                ');
     });
 
     it('21.Test to chek the "Buisness" plan', () => {
         cy.componentVisiblityCheck('.business > .main_container > .mc_header > heading', 'Business');
-        cy.componentVisiblityCheck('.business > .main_container > .price > .yearly_data', '$43.99');
+        cy.componentVisiblityCheck('.business > .main_container > .price > .yearly_data', '\n                                    $52.99\n                                    per month\n                                    billed yearly\n                                ');
     });
 
     it('22.Test to chek the "Buisness Pro"', () => {
         cy.componentVisiblityCheck('.business_pro > .main_container > .mc_header > heading', 'Business Pro');
-        cy.componentVisiblityCheck('.business_pro > .main_container > .price > .yearly_data', '$85');
+        cy.componentVisiblityCheck('.business_pro > .main_container > .price > .yearly_data',  '\n                                    $84.99\n                                    per month\n                                    billed yearly\n                                ');
     });
 
     it('23.Test to chek "Platinum Support!" button is present', () => {

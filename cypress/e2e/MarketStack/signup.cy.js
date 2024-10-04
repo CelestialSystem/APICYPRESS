@@ -1,6 +1,8 @@
+import { MARKETSTACK_BASE_URL } from '../../resources/data';
+
 describe('MarketStack Free Signup page', () => {
     before(() => {
-        cy.navigateUrlwithCookies('https://marketstack.com/')// Visit the main page before running any tests
+        cy.navigateUrlwithCookies(MARKETSTACK_BASE_URL)// Visit the main page before running any tests
     });
 
     it('1. Test to click the "Free Signup" button', () => {

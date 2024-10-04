@@ -1,11 +1,13 @@
+import { ZENSCRAPE_BASE_URL } from '../../resources/data';
+
 describe('Zenscrape Blog page', () => {
     before(() => {
-        cy.visit('https://zenscrape.com/');
+        cy.visit(ZENSCRAPE_BASE_URL);
     });
 
     it('1. Test to click on the "Blog" hyperlink navigate to the "Blog" page', () => {
         cy.get('.gap-8 > [href="/blog"]').should('be.visible').click();
-        cy.navigateUrlwithCookies('https://zenscrape.com/blog/');
+        cy.navigateUrlwithCookies(`${ZENSCRAPE_BASE_URL}/blog/`);
     });
 
     it('2. Test to check the text "Web Scraping Blog" is present', () => {
