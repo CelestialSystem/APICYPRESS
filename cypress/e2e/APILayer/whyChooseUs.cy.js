@@ -1,22 +1,16 @@
 import { APILAYER_BASE_URL } from '../../resources/data';
 
 describe('Test Cases for Why Choose us', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Returning false here prevents Cypress from failing the test
-        return false;
-    });
-
     before(() => {
         cy.visit(APILAYER_BASE_URL);
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('2 . Test to click on Why Choose Button link', () => {
+    it('2 . Test to click on "Why Choose Button" link', () => {
         cy.scrollTo('bottom');
-        cy.wait(2000);
         cy.get('.row > :nth-child(2) > .nav > :nth-child(3) > .nav-link').click();
         cy.location('pathname').should('eq', '/why-choose-apilayer');
     });
@@ -41,7 +35,7 @@ describe('Test Cases for Why Choose us', () => {
         cy.get(':nth-child(3) > .pr-lg-4 > .h2').should('contains.text', 'Strict Uptime')
     });
 
-    it('8 . Test to click on Why Choose Button link', () => {
+    it('8 . Test to click on "Why Choose Us" Button link from footer', () => {
         cy.get('.d-block > .btn').click();
         cy.location('pathname').should('eq', '/');
     });
