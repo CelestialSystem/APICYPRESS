@@ -1,6 +1,8 @@
+import { IPAPI_BASE_URL } from '../../resources/data';
+
 describe('IpApi Home page', () => {
     before(() => {
-        cy.navigateUrlwithCookies('https://ipapi.com');
+        cy.navigateUrlwithCookies(IPAPI_BASE_URL);
     });
 
     it('1. Test to check "Pricing" hyperlink is present in navbar', () => {

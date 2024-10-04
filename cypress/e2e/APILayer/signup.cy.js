@@ -1,8 +1,9 @@
 /// <reference types="cypress" />
+import { APILAYER_BASE_URL } from '../../resources/data';
 
 describe("Test for Signup and Login for API layer Main page", function () {
   before(() => {
-    cy.visit('https://apilayer.com/');
+    cy.visit(APILAYER_BASE_URL);
   });
 
   describe("Test for Signup for API layer Main page", function () {
@@ -15,7 +16,7 @@ describe("Test for Signup and Login for API layer Main page", function () {
       cy.get('#signUpButton').click();
       cy.get('.h2').should('be.visible');
       cy.get('.h2').should('have.text', 'Welcome to APILayer');
-      cy.url().should('eq', 'https://apilayer.com/signup');
+      cy.url().should('eq', `${APILAYER_BASE_URL}/signup`);
     })
 
     it("3. Test to check subtitle of signup page", () => {

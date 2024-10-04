@@ -1,6 +1,8 @@
+import { APILAYER_BASE_URL } from '../../resources/data';
+
 describe('Login Page', () => {
     before(() => {
-        cy.visit('https://apilayer.com/');
+        cy.visit(APILAYER_BASE_URL);
     });
 
     it('1. Test to Accept Cookies if not already accepted', () => {

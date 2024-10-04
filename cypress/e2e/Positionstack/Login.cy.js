@@ -1,6 +1,8 @@
+import { POSITIONSTACK_BASE_URL } from '../../resources/data';
+
 describe('Postionstack Login page  ', () => {
     before(() => {
-        cy.navigateUrlwithCookies('https://positionstack.com/');
+        cy.navigateUrlwithCookies(POSITIONSTACK_BASE_URL);
     });
 
     it('1. Test to click on the "Login" button and  navigate to the "Login" page', () => {

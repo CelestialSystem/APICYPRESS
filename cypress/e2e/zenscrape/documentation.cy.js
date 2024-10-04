@@ -1,6 +1,8 @@
+import { ZENSCRAPE_BASE_URL } from '../../resources/data';
+
 describe('Zenscrape Documentation page', () => {
     before(() => {
-        cy.visit('https://zenscrape.com/');
+        cy.visit(ZENSCRAPE_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {

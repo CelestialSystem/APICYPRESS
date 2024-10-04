@@ -1,6 +1,9 @@
+import { APILAYER_BASE_URL } from '../../resources/data';
+
 describe('API Glosssary Form Page', () => {
     before(() => {
-        cy.visit('https://apilayer.com/');
+        // Visit the contact form page before running any tests
+        cy.visit(APILAYER_BASE_URL);
     });
 
     it('1. Accept Cookies if not already accepted', () => {
