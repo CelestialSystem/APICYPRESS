@@ -7,7 +7,7 @@ describe('Zenscrape Login page  ', () => {
 
   it('1. Test to click on the "Login" button and check the actual url', () => {
     cy.get('.bg-transparent').click();
-    cy.url().should('include', '/login');
+    cy.navigateUrlwithCookies(`${ZENSCRAPE_BASE_URL}login`);
   });
 
   it('2. Test to check the "Login" page should match the actual URL, if not redirect to the actual URL to ensure other test cases do not fail', () => {

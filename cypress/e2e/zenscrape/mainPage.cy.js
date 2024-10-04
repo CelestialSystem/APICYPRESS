@@ -1,4 +1,6 @@
 import { ZENSCRAPE_BASE_URL } from '../../resources/data';
+import { APILAYER_BASE_URL } from '../../resources/data';
+
 
 describe('Zenscrape Home page', () => {
     before(() => {

@@ -18,7 +18,7 @@ describe('Pricing Page', () => {
     });
 
     it('3. Test to check the presence of the toggle field', () => {
-        cy.componentVisiblityCheck('.toggle');
+         cy.componentVisiblityCheck('.toggle');
     });
 
     it('4. Test to check the "Monthly" toggle field is present', () => {
@@ -152,33 +152,51 @@ describe('Pricing Page', () => {
         cy.get('.platinum_right_section > div').should('be.visible').click();
         cy.visit(`${IPSTACK_BASE_URL}/documentation#support-section`);
         cy.go('back');
+        cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
     });
 
     it('27. Test to check "Get free API key" button', () => {
-        cy.get('.free > .button').should('contain.text', 'Get free API Key').click();
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
+        cy.get('.free > .button').scrollIntoView();
+        cy.componentVisiblityCheck('.free > .button','Get free API Key');
+        cy.get('.free > .button').click();
         cy.assertPathname('/signup/free');
         cy.go('back');
     });
     
     it('28. Test to check the Basic plan "SIGN UP" button', () => {
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.get('.basic > .button').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.assertPathname('/signup/basic');
         cy.go('back');
     });
     
     it('29. Test to check the Professional plan "SIGN UP" button', () => {
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.get('.professional > .button').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.assertPathname('/signup/pro');
         cy.go('back');
     });
     
     it('30. Test to check the Professional Plus plan "SIGN UP" button', () => {
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.get('.professional_plus > .button').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.assertPathname('/signup/proplus');
         cy.go('back');
     });
 
     it('31. Test to check the Enterprise plan "SIGN UP" button', () => {
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.get('.enterprise > .button').should('be.visible', 'contain.text', 'CONTACT US').click();
         cy.go('back');
     });

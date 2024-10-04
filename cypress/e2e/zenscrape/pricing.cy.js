@@ -93,25 +93,43 @@ describe('Zensrape Pricing page', () => {
     });
 
     it('15. Test to check "Buy Small" plan  button', () => {
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
         cy.get(':nth-child(2) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Buy Small').click();
         cy.navigateUrlwithCookies('https://app.zenscrape.com/register?plan=medium');
         cy.go('back');
     });
 
     it('16. Test to check "Buy Medium" plan button', () => {
-        cy.get(':nth-child(3) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Buy Medium').click();
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
+        cy.get(':nth-child(3) > .p-6 > .price-link').scrollIntoView();
+        cy.componentVisiblityCheck(':nth-child(3) > .p-6 > .price-link', 'Buy Medium');
+        cy.get(':nth-child(3) > .p-6 > .price-link').click();
         cy.navigateUrlwithCookies('https://app.zenscrape.com/register?plan=large');
         cy.go('back');
     });
 
     it('17. Test to check "Buy Large" plan button', () => {
-        cy.get(':nth-child(4) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Buy Large').click();
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
+        cy.get(':nth-child(4) > .p-6 > .price-link').scrollIntoView();
+        cy.componentVisiblityCheck(':nth-child(4) > .p-6 > .price-link', 'Buy Large');
+        cy.get(':nth-child(4) > .p-6 > .price-link').click();
         cy.navigateUrlwithCookies('https://app.zenscrape.com/register?plan=very-large');
         cy.go('back');
     });
 
     it('18. Test to check "Buy Very Large" button', () => {
-        cy.get(':nth-child(5) > .p-6 > .price-link').should('be.visible', 'contain.text', 'Buy Very Large').click();
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
+        cy.get(':nth-child(5) > .p-6 > .price-link').scrollIntoView();
+        cy.componentVisiblityCheck(':nth-child(5) > .p-6 > .price-link', 'Buy Very Large');
+        cy.get(':nth-child(5) > .p-6 > .price-link').click();
         cy.navigateUrlwithCookies("https://app.zenscrape.com/register?plan=professional");
         cy.go('back');
     });

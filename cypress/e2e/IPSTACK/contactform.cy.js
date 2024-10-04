@@ -63,7 +63,8 @@ describe('Ipstack Contact page', () => {
 
     it('14. Test to  click on the "FAQ" link and verify it navigates to the "FAQ" section', () => {
         cy.contains('FAQ section').click();
-        cy.url().should('include', `${IPSTACK_BASE_URL}/faq`);
+        cy.assertPathname('/faq');
+        cy.go('back');
         cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/contact`);
     });
 
