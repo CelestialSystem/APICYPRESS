@@ -1,120 +1,115 @@
-describe('Test cases for Home page', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        // Preventing Cypress from failing the test on uncaught exceptions
-        return false;
-    });
+import { WEATHERSTACK_BASE_URL } from '../../resources/data';
 
+describe('Weatherstack Home page', () => {
     before(() => {
-        cy.visit('https://weatherstack.com/');
+        cy.visit(WEATHERSTACK_BASE_URL);
     });
 
-    it('1. Test to Accept Cookies if not already accepted', () => {
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for Real-Time & Historicalworld', () => {
+    it('2. Test to check for text "Real-Time & HistoricalWorld Weather Data API" is present', () => {
         cy.checkTextVisibility('Real-Time & HistoricalWorld Weather Data API')
     });
 
-    it('3. Test to click on the API info tab', () => {
+    it('3. Test to check the text "Retrieve instant, accurate weather information forany location in the world in lightweight JSON format" is present', () => {
         cy.checkTextVisibility('Retrieve instant, accurate weather information forany location in the world in lightweight JSON format')
     });
 
-    it('4. Test to check Weather section visible or not ', () => {
+    it('4. Test to check weather section is present ', () => {
         cy.componentVisiblityCheck('.weather_animated');
     });
 
-    it('5. Test to check Location Visibility in the location section', () => {
+    it('5. Test to check Location visibility in the location section', () => {
         cy.componentVisiblityCheck('.location > span');
     });
 
-    it('6. Test to check Wind Precip and Pressure details are visibile or not.', () => {
+    it('6. Test to check "Wind Precip and Pressure" details are present', () => {
         cy.componentVisiblityCheck('.wind');
         cy.componentVisiblityCheck('.precip');
         cy.componentVisiblityCheck('.pressure');
     });
 
-    it('7. Test to check the Start Using the API button visibility', () => {
+    it('7. Test to check the "START USING THE API" button is present', () => {
         cy.componentVisiblityCheck('.button');
     });
 
-    it('8. Test to check clicking the Start Using the API button', () => {
+    it('8. Test to check clicking on the "START USING THE API" button', () => {
         cy.get('.button').click();
         cy.assertPathname('/signup/free');
-        cy.wait(2000);
         cy.checkTextVisibility('Sign Up: Free Plan');
-        cy.navigateUrlwithCookies('https://weatherstack.com/');
+        cy.navigateUrlwithCookies(WEATHERSTACK_BASE_URL);
     });
 
-    it('9. Test to check Happy customers sections is there or not', () => {
+    it('9. Test to check "Happy Customers:" sections is presnt', () => {
         cy.componentVisiblityCheck('.customers > .container > ul > :nth-child(1)');
     });
 
-    it('10. Test to check the text Real-Time History, Forecast', () => {
+    it('10. Test to check the text "Real-Time History, Forecast" is present', () => {
         cy.checkTextVisibility('Real-Time, History, Forecast')
     });
 
-    it('11. Test to Check the text Scalable Infrastructure', () => {
+    it('11. Test to check the text "Millions of Locations" is present', () => {
         cy.checkTextVisibility('Millions of Locations')
     });
 
-    it('12. Test to Check Worldwide Coverage ', () => {
+    it('12. Test to check "Rock-Solid Uptime & Speed" is present', () => {
         cy.checkTextVisibility('Rock-Solid Uptime & Speed')
     });
 
-    it('13. Test to Check Fair Pricing', () => {
+    it('13. Test to check "Start Free, Upgrade Later" is present', () => {
         cy.checkTextVisibility('Start Free, Upgrade Later')
     });
 
-    it('14. Test to Check for the text Access to Global Weather Data, Developer-friendly', () => {
+    it('14. Test to check for the text "Access to Global Weather Data, Developer-friendly" is present', () => {
         cy.checkTextVisibility('Access to Global Weather Data, Developer-friendly')
     });
 
-     it('15. Test to click on the Curent Weather', () => {
+    it('15. Test to click on the "Curent Weather" tab button', () => {
         cy.get('.buttons > :nth-child(1) > a').click();
     });
 
-    it('16. Test to Check the Weather History ', () => {
+    it('16. Test to click on the "Weather History" tab button', () => {
         cy.get('.buttons > :nth-child(2) > a').click();
     });
 
-    it('17. Test to Check Weather Forecast', () => {
+    it('17. Test to click on the  "Weather Forecast" tab button', () => {
         cy.get('.buttons > :nth-child(3) > a').click();
     });
 
-    it('18. Test to Check for the text Reliable Data Sources', () => {
+    it('18. Test to check for the text "Reliable Data Sources" is present', () => {
         cy.checkTextVisibility('Reliable Data Sources');
     });
 
-    it('19. Test to Check for the text Lightning-fast Response Option', () => {
+    it('19. Test to check for the text "Lightning-fast Response" option is present', () => {
         cy.checkTextVisibility('Lightning-fast Response');
     });
 
-    it('20. Test to Check for the text Scalable Infrastructure Option', () => {
+    it('20. Test to check for the text "Scalable Infrastructure" option is present', () => {
         cy.checkTextVisibility('Scalable Infrastructure');
     });
 
-    it('21. Test to Check for the text Flexible Location Lookup', () => {
+    it('21. Test to check for the text "Flexible Location Lookup" is present', () => {
         cy.checkTextVisibility('Flexible Location Lookup');
     });
 
-    it('22. Test to Check for the text Bank-Level Security Option', () => {
+    it('22. Test to check for the text "Bank-Level Security" option is present', () => {
         cy.checkTextVisibility('Bank-Level Security');
     });
 
-    it('23. Test to Check for the text Multiple Languages Option', () => {
+    it('23. Test to check for the text "Extensive API Documentation" is present', () => {
         cy.checkTextVisibility('Extensive API Documentation');
     });
 
-    it('24. Test to Check for Input field of the Geo Code', () => {
+    it('24. Test to check for the text "Join more than 75,000 companies worldwide using the weatherstack API" is present', () => {
         cy.checkTextVisibility('Join more than 75,000 companies worldwide using the weatherstack API');
     });
 
-    it('25. Test to Check GET FREE API ACCESS button', () => {
+    it('25. Test to check "GET FREE API ACCESS" button', () => {
         cy.get('p > a').click();
         cy.assertPathname('/signup/free');
-        cy.wait(2000);
         cy.checkTextVisibility('Sign Up: Free Plan');
-        cy.navigateUrlwithCookies('https://weatherstack.com/');
+        cy.navigateUrlwithCookies(WEATHERSTACK_BASE_URL);
     });
 });

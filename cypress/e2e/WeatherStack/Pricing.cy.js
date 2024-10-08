@@ -1,33 +1,35 @@
-describe('Pricing page', () => {
+import { WEATHERSTACK_BASE_URL } from '../../resources/data';
 
+describe('Weatherstack Pricing page', () => {
     before(() => {
-        cy.visit('https://weatherstack.com/');
+        cy.visit(WEATHERSTACK_BASE_URL);
     });
-    it('0. Test to Accept Cookies if not already accepted', () => {
+
+    it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
-    it('1.Test to navigate to the Pricing page', () => {
+    it('2.Test to click on the "Pricing" hyperlink', () => {
         cy.get('.header > .container > ul > :nth-child(1) > a').click();
     });
 
-    it('2.Test to check the presence of Fair Pricing At Any Scale', () => {
+    it('3.Test to check text "Fair Pricing for Any Weatherstack API Plan" is present', () => {
         cy.checkTextVisibility('Fair Pricing for Any Weatherstack API Plan');
     });
 
-    it('3.Test to check the presence of the toggle field', () => {
+    it('4.Test to check the presence of the toggle field', () => {
         cy.componentVisiblityCheck('.cycle');
     });
 
-    it('4.Test to check the monthly toggle field', () => {
+    it('5.Test to check the "Monthly" toggle field', () => {
         cy.componentVisiblityCheck('.monthly');
     });
 
-    it('5.Test to check the Yearly toggle field', () => {
+    it('6.Test to check the "Yearly" toggle field', () => {
         cy.componentVisiblityCheck('.yearly');
     });
 
-    it('6.Test to check the Discount text', () => {
+    it('7.Test to check the "Discount" text', () => {
         cy.get('a.yearly').then(($element) => {
             const afterContent = window.getComputedStyle($element[0], '::after').getPropertyValue('content');
             cy.log('::after content: ', afterContent);
@@ -35,46 +37,46 @@ describe('Pricing page', () => {
         });
     });
 
-    it('7.Test to check the Free plan', () => {
+    it('8.Test to check the "Free" plan text and price', () => {
         cy.componentVisiblityCheck('.free > .main_container > .mc_header', '\n                            Free\n                            ');
         cy.componentVisiblityCheck('.free > .main_container > .price > .monthly_data', '$0');
     });
 
-    it('8.Test to check the Basic plan', () => {
+    it('9.Test to check the "Basic" plan text and price', () => {
         cy.componentVisiblityCheck('.standard > .main_container > .mc_header > heading', 'Standard');
         cy.componentVisiblityCheck('.standard > .main_container > .short_description', 'Standard level — includes commercial use with up to 50,000 requests.')
         cy.componentVisiblityCheck('.standard  > .main_container > .price > .monthly_data', '\n                                    $9.99\n                                    per month\n                                    or $8.99 if billed yearly\n                                ');
         cy.get('.standard > .main_container > .platinum_support_main > .platinum_support_div > #toggleImage').click();
     });
 
-    it('9.Test to check the Professional plan', () => {
+    it('10.Test to check the "Professional" plan text and price', () => {
         cy.componentVisiblityCheck('.business > .main_container > .mc_header > heading', 'Professional');
         cy.componentVisiblityCheck('.business > .main_container > .short_description', 'Professional level — premium features with up to 300,000 monthly requests.');
         cy.componentVisiblityCheck('.business > .main_container > .price > .monthly_data', '\n                                    $49.99\n                                    per month\n                                    or $43.99 if billed yearly\n                                ');
     });
 
-    it('10.Test to check the Business plan', () => {
+    it('11.Test to check the "Business" plan text and price', () => {
         cy.componentVisiblityCheck('.business_pro > .main_container > .mc_header > heading', 'Business');
         cy.componentVisiblityCheck('.business_pro > .main_container > .short_description', 'Business level — every feature we have and up to 1,000,000 monthly requests.')
         cy.componentVisiblityCheck('.business_pro  > .main_container > .price > .monthly_data', '\n                                    $99.99\n                                    per month\n                                    or $84.99 if billed yearly\n                                ');
     });
 
-    it('11.Test to check the Enterprise plan', () => {
+    it('12.Test to check the "Enterprise" plan text and price', () => {
         cy.componentVisiblityCheck('.enterprise > .main_container > .mc_header > heading', 'Enterprise');
         cy.componentVisiblityCheck('.enterprise > .main_container > .short_description', 'Looking for more? Contact us for a quote.');
         cy.componentVisiblityCheck('.enterprise > .main_container > .price > div', 'Custom Pricing');
     });
 
-    it('12.Test to check the Free plan features', () => {
+    it('13.Test to check the "Free" plan features', () => {
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_api_requests', '250 Calls / mo')
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_support', 'No Support')
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_current', 'Real-Time Weather');
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_https', 'HTTPS Encryption');
     });
 
-    it('13.Test to check the features in the Basic plan', () => {
+    it('14.Test to check the features in the "Basic" plan', () => {
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_api_requests', '50,000 Calls / mo')
-        cy.componentVisiblityCheck('.standard > .features_container > ul > .currency_module', '+ 0.00023976 each');
+        cy.componentVisiblityCheck('.standard > .features_container > ul > .currency_module', '+ 0.0002997 each');
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_support', 'Standard Support');
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_current', 'Real-Time Weather');
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_autocomplete', 'Location Lookup');
@@ -84,10 +86,10 @@ describe('Pricing page', () => {
         cy.componentVisiblityCheck('.standard > .features_container > ul > .feature_history', 'Full Historical Data');
     });
 
-    it('14. Test to check the features in the Professional plan', () => {
-        cy.componentVisiblityCheck('.business > .features_container > ul > .feature_api_requests', '300,000 Calls / mo')
-        cy.componentVisiblityCheck('.business > .features_container > ul > .currency_module', '+ 0.00019996 each')
-        cy.componentVisiblityCheck('.business > .features_container > ul > .feature_support', 'Standard Support')
+    it('15. Test to check the features in the "Professional" plan', () => {
+        cy.componentVisiblityCheck('.business > .features_container > ul > .feature_api_requests', '300,000 Calls / mo');
+        cy.componentVisiblityCheck('.business > .features_container > ul > .currency_module', '+ 0.00024995 each');
+        cy.componentVisiblityCheck('.business > .features_container > ul > .feature_support', 'Standard Support');
         cy.componentVisiblityCheck('.business > .features_container > ul > .feature_current', 'Real-Time Weather');
         cy.componentVisiblityCheck('.business > .features_container > ul > .feature_autocomplete', 'Location Lookup');
         cy.componentVisiblityCheck('.business > .features_container > ul > .feature_https', 'HTTPS Encryption')
@@ -99,9 +101,9 @@ describe('Pricing page', () => {
         cy.componentVisiblityCheck('.business > .features_container > ul > .feature_bulk', 'Bulk Queries');
     });
 
-    it('15. Test to check the features in the Business plan', () => {
+    it('16. Test to check the features in the "Business" plan', () => {
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_api_requests', '1,000,000 Calls / mo')
-        cy.componentVisiblityCheck('.business_pro > .features_container > ul > .currency_module', '+ 0.000119988 each')
+        cy.componentVisiblityCheck('.business_pro > .features_container > ul > .currency_module', '+ 0.000149985 each')
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_support', 'Standard Support')
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_current', 'Real-Time Weather');
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_autocomplete', 'Location Lookup');
@@ -114,7 +116,7 @@ describe('Pricing page', () => {
         cy.componentVisiblityCheck('.business_pro > .features_container > ul > .feature_bulk', 'Bulk Queries');
     });
 
-    it('16. Test to check the features in the Enterprise plan', () => {
+    it('17. Test to check the features in the "Enterprise" plan', () => {
         cy.componentVisiblityCheck('.enterprise > .features_container > ul > .feature_api_requests', 'Volume Calls');
         // cy.componentVisiblityCheck('.enterprise > .features_container > ul > .feature_api_requests', '1,000,000 Calls / mo')
         // cy.componentVisiblityCheck('.enterprise > .features_container > ul > .currency_module', '+ 0.000119988 each')
@@ -131,90 +133,90 @@ describe('Pricing page', () => {
         cy.componentVisiblityCheck('.feature_custom', 'Custom Solutions');
     });
 
-    it('17. Toggle the subscription button to yearly', () => {
+    it('18. Toggle the subscription button to yearly', () => {
         cy.get('.yearly').click();
     });
 
-    it('18.Test to check the Free plan', () => {
+    it('19. Test to verify the yearly pricing for the "Free" plan', () => {
         cy.componentVisiblityCheck('.free > .main_container > .mc_header > heading', 'Free');
         cy.componentVisiblityCheck('.free > .main_container > .price > .yearly_data', '$0');
     });
 
-    it('19.Test to check the Standard plan', () => {
+    it('20. Test to verify the yearly pricing for the "Standard" plan', () => {
         cy.componentVisiblityCheck('.standard > .main_container > .mc_header > heading', 'Standard');
         cy.componentVisiblityCheck('.standard > .main_container > .short_description', 'Standard level — includes commercial use with up to 50,000 requests.')
         cy.componentVisiblityCheck('.standard > .main_container > .price > .yearly_data', '\n                                    $8.99\n                                    per month\n                                    billed yearly\n                                ');
     });
 
-    it('20.Test to check the Professional plan', () => {
+    it('21. Test to verify the yearly pricing for the "Professional" plan', () => {
         cy.componentVisiblityCheck('.business > .main_container > .mc_header > heading', 'Professional');
         cy.componentVisiblityCheck('.business > .main_container > .price > .yearly_data', '\n                                    $43.99\n                                    per month\n                                    billed yearly\n                                ');
     });
 
-    it('21.Test to check the Business Plan', () => {
+    it('22. Test to verify the yearly pricing for the "Business" plan', () => {
         cy.componentVisiblityCheck('.business_pro > .main_container > .mc_header > heading', 'Business');
         cy.componentVisiblityCheck('.business_pro > .main_container > .price > .yearly_data', '\n                                    $84.99\n                                    per month\n                                    billed yearly\n                                ');
     });
 
-    it('22. Test to check the Platinum Support! text or is there are not', () => {
+    it('23. Test to check the "Platinum Support!" text is present', () => {
         cy.get('.platinum_right_section > h3')
     });
 
-    it('23.Test to check Find Out More! button is there or not', () => {
+    it('24.Test to check "FIND OUT MORE " button is present', () => {
         cy.componentVisiblityCheck('.platinum_right_section > div', '\n                            FIND OUT MORE \n                        ');
     });
 
-    it('24.Test to check Find out more button click', () => {
+    it('25.Test to click on "FIND OUT MORE " button', () => {
         cy.get('.platinum_right_section > div').should('be.visible').click();
         cy.go('back');
     });
 
-    it('25. Test to check Free Plan Sign Up button', () => {
-        cy.get('.free > .main_container > .signup_link').should('be.visible', 'contain.text', 'GET FREE API KEY').click();
+    it('26. Test to check Free Plan "SIGN UP" button', () => {
+        cy.get('.free > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
 
-    it('26. Test to check Basic plan sign up button', () => {
+    it('27. Test to check Basic plan "SIGN UP" button', () => {
         cy.get('.standard > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
 
-    it('27. Test to check  Professional plan sign up button', () => {
+    it('28. Test to check Professional plan "SIGN UP" button', () => {
         cy.get('.business > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
 
-    it('28. Test to check  Buisness plan sign up button', () => {
+    it('29. Test to check Buisness plan "SIGN UP" button', () => {
         cy.get('.business_pro > .main_container > .signup_link').should('be.visible', 'contain.text', 'SIGN UP').click();
         cy.go('back');
     });
 
-    it('29. Test to check  Enterprise plan sign up button', () => {
+    it('30. Test to check Enterprise plan "SIGN UP" button', () => {
         cy.get('.enterprise > .main_container > .signup_link').should('be.visible', 'contain.text', 'CONTACT US').click({ force: true });
         cy.go('back');
     });
 
-    it('30. Test to check  Real time Weather text', () => {
+    it('31. Test to check "Real time Weather" text is present', () => {
         cy.checkTextVisibility('Real-Time Weather')
     });
 
-    it('31. Test to check  Location Lookup & Autocomplete text', () => {
+    it('32. Test to check "Location Lookup & Autocomplete" text is present', () => {
         cy.checkTextVisibility('Location Lookup & Autocomplete')
     });
 
-    it('32. Test to check Astronomy & Lunar Data text', () => {
+    it('33. Test to check "Astronomy & Lunar Data" text is present', () => {
         cy.checkTextVisibility('Astronomy & Lunar Data')
     });
 
-    it('33. Test to check  Hour-by-Hour Data text', () => {
+    it('34. Test to check "Hour-by-Hour Data" text is present', () => {
         cy.checkTextVisibility('Hour-by-Hour Data')
     });
 
-    it('34. Test to check FAQ section is there or not', () => {
+    it('35. Test to check "Frequently Asked Questions" section is present', () => {
         cy.componentVisiblityCheck('.faq', 'Frequently Asked Questions');
     });
 
-    it('35. Test to check Get Free Api key button', () => {
+    it('36. Test to check "GET STANDARD PLAN" button', () => {
         cy.get('.container > p > a').should('be.visible', 'contain.text', 'GET STANDARD PLAN').click();
         cy.go('back');
     });
