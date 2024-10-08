@@ -132,3 +132,8 @@ Cypress.Commands.add('checkModal', (headerText, featureText) => {
     // Added wait of 1 second because there is 3s transition delay added in the css for the model
     cy.wait(1000);
   });
+
+
+Cypress.Commands.add('checkTextVisibility', (text) => {
+    cy.contains(text).should('be.visible');
+});
