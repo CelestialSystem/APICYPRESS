@@ -21,7 +21,7 @@ describe('Bin checker APIs Info page', ()=> {
         cy.componentVisiblityCheck('[itemtype="https://schema.org/FAQPage"] > :nth-child(1) > [itemscope=""] > div');
     });
 
-    it('5. Test to check for the card image', () => {
+    it('5. Test to check for the "card image"', () => {
         cy.componentVisiblityCheck('.w-md-50');
     });
 

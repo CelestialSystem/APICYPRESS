@@ -92,4 +92,8 @@ describe('Bin checker APIs Documentation page', ()=> {
     it('21. Test to check on "Contact for support" link click', () => {
         cy.get(':nth-child(25) > a').click();
     });
+
+    it('22. Test to check on "Documentation" title', () => {
+        cy.componentVisiblityCheck('h3.mb-4', 'BIN Checker API Reference');
+    });
 });

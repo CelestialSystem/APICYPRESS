@@ -9,23 +9,19 @@ describe('Bin checker home page', ()=> {
         cy.AcceptCookies();
     });
 
-    it('1. Test to "Accept Cookies" if not already accepted', () => {
-        cy.AcceptCookies();
-    });
-
-    it('2. Test to check for the Bin Checker api avatar image is present', () => {
+    it('2. Test to check for the "Bin Checker api" avatar image is present', () => {
         cy.componentVisiblityCheck('.col-3 > .avatar-img');
     });
 
-    it('3. Test to check for the Bin Checker api title is present', () => {
-        cy.componentVisiblityCheck('.h2');
+    it('3. Test to check for the "Bin Checker api" title is present', () => {
+        cy.componentVisiblityCheck('.h2', 'BIN Checker API');
     });
 
-    it('4. Test to check for the Bin Checker api description is present', () => {
+    it('4. Test to check for the "Bin Checker api" description is present', () => {
         cy.componentVisiblityCheck('.col-9 > :nth-child(2)');
     });
 
-    it('5. Test to check for the Api Layer avatar image is present', () => {
+    it('5. Test to check for the "Bin Checker Api" Layer avatar image is present', () => {
         cy.componentVisiblityCheck('.justify-content-between > .media > .avatar > .avatar-img');
     });
 
@@ -70,5 +66,9 @@ describe('Bin checker home page', ()=> {
 
     it('15. Test to check the "Related Products" title is present', () => {
         cy.checkTextVisibility('Related Products');
+    });
+
+    it('16. Test to check the footer is present', () => {
+        cy.componentVisiblityCheck('.bg-primary');
     });
 });
