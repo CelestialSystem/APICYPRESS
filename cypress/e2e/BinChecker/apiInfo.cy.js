@@ -54,4 +54,20 @@ describe('Bin checker APIs Info page', ()=> {
         cy.componentVisiblityCheck('.my-4');
     });
 
+    it('13. Test to check on "Subscribe to service" link is present', () => {
+        cy.componentVisiblityCheck('.subscribe-action');
+    });
+
+    it('14. Test to check on "Subscribe to service" link click', () => {
+        cy.get('.subscribe-action').click();
+        cy.get('#details-tab > .d-md-flex > span').click();
+    });
+
+    it('15. Test to check on "get your API key" link is present', () => {
+        cy.componentVisiblityCheck('[href="/account"]');
+    });
+
+    it('16. Test to check on "get your API key" link click', () => {
+        cy.get('[href="/account"]').click();
+    });
 });

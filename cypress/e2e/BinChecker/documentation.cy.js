@@ -68,4 +68,28 @@ describe('Bin checker APIs Documentation page', ()=> {
     it('15. Test to check on "development quickstart guide" link click', () => {
         cy.get('.blockquote > p > a').click();
     });
+
+    it('16. Test to check on "Accounts page" link is present', () => {
+        cy.componentVisiblityCheck('.col-sm-12 > :nth-child(5) > a');
+    });
+
+    it('17. Test to check on "Accounts page" link click', () => {
+        cy.get('.col-sm-12 > :nth-child(5) > a').click();
+    });
+
+    it('18. Test to check on "Support unit" link is present', () => {
+        cy.componentVisiblityCheck(':nth-child(18) > a');
+    });
+
+    it('19. Test to check on "Support unit" link click', () => {
+        cy.get(':nth-child(18) > a').click();
+    });
+
+    it('20. Test to check on "Contact for support" link is present', () => {
+        cy.componentVisiblityCheck(':nth-child(25) > a');
+    });
+
+    it('21. Test to check on "Contact for support" link click', () => {
+        cy.get(':nth-child(25) > a').click();
+    });
 });
