@@ -10,3 +10,4 @@ export const POSITIONSTACK_BASE_URL = "https://positionstack.com/";
 export const TAXDATA_BASE_URL = `${APILAYER_BASE_URL}/marketplace/tax_data-api`;
 export const ZENSCRAPE_BASE_URL = "https://zenscrape.com/";
 export const IPSTACK_BASE_URL = "https://ipstack.com/";
+export const WHOISAPI_URL =  `${APILAYER_BASE_URL}/marketplace/whois-api`
