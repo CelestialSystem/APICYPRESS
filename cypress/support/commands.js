@@ -123,6 +123,14 @@ Cypress.Commands.add('checkTextVisibility', (text) => {
     cy.contains(text).should('be.visible');
 });
 
+Cypress.Commands.add('redirectToUrl', (baseUrl, endpoint) => {
+    cy.origin(baseUrl, { args: { url: baseUrl, endpoint } }, ({ url, endpoint }) => {
+      cy.url().should('eq', `${url}${endpoint}`);
+      // Navigate back to the original page
+      cy.go('back');
+    });
+});
+
 //code to check the modal and text present in that.
 Cypress.Commands.add('checkModal', (headerText, featureText) => {
     cy.get('.modal-content').should('exist').and('be.visible');
