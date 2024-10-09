@@ -8,7 +8,7 @@ describe('Bank Data FAQ page', () => {
     it('1. click on the "FAQ" menu item to navigate to that page', () => {
         cy.AcceptCookies();
         cy.get('.menu-item > a').contains('FAQ').click();
-        cy.url().should('eq', BANK_DATA_BASE_URL + 'faq/');
+        cy.assertPathname('/faq/');
     });
 
     it('2. Test to check if the text "Frequently Asked Questions" is present', () => {

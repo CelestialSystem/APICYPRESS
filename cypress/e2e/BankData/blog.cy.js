@@ -8,7 +8,7 @@ describe('Bank Data Blog page', () => {
     it('1. click on the "Blog" menu item to navigate to that page', () => {
         cy.AcceptCookies();
         cy.get('.menu-item > a').contains('BLOG').click();
-        cy.url().should('eq', BANK_DATA_BASE_URL + 'blog/');
+        cy.assertPathname('/blog/');
     });
 
     it('2. Test to check if the text "What Is An IBAN, And Why Do You Need One For Your Bank Account?" is present', () => {

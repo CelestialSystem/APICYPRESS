@@ -8,7 +8,7 @@ describe('Bank Data Documentation page', () => {
     it('1. click on the "DOCUMENTATION" menu item to navigate to that page', () => {
         cy.AcceptCookies();
         cy.get('.menu-item > a').contains('DOCUMENTATION').click();
-        cy.url().should('eq', BANK_DATA_BASE_URL + 'documentation/');
+        cy.assertPathname('/documentation/');
     });
     
     it('2. Test to check if the text "3-Step Quickstart Guide" is present and click on "GET FREE ACCESS"', () => {
@@ -52,5 +52,16 @@ describe('Bank Data Documentation page', () => {
    
     it('11. Test to check if the text "Error Codes" is present', () => {
         cy.checkTextVisibility('Error Codes');
+    });
+    
+    it('12. Test to click the side bar items and check if it scroll to respective content', () => {
+        cy.get('.sidebarmenu > li > a').contains('Authentication').click();
+        cy.get('#authentication').should('be.visible');
+        cy.get('.sidebarmenu > li > a').contains('Endpoints').click();
+        cy.get('#endpoints').should('be.visible');
+        cy.get('.sidebarmenu > li > a').contains('Rate Limiting').click();
+        cy.get('#rate-limits').should('be.visible');
+        cy.get('.sidebarmenu > li > a').contains('Error Codes').click();
+        cy.get('#errors').should('be.visible');
     });
 });
