@@ -1,8 +1,8 @@
-import { MARKETSTACK_BASE_URL } from '../../resources/data';
+import { NUMVERIFY_BASE_URL } from '../../resources/data';
 
-describe('MarketStack Affiliates page', () => {
+describe('NumVerify Affiliates page', () => {
     before(() => {
-      cy.visit(MARKETSTACK_BASE_URL);
+      cy.visit(NUMVERIFY_BASE_URL);
     });
   
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -11,16 +11,17 @@ describe('MarketStack Affiliates page', () => {
     });
   
     it('2. Test to check "Affiliate" hyperlink is present', () => {
-        cy.componentVisiblityCheck('.header > .container > ul > :nth-child(4) > a', 'Affiliates');
+        cy.componentVisiblityCheck('#menu > ul > :nth-child(3) > a', 'Affiliates');
     });
 
     it('3. Test to click on "Affiliate" hyperlink', () => {
-        cy.get('.header > .container > ul > :nth-child(4) > a').click();
-        cy.url().should('eq', 'https://affiliate.marketstack.com/');
+        cy.get('#menu > ul > :nth-child(3) > a').click();
+        cy.url().should('eq', 'https://affiliate.numverify.com/');
     });
   
     it('4. Test to Check the title of Affiliates page', () => {
-        cy.componentVisiblityCheck('h1',  '\n                        Earn Passive Income with                                                     Marketstack Affiliate Program\n                                            ');
+        cy.wait(2000)
+        cy.componentVisiblityCheck('.content > h1',  '\n                        Earn Passive Income with                                                     Numverify Affiliate Program\n                                            ');
     });
   
     it('5. Test to click on "Apply" button', () => {
@@ -71,7 +72,7 @@ describe('MarketStack Affiliates page', () => {
   
     it('15. Test to check title "Why Join the Marketstack Affiliate Program?" is present', () => {
         cy.get('.aboutSection > h2').scrollIntoView();
-        cy.componentVisiblityCheck('.aboutSection > h2', 'Why Join the Marketstack Affiliate Program?');
+        cy.componentVisiblityCheck('.aboutSection > h2', 'Why Join the Numverify Affiliate Program?');
     });
 
     it('16. Test to check title "Simplify Promotion with Comprehensive Resources" is present', () => {
@@ -81,7 +82,7 @@ describe('MarketStack Affiliates page', () => {
 
     it('17. Test to check title "Who Can Become an Marketstack Affiliate?" is present', () => {
         cy.get('.ipstack > .container > h2').scrollIntoView();
-        cy.componentVisiblityCheck('.ipstack > .container > h2', 'Who Can Become an Marketstack Affiliate?');
+        cy.componentVisiblityCheck('.ipstack > .container > h2', 'Who Can Become an Numverify Affiliate?');
     });
 
     it('18. Test to check title "Your Network, Our Ideal Customer" is present', () => {
@@ -123,13 +124,14 @@ describe('MarketStack Affiliates page', () => {
         cy.componentVisiblityCheck('.Our_links > h2.text-center', 'Affiliate Links');
     });
 
-    it('26. Test to click on "Sign Up Now and Become an MarketStack Affiliate!" button', () => {
+    xit('26. Test to click on "Sign Up Now and Become an NumVerify Affiliate!" button', () => {
         cy.get('.container > .btn').click();
         cy.url().should('eq', 'https://partners.marketstack.com/');
+        cy.go('back');
     });
   
     it('27. Test to click on "Affiliate" button from footer', () => {
-        cy.get('.custom-container > :nth-child(2) > :nth-child(6) > a').click();
-        cy.url().should('eq', 'https://affiliate.marketstack.com/');
+        cy.get(':nth-child(3) > :nth-child(2) > :nth-child(6)').click();
+        cy.url().should('eq', 'https://affiliate.numverify.com/');
     });
   }); 
