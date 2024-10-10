@@ -1,6 +1,6 @@
 import { WHOISAPI_URL } from '../../resources/data';
 
-describe('Who Is API Home page', () => {
+describe('Who Is API Documentation page', () => {
     before(() => {
       cy.visit(WHOISAPI_URL);
     });
