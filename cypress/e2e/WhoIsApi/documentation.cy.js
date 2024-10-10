@@ -19,42 +19,46 @@ describe('Who Is API Home page', () => {
         cy.wait('@apiRequest');
     });
 
-    it('4. Test to check "Whois API Reference" title is present', () => {
+    it('4. Test to check "Contents:" is present', () => {
+        cy.componentVisiblityCheck('.sticky-top > .text-muted', 'Contents:');
+    });
+
+    it('5. Test to check "Whois API Reference" title is present', () => {
         cy.checkTextVisibility('Whois API Reference');
     });
 
-    it('5. Test to check "Authentication" hyperlink is present', () => {
+    it('6. Test to check "Authentication" hyperlink is present', () => {
         cy.checkTextVisibility('Authentication');
     });
 
-    it('6. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
+    it('7. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(1) > a').click();
         cy.componentVisiblityCheck('.col-sm-12 > :nth-child(4)', 'Authentication');
     });
   
-    it('7. Test to check "Endpoints" hyperlink is present', () => {
+    it('8. Test to check "Endpoints" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(2) > a', 'Endpoints');
     });
   
-    it('8. Test to click on "Endpoints" hyperlink and check "Endpoints" title is present', () => {
+    it('9. Test to click on "Endpoints" hyperlink and check "Endpoints" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(2) > a').click();
         cy.componentVisiblityCheck(':nth-child(9) > a', 'Endpoints');
     });
 
-    it('9. Test to check "Rate Limiting" hyperlink is present', () => {
+    it('10. Test to check "Rate Limiting" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(3) > a', 'Rate Limiting');
     });
   
-    it('10. Test to click on "Rate Limiting" hyperlink and check "Rate Limiting" title is present', () => {
+    it('11. Test to click on "Rate Limiting" hyperlink and check "Rate Limiting" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(3) > a').click();
         cy.componentVisiblityCheck(':nth-child(11) > a', 'Rate Limiting');
     });
 
-    it('11. Test to check "Error Codes" hyperlink is present', () => {
+    it('12. Test to check "Error Codes" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(4) > a', 'Error Codes');
     });
   
-    it('12. Test to click on "Error Codes" hyperlink and check "Error Codes" title is present', () => {
+    it('13. Test to click on "Error Codes" hyperlink and check "Error Codes" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(4) > a').click();
     });
  
