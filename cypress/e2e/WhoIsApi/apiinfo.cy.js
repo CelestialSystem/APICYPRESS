@@ -1,14 +1,13 @@
-import { WHOISAPI_URL } from '../../resources/data';
+import { WHOISAPI_BASE_URL } from '../../resources/data';
 
 describe('Who Is API Info page', () => {
     before(() => {
-      cy.visit(WHOISAPI_URL);
+      cy.visit(WHOISAPI_BASE_URL);
     });
-
     
     it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
-    });                   
+    }); 
 
     it('2. Test to check "Whois API" title is present', () => {
         cy.componentVisiblityCheck('.h2', 'Whois API');
@@ -34,17 +33,34 @@ describe('Who Is API Info page', () => {
     it('7. Test to check "search field" is present', () => {
         cy.componentVisiblityCheck('[itemtype="https://schema.org/FAQPage"] > .fluid')
     });
+  
+    it('8. Test to check "Which TLDs are supported?" subtitle is present', () => {
+        cy.checkTextVisibility('Which TLDs are supported?');
+    });
 
-    it('8. Test to check "How to start" subtitle is present', () => {
+    it('9. Test to check "How to start" subtitle is present', () => {
         cy.checkTextVisibility('How to start');
     });
 
-    it('9. Test to check "How it works" subtitle is present', () => {
+    
+    it('10. Test to click on "subscribing to the service" hyperlink', () => {
+        cy.get('.header > .container > ul > :nth-child(3)').click();
+        cy.assertPathname('/whois-api#pricing');
+      });
+
+    it('10. Test to click on "get your API" hyperlink', () => {
+        cy.get('.header > .container > ul > :nth-child(3)').click();
+        cy.assertPathname('/whois-api#pricing');
+    });
+
+    it('11. Test to check "How it works" subtitle is present', () => {
         cy.checkTextVisibility('How it works');
     });
 
-    it('10. Test to check "Related Products" subtitle is present', () => {
+    it('12. Test to check "Related Products" subtitle is present', () => {
         cy.checkTextVisibility('Related Products');
     });
+
+    
     
   }); 

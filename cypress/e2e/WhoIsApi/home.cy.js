@@ -1,8 +1,8 @@
-import { WHOISAPI_URL } from '../../resources/data';
+import { WHOISAPI_BASE_URL } from '../../resources/data';
 
 describe('Who Is API Home page', () => {
     before(() => {
-      cy.visit(WHOISAPI_URL);
+      cy.visit(WHOISAPI_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -30,6 +30,7 @@ describe('Who Is API Home page', () => {
         cy.componentVisiblityCheck('.sidebar-content');
         cy.get('body').click(0, 0);
     });
+
 
     it('7. Test to check "Pricing tab"  is present', () => {
         cy.componentVisiblityCheck('#pricing-tab', 'Pricing');

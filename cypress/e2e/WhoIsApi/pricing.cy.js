@@ -1,8 +1,8 @@
-import { WHOISAPI_URL } from '../../resources/data';
+import { WHOISAPI_BASE_URL } from '../../resources/data';
 
 describe('Who Is API Pricing page', () => {
     before(() => {
-      cy.visit(WHOISAPI_URL);
+      cy.visit(WHOISAPI_BASE_URL);
     });
     
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -40,7 +40,6 @@ describe('Who Is API Pricing page', () => {
         cy.componentVisiblityCheck(':nth-child(2) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
     });
 
-    
     it('9. Test to check "Pro plan" is present', () => {
         cy.componentVisiblityCheck(':nth-child(3) > .card > .card-header > .h3', 'Pro Plan');
     });
@@ -64,6 +63,16 @@ describe('Who Is API Pricing page', () => {
   
     it('14. Test to check features of "Custom plan" is present', () => {
         cy.componentVisiblityCheck('#pricing > .row > :nth-child(4) > .card > .card-body > .media > .media-body', 'Any requests volume you need');
+    });
+
+    it('15. Test to check "Contact Us" button text for Custom Plan  is present', () => {
+        cy.componentVisiblityCheck(':nth-child(3) > .card > .card-header > .btn', 'Contact\nUs');
+        cy.get(':nth-child(3) > .card > .card-header > .btn').click();
+        cy.document().should((doc) => {
+            expect(doc.readyState).to.equal('complete');
+        });
+        cy.componentVisiblityCheck('h1', 'Contact Sales & Customer Support')
+        cy.assertPathname('/support');
     });
 
   }); 
