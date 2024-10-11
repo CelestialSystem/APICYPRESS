@@ -36,8 +36,13 @@ describe('Ipstack Blog page', () => {
         cy.checkTextVisibility('Geo Location API: The Best Way to Find Your Location');
     });
 
-    it('8. Test to click on the footer link of "Blog"', () => {
-        cy.get('.elementor-element-c2f551c > .elementor-widget-container > .elementor-icon-list-items > :nth-child(2) > a > .elementor-icon-list-text').click();
+    it('8. Test to go back to "IPSTACK" main page', () => {
+        cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
+    });
+
+    it('9. Test to click on the footer link of "Blog"', () => {
+        cy.get('.custom-container > :nth-child(3) > :nth-child(3) > a').scrollIntoView();
+        cy.get('.custom-container > :nth-child(3) > :nth-child(3) > a').click();
         cy.checkTextVisibility('Welcome to our IP Geolocation Blog!');
     });
 });

@@ -7,18 +7,17 @@ describe('Zenscrape Login page  ', () => {
 
   it('1. Test to click on the "Login" button and check the actual url', () => {
     cy.get('.bg-transparent').click();
-    cy.navigateUrlwithCookies(`${ZENSCRAPE_BASE_URL}login`);
+    cy.componentVisiblityCheck('.card-header','Login');
   });
-
+  
   it('2. Test to check the "Login" page should match the actual URL, if not redirect to the actual URL to ensure other test cases do not fail', () => {
     cy.url().then((currentUrl) => {
       if (!currentUrl.includes('/login')) {
         // Redirect to the actual URL if not already there
-        cy.visit('/login');
+        cy.visit('https://app.zenscrape.com/login');
       }
     });
-
-    cy.url().should('include', '/login');
+    cy.assertPathname('/login');
     cy.get('.card-header').should('contain.text', 'Login');
   });
 
