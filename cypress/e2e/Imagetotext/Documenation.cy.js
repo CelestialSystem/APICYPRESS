@@ -25,47 +25,82 @@ describe('Image to text Documentation page', () => {
         cy.componentVisiblityCheck('.sticky-top > .text-muted', 'Contents:');
     });
 
-    it('6. Test to click on "development quickstart guide" link is present', () => {
+    it('6. Test to click on "development quickstart guide" link', () => {
         cy.componentVisiblityCheck('.blockquote > p > a', 'development quickstart guide');
+        cy.get('.blockquote > p > a').click();
     });
-  
-    it('7. Test to check "Authentication" hyperlink is present', () => {
+
+    it('7. Test to navigate back to url and click on the "Documentation" tab', () => {
+        cy.navigateUrlwithCookies(IMAGETOTEXT_BASE_URL);
+        cy.get('.d-md-flex > .d-none').click();
+    });
+
+    it('8. Test to click on "Accounts Pages" link', () => {
+        cy.get('.col-sm-12 > :nth-child(5) > a').click();
+     });
+
+    it('9. Test to click on "GET" and "POST" collapse button ', () => {
+       cy.get('#endpointHeading1 > .mb-0 > .btn').click();
+       cy.get('#endpointHeading2 > .mb-0 > .btn').click();
+    });
+
+    it('10. Test to check "Authentication" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(1) > a', 'Authentication');
     });
   
-    it('8. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
+    it('11. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(1) > a').click();
         cy.componentVisiblityCheck('.col-sm-12 > :nth-child(4)', 'Authentication');
     });
   
-    it('9. Test to check "Endpoints" hyperlink is present', () => {
+    it('12. Test to check "Endpoints" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(2) > a', 'Endpoints');
     });
   
-    it('10. Test to click on "Endpoints" hyperlink and check "Endpoints" title is present', () => {
+    it('13. Test to click on "Endpoints" hyperlink and check "Endpoints" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(2) > a').click();
         cy.componentVisiblityCheck(':nth-child(9) > a', 'Endpoints');
     });
 
-    it('11. Test to check "Subscribe for Free" button is present', () => {
-        cy.componentVisiblityCheck('#endpointCollapse1 > .card-body > #subscribeButton')
+    it('14. Test to click on "Subscribe for Free" button', () => {
+        cy.get('#endpointHeading1 > .mb-0 > .btn').click();
+        cy.componentVisiblityCheck('#endpointCollapse1 > .card-body > #subscribeButton');
+        cy.get('#endpointCollapse1 > .card-body > #subscribeButton').click();
+        cy.get('.d-md-flex > .d-none').click();
     });
 
-    it('12. Test to check "Rate Limiting" hyperlink is present', () => {
+    it('15. Test to check "Rate Limiting" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(3) > a', 'Rate Limiting');
     });
   
-    it('13. Test to click on "Rate Limiting" hyperlink and check "Rate Limiting" title is present', () => {
+    it('16. Test to click on "Rate Limiting" hyperlink and check "Rate Limiting" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(3) > a').click();
         cy.componentVisiblityCheck(':nth-child(11) > a', 'Rate Limiting');
     });
   
-    it('14. Test to check "Error Codes" hyperlink is present', () => {
+    it('17. Test to check "Error Codes" hyperlink is present', () => {
         cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(4) > a', 'Error Codes');
     });
   
-    it('15. Test to click on "Error Codes" hyperlink and check "Error Codes" title is present', () => {
+    it('18. Test to click on "Error Codes" hyperlink and check "Error Codes" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(4) > a').click();
         cy.componentVisiblityCheck(':nth-child(19) > a', 'Error Codes');
     });
+
+    it('19. Test to click on "support unit" link', () => {
+        cy.get(':nth-child(18) > a').click();
+        cy.navigateUrlwithCookies("https://apilayer.com/support");
+        cy.checkTextVisibility("Contact Sales & Customer Support")
+        cy.navigateUrlwithCookies(IMAGETOTEXT_BASE_URL);
+        cy.get('.d-md-flex > .d-none').click();
+    });
+
+    it('20. Test to click on "contact for support" link', () => {
+        cy.get(':nth-child(25) > a').click();
+        cy.navigateUrlwithCookies("https://apilayer.com/support");
+        cy.checkTextVisibility("Contact Sales & Customer Support")
+        cy.navigateUrlwithCookies(IMAGETOTEXT_BASE_URL);
+        cy.get('.d-md-flex > .d-none').click();
+    });
+
 }); 
