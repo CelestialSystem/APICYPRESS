@@ -31,7 +31,6 @@ describe('Who Is API Home page', () => {
         cy.get('body').click(0, 0);
     });
 
-
     it('7. Test to check "Pricing tab"  is present', () => {
         cy.componentVisiblityCheck('#pricing-tab', 'Pricing');
     });

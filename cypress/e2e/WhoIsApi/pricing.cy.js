@@ -66,8 +66,8 @@ describe('Who Is API Pricing page', () => {
     });
 
     it('15. Test to check "Contact Us" button text for Custom Plan  is present', () => {
-        cy.componentVisiblityCheck(':nth-child(3) > .card > .card-header > .btn', 'Contact\nUs');
-        cy.get(':nth-child(3) > .card > .card-header > .btn').click();
+        cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .btn', 'Contact\nUs');
+        cy.get(':nth-child(4) > .card > .card-header > .btn').click();
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
         });
