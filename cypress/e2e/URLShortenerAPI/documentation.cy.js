@@ -61,4 +61,81 @@ describe('URL Shortener API Documentation page', () => {
         cy.get('.sticky-top > ul > :nth-child(4) > a').click();
         cy.componentVisiblityCheck(':nth-child(19) > a', 'Error Codes');
     });
+
+    it('14. Test to check on the "development quick start guide" link is present', () => {
+        cy.componentVisiblityCheck('.blockquote > p > a');
+    });
+
+    it('15. Test to check on the "development quick start guide" link click', () => {
+        cy.get('.blockquote > p > a').click();
+    });
+
+    it('16. Test to check on the "Accounts page" link is present', () => {
+        cy.componentVisiblityCheck('.col-sm-12 > :nth-child(5) > a');
+    });
+
+    it('17. Test to check on the "Accounts page" link click', () => {
+        cy.get('.col-sm-12 > :nth-child(5) > a').click();
+    });
+
+    it('18. Test to check on the "DELETE" expandable button is present', () => {
+        cy.componentVisiblityCheck('#endpointHeading1 > .mb-0 > .btn');
+    });
+
+    it('19. Test to check on the "DELETE" expandable button click', () => {
+        cy.get('#endpointHeading1 > .mb-0 > .btn').click();
+        cy.checkTextVisibility('Deletes a short url');
+    });
+
+    it('20. Test to check on the "GET/hash/{hash}" expandable button is present', () => {
+        cy.componentVisiblityCheck('#endpointHeading2 > .mb-0 > .btn');
+    });
+
+    it('21. Test to check on the "GET/hash/{hash}" expandable button click', () => {
+        cy.get('#endpointHeading2 > .mb-0 > .btn').click();
+        cy.checkTextVisibility('Gets a short url\'s details');
+    });
+
+    it('22. Test to check on the "GET/hashes" expandable button is present', () => {
+        cy.componentVisiblityCheck('#endpointHeading3 > .mb-0 > .btn');
+    });
+
+    it('23. Test to check on the "GET/hashes" expandable button click', () => {
+        cy.get('#endpointHeading3 > .mb-0 > .btn').click();
+        cy.checkTextVisibility('Gets all the short url\'s that is active');
+    });
+
+    it('24. Test to check on the "GET/stats/{hash}" expandable button is present', () => {
+        cy.componentVisiblityCheck('#endpointHeading4 > .mb-0 > .btn');
+    });
+
+    it('25. Test to check on the "GET/stats/{hash}" expandable button click', () => {
+        cy.get('#endpointHeading4 > .mb-0 > .btn').click();
+        cy.checkTextVisibility('Gets usage stats for url');
+    });
+
+    it('26. Test to check on the "POST/hash" expandable button is present', () => {
+        cy.componentVisiblityCheck('#endpointHeading5 > .mb-0 > .btn');
+    });
+
+    it('27. Test to check on the "POST/hash" expandable button click', () => {
+        cy.get('#endpointHeading5 > .mb-0 > .btn').click();
+        cy.checkTextVisibility('Generates a short url');
+    });
+
+    it('28. Test to check on the "Support unit" link is present', () => {
+        cy.componentVisiblityCheck(':nth-child(18) > a');
+    });
+
+    it('29. Test to check on the "Support unit" link click', () => {
+        cy.get(':nth-child(18) > a').click();
+    });
+
+    it('30. Test to check on the "Contact for support" link is present', () => {
+        cy.componentVisiblityCheck(':nth-child(25) > a');
+    });
+
+    it('31. Test to check on the "Contact for support" link click', () => {
+        cy.get(':nth-child(25) > a').click();
+    });
 });

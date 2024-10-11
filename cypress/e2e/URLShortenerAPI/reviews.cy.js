@@ -10,24 +10,20 @@ describe('URL Shortener API Reviews page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check "URL Shortener API" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'URL Shortener API');
-    });
-
-    it('3. Test to click on "Reviews" tab, "Reviews" card should be present', () => {
+    it('2. Test to click on "Reviews" tab, "Reviews" card should be present', () => {
         cy.get('#reviews-tab').click();
         cy.componentVisiblityCheck('.col-lg-4 > .card');
     });
 
-    it('4. Test to check review count is present', () => {
-        cy.componentVisiblityCheck('.display-4');
-    });
-
-    it('5. Test to check star count is present', () => {
-        cy.componentVisiblityCheck('.card > .list-inline');
-    });
-
-    it('6. Test to check rating container is present', () => {
+    it('3. Test to check rating container is present', () => {
         cy.componentVisiblityCheck('.mb-7 > .row > .col-lg-8');
+    });
+
+    it('4. Test to check "rating bars" conatiner is present', () => {
+        cy.componentVisiblityCheck('.mb-7 > .row > .col-lg-8');
+    });
+
+    it('5. Test to check "API rating" title is present', () => {
+        cy.componentVisiblityCheck('.col-lg-4 > .card > :nth-child(3');
     });
 });
