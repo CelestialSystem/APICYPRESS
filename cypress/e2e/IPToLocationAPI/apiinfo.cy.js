@@ -22,7 +22,7 @@ describe('IP To Location API Info page', () => {
         cy.componentVisiblityCheck('article > .fluid');
     });
     
-    it('5. Test to check "How do I use IP to Location API?" subtitle is present foe search field', () => {
+    it('5. Test to check "How do I use IP to Location API?" subtitle is present for search field', () => {
         cy.componentVisiblityCheck('article > :nth-child(5)','How do I use IP to Location API?');
     });
 
