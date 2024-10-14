@@ -41,8 +41,10 @@ describe('Ipstack Blog page', () => {
     });
 
     it('9. Test to click on the footer link of "Blog"', () => {
-        cy.get('.custom-container > :nth-child(3) > :nth-child(3) > a').scrollIntoView();
-        cy.get('.custom-container > :nth-child(3) > :nth-child(3) > a').click();
+        const linkSelector = '.custom-container > :nth-child(3) > :nth-child(3) > a';
+
+        cy.get(linkSelector).scrollIntoView();
+        cy.get(linkSelector).click();
         cy.checkTextVisibility('Welcome to our IP Geolocation Blog!');
     });
 });
