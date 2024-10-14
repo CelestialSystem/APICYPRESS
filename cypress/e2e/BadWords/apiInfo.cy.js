@@ -18,6 +18,6 @@ describe('Bad words api Info page', () => {
     });
 
     it('4. Test to check for the "Code Response" window is present', () => {
-        cy.componentVisiblityCheck('.w-md-50');
+        cy.get('img[alt="Bad words API code sample"]').should('be.visible');
     });
 });
