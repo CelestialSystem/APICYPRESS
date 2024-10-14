@@ -31,7 +31,7 @@ describe('Who Is API Documentation page', () => {
         cy.checkTextVisibility('Just Getting Started?');
     });
 
-    it('7. Test to click on "Development quick start guild" hyperlink', () => {
+    it('7. Test to click on "Development quick start guide" hyperlink', () => {
         cy.get('.blockquote > p > a').click();
         cy.navigateUrlwithCookies(WHOISAPI_BASE_URL);
         cy.get('.d-md-flex > .d-none').click();
