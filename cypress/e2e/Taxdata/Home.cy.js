@@ -29,7 +29,7 @@ describe('Fixers Home page', () => {
         cy.componentVisiblityCheck('.show-code');
     });
 
-    it('7. Test to check the "Prcing" tab is present', () => {
+    it('7. Test to check the "Pricing" tab is present', () => {
         cy.componentVisiblityCheck('#pricing-tab > .d-md-flex > span');
     });
 

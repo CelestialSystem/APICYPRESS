@@ -1,7 +1,25 @@
 {
   "devDependencies": {
-    "cypress": "^13.14.2",
+    "concurrently": "^9.0.1",
+    "cypress": "^13.15.0",
     "cypress-mochawesome-reporter": "^3.8.2",
     "mochawesome-report-generator": "^6.2.0"
+  },
+  "scripts": {
+    "test:APILayer": "cypress run --spec 'cypress/e2e/APILayer/*'",
+    "test:BankData": "cypress run --spec 'cypress/e2e/BankData/*'",
+    "test:CurrencyData": "cypress run --spec 'cypress/e2e/CurrencyData/*'",
+    "test:ExchangeRatesData": "cypress run --spec 'cypress/e2e/ExchangeRatesData/*'",
+    "test:FixersAPI": "cypress run --spec 'cypress/e2e/FixersAPI/*'",
+    "test:IpAPI": "cypress run --spec 'cypress/e2e/IpAPI/*'",
+    "test:IPSTACK": "cypress run --spec 'cypress/e2e/IPSTACK/*'",
+    "test:MarketStack": "cypress run --spec 'cypress/e2e/MarketStack/*'",
+    "test:MediaStack": "cypress run --spec 'cypress/e2e/MediaStack/*'",
+    "test:NumberVerification": "cypress run --spec 'cypress/e2e/NumberVerification/*'",
+    "test:Positionstack": "cypress run --spec 'cypress/e2e/Positionstack/*'",
+    "test:Taxdata": "cypress run --spec 'cypress/e2e/Taxdata/*'",
+    "test:zenscrape": "cypress run --spec 'cypress/e2e/zenscrape/*'",
+    "test:email": "cypress run --spec 'cypress/e2e/EmailVerification/*'",
+    "test:parallel": "concurrently \"npm run test:email\" \"npm run test:APILayer\" \"npm run test:BankData\" \"npm run test:CurrencyData\" \"npm run test:ExchangeRatesData\" \"npm run test:FixersAPI\" \"npm run test:IpAPI\" \"npm run test:IPSTACK\" \"npm run test:MarketStack\" \"npm run test:MediaStack\" \"npm run test:NumberVerification\" \"npm run test:Positionstack\" \"npm run test:Taxdata\" \"npm run test:zenscrape\""
   }
 }
