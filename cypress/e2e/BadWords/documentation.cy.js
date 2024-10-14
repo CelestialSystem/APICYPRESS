@@ -9,11 +9,11 @@ describe('Bad words api documentation page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "documentation" tab is present', () => {
+    it('2. Test to check for the "Documentation" tab is present', () => {
         cy.componentVisiblityCheck('.d-md-flex > .d-none');
     });
 
-    it('3. Test to click on the "documentation" tab', () => {
+    it('3. Test to click on the "Documentation" tab', () => {
         cy.get('.d-md-flex > .d-none').click();
     });
 
