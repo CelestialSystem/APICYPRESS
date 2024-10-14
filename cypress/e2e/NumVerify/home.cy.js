@@ -78,18 +78,18 @@ describe('NumVerify Home page', () => {
         cy.get('.href_on_mobile > .inside > .integration').click();
         cy.componentVisiblityCheck('.earth', 'Power your applications');
         cy.get('.container.active > :nth-child(3) > a').click();
-        cy.wait(1000); // beacsue of css added the wait
+        cy.wait(1000); // Due to CSS effects, added a wait
         cy.get('.container.active > :nth-child(3) > a').click();
      });
 
      it('15. Test to click "Advanced Tool" card is present', () => {
         cy.get(':nth-child(3) > .href_on_mobile > .inside > .functionality').click();
         cy.componentVisiblityCheck('.international', 'International Numbers');
-        cy.wait(1000); // beacsue of css added the wait
+        cy.wait(1000); // Due to CSS effects, added a wait
         cy.get('.container.active > :nth-child(3) > a').click();
-        cy.wait(1000); // beacsue of css added the wait
+        cy.wait(1000); // Due to CSS effects, added a wait
         cy.get('.container.active > :nth-child(3) > a').click();
-        cy.wait(1000); // beacsue of css added the wait
+        cy.wait(1000); // Due to CSS effects, added a wait
         cy.get('.container.active > :nth-child(3) > a').click();
      });
 
@@ -99,7 +99,7 @@ describe('NumVerify Home page', () => {
      });
 
     it('17. Test to check footer is present', () => {
-       cy.wait(1000); // beacsue of css added the wait
+       cy.wait(1000); // Due to CSS effects, added a wait
        cy.componentVisiblityCheck('#footer');
     });
 });
