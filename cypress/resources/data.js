@@ -17,3 +17,5 @@ export const EMAIL_VERIFICATION_BASE_URL = `${APILAYER_BASE_URL}/marketplace/ema
 export const BANK_DATA_BASE_URL = "https://www.bankdataapi.com/";
 export const BINCHECKER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/bincheck-api`;
 export const IPTOLOCATIONAPI_BASE_URL = `${APILAYER_BASE_URL}/marketplace/ip_to_location-api`;
+export const PARTNER_MARKETSTACK = `https://partners.marketstack.com/`;
+export const AFFILIATES_MARKETSTACK = `https://affiliate.marketstack.com/`;

@@ -1,4 +1,4 @@
-import { MARKETSTACK_BASE_URL } from '../../resources/data';
+import { MARKETSTACK_BASE_URL, PARTNER_MARKETSTACK, AFFILIATES_MARKETSTACK } from '../../resources/data';
 
 describe('MarketStack Affiliates page', () => {
     before(() => {
@@ -125,11 +125,11 @@ describe('MarketStack Affiliates page', () => {
 
     it('26. Test to click on "Sign Up Now and Become an MarketStack Affiliate!" button', () => {
         cy.get('.container > .btn').click();
-        cy.url().should('eq', 'https://partners.marketstack.com/');
+        cy.url().should('eq', PARTNER_MARKETSTACK);
     });
   
     it('27. Test to click on "Affiliate" button from footer', () => {
         cy.get('.custom-container > :nth-child(2) > :nth-child(6) > a').click();
-        cy.url().should('eq', 'https://affiliate.marketstack.com/');
+        cy.url().should('eq', AFFILIATES_MARKETSTACK);
     });
   }); 

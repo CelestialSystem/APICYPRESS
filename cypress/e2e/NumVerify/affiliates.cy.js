@@ -60,7 +60,7 @@ describe('NumVerify Affiliates page', () => {
         cy.get('#puser_password').should('have.value', '1234abc');
     });
   
-    it('13. Test to check the "checkbox"', () => {
+    it('13. Test to check the "checkbox" is checked', () => {
         cy.get('.checkbox').click();
         cy.get('#puser_promoter_marketing_consent').should('be.checked');
     });
@@ -96,7 +96,7 @@ describe('NumVerify Affiliates page', () => {
     });
   
     it('20. Test to "Arrow" buttons should be present', () => {
-        cy.get('.custom-nav').should('be.visible');
+        cy.componentVisiblityCheck('.custom-nav');
     });
 
     it('21. Test to check title "Affiliate Program: Terms & Conditions" is present', () => {
@@ -114,7 +114,7 @@ describe('NumVerify Affiliates page', () => {
         cy.componentVisiblityCheck(':nth-child(2) > .accordion-content');
     });
 
-    it('24. Test to click on collapse button', () => {
+    it('24. Test to click on collapse button and check if "Answer" container is present', () => {
         cy.get(':nth-child(2) > .accordion').click();
         cy.get(':nth-child(2) > .accordion-content').should('not.be.visible');
     });

@@ -19,7 +19,7 @@ describe('NumVerify Free Signup page', () => {
         cy.assertPathname('/signup');
     });
 
-    it('4. Test to check  "Sign Up" heading is present', () => {
+    it('4. Test to check  "Subscription:  Free Plan" heading is present', () => {
         cy.componentVisiblityCheck('center.signup_heading > h1', 'Subscription:  Free Plan');
     });
 
@@ -75,7 +75,7 @@ describe('NumVerify Free Signup page', () => {
         cy.componentVisiblityCheck('#city');
     });
 
-    it('14.Test to display all company detail fields', () => {
+    it('14.Test to display all "Company Detail" fields is present', () => {
         cy.componentVisiblityCheck('#company_name');
         cy.componentVisiblityCheck('#website_url');
         cy.componentVisiblityCheck('#tax_id');
