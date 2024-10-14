@@ -37,6 +37,4 @@ describe('NumVerify Blogs Page', () => {
           });
       });
     });
-
 });
-

@@ -14,14 +14,10 @@ describe('NumVerify Free Signup page', () => {
         cy.assertPathname('/product');
     });
 
-    it('2. Test to click on "Sign Up" button under "Free Plan"', () => {
+    it('3. Test to click on "Sign Up" button under "Free Plan"', () => {
         cy.get(':nth-child(1) > .inside > :nth-child(4) > .button').click();
         cy.assertPathname('/signup');
     });
-
-    // it('3. Test to check signup page is present', () => {
-    //     cy.get('.preapp > .container').should('be.visible');
-    // });
 
     it('4. Test to check  "Sign Up" heading is present', () => {
         cy.componentVisiblityCheck('center.signup_heading > h1', 'Subscription:  Free Plan');

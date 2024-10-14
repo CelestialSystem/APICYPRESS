@@ -22,19 +22,16 @@ describe('NumVerify Pricing page', () => {
     it('4.Test to check the presence of the toggle field', () => {
         // Check for the presence of all pricing cards
         cy.componentVisiblityCheck('.cycle');
- 
     });
  
     it('5.Test to check the "Monthly" toggle field', () => {
         // Check for the presence of all pricing cards
         cy.componentVisiblityCheck('.monthly');
- 
     });
  
     it('6.Test to check the "Yearly" toggle field', () => {
         // Check for the presence of all pricing cards
         cy.componentVisiblityCheck('.yearly_price');
- 
     });
  
     it('7.Test to check the "Discount" text', () => {
@@ -82,7 +79,6 @@ describe('NumVerify Pricing page', () => {
     });
  
     it('14. Test to check the features in the "Professional plan"', () => {
-        // Directly target the .professional > .features selector and verify its content
         cy.componentVisiblityCheck('td.highlighted > .inside > [data-tip="Monthly API Request Volume for this<br>particular subscription plan. (excluding<br> 20% tolerance)"]', '\n                        50,000API Requests                        ');
         cy.componentVisiblityCheck('td.highlighted > .inside > [data-tip="After reaching 100% of the allowance, <br> overages fees will apply."]', '\n                         + 0.0017997000Each                         ');
         cy.componentVisiblityCheck('td.highlighted > .inside > .two',  '\n                        Standard Support                        ');
@@ -92,7 +88,6 @@ describe('NumVerify Pricing page', () => {
         cy.componentVisiblityCheck('td.highlighted > .inside > [data-tip="Paid customers may access the API and<br> all validation data securely via 256-bit<br> HTTPS Encryption (SSL)."]', '\n                        256-bit HTTPSEncryption\n                        ');
     });
     it('15. Test to check the features in the "Enterprise plan"', () => {
-        // Directly target the .professional_plus > .features selector and verify its content
         cy.componentVisiblityCheck(':nth-child(4) > .inside > [data-tip="Monthly API Request Volume for this<br>particular subscription plan. (excluding<br> 20% tolerance)"]',  '\n                        250,000API Requests                        ');
         cy.componentVisiblityCheck(':nth-child(4) > .inside > [data-tip="After reaching 100% of the allowance, <br> overages fees will apply."]', '\n                         + 0.0007799400Each                         ');
         cy.componentVisiblityCheck(':nth-child(4) > .inside > .two',  '\n                        Standard Support                        ');
