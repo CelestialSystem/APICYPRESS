@@ -1,6 +1,6 @@
 import { EMAIL_VERIFICATION_BASE_URL } from '../../resources/data';
 
-describe('Email Verification documentation page', () => {
+describe('Email Verification review page', () => {
     before(() => {
         cy.visit(EMAIL_VERIFICATION_BASE_URL);
     });
