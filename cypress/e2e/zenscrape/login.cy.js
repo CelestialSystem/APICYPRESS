@@ -1,6 +1,6 @@
 import { ZENSCRAPE_BASE_URL } from '../../resources/data';
+import {ZENSCRAPE_LOGIN_LINK} from '../../resources/data';
 
-const loginLink = 'https://app.zenscrape.com/login';
 
 describe('Zenscrape Login page  ', () => {
   before(() => {
@@ -16,7 +16,7 @@ describe('Zenscrape Login page  ', () => {
     cy.url().then((currentUrl) => {
       if (!currentUrl.includes('/login')) {
         // Redirect to the actual URL if not already there
-        cy.visit(loginLink);
+        cy.visit(ZENSCRAPE_LOGIN_LINK);
       }
     });
     cy.assertPathname('/login');
@@ -89,6 +89,6 @@ describe('Zenscrape Login page  ', () => {
   });
 
   it('14. Test to allow navigating back to "Login" page', () => {
-    cy.navigateUrlwithCookies(loginLink);
+    cy.navigateUrlwithCookies(ZENSCRAPE_LOGIN_LINK);
   });
 });
