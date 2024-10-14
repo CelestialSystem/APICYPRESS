@@ -59,7 +59,7 @@ describe('Who Is API Documentation page', () => {
         cy.componentVisiblityCheck('#subscribeButton');
     });
 
-    it('13. Test to check by clicing the "Subscribe" button', () => {
+    it('13. Test to check by clicking the "Subscribe" button', () => {
         cy.get('#endpointCollapse1 > .card-body > #subscribeButton').click();
         cy.get('.d-md-flex > .d-none').click();
     });
@@ -83,14 +83,14 @@ describe('Who Is API Documentation page', () => {
 
     it('18. Test to check "support unit" hyperlink click', () => {
         cy.get(':nth-child(18) > a').click();
-        cy.navigateUrlwithCookies('https://apilayer.com/support');
+        cy.navigateUrlwithCookies(`${APILAYER_BASE_URL}/support`);
         cy.navigateUrlwithCookies(WHOISAPI_BASE_URL);
         cy.get('.d-md-flex > .d-none').click();
     });
 
     it('19. Test to check "contact for support" hyperlink click', () => {
         cy.get(':nth-child(25) > a').click();
-        cy.navigateUrlwithCookies('https://apilayer.com/support');
+        cy.navigateUrlwithCookies(`${APILAYER_BASE_URL}/support`);
     });
  
   }); 

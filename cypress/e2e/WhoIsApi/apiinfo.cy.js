@@ -58,7 +58,7 @@ describe('Who Is API Info page', () => {
 
     it('13. Test to click on "get your API" hyperlink', () => {
         cy.get('[href="/account"]').click();
-        cy.navigateUrlwithCookies('https://apilayer.com/?signin');
+        cy.navigateUrlwithCookies(`${APILAYER_BASE_URL}/?signin`);
         cy.navigateUrlwithCookies(WHOISAPI_BASE_URL);
         cy.get('#details-tab > .d-md-flex > span').click();
 
@@ -66,7 +66,7 @@ describe('Who Is API Info page', () => {
 
     it('14. Test to click on "discover potential domain names" hyperlink', () => {
         cy.get('[href="/account"]').click();
-        cy.navigateUrlwithCookies('https://apilayer.com/marketplace/domain_discovery-api');
+        cy.navigateUrlwithCookies(`${APILAYER_BASE_URL}/marketplace/domain_discovery-api`);
         cy.navigateUrlwithCookies(WHOISAPI_BASE_URL);
     });
 
