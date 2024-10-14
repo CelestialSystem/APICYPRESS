@@ -24,6 +24,6 @@ describe('URL Shortener API Reviews page', () => {
     });
 
     it('5. Test to check "API rating" title is present', () => {
-        cy.componentVisiblityCheck('.col-lg-4 > .card > :nth-child(3');
+        cy.componentVisiblityCheck('.card > span:last-child');
     });
 });

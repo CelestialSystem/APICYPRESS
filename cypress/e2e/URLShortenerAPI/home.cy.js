@@ -56,9 +56,10 @@ describe('URL Shortener API Home page', () => {
         cy.componentVisiblityCheck('footer.bg-primary');
     });
 
-    it('13. Test to check on the "URL shorten API" description is present', () => {
-        cy.componentVisiblityCheck('.col-9 > :nth-child(2)');
-    });
+    it('13. Test to check on the "URL Shortener API" description is present', () => {
+        // Check if the description is visible
+        cy.componentVisiblityCheck('.col-9 > div.mb-5', 'URL Shortener service with an API which provides extensive analytics backend.');
+    });    
 
     it('14. Test to check on the "check the documentation" link is present', () => {
         cy.componentVisiblityCheck('p > a');
