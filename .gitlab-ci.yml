@@ -1,0 +1,36 @@
+image: cypress/browsers:node16.18.0-chrome108-ff106-edge
+
+stages:
+  - test
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: test
+  script:
+    - npm i  # Install dependencies using npm
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour
+
+run_cypress_tests:
+  stage: test
+  needs: ["install_dependencies"]
+  script:
+    - npm run cypress:run  # Command to run Cypress tests
+  artifacts:
+    when: always
+    paths:
+      - cypress/videos/**    # Save video recordings (optional)
+      - cypress/screenshots/**  # Save screenshots (optional)
+    expire_in: 1 week
+  retry: 2  # Retry on failure up to 2 times
+  only:
+    - merge_requests
+    - main  # Run tests on main branch and MRs
+  dependencies:
+    - install_dependencies

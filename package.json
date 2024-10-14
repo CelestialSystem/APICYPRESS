@@ -6,6 +6,7 @@
     "mochawesome-report-generator": "^6.2.0"
   },
   "scripts": {
+    "cypress:run":"cypress run",
     "test:APILayer": "cypress run --spec 'cypress/e2e/APILayer/*'",
     "test:BankData": "cypress run --spec 'cypress/e2e/BankData/*'",
     "test:CurrencyData": "cypress run --spec 'cypress/e2e/CurrencyData/*'",
