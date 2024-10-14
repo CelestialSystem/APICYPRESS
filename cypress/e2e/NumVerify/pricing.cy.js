@@ -122,7 +122,7 @@ describe('NumVerify Pricing page', () => {
     });
 
     it('21.Test to check the "Volume" price and text', () => {
-        cy.componentVisiblityCheck('.inside > .pricing > p', 'Volume');
-        cy.componentVisiblityCheck(':nth-child(5) > .inside > header',  'Looking for more?Contact us for a quote .');
+        cy.componentVisiblityCheck(':nth-child(5) > .inside > .tagline', 'Volume');
+        cy.componentVisiblityCheck('.inside > .pricing > p',  'Looking for more?Contact us for a quote .');
     });
 });

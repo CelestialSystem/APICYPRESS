@@ -85,7 +85,7 @@ describe('NumVerify Login page', () => {
 
     it('17. Test to type wrong "Email"', () => {
         cy.get('#email_address').type('123@jiio');
-        cy.get(':nth-   child(2) > .login_button').click();
+        cy.get(':nth-child(2) > .login_button').click();
         cy.get('.error_box').should('have.text', 'Update has failed with the following error: Invalid e-mail address.');
     });
 });
