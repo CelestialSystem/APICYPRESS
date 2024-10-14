@@ -1,4 +1,4 @@
-import { EMAIL_VERIFICATION_BASE_URL } from '../../resources/data';
+import { EMAIL_VERIFICATION_BASE_URL, APILAYER_BASE_URL } from '../../resources/data';
 
 describe('Email Verification documentation page', () => {
     before(() => {
@@ -13,14 +13,15 @@ describe('Email Verification documentation page', () => {
         cy.get('#documentation-tab').click();
     });
     
-    // cannot test the below URL as this open new tab
+    // cannot test the below URL as this opens new tab
     // it('3. Test to check and click link "development quickstart guide."', () => {
         // cy.get('a').contains('development quickstart guide.').click();
         // cy.location('pathname').should('eq', '/docs/article/getting-started');
     // });
     
-    it('3. Test to check for the text "Authentication"', () => {
+    it('3. Test to check for the text "Authentication" & "Email Verification API Reference"', () => {
         cy.checkTextVisibility('Authentication');
+        cy.checkTextVisibility('Email Verification API Reference');
     });
 
     it('4. Test to check if the text "Endpoints" is present', () => {
@@ -52,6 +53,19 @@ describe('Email Verification documentation page', () => {
         cy.get('[name="rate-limits"]').should('be.visible');
         cy.get('li > a').contains('Error Codes').click();
         cy.get('[name="errors"]').should('be.visible');
+    });
+   
+    it('10. Test to click the button " Subscribe for Free "', () => {
+        cy.get('#subscribeButton').should('contain.text', 'Subscribe for Free').click();
+        cy.get('#pricing').should('be.visible');
+        cy.get('#documentation-tab').click();
+    });
+    
+    it('11. Test to check and click the link "support unit" and "contact for support"', () => {
+        cy.get('p > a').contains('support unit').should('have.attr', 'target', '_blank');
+        cy.get('p > a').contains('support unit').should('have.attr', 'href', '/support');
+        cy.get('p > a').contains('contact for support').should('have.attr', 'target', '_blank');
+        cy.get('p > a').contains('contact for support').should('have.attr', 'href', '/support');
     });
     
 });

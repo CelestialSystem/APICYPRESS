@@ -66,7 +66,7 @@ describe('Email Verification Pricing page', () => {
         cy.get('#pricing .plan').eq(3).within(() => {
             cy.get('a').contains('Subscribe').click();
           });
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
+        cy.get('aside', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
         cy.get('.media-body').contains(' 50,000 Requests / Monthly ').should('be.visible');
         cy.get('.media-body').contains(' Standard Support ').should('be.visible');

@@ -11,6 +11,7 @@ describe('Email Verification documentation page', () => {
     });
   
     it('2. Test to check review tab is present', () => {
+        cy.get('#reviews-tab').click();
         cy.componentVisiblityCheck('.api-reviews');
     });
 });
