@@ -10,7 +10,7 @@ describe('Resume Parser API Pricing page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check "Resume Parser API" title is present', () => {
+    it('2. Test to check "Resume Parser API" title and other contents are present', () => {
         cy.componentVisiblityCheck('h1, h2, h3, h4', 'Resume Parser API');
     });
 
@@ -25,6 +25,29 @@ describe('Resume Parser API Pricing page', () => {
         cy.get('.plan-price.font-size-4.font-weight-bold.text-primary')
             .should('be.visible')
             .and('contain.text', '$0.00');
+
+        // Check if the card body is present and visible
+        cy.get('.card-body.py-0.px-3')
+            .should('exist')
+            .and('be.visible');
+
+        // Check for "100 Requests / Monthly" text
+        cy.get('.card-body .media-body')
+            .contains('100 Requests / Monthly')
+            .should('exist')
+            .and('be.visible');
+
+        // Check for "Free for Lifetime" text
+        cy.get('.card-body .media-body')
+            .contains('Free for Lifetime')
+            .should('exist')
+            .and('be.visible');
+
+        // Check for "No Credit Card Required" text
+        cy.get('.card-body .media-body')
+            .contains('No Credit Card Required')
+            .should('exist')
+            .and('be.visible');
     });
 
     // Test to verify the "Subscribe" button visibility and click functionality
@@ -43,7 +66,7 @@ describe('Resume Parser API Pricing page', () => {
     });
 
     // Test to check the visibility of the "Starter Plan" title and price
-    it('5. Test to check "Starter Plan" title and price are present', () => {
+    it('5. Test to check "Starter Plan" title and price and other contents are present', () => {
         // Verify the "Starter Plan" title is visible and contains the correct text
         cy.get('span.d-block.h3')
             .should('be.visible')
@@ -53,6 +76,23 @@ describe('Resume Parser API Pricing page', () => {
         cy.get('.plan-price.font-size-4.font-weight-bold.text-primary')
             .should('be.visible')  // Ensure the price element is visible
             .and('contain.text', '$29.99'); // Verify the price text is correct
+
+        // Check if the card body is present and visible
+        cy.get('.card-body.py-0.px-3')
+            .should('exist')
+            .and('be.visible');
+
+        // Verify "1,500 Requests / Monthly" text is present and visible
+        cy.get('.card-body .media-body')
+            .contains('1,500 Requests / Monthly')
+            .should('exist')
+            .and('be.visible');
+
+        // Verify "Standard Support" text is present and visible
+        cy.get('.card-body .media-body')
+            .contains('Standard Support')
+            .should('exist')
+            .and('be.visible');
     });
 
     it('6. Test to click on "Subscribe" button for starter plan', () => {
@@ -68,7 +108,7 @@ describe('Resume Parser API Pricing page', () => {
         cy.get('body').click(0, 0); // Click at the top-left corner of the body to close any opened dropdowns
     });
 
-    it('7. Test to check "Pro Plan" details are present', () => {
+    it('7. Test to check "Pro Plan" details are and other contents present', () => {
         // Check if the "Pro Plan" title is visible
         cy.componentVisiblityCheck('.card-header .h3', 'Pro Plan');
 
