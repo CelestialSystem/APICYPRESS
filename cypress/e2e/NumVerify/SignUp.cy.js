@@ -27,7 +27,7 @@ describe('NumVerify Free Signup page', () => {
         cy.componentVisiblityCheck('.bar_bg', 'Subscription');
     });
 
-    it('6. Test to check "Montlhy" and "Yearly" toggle button is there or not', () => {
+    it('6. Test to check "Monthly" and "Yearly" toggle button is there or not', () => {
         cy.componentVisiblityCheck('.cycle');
     });
 
