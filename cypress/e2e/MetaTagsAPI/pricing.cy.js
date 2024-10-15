@@ -1,6 +1,6 @@
 import { METATAGSAPI_BASE_URL } from '../../resources/data';
 
-describe('Meta Tag API Pricing page', () => {
+describe('Meta Tags API Pricing page', () => {
     before(() => {
       cy.visit(METATAGSAPI_BASE_URL);
     });
