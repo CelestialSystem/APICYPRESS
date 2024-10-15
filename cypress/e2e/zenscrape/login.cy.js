@@ -1,6 +1,4 @@
-import { ZENSCRAPE_BASE_URL } from '../../resources/data';
-import {ZENSCRAPE_LOGIN_LINK} from '../../resources/data';
-
+import { ZENSCRAPE_BASE_URL, ZENSCRAPE_LOGIN_LINK } from '../../resources/data';
 
 describe('Zenscrape Login page  ', () => {
   before(() => {
