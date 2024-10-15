@@ -1,5 +1,4 @@
-// export const APILAYER_BASE_URL = 'https://apilayer.com';
-export const APILAYER_BASE_URL = 'https://promptapi-web-testing-zzobqlzria-uc.a.run.app';
+export const APILAYER_BASE_URL = 'https://apilayer.com';
 export const CURRENCY_BASE_URL = `${APILAYER_BASE_URL}/marketplace/currency_data-api`
 export const EXCHANGERATES_BASE_URL = `${APILAYER_BASE_URL}/marketplace/exchangerates_data-api`;
 export const FIXER_BASE_URL =`${APILAYER_BASE_URL}/marketplace/fixer-api`;
