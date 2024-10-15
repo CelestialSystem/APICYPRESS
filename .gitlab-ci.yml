@@ -1,0 +1,42 @@
+# Define the stages of your CI/CD pipeline
+stages:
+  - build
+  - test
+
+# Build the custom Cypress Docker image
+build_image:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+  script:
+    - echo "Building custom Cypress Docker image..."
+    - docker build -t "${CI_REGISTRY_IMAGE}/custom-cypress-image:latest" .
+    - echo "Pushing custom Cypress Docker image to GitLab registry..."
+    - echo "${CI_JOB_TOKEN}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
+    - docker push "${CI_REGISTRY_IMAGE}/custom-cypress-image:latest"
+
+# Run Cypress tests using the custom image
+run_cypress_tests:
+  stage: test
+  image: docker:stable
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+  before_script:
+    - echo "Logging in to the Docker registry..."
+    - echo "${CI_JOB_TOKEN}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
+  script:
+    - echo "Running Cypress tests inside the custom Cypress Docker image..."
+    - docker run --rm -v "$CI_PROJECT_DIR:/app" -w /app "${CI_REGISTRY_IMAGE}/custom-cypress-image:latest" npm ci  # Use npm ci here
+    - docker run --rm -v "$CI_PROJECT_DIR:/app" -w /app "${CI_REGISTRY_IMAGE}/custom-cypress-image:latest" npm run cypress:run
+  artifacts:
+    paths:
+      - cypress/videos/**
+      - cypress/screenshots/**
+    expire_in: 1 week
