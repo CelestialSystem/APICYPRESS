@@ -1,6 +1,6 @@
 import { SPELL_CHECKER_BASE_URL } from '../../resources/data';
 
-describe('Spell Checkker API info page', () => {
+describe('Spell Checker API info page', () => {
     before(() => {
       cy.visit(SPELL_CHECKER_BASE_URL);
     });
