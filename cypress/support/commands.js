@@ -92,6 +92,7 @@ Cypress.Commands.add('checkComponentItemCount', (componentSelector, textSelector
         cy.get(componentSelector).children().should('have.length', expectedCount);
     });
 });
+
 Cypress.Commands.add('componentVisiblityCheck', (selector, expectedText) => {
     const element = cy.get(selector).should('be.visible');
     if (expectedText) {
@@ -131,6 +132,15 @@ Cypress.Commands.add('redirectToUrl', (baseUrl, endpoint) => {
     });
 });
 
+Cypress.Commands.add('checkIfScrolledToEl', (ele) => {
+    cy.get(ele).then(($el) => {
+        const elTop = $el[0].getBoundingClientRect().top;
+
+        expect(elTop).to.be.greaterThan(0); 
+        expect(elTop).to.be.lessThan(Cypress.config('viewportHeight')); 
+    });
+});
+
 //code to check the modal and text present in that.
 Cypress.Commands.add('checkModal', (headerText, featureText) => {
     cy.get('.modal-content').should('exist').and('be.visible');
@@ -139,4 +149,4 @@ Cypress.Commands.add('checkModal', (headerText, featureText) => {
     cy.get('.modal-footer > .btn').click();
     // Added wait of 1 second because there is 3s transition delay added in the css for the model
     cy.wait(1000);
-  });
+});
