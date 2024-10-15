@@ -1,4 +1,5 @@
-export const APILAYER_BASE_URL = 'https://apilayer.com';
+// export const APILAYER_BASE_URL = 'https://apilayer.com';
+export const APILAYER_BASE_URL = 'https://promptapi-web-testing-zzobqlzria-uc.a.run.app';
 export const CURRENCY_BASE_URL = `${APILAYER_BASE_URL}/marketplace/currency_data-api`
 export const EXCHANGERATES_BASE_URL = `${APILAYER_BASE_URL}/marketplace/exchangerates_data-api`;
 export const FIXER_BASE_URL =`${APILAYER_BASE_URL}/marketplace/fixer-api`;
@@ -20,3 +21,4 @@ export const BINCHECKER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/bincheck-ap
 export const ZENSCRAPE_LOGIN_LINK = 'https://app.zenscrape.com/login';
 export const IPTOLOCATIONAPI_BASE_URL = `${APILAYER_BASE_URL}/marketplace/ip_to_location-api`;
 export const ADVANCED_SCRAPER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/adv_scraper-api`;
+export const SPELL_CHECKER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/spell-api`;
