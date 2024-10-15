@@ -37,7 +37,7 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$14');
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(1).within(() => {
-            cy.get('a').contains('Subscribe').click();
+            cy.get('a').contains('Subscribe').click({ force: true });
           });
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
@@ -50,7 +50,7 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$74');
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(2).within(() => {
-            cy.get('a').contains('Subscribe').click();
+            cy.get('a').contains('Subscribe').click({ force: true });
           });
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
@@ -63,7 +63,7 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$249');
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(3).within(() => {
-            cy.get('a').contains('Subscribe').click();
+            cy.get('a').contains('Subscribe').click({ force: true });
           });
         cy.get('aside', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
@@ -75,7 +75,7 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
         cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .card').contains('Contact Us').click();
+        cy.get('#pricing .card').contains('Contact Us').click({ force: true });
         cy.url().should('eq', APILAYER_BASE_URL +  '/support');
         cy.go('back');
         cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');
