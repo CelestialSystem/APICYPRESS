@@ -1,6 +1,6 @@
 import { TEXT_TO_EMOTION_BASE_URL } from '../../resources/data';
 
-describe('Advanced Scraper documentation page', () => {
+describe('Text to Emotion documentation page', () => {
     before(() => {
         cy.visit(TEXT_TO_EMOTION_BASE_URL);
     });
