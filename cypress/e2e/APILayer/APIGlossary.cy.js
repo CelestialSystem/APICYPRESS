@@ -44,10 +44,10 @@ describe('API Glosssary Form Page', () => {
     it('9. test to check if we can type in "Search Bar"', () => {
         cy.get('#s_p').type('filter', { force: true });
         cy.get('#s_p').should('have.value', 'filter');
-        cy.AcceptCookies();
     });
-
+    
     it('10. test to check "Scroll to Top" button is present', () => {
+        cy.AcceptCookies();
         cy.get('.scroll-to-top').scrollIntoView();
         cy.get('.scroll-to-top').should('be.visible');
     });
