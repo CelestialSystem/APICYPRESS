@@ -1,4 +1,4 @@
-import { NUMVERIFY_BASE_URL } from '../../resources/data';
+import { NUMVERIFY_BASE_URL, NUMVERIFY_BLOG } from '../../resources/data';
 
 describe('NumVerify Blogs Page', () => {
     before(() => {
@@ -11,7 +11,7 @@ describe('NumVerify Blogs Page', () => {
 
     it('2. Click on "Blog" button from footer', () => {
         cy.get('#menu > ul > :nth-child(4) > a').click();
-        cy.url().should('eq', 'https://blog.numverify.com/')
+        cy.url().should('eq', NUMVERIFY_BLOG)
     });
 
     it('3. test to check "Recent Post" section is present', () => {

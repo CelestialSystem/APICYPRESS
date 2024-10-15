@@ -7,7 +7,7 @@ describe('NumVerify Login page', () => {
 
     it('1. Test to navigate to the "Login" page', () => {
         cy.get('.cursor_pointer').click({ force: true });
-        cy.url().should('eq', 'https://numverify.com/login');
+        cy.url().should('eq', `${NUMVERIFY_BASE_URL}login`);
     });
 
     it('2. Test to check the "Log in to your account" text is present', () => {

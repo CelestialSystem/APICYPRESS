@@ -1,8 +1,8 @@
-// import { MEDIASTACK_BASE_URL } from '../../resources/data';
+import { NUMVERIFY_BASE_URL } from '../../resources/data';
 
 describe('NumVerify Home page', () => {
     before(() => {
-        cy.navigateUrlwithCookies('https://numverify.com/');
+        cy.navigateUrlwithCookies(NUMVERIFY_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {

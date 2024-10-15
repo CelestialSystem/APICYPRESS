@@ -40,7 +40,7 @@ describe('NumVerify Free Signup page', () => {
 
     it('8. Test check the "free" radio button should be checked by default', () => {
         cy.get(':nth-child(1) > :nth-child(1) > .d-flex > .radio-btn').should('be.checked');
-    })
+    });
 
     it('9. Test to check the correct "Subscription Details" for "Monthly" period', () => {
         cy.componentVisiblityCheck('tbody > :nth-child(1) > :nth-child(3)', '$0.00 / Monthly');

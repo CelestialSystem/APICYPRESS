@@ -1,4 +1,4 @@
-import { NUMVERIFY_BASE_URL } from '../../resources/data';
+import { NUMVERIFY_BASE_URL, NUMVERIFY_AFFILIATE, PARTNER_MARKETSTACK } from '../../resources/data';
 
 describe('NumVerify Affiliates page', () => {
     before(() => {
@@ -16,7 +16,7 @@ describe('NumVerify Affiliates page', () => {
 
     it('3. Test to click on "Affiliate" hyperlink', () => {
         cy.get('#menu > ul > :nth-child(3) > a').click();
-        cy.url().should('eq', 'https://affiliate.numverify.com/');
+        cy.url().should('eq', NUMVERIFY_AFFILIATE);
     });
   
     it('4. Test to Check the title of Affiliates page', () => {
@@ -26,7 +26,7 @@ describe('NumVerify Affiliates page', () => {
   
     it('5. Test to click on "Apply" button', () => {
         cy.get('.content > .btn').click();
-        cy.url().should('eq', 'https://partners.marketstack.com/');
+        cy.url().should('eq', PARTNER_MARKETSTACK);
     });
   
     it('6. Test to check "Description" to be present', () => {
@@ -126,12 +126,12 @@ describe('NumVerify Affiliates page', () => {
 
     xit('26. Test to click on "Sign Up Now and Become an NumVerify Affiliate!" button', () => {
         cy.get('.container > .btn').click();
-        cy.url().should('eq', 'https://partners.marketstack.com/');
+        cy.url().should('eq', PARTNER_MARKETSTACK);
         cy.go('back');
     });
   
     it('27. Test to click on "Affiliate" button from footer', () => {
         cy.get(':nth-child(3) > :nth-child(2) > :nth-child(6)').click();
-        cy.url().should('eq', 'https://affiliate.numverify.com/');
+        cy.url().should('eq', NUMVERIFY_AFFILIATE);
     });
   }); 
