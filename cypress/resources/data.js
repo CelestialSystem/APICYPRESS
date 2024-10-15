@@ -20,3 +20,4 @@ export const BINCHECKER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/bincheck-ap
 export const ZENSCRAPE_LOGIN_LINK = 'https://app.zenscrape.com/login';
 export const IPTOLOCATIONAPI_BASE_URL = `${APILAYER_BASE_URL}/marketplace/ip_to_location-api`;
 export const ADVANCED_SCRAPER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/adv_scraper-api`;
+export const APP_STORE_BASE_URL = `${APILAYER_BASE_URL}/marketplace/app_store-api`
