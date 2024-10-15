@@ -1,11 +1,11 @@
-import { EMAIL_VERIFICATION_BASE_URL, APILAYER_BASE_URL } from '../../resources/data';
+import { TEXT_TO_EMOTION_BASE_URL, APILAYER_BASE_URL } from '../../resources/data';
 
-describe('Email Verification Pricing page', () => {
+describe('Text to Emotion Pricing page', () => {
     before(() => {
-        cy.visit(EMAIL_VERIFICATION_BASE_URL);
+        cy.visit(TEXT_TO_EMOTION_BASE_URL);
     });
 
-    it('1. Test to "Accept Cookies" if not already accepted', () => {
+        it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
 
@@ -25,7 +25,7 @@ describe('Email Verification Pricing page', () => {
           });
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
-        cy.get('.media-body').contains(' 100 Requests / Monthly ').should('be.visible');
+        cy.get('.media-body').contains(' 30 Requests / Monthly ').should('be.visible');
         cy.get('.media-body').contains(' Free for Lifetime ').should('be.visible');
         cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
 
@@ -34,44 +34,31 @@ describe('Email Verification Pricing page', () => {
     it('4. Test to check "Starter Plan" features', () => {
         cy.checkTextVisibility('MOST POPULAR');
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Starter Plan');
-        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$14');
+        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$9');
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(1).within(() => {
             cy.get('a').contains('Subscribe').click({ force: true });
           });
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
-        cy.get('.media-body').contains(' 5,000 Requests / Monthly ').should('be.visible');
+        cy.get('.media-body').contains(' 7,500 Requests / Monthly ').should('be.visible');
         cy.get('.media-body').contains(' Standard Support ').should('be.visible');
     });
    
     it('5. Test to check "Pro Plan" features', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Pro Plan');
-        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$74');
+        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$29');
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(2).within(() => {
             cy.get('a').contains('Subscribe').click({ force: true });
           });
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
-        cy.get('.media-body').contains(' 50,000 Requests / Monthly ').should('be.visible');
+        cy.get('.media-body').contains(' 30,000 Requests / Monthly ').should('be.visible');
         cy.get('.media-body').contains(' Standard Support ').should('be.visible');
     });
     
-    it('6. Test to check "Enterprise Plan" features', () => {
-        cy.componentVisiblityCheck('.card > .card-header > .h3', 'Enterprise Plan');
-        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$249');
-        cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .plan').eq(3).within(() => {
-            cy.get('a').contains('Subscribe').click({ force: true });
-          });
-        cy.get('aside', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
-        cy.get('.media-body').contains(' 50,000 Requests / Monthly ').should('be.visible');
-        cy.get('.media-body').contains(' Standard Support ').should('be.visible');
-    });
-   
-    it('7. Test to check "Custom Plan" features', () => {
+    it('6. Test to check "Custom Plan" features', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
         cy.componentVisiblityCheck('.media-body');
