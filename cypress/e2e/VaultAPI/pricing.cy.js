@@ -1,6 +1,6 @@
 import { VAULT_API_BASE_URL } from '../../resources/data';
 
-describe('Spell Checker API Pricing page', () => {
+describe('Vault API Pricing page', () => {
     before(() => {
       cy.visit(VAULT_API_BASE_URL);
     });
