@@ -95,6 +95,11 @@ describe('Image Optimizer API Pricing page', () => {
             .contains('Standard Support')
             .should('exist')
             .and('be.visible');
+
+        // Check for the "Most Popular" badge and ensure it is visible
+        cy.get('.badge.badge-secondary.rounded-0.position-absolute.w-100')
+            .should('be.visible')  // Ensure the badge is visible
+            .and('contain.text', 'MOST POPULAR'); // Verify the correct text is displayed
     });
 
     it('6. Test to click on "Subscribe" button for starter plan', () => {
@@ -122,11 +127,6 @@ describe('Image Optimizer API Pricing page', () => {
 
         // Check the second feature of "Pro Plan"
         cy.componentVisiblityCheck('.card .media-body', 'Standard Support');
-
-        // Check for the "Most Popular" badge and ensure it is visible
-        cy.get('.badge.badge-secondary.rounded-0.position-absolute.w-100')
-            .should('be.visible')  // Ensure the badge is visible
-            .and('contain.text', 'MOST POPULAR'); // Verify the correct text is displayed
     });
 
     it('8. Test to check "Custom Plan" details are present', () => {
