@@ -15,6 +15,8 @@ describe('Vault API info page', () => {
 
     it('3. Test to click "Api Info" tab', () => {
         cy.get('#details-tab > .d-md-flex > span').click();
+        cy.checkTextVisibility('Vault API provides an application backend for:');
+    
     });
 
     it('4. Check if the "Vault API Code Sample image" is present and loaded', () => {
