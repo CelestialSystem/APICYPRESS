@@ -20,6 +20,7 @@ export const BANK_DATA_BASE_URL = "https://www.bankdataapi.com/";
 export const BINCHECKER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/bincheck-api`;
 export const ZENSCRAPE_LOGIN_LINK = 'https://app.zenscrape.com/login';
 export const IPTOLOCATIONAPI_BASE_URL = `${APILAYER_BASE_URL}/marketplace/ip_to_location-api`;
+export const KEYWORD_EXTRACTION_BASE_URL = `${APILAYER_BASE_URL}/marketplace/keyword-api`;
 export const SPAM_CHECK_API_BASE_URL = `${APILAYER_BASE_URL}/marketplace/spamchecker-api`;
 export const METATAGSAPI_BASE_URL = `${APILAYER_BASE_URL}/marketplace/meta_tags-api`;
 export const SMART_IMAGE_CROPPING_BASE_URL = `${APILAYER_BASE_URL}/marketplace/smart_crop-api`;
