@@ -1,4 +1,4 @@
-import { DISPOSABLE_EMAIL_API } from '../../resources/data';
+import { DISPOSABLE_EMAIL_API, DEVELOPMENT_QUICKSTART_GUID } from '../../resources/data';
 
 describe('Disposable Email Detection API Documentation page', () => {
     before(() => {
@@ -22,12 +22,12 @@ describe('Disposable Email Detection API Documentation page', () => {
     });
 
     it('4. Test to check "development quickstart guide" link visibility and click behavior', () => {
-        cy.componentVisiblityCheck('a[href="/docs/article/getting-started"]', 'development quickstart guide.');
+        cy.componentVisiblityCheck(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`, 'development quickstart guide.');
 
-        cy.intercept('GET', '/docs/article/getting-started').as('quickstartRequest');
+        cy.intercept('GET', DEVELOPMENT_QUICKSTART_GUID).as('quickstartRequest');
 
         // Click the link and wait for the request
-        cy.get('a[href="/docs/article/getting-started"]').invoke('removeAttr', 'target').click();
+        cy.get(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`).invoke('removeAttr', 'target').click();
         cy.wait('@quickstartRequest');
 
         cy.get('h1.h2') // Select the <h1> element with the class 'h2'
@@ -51,7 +51,9 @@ describe('Disposable Email Detection API Documentation page', () => {
         cy.contains('a', 'Authentication').click();
 
         // Check if the "Authentication" title is visible
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Authentication');
+        cy.get('h4.mb-4.mt-4')
+            .should('be.visible')  // Ensure the element is visible
+            .and('contain.text', 'Authentication'); // Verify the correct text is present
     });
 
     it('8. Test to click on "Accounts page" hyperlink and navigate back to main page', () => {
@@ -81,7 +83,9 @@ describe('Disposable Email Detection API Documentation page', () => {
             .click(); // Click the link
 
         // Check for the title or expected content after clicking
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Endpoints');
+        cy.get('h4.mb-4.mt-4')
+            .should('be.visible')  // Ensure the element is visible
+            .and('contain.text', 'Endpoints'); // Verify the correct text is present
     });
 
     it('10. Test to check and click on "Rate Limiting" hyperlink, then verify title is present', () => {
@@ -91,7 +95,9 @@ describe('Disposable Email Detection API Documentation page', () => {
             .click(); // Click the "Rate Limiting" link
 
         // Check for the title or expected content after clicking
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Rate Limiting');
+        cy.get('h4.mb-4.mt-4')
+            .should('be.visible')  // Ensure the element is visible
+            .and('contain.text', 'Rate Limiting'); // Verify the correct text is present
     });
 
     it('11. Test to check the visibility of "Support unit" link, click on it, and navigate back to main page', () => {
@@ -115,7 +121,10 @@ describe('Disposable Email Detection API Documentation page', () => {
         cy.contains('a', 'Error Codes').click();
 
         // Check for the title or expected content after clicking
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Error Codes');
+        cy.get('h4.mb-4.mt-4')
+            .should('be.visible')  // Ensure the element is visible
+            .and('contain.text', 'Error Codes'); // Verify the correct text is present
+
     });
 
     it('13. Test to check "Contact for support" link visibility and click', () => {
@@ -127,7 +136,7 @@ describe('Disposable Email Detection API Documentation page', () => {
 
         cy.contains('span', 'Documentation').should('be.visible').click();
     });
-    
+
     it('14. Test to "Get/{email}" button click to expand content and verify elements', () => {
         // Click the button to expand the section
         cy.get('button[data-target="#endpointCollapse1"]').click();

@@ -63,7 +63,7 @@ describe('Disposable Email Detection API Home page', () => {
 
     it('12. Test to check the "check the documentation" link is present and clickable', () => {
         // Check if the "check the documentation" link is visible
-        cy.componentVisiblityCheck('p > a');
+        cy.componentVisiblityCheck('p > a', 'check the documentation');
 
         // Click the "check the documentation" link
         cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
