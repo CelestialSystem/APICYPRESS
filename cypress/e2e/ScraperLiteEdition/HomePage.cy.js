@@ -53,6 +53,8 @@ describe('Scrapper(Lite Edition) Home page', () => {
     });
 
     it('12. Test to click "check the documentation" hyperlink is working', () => {
-        cy.get('.mt-3 > p > a').click();
+        cy.componentVisiblityCheck('.mt-3 > p > a', 'check the documentation');
+        cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
+        cy.checkTextVisibility('Scraper API (Lite Edition) Reference');
     });
   });
