@@ -17,15 +17,19 @@ describe('Keyword Extraction API Info page', () => {
         cy.checkTextVisibility('What is Keyword Extraction?');
     });
 
-    it('4. Test to check for the title "Use cases for Keyword Extraction API"', () => {
+    it('4. Test to check for the title "How it works"', () => {
+        cy.checkTextVisibility('How it works');
+    });
+
+    it('5. Test to check for the title "Use cases for Keyword Extraction API"', () => {
         cy.checkTextVisibility('Use cases for Keyword Extraction API');
     });
 
-    it('5. Test to check for the title "Language Support"', () => {
+    it('6. Test to check for the title "Language Support"', () => {
         cy.checkTextVisibility('Language Support');
     });
 
-    it('6. Test to check for the title "Supported languages"', () => {
+    it('7. Test to check for the title "Supported languages"', () => {
         cy.checkTextVisibility('Supported languages');
     });
 });
