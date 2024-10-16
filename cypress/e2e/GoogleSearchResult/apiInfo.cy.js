@@ -39,4 +39,16 @@ describe('Google search result API Info page', () => {
         cy.checkTextVisibility('Related Articles');
         cy.componentVisiblityCheck('.card-deck');
     });
+
+    it('8. Test to check all "titles" and "subtitles" are present', () => {
+        cy.checkTextVisibility('What is Input Parameters?');
+        cy.checkTextVisibility('Specifying the location');
+        cy.checkTextVisibility('Specifying the browser language');
+        cy.checkTextVisibility('Specifying the Google Domain');
+        cy.checkTextVisibility('Scraping Shopping Results');
+        cy.checkTextVisibility('Emulating the mobile browser');
+        cy.checkTextVisibility('Fetching similar results');
+        cy.checkTextVisibility('Safe Results');
+        cy.checkTextVisibility('Pagination');
+    });
 });
