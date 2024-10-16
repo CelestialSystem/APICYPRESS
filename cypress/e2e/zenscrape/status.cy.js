@@ -136,6 +136,6 @@ describe('Zenscrape Status page', () => {
     });
 
     it('31. Test to check "Timezone" dropdown is present in the footer', () => {
-        cy.componentVisiblityCheck('.tz__input-container');
+        cy.componentVisiblityCheck('.tz__value-container');
     });
 });
