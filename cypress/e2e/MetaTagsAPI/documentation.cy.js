@@ -47,7 +47,7 @@ describe('Meta Tags API Documentation page', () => {
 
     it('9. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
         cy.contains('a', 'Authentication').click();
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Authentication');
+        cy.get('h4.mb-4.mt-4').should('be.visible').and('contain.text', 'Authentication');
     });
 
     it('10. Test to click on "Accounts page" hyperlink and navigate back to main page', () => {
