@@ -51,4 +51,8 @@ describe('Scrapper(Lite Edition) Home page', () => {
     it('11. Test to check footer is present', () => {
         cy.componentVisiblityCheck('footer.bg-primary');
     });
+
+    it('12. Test to click "check the documentation" hyperlink is working', () => {
+        cy.get('.mt-3 > p > a').click();
+    });
   });
