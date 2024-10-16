@@ -10,7 +10,7 @@ describe('Spell Checker API Documentation page', () => {
     });   
 
     it('2. Test to check "Documentation" tab visibility', () => {
-        cy.componentVisiblityCheck('.d-md-flex > .d-none');
+        cy.componentVisiblityCheck('.d-md-flex > .d-none', 'Documentation');
     });
 
     it('3. Test to click "Documentation" tab', () => {
