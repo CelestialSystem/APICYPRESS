@@ -1,6 +1,6 @@
 import { GOOGLE_SEARCH_RESULT_BASE_URL, APILAYER_BASE_URL } from '../../resources/data';
 
-describe('Google search result API documentation page', () => {
+describe('Google search result API Documentation page', () => {
     before(() => {
         cy.visit(GOOGLE_SEARCH_RESULT_BASE_URL);
     });
@@ -14,7 +14,10 @@ describe('Google search result API documentation page', () => {
     });
   
     it('3. Test to click "Documentation" tab', () => {
+        cy.intercept('GET', '/marketplace/google_search-api/tabs/api_docs').as('apiRequest');
         cy.get('#documentation-tab').click();
+        cy.wait('@apiRequest');
+        cy.componentVisiblityCheck('#documentation');
     });
   
     it('4. Test to check "Google Search Results API Reference" title is present', () => {
@@ -38,6 +41,8 @@ describe('Google search result API documentation page', () => {
     it('8. Test to click on "Accounts Pages" link', () => {
         cy.contains('a', 'Accounts page').should('be.visible');
         cy.contains('a', 'Accounts page').click();
+        cy.navigateUrlwithCookies(GOOGLE_SEARCH_RESULT_BASE_URL);
+        cy.get('#documentation-tab').click();
      });
 
     it('9. Test to click on "GET" collapse button ', () => {

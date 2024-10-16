@@ -50,4 +50,9 @@ describe('Google search result API Home page', () => {
     it('11. Test to check footer is present', () => {
         cy.componentVisiblityCheck('footer.bg-primary');
     });
+
+    it('12. Test to click link "check the documentation."', () => {
+        cy.get('a').contains('check the documentation.').click();
+        cy.checkTextVisibility('Google Search Results API Reference');
+    });
   });
