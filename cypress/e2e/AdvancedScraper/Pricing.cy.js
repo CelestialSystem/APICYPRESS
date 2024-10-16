@@ -25,7 +25,7 @@ describe('Advanced Scraper Pricing page', () => {
           });
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
-        cy.get('.media-body').contains(' 300 Requests / Monthly ').should('be.visible');
+        cy.get('.media-body').contains(' 100 Requests / Monthly ').should('be.visible');
         cy.get('.media-body').contains(' Free for Lifetime ').should('be.visible');
         cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
 
@@ -37,7 +37,7 @@ describe('Advanced Scraper Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$29');
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(1).within(() => {
-            cy.get('a').contains('Subscribe').click({ force: true });
+            cy.get('a').contains('Subscribe').click();
           });
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
@@ -50,7 +50,7 @@ describe('Advanced Scraper Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$79');
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(2).within(() => {
-            cy.get('a').contains('Subscribe').click({ force: true });
+            cy.get('a').contains('Subscribe').click();
           });
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
@@ -62,7 +62,7 @@ describe('Advanced Scraper Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
         cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .card').contains('Contact Us').click({ force: true });
+        cy.get('#pricing .card').contains('Contact Us').click();
         cy.url().should('eq', APILAYER_BASE_URL +  '/support');
         cy.go('back');
         cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');
