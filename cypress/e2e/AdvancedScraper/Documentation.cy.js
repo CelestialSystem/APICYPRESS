@@ -1,8 +1,8 @@
-import { EMAIL_VERIFICATION_BASE_URL } from '../../resources/data';
+import { ADVANCED_SCRAPER_BASE_URL } from '../../resources/data';
 
-describe('Email Verification documentation page', () => {
+describe('Advanced Scraper documentation page', () => {
     before(() => {
-        cy.visit(EMAIL_VERIFICATION_BASE_URL);
+        cy.visit(ADVANCED_SCRAPER_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -10,7 +10,7 @@ describe('Email Verification documentation page', () => {
     });
 
     it('2. Test to click on the "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/email_verification-api/tabs/api_docs').as('apiRequest');
+        cy.intercept('GET', '/marketplace/adv_scraper-api/tabs/api_docs').as('apiRequest');
         cy.get('#documentation-tab').click();
         cy.wait('@apiRequest');
         cy.componentVisiblityCheck('#documentation');
@@ -22,9 +22,9 @@ describe('Email Verification documentation page', () => {
         // cy.location('pathname').should('eq', '/docs/article/getting-started');
     // });
     
-    it('3. Test to check for the text "Authentication" & "Email Verification API Reference"', () => {
+    it('3. Test to check for the text "Advanced Scraper API Reference" & "Authentication"', () => {
+        cy.checkTextVisibility('Advanced Scraper API Reference');
         cy.checkTextVisibility('Authentication');
-        cy.checkTextVisibility('Email Verification API Reference');
     });
 
     it('4. Test to check if the text "Endpoints" is present', () => {

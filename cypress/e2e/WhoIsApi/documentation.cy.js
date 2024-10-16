@@ -1,4 +1,4 @@
-import { WHOISAPI_BASE_URL } from '../../resources/data';
+import { WHOISAPI_BASE_URL, APILAYER_BASE_URL} from '../../resources/data'
 
 describe('Who Is API Documentation page', () => {
     before(() => {

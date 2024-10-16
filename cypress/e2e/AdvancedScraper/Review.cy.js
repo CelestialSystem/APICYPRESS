@@ -1,8 +1,8 @@
-import { EMAIL_VERIFICATION_BASE_URL } from '../../resources/data';
+import { ADVANCED_SCRAPER_BASE_URL } from '../../resources/data';
 
-describe('Email Verification review page', () => {
+describe('Advanced Scraper review page', () => {
     before(() => {
-        cy.visit(EMAIL_VERIFICATION_BASE_URL);
+        cy.visit(ADVANCED_SCRAPER_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => { 

@@ -22,7 +22,7 @@ describe('IP To Location API Pricing page', () => {
     });
 
     it('5. Test to check features of "Free plan" is present', () => {
-        cy.componentVisiblityCheck('#pricing > .row > :nth-child(1) > .card > .card-body > :nth-child(1) > .media-body', '10,000\n            Requests / Monthly ');
+        cy.componentVisiblityCheck('#pricing > .row > :nth-child(1) > .card > .card-body > :nth-child(1) > .media-body', '10,000\nRequests / Monthly ');
         cy.componentVisiblityCheck(':nth-child(1) > .card > .card-body > :nth-child(2) > .media-body', 'Free for Lifetime');
         cy.componentVisiblityCheck(':nth-child(3) > .media-body', 'No Credit Card Required');
     });
@@ -36,7 +36,7 @@ describe('IP To Location API Pricing page', () => {
     });
 
     it('8. Test to check features of "Starter plan" is present', () => {
-        cy.componentVisiblityCheck('#pricing > .row > :nth-child(2) > .card > .card-body > :nth-child(1) > .media-body',  ' 60,000\n            Requests / Monthly ');
+        cy.componentVisiblityCheck('#pricing > .row > :nth-child(2) > .card > .card-body > :nth-child(1) > .media-body',  '60,000\nRequests / Monthly ');
         cy.componentVisiblityCheck(':nth-child(2) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
     });
 
@@ -49,7 +49,7 @@ describe('IP To Location API Pricing page', () => {
     });
 
     it('11. Test to check features of "Pro plan" is present', () => {
-        cy.componentVisiblityCheck('#pricing > .row > :nth-child(3) > .card > .card-body > :nth-child(1) > .media-body', ' 300,000\n            Requests / Monthly ');
+        cy.componentVisiblityCheck('#pricing > .row > :nth-child(3) > .card > .card-body > :nth-child(1) > .media-body', '300,000\nRequests / Monthly ');
         cy.componentVisiblityCheck(':nth-child(3) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
     });
 
@@ -66,7 +66,7 @@ describe('IP To Location API Pricing page', () => {
     });
 
     it('15. Test to check "Contact Us" button text for Custom Plan  is present', () => {
-        cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .btn', 'Contact\n          Us');
+        cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .btn', 'Contact\nUs');
         cy.get(':nth-child(4) > .card > .card-header > .btn').click();
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
