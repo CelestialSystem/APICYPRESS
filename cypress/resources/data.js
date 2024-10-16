@@ -27,3 +27,5 @@ export const NUMVERIFY_BLOG = 'https://blog.numverify.com/';
 export const RESUME_PARSER_API = `${APILAYER_BASE_URL}/marketplace/resume_parser-api`;
 export const ADVANCED_SCRAPER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/adv_scraper-api`;
 export const TEXT_TO_EMOTION_BASE_URL = `${APILAYER_BASE_URL}/marketplace/text_to_emotion-api`;
+export const DISPOSABLE_EMAIL_API = `${APILAYER_BASE_URL}/marketplace/disposable_email-api`;
+export const DEVELOPMENT_QUICKSTART_GUID = '/docs/article/getting-started';
