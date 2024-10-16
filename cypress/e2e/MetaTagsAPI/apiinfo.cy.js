@@ -15,6 +15,7 @@ describe('Meta Tags API info page', () => {
 
     it('3. Test to click "Api Info" tab', () => {
         cy.get('#details-tab > .d-md-flex > span').click();
+        cy.checkTextVisibility('Do Meta Tags Help with SEO');
     });
 
     it('4. Test to check "Do Meta Tags Help with SEO" title is present', () => {

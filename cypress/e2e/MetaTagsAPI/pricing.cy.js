@@ -27,8 +27,9 @@ describe('Meta Tags API Pricing page', () => {
         cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
     });
 
-    it('6. Test to check "Starter plan" is present', () => {
+    it('6. Test to check "Starter plan" and "MOST POPULAR" label is present', () => {
         cy.componentVisiblityCheck('.h3', 'Starter Plan');
+        cy.checkTextVisibility('MOST POPULAR');
     });
 
     it('7. Test to check price of "Starter plan" is present', () => {

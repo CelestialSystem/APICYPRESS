@@ -25,8 +25,10 @@ describe('Meta Tags API Home page', () => {
         cy.componentVisiblityCheck('.code-response');
     });
 
-    it('6. Test to click "check the documentation" hyperlink is working', () => {
-        cy.get('p > a').click()
+    it('6. Test to check the "check the documentation" link is present and clickable', () => {
+        cy.componentVisiblityCheck('p > a', 'check the documentation');
+        cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
+        cy.checkTextVisibility('Meta Tags API Reference');
     });
 
     it('7. Test to click on "Live demo" button', () => {
