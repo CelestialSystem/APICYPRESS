@@ -24,11 +24,7 @@ describe('Spell Checker API Home page', () => {
     it('5. Test to check code example  is present', () => {
         cy.componentVisiblityCheck('.code-response');
     });
-
-    it('6. Test to click "check the documentation" hyperlink is working', () => {
-        cy.get('p > a').click()
-    });
-
+    
     it('6. Test to check the "check the documentation" link is present and clickable', () => {
         cy.componentVisiblityCheck('p > a', 'check the documentation');
         cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
