@@ -1,4 +1,4 @@
-import { SPELL_CHECKER_BASE_URL } from '../../resources/data';
+import { SPELL_CHECKER_BASE_URL, DEVELOPMENT_QUICKSTART_GUID } from '../../resources/data';
 
 describe('Spell Checker API Documentation page', () => {
     before(() => {
@@ -15,7 +15,7 @@ describe('Spell Checker API Documentation page', () => {
 
     it('3. Test to click "Documentation" tab', () => {
         cy.intercept('GET', '/marketplace/spell-api/tabs/api_docs').as('apiRequest');
-        cy.get('.d-md-flex > .d-none').click();
+        cy.contains('span', 'Documentation').should('be.visible').click();
         cy.wait('@apiRequest');
     });
 
@@ -32,10 +32,11 @@ describe('Spell Checker API Documentation page', () => {
     });
 
     it('7. Test to check "development quickstart guide" link visibility and click behavior', () => {
-        cy.componentVisiblityCheck('a[href="/docs/article/getting-started"]', 'development quickstart guide.');
-        cy.intercept('GET', '/docs/article/getting-started').as('quickstartRequest');
-        cy.get('a[href="/docs/article/getting-started"]').invoke('removeAttr', 'target').click();
+        cy.componentVisiblityCheck(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`, 'development quickstart guide.');
+        cy.intercept('GET', DEVELOPMENT_QUICKSTART_GUID).as('quickstartRequest');
+        cy.get(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`).invoke('removeAttr', 'target').click();
         cy.wait('@quickstartRequest');
+        cy.get('h1.h2').should('be.visible').and('contain.text', 'Getting Started');
         cy.navigateUrlwithCookies(SPELL_CHECKER_BASE_URL);
         cy.contains('span', 'Documentation').should('be.visible').click();
     });
@@ -57,51 +58,55 @@ describe('Spell Checker API Documentation page', () => {
 
     it('11. Test to check and click on "Endpoints" hyperlink, then verify title is present', () => {
         cy.contains('a', 'Endpoints').should('be.visible').click();
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Endpoints');
+        cy.get('h4.mb-4.mt-4').should('be.visible').and('contain.text', 'Endpoints');
     });
 
-    it('12. Expands Endpoints on click', () => {
-        cy.contains('a', 'Endpoints').should('be.visible').click();
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Endpoints');
-    });
-
-    it('13. check Endpoints has the code blocks on expands', () => {
-        cy.contains('a', 'Endpoints').should('be.visible').click();
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Endpoints');
-
-       
-    });
-    it('14. check Endpoints has the code blocks on expands', () => {
+    it('12. check Endpoints has the code blocks on expands', () => {
         cy.componentVisiblityCheck('.language-javascript');
     });
 
-    it('15. Test to check "Subscribe for Free" button is present and  clicking the Subscribe for free button', () => {
+    it('13. Test to check "Subscribe for Free" button is present and  clicking the Subscribe for free button', () => {
         cy.get('#endpointCollapse1 > .card-body > #subscribeButton').click();
         cy.get('.d-md-flex > .d-none').click();
     });
 
-    it('16. Test to check and click on "Rate Limiting" hyperlink, then verify title is present', () => {
+    it('14. Test to check and click on "Rate Limiting" hyperlink, then verify title is present', () => {
         cy.contains('a', 'Rate Limiting').should('be.visible') .click();
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Rate Limiting'); 
+        cy.get('h4.mb-4.mt-4').should('be.visible').and('contain.text', 'Rate Limiting');
     });
 
-    it('17. Test to check the visibility of "Support unit" link, click on it, and navigate back to main page', () => {
+    it('15. Test to check the visibility of "Support unit" link, click on it, and navigate back to main page', () => {
         cy.componentVisiblityCheck('a', 'support unit');
         cy.contains('a', 'support unit').click();
         cy.navigateUrlwithCookies(SPELL_CHECKER_BASE_URL);
         cy.contains('span', 'Documentation').should('be.visible').click();
     });
 
-    it('18. Test to check and click on "Error Codes" hyperlink, then verify title is present', () => {
+    it('16. Test to check and click on "Error Codes" hyperlink, then verify title is present', () => {
         cy.contains('a', 'Error Codes').should('be.visible'); 
         cy.contains('a', 'Error Codes').click();
-        cy.componentVisiblityCheck('h1, h2, h3, h4', 'Error Codes'); 
+        cy.get('h4.mb-4.mt-4').should('be.visible').and('contain.text', 'Error Codes');
     });
 
-    it('19. Test to check "Contact for support" link visibility and click', () => {
+    it('17. Test to check "Contact for support" link visibility and click', () => {
         cy.contains('a', 'contact for support').should('be.visible').click();
         cy.contains('span', 'Documentation').should('be.visible').click();
         cy.navigateUrlwithCookies(SPELL_CHECKER_BASE_URL);
+        cy.contains('span', 'Documentation').should('be.visible').click();
+    });
+    it('18. Test to "GET /spellchecker" button click to expand content and verify elements', () => {
+        cy.get('button[data-target="#endpointCollapse1"]').click();
+        cy.get('#endpointCollapse1').should('have.class', 'collapse').within(() => {
+        cy.contains('Check the text given and makes suggestions if possible').should('exist');
+        cy.contains('Parameters').should('exist');
+        cy.contains('q (required)').should('exist');
+        cy.contains('Location: Query').should('exist');
+        cy.contains('Data Type: string').should('exist');
+        cy.get('iframe[src*="/marketplace/code/widget?api_id=82&method=get&endpoint=/spellchecker"]').should('exist');
+        cy.get('iframe[src*="/marketplace/code/response?service_name=spell&method=get&endpoint=/spellchecker"]').should('exist');
+        cy.get('#subscribeButton').should('exist').and('contain', 'Subscribe for Free').click({ force: true });
+        cy.window().its('loadPricing').should('exist');
+        });
     });
 
   });

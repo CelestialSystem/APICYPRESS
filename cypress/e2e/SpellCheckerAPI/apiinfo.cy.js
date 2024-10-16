@@ -15,6 +15,7 @@ describe('Spell Checker API info page', () => {
 
     it('3. Test to click "Api Info" tab', () => {
         cy.get('#details-tab > .d-md-flex > span').click();
+        cy.checkTextVisibility('A quick and fast implementation of a spell checker for English language. When used together with NLP API, it is a powerful duo');
     });
 
     it('4. Check if the "Spell Checker API Code Sample image" is present and loaded', () => {
