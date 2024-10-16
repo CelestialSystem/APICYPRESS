@@ -1,6 +1,6 @@
 import { APP_STORE_BASE_URL} from '../../resources/data';
 
-describe('App store documentation page', () => {
+describe('App store Documentation page', () => {
     before(() => {
         cy.visit(APP_STORE_BASE_URL);
     });
@@ -10,13 +10,17 @@ describe('App store documentation page', () => {
     });
 
     it('2. Test to click on the "Documentation" tab', () => {
+        cy.intercept('GET', '/marketplace/app_store-api/tabs/api_docs').as('apiRequest');
         cy.get('#documentation-tab').click();
-        cy.checkTextVisibility('App Store API Reference');
+        cy.wait('@apiRequest');
+        cy.componentVisiblityCheck('#documentation');
     });
 
     it('3. Test to check and click link "development quickstart guide."', () => {
         cy.contains('a', 'development quickstart guide').should('be.visible');
         cy.contains('a', 'development quickstart guide').click();
+        cy.navigateUrlwithCookies(APP_STORE_BASE_URL);
+        cy.get('#documentation-tab').click();
     });
 
     it('4. Test to check "Contents" section is present', () => {
@@ -62,6 +66,8 @@ describe('App store documentation page', () => {
     it('13. Test to click on "Accounts Pages" link', () => {
         cy.contains('a', 'Accounts page').should('be.visible');
         cy.contains('a', 'Accounts page').click();
+        cy.navigateUrlwithCookies(APP_STORE_BASE_URL);
+        cy.get('#documentation-tab').click();
      });
 
      it('14. Test to check on "expand & collapse" click', () => {
