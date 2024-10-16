@@ -26,7 +26,7 @@ describe('Spam Check API Home page', () => {
     });
 
     it('6. Test to click "check the documentation" hyperlink is working', () => {
-        cy.get('p > a').click()
+        cy.contains('a', 'check the documentation.').click();
     });
 
     it('7. Test to click on "Live demo" button', () => {

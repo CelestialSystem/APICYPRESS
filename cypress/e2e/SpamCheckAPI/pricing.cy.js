@@ -29,6 +29,7 @@ describe('Spam Check API Pricing page', () => {
   
     it('6. Test to check "Starter plan" is present', () => {
         cy.componentVisiblityCheck('.h3', 'Starter Plan');
+        cy.checkTextVisibility('MOST POPULAR');
     });
 
     it('7. Test to check price of "Starter plan" is present', () => {

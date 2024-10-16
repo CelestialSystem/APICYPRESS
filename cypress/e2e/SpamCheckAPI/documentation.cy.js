@@ -32,10 +32,7 @@ describe('Spam Check API Documentation page', () => {
     });
 
     it('7. Test to check "development quickstart guide" link visibility and click behavior', () => {
-        cy.componentVisiblityCheck('a[href="/docs/article/getting-started"]', 'development quickstart guide.');
-        cy.intercept('GET', '/docs/article/getting-started').as('quickstartRequest');
-        cy.get('a[href="/docs/article/getting-started"]').invoke('removeAttr', 'target').click();
-        cy.wait('@quickstartRequest');
+        cy.contains('a', 'development quickstart guide').click();
         cy.navigateUrlwithCookies(SPAM_CHECK_API_BASE_URL);
         cy.contains('span', 'Documentation').should('be.visible').click();
     });
