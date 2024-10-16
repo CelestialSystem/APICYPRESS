@@ -28,4 +28,3 @@ export const RESUME_PARSER_API = `${APILAYER_BASE_URL}/marketplace/resume_parser
 export const ADVANCED_SCRAPER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/adv_scraper-api`;
 export const TEXT_TO_EMOTION_BASE_URL = `${APILAYER_BASE_URL}/marketplace/text_to_emotion-api`;
 export const IMAGE_OPTIMIZER_API = `${APILAYER_BASE_URL}/marketplace/image_optimizer-api`;
-export const DEVELOPMENT_QUICKSTART_GUID = '/docs/article/getting-started';
