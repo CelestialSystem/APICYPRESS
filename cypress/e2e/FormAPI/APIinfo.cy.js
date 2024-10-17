@@ -2,7 +2,7 @@ import { FORM_API_BASE_URL } from '../../resources/data';
 
 describe('Form API Info page', () => {
     before(() => {
-      cy.visit(FORM_API_BASE_URL);
+        cy.visit(FORM_API_BASE_URL);
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
@@ -20,10 +20,24 @@ describe('Form API Info page', () => {
     });
 
     it('4. Test to check "How to use it" subtitle is present', () => {
-         cy.checkTextVisibility('How to use it');
+        cy.checkTextVisibility('How to use it');
     });
 
     it('5. Test to click on "orm.codes" link', () => {
         cy.get('a').contains('form.codes').click();
+    });
+
+    it('6. Ensures the cURL command block is visible', () => {
+        cy.get('.code-toolbar').first().within(() => {
+            cy.contains('curl --request POST').should('be.visible');
+        });
+    });
+
+    it('7. Ensures the JSON block is visible on the page', () => {
+        cy.get('pre.language-javascript').should('be.visible');
+    });
+
+    it('8. Ensures the JSON response block is present and visible', () => {
+        cy.get('pre.language-javascript').should('be.visible');
     });
 });
