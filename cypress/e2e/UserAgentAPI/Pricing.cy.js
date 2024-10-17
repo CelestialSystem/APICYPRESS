@@ -17,45 +17,15 @@ describe('User Agent Pricing page', () => {
     });
 
     it('3. Test to check "Free Plan" features', () => {
-        cy.componentVisiblityCheck('.card > .card-header > .h3', 'Free Plan');
-        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$0');
-        cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .plan').first().within(() => {
-            cy.get('a').contains('Subscribe').click();
-          });
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
-        cy.get('.media-body').contains(' 10,000 Requests / Monthly ').should('be.visible');
-        cy.get('.media-body').contains(' Free for Lifetime ').should('be.visible');
-        cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
-
+        cy.freePlanCheck('10,000');
     });
 
     it('4. Test to check "Starter Plan" features', () => {
-        cy.checkTextVisibility('MOST POPULAR');
-        cy.componentVisiblityCheck('.card > .card-header > .h3', 'Starter Plan');
-        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$7');
-        cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .plan').eq(1).within(() => {
-            cy.get('a').contains('Subscribe').click();
-          });
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
-        cy.get('.media-body').contains(' 60,000 Requests / Monthly ').should('be.visible');
-        cy.get('.media-body').contains(' Standard Support ').should('be.visible');
+        cy.starterPlanCheck('7', '60,000');
     });
    
     it('5. Test to check "Pro Plan" features', () => {
-        cy.componentVisiblityCheck('.card > .card-header > .h3', 'Pro Plan');
-        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$29');
-        cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .plan').eq(2).within(() => {
-            cy.get('a').contains('Subscribe').click();
-          });
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
-        cy.get('.media-body').contains(' 300,000 Requests / Monthly ').should('be.visible');
-        cy.get('.media-body').contains(' Standard Support ').should('be.visible');
+        cy.proPlanCheck('29', '300,000');
     });
     
     it('6. Test to check "Custom Plan" features', () => {

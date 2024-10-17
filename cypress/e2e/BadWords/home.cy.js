@@ -51,6 +51,8 @@ describe('Bad words api Home page', () => {
 
     it('12. Test to check on the "Live Demo" button click', () => {
         cy.get('.show-code').click();
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500); 
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
     });
 

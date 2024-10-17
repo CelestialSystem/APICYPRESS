@@ -158,3 +158,59 @@ Cypress.Commands.add('moveToDoc', (url) => {
     cy.wait('@apiRequest', { timeout: 60000 });
     cy.componentVisiblityCheck('#documentation');
 });
+
+//command to check pro plan for an API in API layer.
+Cypress.Commands.add('proPlanCheck', (cost, req) => {
+    cy.componentVisiblityCheck('.card > .card-header > .h3', 'Pro Plan');
+    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$'+ cost);
+    cy.componentVisiblityCheck('.media-body');
+    cy.get('#pricing .plan').eq(2).within(() => {
+        cy.get('a').contains('Subscribe').click({force: true});
+    });
+    // Adding wait due to the css animation of 300 ms
+    cy.wait(1000);
+    cy.get('.sidebar-content').should('be.visible');
+    cy.get('body').click();
+    cy.wait(1000);
+    cy.get('.sidebar-content', { timeout: 7000 }).should('not.be.visible');;
+    cy.get('.media-body').contains(' '+ req +' Requests / Monthly ').should('be.visible');
+    cy.get('.media-body').contains(' Standard Support ').should('be.visible');
+});
+
+//command to check starter plan for an API in API layer.
+Cypress.Commands.add('starterPlanCheck', (cost, req) => {
+    cy.checkTextVisibility('MOST POPULAR');
+    cy.componentVisiblityCheck('.card > .card-header > .h3', 'Starter Plan');
+    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$' + cost);
+    cy.componentVisiblityCheck('.media-body');
+    cy.get('#pricing .plan').eq(1).within(() => {
+        cy.get('a').contains('Subscribe').click({force: true});
+        });
+    // Adding wait due to the css animation of 300 ms
+    cy.wait(1000); 
+    cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
+    cy.get('body').click();
+    cy.wait(1000);
+    cy.get('.sidebar-content', { timeout: 7000 }).should('not.be.visible');;
+    cy.get('.media-body').contains(' '+ req +' Requests / Monthly ').should('be.visible');
+    cy.get('.media-body').contains(' Standard Support ').should('be.visible');
+});
+
+//command to check Free plan for an API in API layer.
+Cypress.Commands.add('freePlanCheck', (req) => {
+    cy.componentVisiblityCheck('.card > .card-header > .h3', 'Free Plan');
+    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$0');
+    cy.componentVisiblityCheck('.media-body');
+    cy.get('#pricing .plan').first().within(() => {
+        cy.get('a').contains('Subscribe').click({force: true});
+        });
+    // Adding wait due to the css animation of 300 ms
+    cy.wait(1000);
+    cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
+    cy.get('body').click();
+    cy.wait(1000);
+    cy.get('.sidebar-content', { timeout: 7000 }).should('not.be.visible');;
+    cy.get('.media-body').contains(' '+ req +' Requests / Monthly ').should('be.visible');
+    cy.get('.media-body').contains(' Free for Lifetime ').should('be.visible');
+    cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
+});
