@@ -48,6 +48,8 @@ describe('API Glosssary Form Page', () => {
     
     it('10. test to click on "Scroll to Top" button it should scroll to top', () => {
         cy.get('.footer-sidebar').scrollIntoView();
+        // Added wait due to CSS scroll, smooth behaviour, transition time.
+        cy.wait(1000);
         cy.get('.scroll-to-top').click();
         cy.window().its('scrollY').should('equal', 0);
     });
