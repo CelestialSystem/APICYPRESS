@@ -57,11 +57,11 @@ describe('Test Cases for marketplace page', () => {
         cy.get('.p-0 > .btn').should('contains.text', 'Add your API to our Marketplace')
     });
 
-    it('12. Test to Check if container has 6 apis', () => {
+    it('12. Test to Check if container has  apis', () => {
         cy.get('#apiList > .row')
-            .children() // Get all the child elements
-            .should('have.length', 6);
-    });
+            .children()
+            .should('have.length', 7);
+    });   
 
     it('13. Test to On click of "See all" button of Bestseller APIs', () => {
         cy.scrollTo('bottom');
