@@ -38,3 +38,5 @@ export const SCRAPER_BASE_URL =  `${APILAYER_BASE_URL}/marketplace/scraper-api`;
 export const DISPOSABLE_EMAIL_API = `${APILAYER_BASE_URL}/marketplace/disposable_email-api`;
 export const DEVELOPMENT_QUICKSTART_GUID = '/docs/article/getting-started';
 export const IMAGE_UPLOAD_BASE_URL = `${APILAYER_BASE_URL}/marketplace/image_upload-api`;
+export const SKILLS_BASE_URL = `${APILAYER_BASE_URL}/marketplace/skills-api`
+export const IMAGE_QUALITY_ASSESSMENT_BASE_URL =  `${APILAYER_BASE_URL}/marketplace/image_quality-api`;
