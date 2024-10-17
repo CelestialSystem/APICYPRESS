@@ -37,3 +37,4 @@ export const TEXT_TO_EMOTION_BASE_URL = `${APILAYER_BASE_URL}/marketplace/text_t
 export const SCRAPER_BASE_URL =  `${APILAYER_BASE_URL}/marketplace/scraper-api`;
 export const DISPOSABLE_EMAIL_API = `${APILAYER_BASE_URL}/marketplace/disposable_email-api`;
 export const DEVELOPMENT_QUICKSTART_GUID = '/docs/article/getting-started';
+export const FINANCE_NEWS_BASE_URL = `${APILAYER_BASE_URL}/marketplace/financelayer-api`;
