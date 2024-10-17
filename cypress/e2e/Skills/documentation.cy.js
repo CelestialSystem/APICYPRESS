@@ -1,4 +1,4 @@
-import { SKILLS_BASE_URL} from '../../resources/data';
+import { SKILLS_BASE_URL } from '../../resources/data';
 
 describe('Skills API Documentation page', () => {
     before(() => {
@@ -19,7 +19,7 @@ describe('Skills API Documentation page', () => {
     it('3. Test to check and click link "development quickstart guide."', () => {
         cy.contains('a', 'development quickstart guide').should('be.visible');
         cy.contains('a', 'development quickstart guide').click();
-        cy.navigateUrlwithCookies(SKILLS_BASE_URL);
+        cy.checkTextVisibility('Skills API Reference');
         cy.get('#documentation-tab').click();
     });
 
@@ -48,7 +48,7 @@ describe('Skills API Documentation page', () => {
         cy.get('[name="authentication"]').should('be.visible');
     });
 
-   it('10. Test to click on the "Endpoints" link', () => {
+    it('10. Test to click on the "Endpoints" link', () => {
         cy.get('li > a').contains('Endpoints').click();
         cy.get('#endpointsAccordion').should('be.visible');
     });
@@ -68,13 +68,16 @@ describe('Skills API Documentation page', () => {
         cy.contains('a', 'Accounts page').click();
         cy.navigateUrlwithCookies(SKILLS_BASE_URL);
         cy.get('#documentation-tab').click();
-     });
+    });
 
-     it('14. Test to click on "GET" collapsible button', () => {
+    it('14. Test to click on "GET /" collapsible button and check if collaps heppend or not', () => {
         cy.get('.mb-0 > .btn').click();
-     });
+        cy.get('.card-btn-toggle-default')
+            .should('be.visible')
+            .and('contain.text', '+');
+    });
 
-      it('15. Test to click the button " Subscribe for Free "', () => {
+      it('15. Test to click the button " Subscribe for Free " and checking its changing the pricing tab', () => {
         cy.get('#subscribeButton').should('contain.text', 'Subscribe for Free').click();
         cy.get('#pricing').should('be.visible');
         cy.get('#documentation-tab').click();

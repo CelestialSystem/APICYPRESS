@@ -26,7 +26,7 @@ describe('Skills API Home page', () => {
 
     it('5. Test to check on the "Live Demo" button click', () => {
         cy.get('.show-code').click();
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
+        cy.get('.sidebar-content').should('be.visible');
         cy.get('body').click();
     });
 
