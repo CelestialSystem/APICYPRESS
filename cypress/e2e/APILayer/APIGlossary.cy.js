@@ -47,13 +47,13 @@ describe('API Glosssary Form Page', () => {
     });
     
     it('10. test to check "Scroll to Top" button is present', () => {
-        cy.AcceptCookies();
-        cy.get('.scroll-to-top').scrollIntoView();
-        cy.get('.scroll-to-top').should('be.visible');
+        cy.get('.footer-sidebar-wrapper').scrollIntoView(); // Scroll to footer/sidebar area
+        cy.get('.scroll-to-top').should('be.visible'); // Ensure the scroll-to-top button is visible
     });
-
-    it('11. test to click on "Scroll to Top" button it should scroll to top', () => {
-        cy.get('.scroll-to-top').click();
-        cy.window().its('scrollY').should('equal', 0);
+    
+    it('11. test to click on "Scroll to Top" button, it should scroll to the top', () => {
+        cy.window().scrollTo('bottom'); // Scroll to the bottom of the page
+        cy.get('.scroll-to-top').should('be.visible').click(); // Ensure the button is visible, then click it
+        cy.window().its('scrollY').should('equal', 0); // Verify that the page scrolls to the top (scrollY = 0)
     });
 });
