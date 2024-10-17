@@ -44,7 +44,7 @@ describe('Vault API Documentation page', () => {
     it('8. Test to check "Authentication" link visibility and content', () => {
         cy.componentVisiblityCheck('a[href="#authentication"]', 'Authentication');
     });
-    
+
     it('9. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
         cy.contains('a', 'Authentication').click();
         cy.get('h4.mb-4.mt-4').should('be.visible').and('contain.text', 'Authentication');
@@ -52,8 +52,21 @@ describe('Vault API Documentation page', () => {
 
     it('10. Test to click on "Accounts page" hyperlink and navigate back to main page', () => {
         cy.contains('a', 'Accounts page').invoke('removeAttr', 'target').click();
+
+        // Check if the "API Marketplace" header is visible
+        cy.get('h1 a.text-dark')
+            .should('be.visible')
+            .and('contain.text', 'API Marketplace');
+
+        // Check if the introductory paragraph is present
+        cy.get('p').should('be.visible')
+            .and('contain.text', 'Discover, integrate, and empower your applications with our API marketplace.');
+
+        // Navigate back to the main page with cookies preserved
         cy.navigateUrlwithCookies(VAULT_API_BASE_URL);
-        cy.get('#documentation-tab').click();
+
+        // Perform further actions on the main page
+        cy.contains('span', 'Documentation').should('be.visible').click();
     });
 
     it('11. Test to check and click on "Endpoints" hyperlink, then verify title is present', () => {
@@ -62,7 +75,43 @@ describe('Vault API Documentation page', () => {
     });
 
     it('12. Test to check "Subscribe for Free" button is present and  clicking the Subscribe for free button', () => {
-        cy.get('#endpointCollapse1 > .card-body > #subscribeButton').click();
+        // cy.get('#endpointCollapse1 > .card-body > #subscribeButton').click();
+        // Verify the GET /url heading is present and visible
+        cy.get('#endpointHeading1 button')
+            .find('i.fas.fa-angle-right')
+            .should('be.visible');
+
+        // Click the button to expand the endpoint details
+        cy.get('#endpointHeading1 button').click();
+
+        // Verify the Parameters section
+        cy.get('#endpointCollapse1 .card-body h6')
+            .contains('Parameters')
+            .should('be.visible');
+
+        // Check if the 'code-snippet' exists
+        cy.get('#endpointCollapse1 > .card-body > .fluid.mt-3')
+            .should('exist') // Verify it's present in the DOM
+            .and('be.visible'); // Verify it's visible on the page
+
+        // Check if the response code box exists
+        cy.get('#endpointCollapse1 > .card-body > .code-response')
+            .should('exist') // Verify it's present
+            .and('be.visible'); // Verify it's visible
+
+        // Verify the Subscribe button is visible
+        cy.get('#subscribeButton')
+            .should('be.visible')
+            .and('contain.text', 'Subscribe for Free')
+            .click();
+
+        // Check if the pricing tab is active after clicking the button
+        cy.get('a#pricing-tab')
+            .should('have.class', 'active')
+            .and('be.visible');
+
+        // Click the Documentation link
+        cy.get('.d-md-flex > .d-none').contains('Documentation').click();
         cy.get('#documentation-tab').click();
     });
 
