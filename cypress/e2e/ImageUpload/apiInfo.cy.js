@@ -13,7 +13,9 @@ describe('Image Upload API Info page', () => {
         cy.get('#details-tab > .d-md-flex > span').click();
     });
     
-    it('3. Test to check for the  "description"', () => {
-        cy.checkTextVisibility('Image Upload API is an image manipulation and optimization REST API. The API is capable of uploading images, direct upload or via URL, optimizing the image, resizing, cropping the image, and changing orientation.');
+    it('3. Test to check for the titles are present', () => {
+        cy.checkTextVisibility('Automatic Image Optimization');
+        cy.checkTextVisibility('Easy Integration with E-commerce Platforms');
+        cy.checkTextVisibility('Powerful Editing Tools');
     });
 });
