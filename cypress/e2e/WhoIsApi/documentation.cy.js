@@ -14,9 +14,7 @@ describe('Who Is API Documentation page', () => {
     });
 
     it('3. Test to click "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/whois-api/tabs/api_docs').as('apiRequest');
-        cy.get('.d-md-flex > .d-none').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('whois-api');
     });
 
     it('4. Test to check "Contents:" is present', () => {

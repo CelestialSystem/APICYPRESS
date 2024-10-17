@@ -23,6 +23,8 @@ describe('Advanced Scraper Pricing page', () => {
         cy.get('#pricing .plan').first().within(() => {
             cy.get('a').contains('Subscribe').click();
           });
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500);  
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
         cy.get('.media-body').contains(' 100 Requests / Monthly ').should('be.visible');
@@ -39,6 +41,8 @@ describe('Advanced Scraper Pricing page', () => {
         cy.get('#pricing .plan').eq(1).within(() => {
             cy.get('a').contains('Subscribe').click();
           });
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500); 
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
         cy.get('.media-body').contains(' 300,000 Requests / Monthly ').should('be.visible');
@@ -52,6 +56,8 @@ describe('Advanced Scraper Pricing page', () => {
         cy.get('#pricing .plan').eq(2).within(() => {
             cy.get('a').contains('Subscribe').click();
           });
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500); 
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
         cy.get('.media-body').contains(' 1,000,000 Requests / Monthly ').should('be.visible');

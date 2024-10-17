@@ -46,13 +46,8 @@ describe('API Glosssary Form Page', () => {
         cy.get('#s_p').should('have.value', 'filter');
     });
     
-    it('10. test to check "Scroll to Top" button is present', () => {
-        cy.AcceptCookies();
-        cy.get('.scroll-to-top').scrollIntoView();
-        cy.get('.scroll-to-top').should('be.visible');
-    });
-
-    it('11. test to click on "Scroll to Top" button it should scroll to top', () => {
+    it('10. test to click on "Scroll to Top" button it should scroll to top', () => {
+        cy.get('.footer-sidebar').scrollIntoView();
         cy.get('.scroll-to-top').click();
         cy.window().its('scrollY').should('equal', 0);
     });

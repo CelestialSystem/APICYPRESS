@@ -10,10 +10,7 @@ describe('User Agent documentation page', () => {
     });
 
     it('2. Test to click on the "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/user_agent-api/tabs/api_docs').as('apiRequest');
-        cy.get('#documentation-tab').click();
-        cy.wait('@apiRequest');
-        cy.componentVisiblityCheck('#documentation');
+        cy.moveToDoc('user_agent-api');
     });
     
     // cannot test the below URL as this opens new tab

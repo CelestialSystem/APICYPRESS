@@ -11,10 +11,7 @@ describe('URL Shortener API Documentation page', () => {
     });
 
     it('2. Test to check "Documentation" tab visibility and Test to click "Documentation" tab', () => {
-        cy.componentVisiblityCheck('span', 'Documentation');
-        cy.intercept('GET', '/marketplace/short_url-api/tabs/api_docs').as('apiRequest');
-        cy.contains('span', 'Documentation').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('short_url-api');
     });
 
     it('3. Test to check "URL Shortener API Reference" title is present', () => {

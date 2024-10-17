@@ -15,9 +15,7 @@ describe('Currency Data Documentation page', () => {
     });
   
     it('3. Test to click "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/currency_data-api/tabs/api_docs').as('apiRequest');
-        cy.get('.d-md-flex > .d-none').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('currency_data-api');
     });
   
     it('4. Test to check "Currency Data API Reference" title is present', () => {

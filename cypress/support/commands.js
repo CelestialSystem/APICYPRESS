@@ -49,7 +49,7 @@ Cypress.Commands.add('AcceptCookies', () => {
         if (body.find('#cookiescript_accept').length > 0) {
             cy.intercept('GET', '/collect*').as('apiRequest');
             cy.get('#cookiescript_accept').click(); // Click the button if it exists
-            cy.wait('@apiRequest');
+            cy.wait('@apiRequest', { timeout: 60000 });
             cy.log('Cookies accepted.');
         } else {
             cy.log('Cookies already accepted or not present.');
@@ -149,4 +149,12 @@ Cypress.Commands.add('checkModal', (headerText, featureText) => {
     cy.get('.modal-footer > .btn').click();
     // Added wait of 1 second because there is 3s transition delay added in the css for the model
     cy.wait(1000);
+});
+
+//command to move to documentation tab in API layer.
+Cypress.Commands.add('moveToDoc', (url) => {
+    cy.intercept('GET', '/marketplace/'+url+'/tabs/api_docs').as('apiRequest');
+    cy.get('#documentation-tab').click();
+    cy.wait('@apiRequest', { timeout: 60000 });
+    cy.componentVisiblityCheck('#documentation');
 });

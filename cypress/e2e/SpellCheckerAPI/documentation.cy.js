@@ -14,9 +14,7 @@ describe('Spell Checker API Documentation page', () => {
     });
 
     it('3. Test to click "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/spell-api/tabs/api_docs').as('apiRequest');
-        cy.contains('span', 'Documentation').should('be.visible').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('spell-api');
     });
 
     it('4. Test to check "Contents:" span visibility and content', () => {

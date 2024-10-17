@@ -15,10 +15,7 @@ before(() => {
     });
   
     it('3. Test to click "Documentation"', () => {
-        cy.intercept('GET', '/marketplace/exchangerates_data-api/tabs/api_docs').as('apiRequest');
-        cy.get('#documentation-tab').click();
-        cy.wait('@apiRequest');
-        cy.componentVisiblityCheck('#documentation');
+        cy.moveToDoc('exchangerates_data-api');
     });
   
     it('4. Test to check "Exchange Rates Data API Reference" title is present', () => {

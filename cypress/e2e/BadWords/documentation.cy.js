@@ -14,7 +14,7 @@ describe('Bad words api documentation page', () => {
     });
 
     it('3. Test to click on the "Documentation" tab', () => {
-        cy.get('.d-md-flex > .d-none').click();
+        cy.moveToDoc('bad_words-api');
     });
 
     it('4. Test to check for the "Contents" section is present', () => {

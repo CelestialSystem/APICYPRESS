@@ -23,6 +23,8 @@ describe('Email Verification Pricing page', () => {
         cy.get('#pricing .plan').first().within(() => {
             cy.get('a').contains('Subscribe').click();
           });
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500);
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
         cy.get('.media-body').contains(' 100 Requests / Monthly ').should('be.visible');
@@ -30,7 +32,7 @@ describe('Email Verification Pricing page', () => {
         cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
 
     });
-
+    
     it('4. Test to check "Starter Plan" features', () => {
         cy.checkTextVisibility('MOST POPULAR');
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Starter Plan');
@@ -38,7 +40,9 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(1).within(() => {
             cy.get('a').contains('Subscribe').click();
-          });
+        });
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500);
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
         cy.get('.media-body').contains(' 5,000 Requests / Monthly ').should('be.visible');
@@ -51,7 +55,9 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(2).within(() => {
             cy.get('a').contains('Subscribe').click();
-          });
+        });
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500);
         cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
         cy.get('.media-body').contains(' 50,000 Requests / Monthly ').should('be.visible');
@@ -64,7 +70,9 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(3).within(() => {
             cy.get('a').contains('Subscribe').click();
-          });
+        });
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500);
         cy.get('aside', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
         cy.get('.media-body').contains(' 50,000 Requests / Monthly ').should('be.visible');

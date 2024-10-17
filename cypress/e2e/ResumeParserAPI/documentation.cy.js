@@ -11,10 +11,7 @@ describe('Resume Parser API Documentation page', () => {
     });
 
     it('2. Test to check "Documentation" tab visibility and Test to click "Documentation" tab', () => {
-        cy.componentVisiblityCheck('span', 'Documentation');
-        cy.intercept('GET', '/marketplace/resume_parser-api/tabs/api_docs').as('apiRequest');
-        cy.contains('span', 'Documentation').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('resume_parser-api');
     });
 
     it('3. Test to check "Resume Parser API Reference" title is present', () => {
