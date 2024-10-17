@@ -40,8 +40,7 @@ describe('Blogs', () => {
     });
 
     it('6.Test to Click on "Automation" button on the blog automation page should open', () => {
-        cy.get('.post-categories').contains('a', 'Automation').should('exist');
-        // cy.get('.page-title').should('contains.text', "Automation")
+        cy.get('.page-title').should('contains.text', "Automation")
     });
 
     it('7. Test to check "Blogs" view should have sidebar', () => {
