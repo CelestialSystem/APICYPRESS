@@ -39,9 +39,8 @@ describe('Paraphraser API Documentation page', () => {
         cy.get('a').contains('Accounts page').click({ force: true });
      });
 
-    it('8. Test to click on "GET" and "POST" collapse button ', () => {
-       cy.get('#endpointHeading1 > .mb-0 > .btn').click();
-       cy.get('#endpointHeading2 > .mb-0 > .btn').click();
+    it('8. Test to click on "POST" collapse button ', () => {
+        cy.get('.mb-0 > .btn').click();
     });
 
     it('1. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
