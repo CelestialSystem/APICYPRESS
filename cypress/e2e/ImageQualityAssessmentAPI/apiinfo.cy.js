@@ -63,7 +63,7 @@ describe('Image Quality Assessment API info page', () => {
     });
 
     //it wil open an image in local 
-    // it('11. Test to click on "get your API key" hyperlink', () => {
+    // it('11. Test to click on "https://.../sample.jpg" hyperlink', () => {
     //     cy.get('[href="https://assets.apilayer.com/apis/codes/image_quality/sample.jpg"]').click();
     //     cy.checkTextVisibility('Image Quality Assessment API');
     //     cy.get('#details-tab > .d-md-flex > span').click();

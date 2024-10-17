@@ -61,8 +61,11 @@ describe('Image Quality Assessment API Documentation page', () => {
         cy.get('h4.mb-4.mt-4').should('be.visible').and('contain.text', 'Endpoints');
     });
 
-    it('12. Test to check "Subscribe for Free" button is present and  clicking the Subscribe for free button', () => {
+    it('12. Test to check "Subscribe for Free" button is present and  clicking the Subscribe for free button and cheching tab got changed or not then returning back to doument page', () => {
         cy.get('#endpointCollapse1 > .card-body > #subscribeButton').click();
+        cy.get('#pricing')
+            .should('have.class', 'active')
+            .and('be.visible');
         cy.get('#documentation-tab').click();
     });
 
@@ -94,9 +97,9 @@ describe('Image Quality Assessment API Documentation page', () => {
     it('17. Test "GET /url" button click to expand content and verify elements', () => {
         cy.get('#documentation-tab').click();
         cy.get('#endpointHeading1 > .mb-0 > .btn').click();
-        
+
         cy.get('#endpointCollapse1')
-            .should('have.class', 'collapse show') 
+            .should('have.class', 'collapse show')
             .within(() => {
                 cy.contains('Perform BRISQUE for the image file on URL').should('exist');
                 cy.contains('Parameters').should('exist');
@@ -111,7 +114,7 @@ describe('Image Quality Assessment API Documentation page', () => {
                 cy.get('#subscribeButton')
                     .should('exist')
                     .and('contain', 'Subscribe for Free')
-                    .click({ force: true }); 
+                    .click({ force: true });
                 cy.window().its('loadPricing').should('exist');
             });
     });
@@ -120,7 +123,7 @@ describe('Image Quality Assessment API Documentation page', () => {
         cy.get('#documentation-tab').click();
         cy.get('#endpointHeading2 > .mb-0 > .btn').click();
         cy.get('#endpointCollapse2')
-            .should('have.class', 'collapse show') 
+            .should('have.class', 'collapse show')
             .within(() => {
                 cy.contains('Perform BRISQUE on the uploaded image').should('exist');
                 cy.contains('Parameters').should('exist');
@@ -135,9 +138,9 @@ describe('Image Quality Assessment API Documentation page', () => {
                 cy.get('#subscribeButton')
                     .should('exist')
                     .and('contain', 'Subscribe for Free')
-                    .click({ force: true }); 
+                    .click({ force: true });
                 cy.window().its('loadPricing').should('exist');
             });
     });
-    
+
 });
