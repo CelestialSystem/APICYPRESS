@@ -11,7 +11,7 @@ describe('Image Optimizer API Home page', () => {
     });
 
     it('2. Test to check "Image Optimizer API" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'Image Optimizer API');
+        cy.checkTextVisibility('Image Optimizer API');
     });
 
     it('3. Test to check "Subscribe for free" button is present', () => {
@@ -49,7 +49,7 @@ describe('Image Optimizer API Home page', () => {
     });
 
     it('9. Test to check "Related Products" container is present', () => {
-        cy.componentVisiblityCheck('.h1', 'Related Products');
+        cy.checkTextVisibility('Related Products');
     });
 
     it('10. Test to check footer is present', () => {
