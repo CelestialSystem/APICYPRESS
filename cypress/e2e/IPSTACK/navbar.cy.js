@@ -77,14 +77,14 @@ describe('Contact Form Page', () => {
         cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
     });
 
-    it('10. Test to naviagate to the "Contact Support" page', () => {
+    it('11. Test to naviagate to the "Contact Support" page', () => {
         cy.get('.main-menu > :nth-child(5)').trigger('mouseover');
         cy.get(':nth-child(5) > .submenu > :nth-child(2) > a').click({force: true});
         cy.AcceptCookies();
         cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
     });
 
-    it('10. Test to naviagate to the "Contact Sales" page', () => {
+    it('12. Test to naviagate to the "Contact Sales" page', () => {
         cy.get('.main-menu > :nth-child(5)').trigger('mouseover');
         cy.get(':nth-child(5) > .submenu > :nth-child(3) > a').click({force: true});
         cy.AcceptCookies();

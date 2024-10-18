@@ -44,3 +44,5 @@ export const DISPOSABLE_EMAIL_API = `${APILAYER_BASE_URL}/marketplace/disposable
 export const DEVELOPMENT_QUICKSTART_GUID = '/docs/article/getting-started';
 export const SKILLS_BASE_URL = `${APILAYER_BASE_URL}/marketplace/skills-api`
 export const IMAGE_QUALITY_ASSESSMENT_BASE_URL =  `${APILAYER_BASE_URL}/marketplace/image_quality-api`;
+export const AFFILIATE_IPAPI_URL = 'https://affiliate.ipapi.com';
+export const MEDIA_STACK_AFFILIATE_URL = 'https://affiliate.mediastack.com';
