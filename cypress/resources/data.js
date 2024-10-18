@@ -37,6 +37,7 @@ export const SPELL_CHECKER_BASE_URL = `${APILAYER_BASE_URL}/marketplace/spell-ap
 export const APP_STORE_BASE_URL = `${APILAYER_BASE_URL}/marketplace/app_store-api`;
 export const TEXT_TO_EMOTION_BASE_URL = `${APILAYER_BASE_URL}/marketplace/text_to_emotion-api`;
 export const IMAGE_OPTIMIZER_API = `${APILAYER_BASE_URL}/marketplace/image_optimizer-api`;
+export const REACHABILITY_API_BASE_URL = `${APILAYER_BASE_URL}/marketplace/reachability-api`;
 export const FORM_API_BASE_URL = `${APILAYER_BASE_URL}/marketplace/form_api-api`;
 export const PARAPRASER_API = `${APILAYER_BASE_URL}/marketplace/paraphraser-api`;
 export const VAULT_API_BASE_URL = `${APILAYER_BASE_URL}/marketplace/vault-api`;
