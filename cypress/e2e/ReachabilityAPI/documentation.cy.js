@@ -39,7 +39,7 @@ describe('Reachability API Documentation page', () => {
     });
 
     it('5. Test to check "Contents:" span visibility and content', () => {
-        cy.componentVisiblityCheck('span.text-muted.font-weight-bold', 'Contents:');
+        cy.checkTextVisibility('Contents:');
     });
 
     it('6. Test to check "Authentication" link visibility and content', () => {
@@ -136,7 +136,7 @@ describe('Reachability API Documentation page', () => {
         cy.contains('span', 'Documentation').should('be.visible').click();
     });
 
-    it('14. Verify the "GET /url" endpoint content and click "Subscribe for Free"', () => {
+    it('14. Verify the "GET/" endpoint content and click "Subscribe for Free"', () => {
         // Verify the GET /url heading is present and visible
         cy.get('#endpointHeading1 button')
             .find('i.fas.fa-angle-right')

@@ -58,7 +58,7 @@ describe('Reachability API Home page', () => {
 
     it('11. Test to check on the "Reachability API" description is present', () => {
         // Check if the description is visible
-        cy.componentVisiblityCheck('.col-9 > div.mb-5', 'Check reachability of any site/webpage from any country in the world.');
+        cy.checkTextVisibility('Check reachability of any site/webpage from any country in the world.');
     });
 
     it('12. Test to check the "check the documentation" link is present and clickable', () => {
