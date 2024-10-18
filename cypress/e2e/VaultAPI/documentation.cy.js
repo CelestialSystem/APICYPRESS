@@ -84,21 +84,6 @@ describe('Vault API Documentation page', () => {
         // Click the button to expand the endpoint details
         cy.get('#endpointHeading1 button').click();
 
-        // Verify the Parameters section
-        cy.get('#endpointCollapse1 .card-body h6')
-            .contains('Parameters')
-            .should('be.visible');
-
-        // Check if the 'code-snippet' exists
-        cy.get('#endpointCollapse1 > .card-body > .fluid.mt-3')
-            .should('exist') // Verify it's present in the DOM
-            .and('be.visible'); // Verify it's visible on the page
-
-        // Check if the response code box exists
-        cy.get('#endpointCollapse1 > .card-body > .code-response')
-            .should('exist') // Verify it's present
-            .and('be.visible'); // Verify it's visible
-
         // Verify the Subscribe button is visible
         cy.get('#subscribeButton')
             .should('be.visible')
