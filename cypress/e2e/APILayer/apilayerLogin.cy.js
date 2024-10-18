@@ -60,8 +60,8 @@ describe('Login Page', () => {
     })
 
     it('12. Test to Enter wrong "Email" and wrong "Password"', () => {
-        cy.get('#signInButton').click({force:true});
-        cy.get('#signinEmail').clear({ force: true });
+        cy.get('#signInButton').click();
+        cy.get('#signinEmail').clear();
         cy.get('#signinEmail').type('Test@1234');
         cy.get('#signinPassword').clear();
         cy.get('#signinPassword').type('1234');
@@ -69,9 +69,10 @@ describe('Login Page', () => {
         cy.get(':nth-child(3) > .invalid-feedback').should('contains.text', 'Invalid email address.');
     })
 
+
     it('13. Test to Enter wrong "Email" and correct "Password"', () => {
-        cy.get('#signInButton').click({force:true});
-        cy.get('#signinEmail').clear({ force: true });
+        cy.get('#signInButton').click();
+        cy.get('#signinEmail').clear();
         cy.get('#signinEmail').type('Test@1234');
         cy.get('#signinPassword').clear();
         cy.get('#signinPassword').type('test@123');
@@ -80,22 +81,22 @@ describe('Login Page', () => {
     })
 
     it('14. Test to Click on "Sign In" button without entering "Email" and "Password"', () => {
-        cy.get('#signInButton').click({force:true});
-        cy.get('.align-items-center.mb-3 > .btn').click({ force: true });
+        cy.get('#signInButton').click();
+        cy.get('.align-items-center.mb-3 > .btn').click();
         cy.get('#signinEmail-error').should('be.visible');
         cy.get('#signinPassword-error').should('be.visible');
     })
 
     it('15. Test to Enter "Email" and click "Sign In"', () => {
         cy.get('#signinEmail').type('Test@1234');
-        cy.get('.align-items-center.mb-3 > .btn').click({ force: true });
+        cy.get('.align-items-center.mb-3 > .btn').click();
         cy.get('#signinPassword-error').should('be.visible');
     })
 
     it('16. Test to Enter "Password" and click "Sign In"', () => {
         cy.get('#signinEmail').clear();
         cy.get('#signinPassword').type('test@123');
-        cy.get('.align-items-center.mb-3 > .btn').click({ force: true });
+        cy.get('.align-items-center.mb-3 > .btn').click();
         cy.get('#signinEmail-error').should('be.visible');
     })
 
