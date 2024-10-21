@@ -221,13 +221,13 @@ Cypress.Commands.add('checkHeaderAndDescription', (headerText, paragraphText) =>
         .should('be.visible')
         .and('contain.text', headerText);
 
-   cy.checkTextVisibility(paragraphText);
+    cy.checkTextVisibility(paragraphText);
 });
 
 //command to check the Livedemo for an API in API layer.
 Cypress.Commands.add('liveDemo', () => {
     cy.componentVisiblityCheck('.show-code', 'Live Demo');
-    cy.get('.show-code').should('be.visible').click({ force: true }); 
+    cy.get('.show-code').should('be.visible').click({ force: true });
     cy.componentVisiblityCheck('.sidebar-content').should('be.visible').contains('Sign in to APILayer');
     cy.get('body').click(0, 0);
 });
@@ -277,4 +277,11 @@ Cypress.Commands.add('checkRelatedProductAndFooter', () => {
 
     cy.componentVisiblityCheck('footer.bg-primary')
         .should('be.visible');
+});
+
+Cypress.Commands.add('checkSubscribeForFreeAndClick', () => {
+    cy.componentVisiblityCheck('#subscribeButton', "Subscribe for Free");
+    cy.get('#subscribeButton').click();
+    cy.get('#pricing').should('be.visible');
+    cy.checkIfScrolledToEl('#pricing');
 });
