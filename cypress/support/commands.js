@@ -126,9 +126,9 @@ Cypress.Commands.add('checkTextVisibility', (text) => {
 
 Cypress.Commands.add('redirectToUrl', (baseUrl, endpoint) => {
     cy.origin(baseUrl, { args: { url: baseUrl, endpoint } }, ({ url, endpoint }) => {
-      cy.url().should('eq', `${url}${endpoint}`);
-      // Navigate back to the original page
-      cy.go('back');
+        cy.url().should('eq', `${url}${endpoint}`);
+        // Navigate back to the original page
+        cy.go('back');
     });
 });
 
@@ -136,8 +136,8 @@ Cypress.Commands.add('checkIfScrolledToEl', (ele) => {
     cy.get(ele).then(($el) => {
         const elTop = $el[0].getBoundingClientRect().top;
 
-        expect(elTop).to.be.greaterThan(0); 
-        expect(elTop).to.be.lessThan(Cypress.config('viewportHeight')); 
+        expect(elTop).to.be.greaterThan(0);
+        expect(elTop).to.be.lessThan(Cypress.config('viewportHeight'));
     });
 });
 
@@ -153,7 +153,7 @@ Cypress.Commands.add('checkModal', (headerText, featureText) => {
 
 //command to move to documentation tab in API layer.
 Cypress.Commands.add('moveToDoc', (url) => {
-    cy.intercept('GET', '/marketplace/'+url+'/tabs/api_docs').as('apiRequest');
+    cy.intercept('GET', '/marketplace/' + url + '/tabs/api_docs').as('apiRequest');
     cy.get('#documentation-tab').click();
     cy.wait('@apiRequest', { timeout: 60000 });
     cy.componentVisiblityCheck('#documentation');
@@ -162,10 +162,10 @@ Cypress.Commands.add('moveToDoc', (url) => {
 //command to check pro plan for an API in API layer.
 Cypress.Commands.add('proPlanCheck', (cost, req) => {
     cy.componentVisiblityCheck('.card > .card-header > .h3', 'Pro Plan');
-    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$'+ cost);
+    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price', '$' + cost);
     cy.componentVisiblityCheck('.media-body');
     cy.get('#pricing .plan').eq(2).within(() => {
-        cy.get('a').contains('Subscribe').click({force: true});
+        cy.get('a').contains('Subscribe').click({ force: true });
     });
     // Adding wait due to the css animation of 300 ms
     cy.wait(1000);
@@ -173,7 +173,7 @@ Cypress.Commands.add('proPlanCheck', (cost, req) => {
     cy.get('body').click();
     cy.wait(1000);
     cy.get('.sidebar-content', { timeout: 7000 }).should('not.be.visible');;
-    cy.get('.media-body').contains(' '+ req +' Requests / Monthly ').should('be.visible');
+    cy.get('.media-body').contains(' ' + req + ' Requests / Monthly ').should('be.visible');
     cy.get('.media-body').contains(' Standard Support ').should('be.visible');
 });
 
@@ -181,36 +181,36 @@ Cypress.Commands.add('proPlanCheck', (cost, req) => {
 Cypress.Commands.add('starterPlanCheck', (cost, req) => {
     cy.checkTextVisibility('MOST POPULAR');
     cy.componentVisiblityCheck('.card > .card-header > .h3', 'Starter Plan');
-    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$' + cost);
+    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price', '$' + cost);
     cy.componentVisiblityCheck('.media-body');
     cy.get('#pricing .plan').eq(1).within(() => {
-        cy.get('a').contains('Subscribe').click({force: true});
-        });
+        cy.get('a').contains('Subscribe').click({ force: true });
+    });
     // Adding wait due to the css animation of 300 ms
-    cy.wait(1000); 
+    cy.wait(1000);
     cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
     cy.get('body').click();
     cy.wait(1000);
     cy.get('.sidebar-content', { timeout: 7000 }).should('not.be.visible');;
-    cy.get('.media-body').contains(' '+ req +' Requests / Monthly ').should('be.visible');
+    cy.get('.media-body').contains(' ' + req + ' Requests / Monthly ').should('be.visible');
     cy.get('.media-body').contains(' Standard Support ').should('be.visible');
 });
 
 //command to check Free plan for an API in API layer.
 Cypress.Commands.add('freePlanCheck', (req) => {
     cy.componentVisiblityCheck('.card > .card-header > .h3', 'Free Plan');
-    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$0');
+    cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price', '$0');
     cy.componentVisiblityCheck('.media-body');
     cy.get('#pricing .plan').first().within(() => {
-        cy.get('a').contains('Subscribe').click({force: true});
-        });
+        cy.get('a').contains('Subscribe').click({ force: true });
+    });
     // Adding wait due to the css animation of 300 ms
     cy.wait(1000);
     cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
     cy.get('body').click();
     cy.wait(1000);
     cy.get('.sidebar-content', { timeout: 7000 }).should('not.be.visible');;
-    cy.get('.media-body').contains(' '+ req +' Requests / Monthly ').should('be.visible');
+    cy.get('.media-body').contains(' ' + req + ' Requests / Monthly ').should('be.visible');
     cy.get('.media-body').contains(' Free for Lifetime ').should('be.visible');
     cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
 });
@@ -220,6 +220,7 @@ Cypress.Commands.add('liveDemo', () => {
     cy.componentVisiblityCheck('.show-code', 'Live Demo');
     cy.get('.show-code').should('be.visible').click();
     cy.componentVisiblityCheck('.sidebar-content').should('be.visible').contains('Sign in to APILayer');
+    cy.get('body').click(0, 0);
 });
 
 //Verifying the pricing, api info and the documetation page is available in the home page 
@@ -229,5 +230,22 @@ Cypress.Commands.add('verifyTabs', () => {
     cy.componentVisiblityCheck('#documentation-tab', 'Documentation').should('be.visible');
 });
 
+Cypress.Commands.add('checkTheDocumentation', (expectedText) => {
+    cy.componentVisiblityCheck('p > a').contains('check the documentation.');
+    cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
+    cy.checkTextVisibility(expectedText);
+});
 
+Cypress.Commands.add('checkReviewRating', () => {
+    cy.get('.media.align-items-center[href="/"]')
+        .should('exist')
+        .and('be.visible');
 
+    cy.get('.media-body.font-size-1.text-body')
+        .contains('APILayer')
+        .should('exist')
+        .and('be.visible');
+
+    cy.get('.d-flex.align-items-center li img[alt="Review rating"]')
+        .should('be.visible');
+});
