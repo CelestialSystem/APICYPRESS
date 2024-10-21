@@ -233,16 +233,20 @@ Cypress.Commands.add('liveDemo', () => {
 });
 
 //command to Verifying the pricing, api info and the documetation ptabs is available in the home page 
-Cypress.Commands.add('verifyTabs', () => {
-    const tabs = [
-        { selector: '#pricing-tab', label: 'Pricing' },
-        { selector: '#details-tab', label: 'API info' },
-        { selector: '#documentation-tab', label: 'Documentation' }
+Cypress.Commands.add('verifyTabs', (additionalTabs = []) => {
+    // Default Tab Selectors
+    const defaultTabs = [
+        '#pricing-tab',
+        '#details-tab',
+        '#documentation-tab'
     ];
 
-    tabs.forEach(tab => {
-        cy.componentVisiblityCheck(tab.selector, tab.label)
-            .should('be.visible');
+    // Combine Default Tabs with Additional Tabs
+    const allTabs = [...defaultTabs, ...additionalTabs];
+
+    // Loop through each tab and check visibility
+    allTabs.forEach(selector => {
+        cy.get(selector).should('be.visible');
     });
 });
 
