@@ -216,14 +216,14 @@ Cypress.Commands.add('freePlanCheck', (req) => {
 });
 
 //command to check the Livedemo for an API in API layer.
-Cypress.Commands.add('Livedemo', () => {
+Cypress.Commands.add('liveDemo', () => {
     cy.componentVisiblityCheck('.show-code', 'Live Demo');
     cy.get('.show-code').should('be.visible').click();
     cy.componentVisiblityCheck('.sidebar-content').should('be.visible').contains('Sign in to APILayer');
 });
 
 //Verifying the pricing, api info and the documetation page is available in the home page 
-Cypress.Commands.add('VerifyTabs', () => {
+Cypress.Commands.add('verifyTabs', () => {
     cy.componentVisiblityCheck('#pricing-tab', 'Pricing').should('be.visible');
     cy.componentVisiblityCheck('#details-tab', 'API info').should('be.visible');
     cy.componentVisiblityCheck('#documentation-tab', 'Documentation').should('be.visible');

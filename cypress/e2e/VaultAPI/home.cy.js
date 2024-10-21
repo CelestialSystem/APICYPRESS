@@ -28,11 +28,11 @@ describe('Vault API Home page', () => {
     });
 
     it('6. Test to click on "Live demo" title is present and its functionality', () => {
-        cy.Livedemo();
+        cy.liveDemo();
     });
 
     it('7. Test to check the "pricing, api info and the documetation" Tabs is Present in the home page', () => {
-        cy.VerifyTabs();
+        cy.verifyTabs();
     });
 
     it('8. Test to check "Related Products" container is present', () => {
