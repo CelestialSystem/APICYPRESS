@@ -22,9 +22,7 @@ describe('Vault API Home page', () => {
     });
 
     it('5. Test to check the "check the documentation" link is present and clickable', () => {
-        cy.componentVisiblityCheck('p > a', 'check the documentation');
-        cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
-        cy.checkTextVisibility('Vault API Reference');
+        cy.checkTheDocumentation('Vault API Reference');
     });
 
     it('6. Test to click on "Live demo" title is present and its functionality', () => {
@@ -35,12 +33,8 @@ describe('Vault API Home page', () => {
         cy.verifyTabs();
     });
 
-    it('8. Test to check "Related Products" container is present', () => {
-        cy.componentVisiblityCheck('.h1', 'Related Products');
-    });
-
-    it('9. Test to check footer is present', () => {
-        cy.componentVisiblityCheck('footer.bg-primary');
+    it('8. Verifying that the "related products and the footer" are present', () => {
+        cy.checkRelatedProductAndFooter();
     });
 
   }); 

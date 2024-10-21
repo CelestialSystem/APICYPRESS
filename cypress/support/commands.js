@@ -218,24 +218,35 @@ Cypress.Commands.add('freePlanCheck', (req) => {
 //command to check the Livedemo for an API in API layer.
 Cypress.Commands.add('liveDemo', () => {
     cy.componentVisiblityCheck('.show-code', 'Live Demo');
-    cy.get('.show-code').should('be.visible').click();
+    cy.get('.show-code').should('be.visible').click({ force: true }); 
     cy.componentVisiblityCheck('.sidebar-content').should('be.visible').contains('Sign in to APILayer');
     cy.get('body').click(0, 0);
 });
 
 //Verifying the pricing, api info and the documetation page is available in the home page 
 Cypress.Commands.add('verifyTabs', () => {
-    cy.componentVisiblityCheck('#pricing-tab', 'Pricing').should('be.visible');
-    cy.componentVisiblityCheck('#details-tab', 'API info').should('be.visible');
-    cy.componentVisiblityCheck('#documentation-tab', 'Documentation').should('be.visible');
+    const tabs = [
+        { selector: '#pricing-tab', label: 'Pricing' },
+        { selector: '#details-tab', label: 'API info' },
+        { selector: '#documentation-tab', label: 'Documentation' }
+    ];
+
+    tabs.forEach(tab => {
+        cy.componentVisiblityCheck(tab.selector, tab.label)
+            .should('be.visible');
+    });
 });
 
+//verify the presence and interaction with the 'check the documentation' link.
 Cypress.Commands.add('checkTheDocumentation', (expectedText) => {
     cy.componentVisiblityCheck('p > a').contains('check the documentation.');
-    cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
+    cy.get('a[href="javascript:;"]').contains('check the documentation.')
+        .should('be.visible')
+        .click({ force: true });
     cy.checkTextVisibility(expectedText);
 });
 
+//verify the presence and visibility of the review rating section in home page.
 Cypress.Commands.add('checkReviewRating', () => {
     cy.get('.media.align-items-center[href="/"]')
         .should('exist')
@@ -247,5 +258,14 @@ Cypress.Commands.add('checkReviewRating', () => {
         .and('be.visible');
 
     cy.get('.d-flex.align-items-center li img[alt="Review rating"]')
+        .should('be.visible');
+});
+
+//Verifying that the related products and the footer are present. 
+Cypress.Commands.add('checkRelatedProductAndFooter', () => {
+    cy.componentVisiblityCheck('.h1', 'Related Products')
+        .should('be.visible');
+
+    cy.componentVisiblityCheck('footer.bg-primary')
         .should('be.visible');
 });
