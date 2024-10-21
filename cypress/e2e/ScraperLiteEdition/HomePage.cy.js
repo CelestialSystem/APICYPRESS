@@ -6,55 +6,38 @@ describe('Scrapper(Lite Edition) Home page', () => {
     });
   
     it('1. Test to "Accept Cookies" if not already accepted', () => {
-        // Check if the "Accept Cookies" button is present or exists
         cy.AcceptCookies();
     });
   
-    it('2. Test to check "Scraper API (Lite Edition)" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'Scraper API (Lite Edition)');
+    it('2. Test to check "header and Description" title is present', () => {
+        cy.checkHeaderAndDescription('Scraper API (Lite Edition)', 'Scrape websites bypassing rate limitations. Ability to simulate originating IP from any country. Fast and simple.');
     });
   
     it('3. Test to check "Subscribe for free" button is present', () => {
-        cy.componentVisiblityCheck('#subscribeButton', 'Subscribe for Free');
+        cy.checkSubscribeForFreeAndClick();
     });
   
     it('4. Test to check "Live Demo" button is present', () => {
-        cy.componentVisiblityCheck('.show-code', 'Live Demo');
+        cy.liveDemo();
     });
   
     it('5. Test to check code example  is present', () => {
         cy.componentVisiblityCheck('.code-response');
     });
-    
-    it('6. Test to click on "Live demo" button', () => {
-        cy.get('.show-code').click();
-        cy.componentVisiblityCheck('.sidebar-content');
-        cy.get('body').click(0, 0);
-    });
-    
-    it('7. Test to check "Pricing tab"  is present', () => {
-        cy.componentVisiblityCheck('#pricing-tab', 'Pricing');
+     
+    it('6. Test to check if all tabs are present', () => {
+        cy.verifyTabs();
     });
 
-    it('8. Test to check "API info" tab  is present', () => {
-        cy.componentVisiblityCheck('#details-tab', 'API info');
+    it('7. Test to check if "Related Products and Footer" is present', () => {
+        cy.checkRelatedProductAndFooter();
     });
 
-    it('9. Test to check "Documentation" tab  is present', () => {
-        cy.componentVisiblityCheck('#documentation-tab', 'Documentation');
+    it('8. Test to click "check the documentation" hyperlink is working', () => {
+        cy.checkTheDocumentation('Scraper API (Lite Edition) Reference');
     });
 
-    it('10. Test to check "Related Products" container is present', () => {
-        cy.componentVisiblityCheck('.h1', 'Related Products');
-    });
-
-    it('11. Test to check footer is present', () => {
-        cy.componentVisiblityCheck('footer.bg-primary');
-    });
-
-    it('12. Test to click "check the documentation" hyperlink is working', () => {
-        cy.componentVisiblityCheck('.mt-3 > p > a', 'check the documentation');
-        cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
-        cy.checkTextVisibility('Scraper API (Lite Edition) Reference');
+    it('9. Test to check the "visibility of the review rating section" present and clickable', () => {
+        cy.checkReviewRating();
     });
   });

@@ -14,7 +14,7 @@ describe('Vault API Home page', () => {
     });
 
     it('3. Test to check "Subscribe for free" button is present', () => {
-        cy.componentVisiblityCheck('#subscribeButton', 'Subscribe for Free');
+        cy.checkSubscribeForFreeAndClick();
     });
 
     it('4. Test to check code example  is present', () => {
@@ -35,6 +35,10 @@ describe('Vault API Home page', () => {
 
     it('8. Verifying that the "related products and the footer" are present', () => {
         cy.checkRelatedProductAndFooter();
+    });
+
+    it('9. Test to check the "visibility of the review rating section" present and clickable', () => {
+        cy.checkReviewRating();
     });
 
   }); 

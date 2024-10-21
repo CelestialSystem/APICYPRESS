@@ -9,49 +9,36 @@ describe('Text to Emotion home page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "Text to Emotion API" text is present', () => {
-        cy.checkTextVisibility('Text to Emotion API');
+    it('2. Test to check for the "header and Description" text is present', () => {
+        cy.checkHeaderAndDescription('Text to Emotion API', 'Discover the emotions in textual messages automatically using NLP.');
     });
 
-    it('3. Test to check if text "Discover the emotions in textual messages automatically using NLP." is present', () => {
-        cy.checkTextVisibility('Discover the emotions in textual messages automatically using NLP.');
+    it('3. Test to click and check for button "Subscribe for Free"', () => {
+        cy.checkSubscribeForFreeAndClick();
     });
 
-    it('4. Test to click and check for button "Subscribe for Free"', () => {
-        cy.componentVisiblityCheck('#subscribeButton', "Subscribe for Free");
-        cy.get('#subscribeButton').click();
-        cy.get('#pricing').should('be.visible');
-        cy.checkIfScrolledToEl('#pricing');
-    });
-
-    it('5. Test to check on the "Live Demo" button click', () => {
-        cy.get('.show-code').click();
-        // Adding wait due to the css animation of 300 ms
-        cy.wait(500);
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
+    it('4. Test to check on the "Live Demo" button click', () => {
+        cy.liveDemo();
     });
    
-    it('6. Test to click link "check the documentation."', () => {
-        cy.get('a').contains('check the documentation.').click();
+    it('5. Test to click link "check the documentation."', () => {
+        cy.checkTheDocumentation('Text to Emotion API Reference');
     });
     
-    it('7. Test to check if all tabs are present', () => {
-        cy.get('.nav-item > #pricing-tab').should('be.visible');
-        cy.get('.nav-item > #details-tab').should('be.visible');
-        cy.get('.nav-item > #documentation-tab').should('be.visible');
+    it('6. Test to check if all tabs are present', () => {
+        cy.verifyTabs();
     });
    
-    it('8. Test to check if "Related Products" is present', () => {
-        cy.componentVisiblityCheck('#related');
+    it('7. Test to check if "Related Products and Footer" is present', () => {
+        cy.checkRelatedProductAndFooter();
     });
     
-    it('9. Test to check if footer is present', () => {
-        cy.componentVisiblityCheck('footer');
-    });
-    
-    it('10. Test to check if code block is present', () => {
+    it('8. Test to check if code block is present', () => {
         cy.componentVisiblityCheck('.language-javascript');
+    });
+
+    it('9. Test to check the "visibility of the review rating section" present and clickable', () => {
+        cy.checkReviewRating();
     });
 
 });

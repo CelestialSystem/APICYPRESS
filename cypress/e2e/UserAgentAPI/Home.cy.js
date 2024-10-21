@@ -9,50 +9,40 @@ describe('User Agent home page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "User Agent API" text is present', () => {
-        cy.checkTextVisibility('User Agent API');
+    it('2. Test to check for the "header and Description" text is present', () => {
+        cy.checkHeaderAndDescription('User Agent API','Detect any browser, device & OS from user agent strings and generate new ones randomly.');
     });
 
-    it('3. Test to check if text "Detect any browser, device & OS from user agent strings and generate new ones randomly." is present', () => {
-        cy.checkTextVisibility('Detect any browser, device & OS from user agent strings and generate new ones randomly.');
+    it('3. Test to click and check for button "Subscribe for Free"', () => {
+        cy.checkSubscribeForFreeAndClick();
     });
 
-    it('4. Test to click and check for button "Subscribe for Free"', () => {
-        cy.componentVisiblityCheck('#subscribeButton', "Subscribe for Free");
-        cy.get('#subscribeButton').click();
-        cy.get('#pricing').should('be.visible');
-        cy.checkIfScrolledToEl('#pricing');
-    });
-
-    it('5. Test to check on the "Live Demo" button click', () => {
-        cy.get('.show-code').click();
-        // Adding wait due to the css animation of 300 ms
-        cy.wait(500);
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
+    it('4. Test to check on the "Live Demo" button click', () => {
+        cy.liveDemo();
     });
    
-    it('6. Test to click link "check the documentation."', () => {
-        cy.get('a').contains('check the documentation.').click();
+    it('5. Test to click link "check the documentation."', () => {
+       cy.checkTheDocumentation('User Agent API Reference');
     });
     
-    it('7. Test to check if all tabs are present', () => {
-        cy.get('.nav-item > #pricing-tab').should('be.visible');
-        cy.get('.nav-item > #details-tab').should('be.visible');
-        cy.get('.nav-item > #documentation-tab').should('be.visible');
-        cy.get('.nav-item > #reviews-tab').should('be.visible');
+    it('6. Test to check if all tabs are present', () => {
+        cy.verifyTabs();
+        const extraTabs = [
+            '#reviews-tab',
+        ];
+        cy.verifyTabs(extraTabs);
     });
    
-    it('8. Test to check if "Related Products" is present', () => {
-        cy.componentVisiblityCheck('#related');
+    it('7. Test to check if "related products and the footer" are present', () => {
+        cy.checkRelatedProductAndFooter();
     });
     
-    it('9. Test to check if footer is present', () => {
-        cy.componentVisiblityCheck('footer');
-    });
-    
-    it('10. Test to check if code block is present', () => {
+    it('8. Test to check if code block is present', () => {
         cy.componentVisiblityCheck('.language-javascript');
+    });
+
+    it('9. Test to check the "visibility of the review rating section" present and clickable', () => {
+        cy.checkReviewRating();
     });
 
 });

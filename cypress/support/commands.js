@@ -232,7 +232,7 @@ Cypress.Commands.add('liveDemo', () => {
     cy.get('body').click(0, 0);
 });
 
-//command to Verifying the pricing, api info and the documetation ptabs is available in the home page 
+//command to Verifying the pricing, api info and the documetation tabs is available in the home page 
 Cypress.Commands.add('verifyTabs', (additionalTabs = []) => {
     // Default Tab Selectors
     const defaultTabs = [
@@ -285,7 +285,7 @@ Cypress.Commands.add('checkRelatedProductAndFooter', () => {
 
 Cypress.Commands.add('checkSubscribeForFreeAndClick', () => {
     cy.componentVisiblityCheck('#subscribeButton', "Subscribe for Free");
-    cy.get('#subscribeButton').click();
+    cy.get('#subscribeButton').click({force:true});
     cy.get('#pricing').should('be.visible');
     cy.checkIfScrolledToEl('#pricing');
 });

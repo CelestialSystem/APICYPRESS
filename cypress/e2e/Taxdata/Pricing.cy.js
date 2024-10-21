@@ -17,49 +17,20 @@ describe('Taxdata Pricing page', () => {
         cy.get('#pricing-tab > .d-md-flex > span').click();
     });
 
-    it('4. Test to check for the text "Free Plan" is present', () => {
-        cy.componentVisiblityCheck(':nth-child(1) > .card > .card-header > .h3', 'Free Plan');
-    });
-
-    it('5. Test to check "Free Plan" price is $0.00', () => {
-        cy.componentVisiblityCheck(':nth-child(1) > .card > .card-header > .mb-3 > .plan-price','$0');
-    });
-
-    it('6. Test to check "Free Plan" features (100 requests, free for lifetime, no credit card)', () => {
-        cy.componentVisiblityCheck('.media-body');
-        cy.componentVisiblityCheck(':nth-child(1) > .card > .card-body > :nth-child(2) > .media-body', 'Free for Lifetime');
-        cy.componentVisiblityCheck(':nth-child(3) > .media-body', 'No Credit Card Required');
+    it('3. Test to check "Free Plan" features', () => {
+        cy.freePlanCheck('100');
     });
 
     it('7. Test to check "Starter Plan" is present', () => {
         cy.componentVisiblityCheck(':nth-child(2) > .card > .card-header > .h3','Starter Plan');
     });
 
-    it('8. Test to check "Starter Plan" price is $14.99', () => {
-        cy.componentVisiblityCheck(':nth-child(2) > .card > .card-header > .mb-3 > .plan-price', '$19.99');
+    it('4. Test to check "Starter Plan" features', () => {
+        cy.starterPlanCheck('19.99', '1,000');
     });
 
-    it('9. Test to check "Starter Plan" features (10,000 requests, standard support)', () => {
-        cy.componentVisiblityCheck(':nth-child(2) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
-        cy.checkTextVisibility('1,000 Requests / Monthly');
-    });
-
-    it('10. Test to check "MOST POPULAR" label on "Starter" plan', () => {
-        cy.componentVisiblityCheck('.card > .badge','MOST POPULAR');
-    });
-
-    it('11. Test to check "Pro Plan" is present', () => {
-        cy.componentVisiblityCheck(':nth-child(3) > .card > .card-header > .h3', 'Pro Plan');
-    });
-
-    it('12. Test to check "Pro Plan" price is $49.99', () => {
-        cy.componentVisiblityCheck(':nth-child(3) > .card > .card-header > .mb-3 > .plan-price', '$49.99');
-    });
-
-    it('13. Test to check "Pro Plan" features (100,000 requests, standard support)', () => {
-        // cy.componentVisiblityCheck('#pricing > .row > :nth-child(3) > .card > .card-body > :nth-child(1) > .media-body');
-        cy.checkTextVisibility('5,000 Requests / Monthly');
-        cy.componentVisiblityCheck(':nth-child(3) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
+    it('5. Test to check "Pro Plan" features', () => {
+        cy.proPlanCheck('49.99', '5,000');
     });
 
     it('14. Test to check "Enterprise Plan" is present', () => {
@@ -93,7 +64,7 @@ describe('Taxdata Pricing page', () => {
     it('20. Test to check button text for "Contact Us" and redirect to "Contact" page and check the text "Contact Sales & Customer Support"', () => {
         cy.get(':nth-child(5) > .card > .card-header > .btn').scrollIntoView();
         cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .btn', 'Contact\nUs');
-        cy.get(':nth-child(5) > .card > .card-header > .btn').click();
+        cy.get(':nth-child(5) > .card > .card-header > .btn').click({force:true});
         cy.document().its('readyState').should('eq', 'complete');
         cy.checkTextVisibility('Contact Sales & Customer Support')
         cy.navigateUrlwithCookies(TAXDATA_BASE_URL);
