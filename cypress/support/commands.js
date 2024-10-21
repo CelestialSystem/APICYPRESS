@@ -215,6 +215,15 @@ Cypress.Commands.add('freePlanCheck', (req) => {
     cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
 });
 
+// Command to check the header and Description text is present
+Cypress.Commands.add('checkHeaderAndDescription', (headerText, paragraphText) => {
+    cy.get('.text-primary')
+        .should('be.visible')
+        .and('contain.text', headerText);
+
+   cy.checkTextVisibility(paragraphText);
+});
+
 //command to check the Livedemo for an API in API layer.
 Cypress.Commands.add('liveDemo', () => {
     cy.componentVisiblityCheck('.show-code', 'Live Demo');
@@ -223,7 +232,7 @@ Cypress.Commands.add('liveDemo', () => {
     cy.get('body').click(0, 0);
 });
 
-//Verifying the pricing, api info and the documetation page is available in the home page 
+//command to Verifying the pricing, api info and the documetation ptabs is available in the home page 
 Cypress.Commands.add('verifyTabs', () => {
     const tabs = [
         { selector: '#pricing-tab', label: 'Pricing' },
@@ -237,7 +246,7 @@ Cypress.Commands.add('verifyTabs', () => {
     });
 });
 
-//verify the presence and interaction with the 'check the documentation' link.
+//command to verify the  interaction with the 'check the documentation' link.
 Cypress.Commands.add('checkTheDocumentation', (expectedText) => {
     cy.componentVisiblityCheck('p > a').contains('check the documentation.');
     cy.get('a[href="javascript:;"]').contains('check the documentation.')
@@ -246,7 +255,7 @@ Cypress.Commands.add('checkTheDocumentation', (expectedText) => {
     cy.checkTextVisibility(expectedText);
 });
 
-//verify the presence and visibility of the review rating section in home page.
+//command to verify the presence and visibility of the review rating section in home page.
 Cypress.Commands.add('checkReviewRating', () => {
     cy.get('.media.align-items-center[href="/"]')
         .should('exist')
@@ -261,7 +270,7 @@ Cypress.Commands.add('checkReviewRating', () => {
         .should('be.visible');
 });
 
-//Verifying that the related products and the footer are present. 
+//command to Verifying that the related products and the footer are present. 
 Cypress.Commands.add('checkRelatedProductAndFooter', () => {
     cy.componentVisiblityCheck('.h1', 'Related Products')
         .should('be.visible');

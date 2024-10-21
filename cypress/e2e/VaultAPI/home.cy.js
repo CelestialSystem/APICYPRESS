@@ -9,8 +9,8 @@ describe('Vault API Home page', () => {
         cy.AcceptCookies();
     });                   
 
-    it('2. Test to check "Vault API" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'Vault API');
+    it('2. Test to check "Vault API and  paragraph" title is present', () => {
+        cy.checkHeaderAndDescription('Vault API', 'Full featured encrypted data store and key management backend.');
     });
 
     it('3. Test to check "Subscribe for free" button is present', () => {
