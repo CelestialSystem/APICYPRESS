@@ -17,7 +17,7 @@ describe('Advanced Scraper Pricing page', () => {
     });
 
     it('3. Test to check "Free Plan" features', () => {
-        cy.freePlanCheck('100');
+        cy.freePlanCheck('3,000');
     });
 
     it('4. Test to check "Starter Plan" features', () => {

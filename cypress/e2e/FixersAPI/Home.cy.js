@@ -9,55 +9,35 @@ describe('Fixers Home page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "Fixer API" text is present', () => {
-        cy.componentVisiblityCheck('.h2', 'Fixer API');
+    it('2. Test to check for the "Fixer API" & "Foreign exchange rates and currency conversion JSON API." text is present', () => {
+        cy.checkHeaderAndDescription('Fixer API', 'Foreign exchange rates and currency conversion JSON API.');
     });
 
-    it('3. Test to check for the caption of the Fixer API', () => {
-        cy.componentVisiblityCheck('.col-9 > :nth-child(2)', '');
+    it('3. Test to click and check for button "Subscribe for Free" and click', () => {
+        cy.checkSubscribeForFreeAndClick();
     });
 
-    it('4. Test to check the "Code Response" window is present', () => {
-        cy.componentVisiblityCheck('.col-9 > :nth-child(2)');
+    it('4. Test to check on the "Live Demo" button click', () => {
+        cy.liveDemo();
     });
 
-    it('5. Test to check the "Subscribe for free" button is present', () => {
-        cy.componentVisiblityCheck('#subscribeButton')
+    it('5. Test to click link "check the documentation."', () => {
+        cy.checkTheDocumentation('Fixer API Reference');
     });
 
-    it('6. Test to check the "Live Demo" button is present', () => {
-        cy.componentVisiblityCheck('.show-code');
+    it('6. Test to check if all tabs are present', () => {
+        const extraTabs = [
+            '#reviews-tab',
+            '#faqs-tab'
+        ];
+        cy.verifyTabs(extraTabs);
     });
 
-    it('7. Test to check the text "Prcing" tab is present', () => {
-        cy.componentVisiblityCheck('#pricing-tab > .d-md-flex > span');
+    it('7. Test to check if "Related Products & footer" is present', () => {
+        cy.checkRelatedProductAndFooter();
     });
 
-    it('8. Test to check the "API Info" tab is present', () => {
-        cy.componentVisiblityCheck('#details-tab > .d-md-flex > span');
+    it('8. Test to check if code block is present', () => {
+        cy.componentVisiblityCheck('.language-javascript');
     });
-
-    it('9. Test to check the "Documentation" tab is present', () => {
-        cy.componentVisiblityCheck('.d-md-flex > .d-none');
-    });
-
-    it('10. Test to check the "Review" tab is present', () => {
-        cy.componentVisiblityCheck('#reviews-tab > .d-md-flex > span');
-    });
-
-    it('11. Test to check the "FAQs" tab is present', () => {
-        cy.componentVisiblityCheck('#faqs-tab > .d-md-flex > span');
-    });
-
-    it('12. Test to check on the "Live Demo" button click', () => {
-        cy.get('.show-code').click();
-        // Adding wait due to the css animation of 300 ms
-        cy.wait(500);
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-    });
-
-    it('13. Test to check for text "Sign in to APILayer" is present', () => {
-        cy.get('.lead').should('contains.text', 'Sign in to APILayer');
-        cy.get('.hs-unfold > .js-hs-unfold-invoker').click();
-    })
 });

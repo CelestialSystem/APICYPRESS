@@ -7,54 +7,34 @@ describe('Image Quality Assessment API Home page', () => {
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
-    });                   
-
-    it('2. Test to check "Image Quality Assessment API" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'Image Quality Assessment API');
     });
 
-    it('3. Test to check "Subscribe for free" button is present', () => {
-        cy.componentVisiblityCheck('#subscribeButton', 'Subscribe for Free');
+    it('2. Test to check for the "Image Quality Assessment API" & "Performs a blind/referenceless image spatial quality evaluator (BRISQUE) algorithm on the image and predicts an image quality score." text is present', () => {
+        cy.checkHeaderAndDescription('Image Quality Assessment API', 'Performs a blind/referenceless image spatial quality evaluator (BRISQUE) algorithm on the image and predicts an image quality score.');
     });
 
-    it('4. Test to check "Live Demo" button is present', () => {
-        cy.componentVisiblityCheck('.show-code', 'Live Demo');
+    it('3. Test to click and check for button "Subscribe for Free" and click', () => {
+        cy.checkSubscribeForFreeAndClick();
     });
 
-    it('5. Test to check code example  is present', () => {
-        cy.componentVisiblityCheck('.code-response');
+    it('4. Test to check on the "Live Demo" button click', () => {
+        cy.liveDemo();
     });
 
-    it('6. Test to check the "check the documentation" link is present and clickable', () => {
-        cy.componentVisiblityCheck('p > a', 'check the documentation');
-        cy.get('a[href="javascript:;"]').contains('check the documentation.').click();
-        cy.checkTextVisibility('Image Quality Assessment API Reference');
+    it('5. Test to click link "check the documentation."', () => {
+        cy.checkTheDocumentation('Image Quality Assessment API Reference');
     });
 
-    it('7. Test to click on "Live demo" button', () => {
-        cy.get('.show-code').click();
-        cy.componentVisiblityCheck('.sidebar-content');
-        cy.get('body').click(0, 0);
+    it('6. Test to check if all tabs are present', () => {
+        cy.verifyTabs();
     });
 
-    it('8. Test to check "Pricing tab"  is present', () => {
-        cy.componentVisiblityCheck('#pricing-tab', 'Pricing');
+    it('7. Test to check if "Related Products & footer" is present', () => {
+        cy.checkRelatedProductAndFooter();
     });
 
-    it('9. Test to check "API info" tab  is present', () => {
-        cy.componentVisiblityCheck('#details-tab', 'API info');
-    });
-
-    it('10. Test to check "Documentation" tab  is present', () => {
-        cy.componentVisiblityCheck('#documentation-tab', 'Documentation');
-    });
-
-    it('11. Test to check "Related Products" container is present', () => {
-        cy.componentVisiblityCheck('.h1', 'Related Products');
-    });
-
-    it('12. Test to check footer is present', () => {
-        cy.componentVisiblityCheck('footer.bg-primary');
+    it('8. Test to check if code block is present', () => {
+        cy.componentVisiblityCheck('.language-javascript');
     });
 
   }); 

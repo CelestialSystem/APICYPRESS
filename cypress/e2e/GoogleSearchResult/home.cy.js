@@ -8,51 +8,32 @@ describe('Google search result API Home page', () => {
     it('1. Test to "Accept Cookies" if not already accepted', () => {
         cy.AcceptCookies();
     });
-  
-    it('2. Test to check "Google Search Results API" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'Google Search Results API');
-    });
-  
-    it('3. Test to check "Subscribe for free" button is present', () => {
-        cy.componentVisiblityCheck('#subscribeButton', 'Subscribe for Free');
-    });
-  
-    it('4. Test to check "Live Demo" button is present', () => {
-        cy.componentVisiblityCheck('.show-code', 'Live Demo');
-    });
-  
-    it('5. Test to check "code example" is present', () => {
-        cy.componentVisiblityCheck('.code-response');
-    });
-    
-    it('6. Test to click on "Live demo" button', () => {
-        cy.get('.show-code').click();
-        cy.componentVisiblityCheck('.sidebar-content');
-        cy.get('body').click(0, 0);
-    });
-    
-    it('7. Test to check "Pricing tab" is present', () => {
-        cy.componentVisiblityCheck('#pricing-tab', 'Pricing');
+
+    it('2. Test to check for the "Google Search Results API" & "Scrapes Google Search engine result pages (SERPs) and extracts results in JSON format." text is present', () => {
+        cy.checkHeaderAndDescription('Google Search Results API', 'Scrapes Google Search engine result pages (SERPs) and extracts results in JSON format.');
     });
 
-    it('8. Test to check "API info" tab is present', () => {
-        cy.componentVisiblityCheck('#details-tab', 'API info');
+    it('3. Test to click and check for button "Subscribe for Free" and click', () => {
+        cy.checkSubscribeForFreeAndClick();
     });
 
-    it('9. Test to check "Documentation" tab is present', () => {
-        cy.componentVisiblityCheck('#documentation-tab', 'Documentation');
+    it('4. Test to check on the "Live Demo" button click', () => {
+        cy.liveDemo();
     });
 
-    it('10. Test to check "Related Products" container is present', () => {
-        cy.componentVisiblityCheck('.h1', 'Related Products');
+    it('5. Test to click link "check the documentation."', () => {
+        cy.checkTheDocumentation('Google Search Results API Reference');
     });
 
-    it('11. Test to check footer is present', () => {
-        cy.componentVisiblityCheck('footer.bg-primary');
+    it('6. Test to check if all tabs are present', () => {
+        cy.verifyTabs();
     });
 
-    it('12. Test to click link "check the documentation."', () => {
-        cy.get('a').contains('check the documentation.').click();
-        cy.checkTextVisibility('Google Search Results API Reference');
+    it('7. Test to check if "Related Products & footer" is present', () => {
+        cy.checkRelatedProductAndFooter();
+    });
+
+    it('8. Test to check if code block is present', () => {
+        cy.componentVisiblityCheck('.language-javascript');
     });
   });

@@ -9,50 +9,36 @@ describe('Advanced Scraper home page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "Advanced Scraper API" text is present', () => {
-        cy.checkTextVisibility('Advanced Scraper API');
+    it('2. Test to check for the "Advanced Scraper API" & "Advanced web scraper API with rotating IPs (from 170+ countries), browser rendering and JS execution capabilities." text is present', () => {
+        cy.checkHeaderAndDescription('Advanced Scraper API', 'Advanced web scraper API with rotating IPs (from 170+ countries), browser rendering and JS execution capabilities.');
     });
 
-    it('3. Test to check if text "Advanced web scraper API with rotating IPs (from 170+ countries), browser rendering and JS execution capabilities." is present', () => {
-        cy.checkTextVisibility('Advanced web scraper API with rotating IPs (from 170+ countries), browser rendering and JS execution capabilities.');
+    it('3. Test to click and check for button "Subscribe for Free" and click', () => {
+        cy.checkSubscribeForFreeAndClick();
     });
 
-    it('4. Test to click and check for button "Subscribe for Free"', () => {
-        cy.componentVisiblityCheck('#subscribeButton', "Subscribe for Free");
-        cy.get('#subscribeButton').click();
-        cy.get('#pricing').should('be.visible');
-        cy.checkIfScrolledToEl('#pricing');
-    });
-
-    it('5. Test to check on the "Live Demo" button click', () => {
-        cy.get('.show-code').click();
-        // Adding wait due to the css animation of 300 ms
-        cy.wait(500); 
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
+    it('4. Test to check on the "Live Demo" button click', () => {
+        cy.liveDemo();
     });
    
-    it('6. Test to click link "check the documentation."', () => {
-        cy.get('a').contains('check the documentation.').click();
+    it('5. Test to click link "check the documentation."', () => {
+        cy.checkTheDocumentation('Advanced Scraper API Reference');
     });
     
-    it('7. Test to check if all tabs are present', () => {
-        cy.get('.nav-item > #pricing-tab').should('be.visible');
-        cy.get('.nav-item > #details-tab').should('be.visible');
-        cy.get('.nav-item > #documentation-tab').should('be.visible');
-        cy.get('.nav-item > #reviews-tab').should('be.visible');
+    it('6. Test to check if all tabs are present', () => {
+        it('6. Test to check if all tabs are present', () => {
+            const extraTabs = [
+                '#reviews-tab'
+            ];
+            cy.verifyTabs(extraTabs);
+        });
     });
    
-    it('8. Test to check if "Related Products" is present', () => {
-        cy.componentVisiblityCheck('#related');
+    it('7. Test to check if "Related Products & footer" is present', () => {
+        cy.checkRelatedProductAndFooter();
     });
     
-    it('9. Test to check if footer is present', () => {
-        cy.componentVisiblityCheck('footer');
-    });
-    
-    it('10. Test to check if code block is present', () => {
+    it('8. Test to check if code block is present', () => {
         cy.componentVisiblityCheck('.language-javascript');
     });
-
 });

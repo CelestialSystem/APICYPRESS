@@ -9,47 +9,32 @@ describe('Finance News API Home page', () => {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check for the "Finance News API" title is present', () => {
-        cy.checkTextVisibility('Finance News API');
+    it('2. Test to check for the "Finance News API" & "Real-time Finance News API using the JSON payload to extract dynamic financial data." text is present', () => {
+        cy.checkHeaderAndDescription('Finance News API', 'Real-time Finance News API using the JSON payload to extract dynamic financial data.');
     });
 
-    it('3. Test to check if "description" text is present', () => {
-        cy.checkTextVisibility('Real-time Finance News API using the JSON payload to extract dynamic financial data.');
+    it('3. Test to click and check for button "Subscribe for Free" and click', () => {
+        cy.checkSubscribeForFreeAndClick();
     });
 
-    it('4. Test to click and check for button "Subscribe for Free"', () => {
-        cy.componentVisiblityCheck('#subscribeButton', "Subscribe for Free");
-        cy.get('#subscribeButton').click();
-        cy.get('#pricing').should('be.visible');
-        cy.checkIfScrolledToEl('#pricing');
+    it('4. Test to check on the "Live Demo" button click', () => {
+        cy.liveDemo();
     });
 
-    it('5. Test to check on the "Live Demo" button click', () => {
-        cy.get('.show-code').click();
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
+    it('5. Test to click link "check the documentation."', () => {
+        cy.checkTheDocumentation('Finance News API Reference');
     });
 
-    it('6. Test to check on "Code example" window is present', () => {
-        cy.componentVisiblityCheck('.code-response');
+    it('6. Test to check if all tabs are present', () => {
+        cy.verifyTabs();
     });
 
-    it('7. Test to click link "check the documentation."', () => {
-        cy.get('a').contains('check the documentation.').click();
-        cy.checkTextVisibility('Finance News API Reference');
+    it('7. Test to check if "Related Products & footer" is present', () => {
+        cy.checkRelatedProductAndFooter();
     });
 
-    it('8. Test to check if all tabs are present', () => {
-        cy.get('.nav-item > #pricing-tab').should('be.visible');
-        cy.get('.nav-item > #details-tab').should('be.visible');
-        cy.get('.nav-item > #documentation-tab').should('be.visible');
+    it('8. Test to check if code block is present', () => {
+        cy.componentVisiblityCheck('.language-javascript');
     });
-
-    it('9. Test to check if "Related Products" is present', () => {
-        cy.componentVisiblityCheck('#related');
-    });
-
-    it('10. Test to check if footer is present', () => {
-        cy.componentVisiblityCheck('footer');
-    });
+    
 });
