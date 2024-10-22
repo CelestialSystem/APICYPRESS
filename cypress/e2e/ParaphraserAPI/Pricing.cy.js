@@ -46,6 +46,7 @@ describe('Paraphraser API Pricing page', () => {
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
         });
+        cy.wait(500);
         cy.get('#pricing .plan').eq(1).within(() => {
             cy.get('a.btn-success').contains('Subscribe').click({ force: true });
         });
@@ -72,6 +73,7 @@ describe('Paraphraser API Pricing page', () => {
     });
 
     it('12. Test to check "Subscribe" button click and "Pro Plan" features (50,000 requests, standard support)', () => {
+        cy.wait(500);
         cy.get('#pricing .plan').eq(2).within(() => {
             cy.get('a').contains('Subscribe').click();
         });

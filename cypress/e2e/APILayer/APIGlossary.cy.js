@@ -13,9 +13,15 @@ describe('API Glosssary Form Page', () => {
     it('2. Test to naviagate to the "Api Glossary" page', () => {
         cy.get(':nth-child(5) > .nav-link').click();
     });
-
-    it('3. Test to  show the "API Glossary" page', () => {
-        cy.visit('https://blog.apilayer.com/api-glossary/');
+    
+    it('3. Test to check "API Glossary" page and actual URl is present', () => {
+        cy.url().then((currentUrl) => {
+            if (!currentUrl.includes('/api-glossary')) {
+              // Redirect to the actual URL if not already there
+              cy.navigateUrlwithCookies('https://blog.apilayer.com/api-glossary/');
+            }
+          });
+          cy.assertPathname('/api-glossary/');
     });
    
     it('4. Test to check the "Glossary text" available or not', () => {

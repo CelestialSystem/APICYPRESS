@@ -28,6 +28,8 @@ describe('Image to text Home page', () => {
     
     it('6. Test to click on "Live demo" button', () => {
         cy.get('.show-code').click();
+        // Adding wait due to the css animation of 300 ms
+        cy.wait(500); 
         cy.componentVisiblityCheck('.sidebar-content');
         cy.get('body').click(0, 0);
     });

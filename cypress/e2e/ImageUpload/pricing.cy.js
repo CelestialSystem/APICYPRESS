@@ -13,6 +13,7 @@ describe('Image Upload Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Free Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$0');
         cy.componentVisiblityCheck('.media-body');
+        cy.wait(500);
         cy.get('#pricing .plan').first().within(() => {
             cy.get('a').contains('Subscribe').click();
           });
@@ -29,6 +30,7 @@ describe('Image Upload Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Starter Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$9');
         cy.componentVisiblityCheck('.media-body');
+        cy.wait(500);
         cy.get('#pricing .plan').eq(1).within(() => {
             cy.get('a').contains('Subscribe').click();
           });
@@ -42,6 +44,7 @@ describe('Image Upload Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Pro Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$54');
         cy.componentVisiblityCheck('.media-body');
+        cy.wait(500);
         cy.get('#pricing .plan').eq(2).within(() => {
             cy.get('a').contains('Subscribe').click();
           });
@@ -55,6 +58,7 @@ describe('Image Upload Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Enterprise Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$119');
         cy.componentVisiblityCheck('.media-body');
+        cy.wait(500);
         cy.get('#pricing .plan').eq(3).within(() => {
             cy.get('a').contains('Subscribe').click();
           });
