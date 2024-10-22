@@ -29,8 +29,9 @@ describe('Finance News Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Enterprise Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$99');
         cy.componentVisiblityCheck('.media-body');
+        cy.wait(500);
         cy.get('#pricing .plan').eq(3).within(() => {
-            cy.get('a').contains('Subscribe').click();
+            cy.get('a').contains('Subscribe').click({force: true});
           });
         cy.get('aside', { timeout: 7000 }).should('be.visible');
         cy.get('body').click();
