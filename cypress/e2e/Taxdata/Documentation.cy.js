@@ -48,4 +48,8 @@ describe('Taxdata Documentation page', () => {
     it('10. Test to click on the "Subscribe for Free" button', () => {
         cy.get('#endpointCollapse1 > .card-body > #subscribeButton').click();
     });
+
+    it('11. Test to check and click link "development quickstart guide."', () => {
+        cy.developmentQuickstartGuide(TAXDATA_BASE_URL);
+    });
 });

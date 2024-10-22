@@ -1,4 +1,4 @@
-import { DID_YOU_MEAN_THIS_BASE_URL, DEVELOPMENT_QUICKSTART_GUID } from '../../resources/data';
+import { DID_YOU_MEAN_THIS_BASE_URL } from '../../resources/data';
 
 describe('"Did you Mean This?" documentation page', () => {
     before(() => {
@@ -14,20 +14,7 @@ describe('"Did you Mean This?" documentation page', () => {
     });
 
     it('3. Test to check and click link "development quickstart guide."', () => {
-        cy.componentVisiblityCheck(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`, 'development quickstart guide.');
-
-        cy.intercept('GET', DEVELOPMENT_QUICKSTART_GUID).as('quickstartRequest');
-
-        // Click the link and wait for the request
-        cy.get(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`).invoke('removeAttr', 'target').click();
-        cy.wait('@quickstartRequest');
-
-        cy.get('h1.h2') // Select the <h1> element with the class 'h2'
-            .should('be.visible') // Assert that it is visible
-            .and('contain.text', 'Getting Started'); // Assert that it contains the text "Getting Started"
-
-        cy.navigateUrlwithCookies(DID_YOU_MEAN_THIS_BASE_URL);
-        cy.contains('span', 'Documentation').should('be.visible').click();
+        cy.developmentQuickstartGuide(DID_YOU_MEAN_THIS_BASE_URL);
     });
 
     it('4. Test to check for the text "Did you Mean This? API Reference" & "Authentication"', () => {

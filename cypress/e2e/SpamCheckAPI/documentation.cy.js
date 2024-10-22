@@ -29,10 +29,8 @@ describe('Spam Check API Documentation page', () => {
         cy.checkTextVisibility('Just Getting Started?');
     });
 
-    it('7. Test to check "development quickstart guide" link visibility and click behavior', () => {
-        cy.contains('a', 'development quickstart guide').click();
-        cy.navigateUrlwithCookies(SPAM_CHECK_API_BASE_URL);
-        cy.contains('span', 'Documentation').should('be.visible').click();
+    it('4. Test to check and click link "development quickstart guide."', () => {
+        cy.developmentQuickstartGuide(SPAM_CHECK_API_BASE_URL);
     });
 
     it('8. Test to check "Authentication" link visibility and content', () => {

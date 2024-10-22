@@ -14,10 +14,7 @@ describe('Keyword Extraction Documentation page', () => {
     });
 
     it('3. Test to check and click link "development quickstart guide."', () => {
-        cy.contains('a', 'development quickstart guide').should('be.visible');
-        cy.contains('a', 'development quickstart guide').click();
-        cy.navigateUrlwithCookies(KEYWORD_EXTRACTION_BASE_URL);
-        cy.get('#documentation-tab').click();
+        cy.developmentQuickstartGuide(KEYWORD_EXTRACTION_BASE_URL);
     });
 
     it('4. Test to check "Contents" section is present', () => {
