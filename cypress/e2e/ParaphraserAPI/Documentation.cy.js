@@ -1,4 +1,4 @@
-import { PARAPRASER_API, APILAYER_BASE_URL } from '../../resources/data';
+import { PARAPRASER_API, APILAYER_BASE_URL, DEVELOPMENT_QUICKSTART_GUID } from '../../resources/data';
 
 describe('Paraphraser API Documentation page', () => {
     before(() => {
@@ -25,8 +25,20 @@ describe('Paraphraser API Documentation page', () => {
         cy.componentVisiblityCheck('.sticky-top > .text-muted', 'Contents:');
     });
 
-    it('5. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(PARAPRASER_API);
+    it('5. Test to click on "development quickstart guide" link', () => {
+        cy.componentVisiblityCheck('.blockquote > p > a', 'development quickstart guide');
+        cy.intercept('GET', DEVELOPMENT_QUICKSTART_GUID).as('quickstartRequest');
+
+        // Click the link and wait for the request
+        cy.get(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`).invoke('removeAttr', 'target').click();
+        cy.wait('@quickstartRequest');
+
+        cy.get('h1.h2') // Select the <h1> element with the class 'h2'
+            .should('be.visible') // Assert that it is visible
+            .and('contain.text', 'Getting Started'); // Assert that it contains the text "Getting Started"
+
+        cy.navigateUrlwithCookies(PARAPRASER_API);
+        cy.get('#documentation-tab').click();
     });
 
     it('6. Test to click on "Accounts Page" link', () => {

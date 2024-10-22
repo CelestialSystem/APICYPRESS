@@ -18,8 +18,21 @@ describe('Resume Parser API Documentation page', () => {
         cy.checkTextVisibility('Resume Parser API Reference');
     });
 
-    it('4. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(RESUME_PARSER_API);
+    it('4. Test to check "development quickstart guide" link visibility and click behavior', () => {
+        cy.componentVisiblityCheck('a[href="/docs/article/getting-started"]', 'development quickstart guide.');
+
+        cy.intercept('GET', '/docs/article/getting-started').as('quickstartRequest');
+
+        // Click the link and wait for the request
+        cy.get('a[href="/docs/article/getting-started"]').invoke('removeAttr', 'target').click();
+        cy.wait('@quickstartRequest');
+
+        cy.get('h1.h2') // Select the <h1> element with the class 'h2'
+        .should('be.visible') // Assert that it is visible
+        .and('contain.text', 'Getting Started'); // Assert that it contains the text "Getting Started"
+
+        cy.navigateUrlwithCookies(RESUME_PARSER_API);
+        cy.contains('span', 'Documentation').should('be.visible').click();
     });
 
     it('5. Test to check "Contents:" span visibility and content', () => {

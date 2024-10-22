@@ -29,8 +29,10 @@ describe('IP To Location API Documentation page', () => {
         cy.componentVisiblityCheck('.blockquote > .mb-2', 'Just Getting Started?');
     });
 
-    it('7. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(IPTOLOCATIONAPI_BASE_URL);
+    it('7. Test to check "development quickstart guide" hyperlink click', () => {
+        cy.get('.blockquote > p > a').click();
+        cy.navigateUrlwithCookies(IPTOLOCATIONAPI_BASE_URL);
+        cy.get('.d-md-flex > .d-none').click();
     });
 
     it('8. Test to check "Authentication" title is present', () => {

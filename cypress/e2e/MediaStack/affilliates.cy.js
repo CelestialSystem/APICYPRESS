@@ -15,7 +15,7 @@ describe('MediaStack Affiliates page', () => {
     });
 
     it('3. Test to Click on "Affiliate" hyperlink', () => {
-        cy.get('a[title="Affiliate Program"]').should('be.visible').click({ force: true });
+        cy.get('.header > .container > ul > :nth-child(4) > a').click();
     });
   
     it('4. Test to Check the title of "Affiliates" page is present', () => {

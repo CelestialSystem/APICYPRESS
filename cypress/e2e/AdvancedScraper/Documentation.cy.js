@@ -15,7 +15,8 @@ describe('Advanced Scraper documentation page', () => {
     
     // cannot test the below URL as this opens new tab
     // it('3. Test to check and click link "development quickstart guide."', () => {
-        // cy.developmentQuickstartGuide(ADVANCED_SCRAPER_BASE_URL);
+        // cy.get('a').contains('development quickstart guide.').click();
+        // cy.location('pathname').should('eq', '/docs/article/getting-started');
     // });
     
     it('3. Test to check for the text "Advanced Scraper API Reference" & "Authentication"', () => {

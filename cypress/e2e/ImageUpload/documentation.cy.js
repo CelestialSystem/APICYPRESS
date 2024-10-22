@@ -1,4 +1,4 @@
-import { IMAGE_UPLOAD_BASE_URL } from '../../resources/data';
+import { IMAGE_UPLOAD_BASE_URL, DEVELOPMENT_QUICKSTART_GUID } from '../../resources/data';
 
 describe('Image Upload Documentation page', () => {
     before(() => {
@@ -16,8 +16,22 @@ describe('Image Upload Documentation page', () => {
         cy.componentVisiblityCheck('#documentation');
     });
 
-    it('7. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(IMAGE_UPLOAD_BASE_URL);
+    it('3. Test to click on "development quickstart guide" link', () => {
+        cy.contains('a', 'development quickstart guide').should('be.visible');
+        cy.contains('a', 'development quickstart guide').click();
+
+        cy.intercept('GET', DEVELOPMENT_QUICKSTART_GUID).as('quickstartRequest');
+
+        // Click the link and wait for the request
+        cy.get(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`).invoke('removeAttr', 'target').click();
+        cy.wait('@quickstartRequest');
+
+        cy.get('h1.h2') // Select the <h1> element with the class 'h2'
+            .should('be.visible') // Assert that it is visible
+            .and('contain.text', 'Getting Started'); // Assert that it contains the text "Getting Started"
+
+        cy.navigateUrlwithCookies(IMAGE_UPLOAD_BASE_URL);
+        cy.get('#documentation-tab').click();
     });
 
     it('4. Test to click on "Accounts Pages" link', () => {

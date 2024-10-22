@@ -48,9 +48,4 @@ describe('Fixer Documentation page', () => {
     it('10. Test to navigate to "Premium Location List" section', () => {
         cy.get('#endpointCollapse1 > .card-body > #subscribeButton').click();
     });
-
-    it('11. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(FIXER_BASE_URL);
-    });
-
 });

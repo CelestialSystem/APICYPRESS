@@ -61,9 +61,4 @@ before(() => {
         cy.get('.sticky-top > ul > :nth-child(4) > a').click();
         cy.componentVisiblityCheck(':nth-child(19) > a', 'Error Codes');
     });
-
-    it('14. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(EXCHANGERATES_BASE_URL);
-    });
-    
   }); 

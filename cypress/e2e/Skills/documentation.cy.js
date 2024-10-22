@@ -13,8 +13,11 @@ describe('Skills API Documentation page', () => {
         cy.moveToDoc('skills-api');
     });
 
-    it('4. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(SKILLS_BASE_URL);
+    it('3. Test to check and click link "development quickstart guide."', () => {
+        cy.contains('a', 'development quickstart guide').should('be.visible');
+        cy.contains('a', 'development quickstart guide').click();
+        cy.checkTextVisibility('Skills API Reference');
+        cy.get('#documentation-tab').click();
     });
 
     it('4. Test to check "Contents" section is present', () => {

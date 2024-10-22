@@ -25,8 +25,9 @@ describe('Image to text Documentation page', () => {
         cy.componentVisiblityCheck('.sticky-top > .text-muted', 'Contents:');
     });
 
-    it('7. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(IMAGETOTEXT_BASE_URLL);
+    it('6. Test to click on "development quickstart guide" link', () => {
+        cy.componentVisiblityCheck('.blockquote > p > a', 'development quickstart guide');
+        cy.get('.blockquote > p > a').click();
     });
 
     it('7. Test to navigate back to url and click on the "Documentation" tab', () => {

@@ -14,9 +14,11 @@ describe('App store Documentation page', () => {
     });
 
     it('3. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(APP_STORE_BASE_URL);
+        cy.contains('a', 'development quickstart guide').should('be.visible');
+        cy.contains('a', 'development quickstart guide').click();
+        cy.navigateUrlwithCookies(APP_STORE_BASE_URL);
+        cy.get('#documentation-tab').click();
     });
-    
 
     it('4. Test to check "Contents" section is present', () => {
         cy.checkTextVisibility('Contents');

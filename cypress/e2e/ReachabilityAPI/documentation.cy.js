@@ -21,8 +21,21 @@ describe('Reachability API Documentation page', () => {
         cy.checkTextVisibility('Reachability API Reference');
     });
 
-    it('4. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(REACHABILITY_API_BASE_URL);
+    it('4. Test to check "development quickstart guide" link visibility and click behavior', () => {
+        cy.componentVisiblityCheck(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`, 'development quickstart guide.');
+
+        cy.intercept('GET', DEVELOPMENT_QUICKSTART_GUID).as('quickstartRequest');
+
+        // Click the link and wait for the request
+        cy.get(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`).invoke('removeAttr', 'target').click();
+        cy.wait('@quickstartRequest');
+
+        cy.get('h1.h2') // Select the <h1> element with the class 'h2'
+            .should('be.visible') // Assert that it is visible
+            .and('contain.text', 'Getting Started'); // Assert that it contains the text "Getting Started"
+
+        cy.navigateUrlwithCookies(REACHABILITY_API_BASE_URL);
+        cy.contains('span', 'Documentation').should('be.visible').click();
     });
 
     it('5. Test to check "Contents:" span visibility and content', () => {

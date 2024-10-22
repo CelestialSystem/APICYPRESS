@@ -57,8 +57,8 @@ describe('Bad words api documentation page', () => {
         cy.componentVisiblityCheck(':nth-child(19) > a', 'Error Codes');
     });
 
-    it('13. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(BADWORDS_BASE_URL);
+    it('13. Test to check on "development quickstart guide" link is present', () => {
+        cy.componentVisiblityCheck('.blockquote > p > a');
     });
 
     it('14. Test to click on "development quickstart guide" link', () => {

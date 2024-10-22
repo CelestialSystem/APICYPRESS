@@ -1,4 +1,4 @@
-import { GOOGLE_SEARCH_RESULT_BASE_URL } from '../../resources/data';
+import { GOOGLE_SEARCH_RESULT_BASE_URL, APILAYER_BASE_URL } from '../../resources/data';
 
 describe('Google search result API Documentation page', () => {
     before(() => {
@@ -25,8 +25,9 @@ describe('Google search result API Documentation page', () => {
         cy.checkTextVisibility('Contents:');
     });
 
-    it('6. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(GOOGLE_SEARCH_RESULT_BASE_URL);
+    it('6. Test to click on "development quickstart guide" link', () => {
+        cy.contains('a', 'development quickstart guide').should('be.visible');
+        cy.contains('a', 'development quickstart guide').click();
     });
 
     it('7. Test to navigate back to url and click on the "Documentation" tab', () => {
