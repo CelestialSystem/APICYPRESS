@@ -10,10 +10,7 @@ describe('Text to Emotion documentation page', () => {
     });
 
     it('2. Test to click on the "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/text_to_emotion-api/tabs/api_docs').as('apiRequest');
-        cy.get('#documentation-tab').click();
-        cy.wait('@apiRequest');
-        cy.componentVisiblityCheck('#documentation');
+        cy.moveToDoc('text_to_emotion-api');
     });
     
     // cannot test the below URL as this opens new tab

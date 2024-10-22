@@ -51,63 +51,62 @@ describe('Zenscrape Home page', () => {
         cy.get('.max-w-2xl > .mt-5 > .rounded-sm > .w-full').should('be.visible', 'contain.text', 'GET 1,000 FREE CREDIT')
     });
 
-    it('10. Test to click on the "GET 1,000 FREE CREDIT" button and it should redirect to the "Regirstration" page.', () => {
+    it('10. Test to check the "Simple and Economical Pricing" section', () => {
+        cy.get('.py-12').should('be.visible', 'contain.text', 'Simple and Economical Pricing')
+    });
+
+    it('11. Test to check text "Need More Credit?"', () => {
+        cy.get('.w-full > :nth-child(1) > .text-2xl > .block').should('be.visible', 'contain.text', 'Need More Credit?');
+    });
+
+    it('12. Test to check "CONTACT US FOR A QUOTE" text is present', () => {
+        cy.get('.shadow > .inline-flex').should('be.visible', 'contain.text', 'CONTACT US FOR A QUOTE');
+    });
+
+    it('13. Test to verify the "Web Scraping API Use Cases" section is present', () => {
+        cy.get('.text-left > .mt-2').should('be.visible', 'contain.text', 'Web Scraping API Use Cases');
+    });
+
+    it('14. Test to verify the "Web crawling General Data Aggreagation" section is present', () => {
+        cy.get(':nth-child(1) > ul > :nth-child(1) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Web crawling General Data Aggregation');
+    });
+
+    it('15. Test to verify the "Review scraping Customer Reviews" section is present', () => {
+        cy.get(':nth-child(2) > ul > :nth-child(1) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Review scraping Customer Reviews');
+    });
+
+    it('16. Test to verify the "Price Data Scraping Ecommerce: Price & Product Information" section is is present', () => {
+        cy.get(':nth-child(1) > ul > :nth-child(2) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Price Data Scraping Ecommerce: Price & Product Information');
+    });
+
+    it('17. Test to verify the "Hiring Data Scraping Job & Hiring Data" section is is present', () => {
+        cy.get(':nth-child(2) > ul > :nth-child(2) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Hiring Data Scraping Job & Hiring Data');
+    });
+
+    it('18. Test to verify the "Marketing Data Scraping Sales Leads" section is is present', () => {
+        cy.get(':nth-child(1) > ul > :nth-child(3) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Marketing Data Scraping Sales Leads');
+    });
+
+    it('19. Test to verify the "Real estate data scraping Real Estate Data" section is is present', () => {
+        cy.get(':nth-child(2) > ul > :nth-child(3) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Real estate data scraping Real Estate Data');
+    });
+
+    it('20. Test to check "Frequently asked questions" section is present', () => {
+        cy.get('#faqSection > .max-w-6xl > .text-3xl').should('be.visible', 'contain.text', 'Frequently asked questions');
+    });
+
+    it('21. Test to click on the "GET 1,000 FREE CREDIT" button and it should redirect to the "Regirstration" page.', () => {
         cy.get('.max-w-2xl > .mt-5 > .rounded-sm > .w-full').click();
         cy.get('.float-left').should('be.visible');
         cy.get('.m-4').should('be.visible', 'contian.text', 'All Subscription plan prices are excluding applicable VAT.');
         cy.navigateUrlwithCookies(ZENSCRAPE_BASE_URL);
     });
 
-    it('11. Test to check the "Simple and Economical Pricing" section', () => {
-        cy.get('.py-12').should('be.visible', 'contain.text', 'Simple and Economical Pricing')
-    });
-
-    it('12. Test to check text "Need More Credit?"', () => {
-        cy.get('.w-full > :nth-child(1) > .text-2xl > .block').should('be.visible', 'contain.text', 'Need More Credit?');
-    });
-
-    it('13. Test to check "CONTACT US FOR A QUOTE" text is present', () => {
-        cy.get('.shadow > .inline-flex').should('be.visible', 'contain.text', 'CONTACT US FOR A QUOTE');
-    });
-
-    it('14. Test to check "CONTACT US FOR A QUOTE" button and should redirect to "CONTACT US" page', () => {
+    it('22. Test to check "CONTACT US FOR A QUOTE" button and should redirect to "CONTACT US" page', () => {
         cy.get('.shadow > .inline-flex').click();
         cy.navigateUrlwithCookies(`${APILAYER_BASE_URL}/support`);
         cy.document().its('readyState').should('eq', 'complete');
         cy.get('h1').should('contains.text', 'Contact Sales & Customer Support');
         cy.navigateUrlwithCookies(ZENSCRAPE_BASE_URL);
     });
-
-    it('15. Test to verify the "Web Scraping API Use Cases" section is present', () => {
-        cy.get('.text-left > .mt-2').should('be.visible', 'contain.text', 'Web Scraping API Use Cases');
-    });
-
-    it('16. Test to verify the "Web crawling General Data Aggreagation" section is present', () => {
-        cy.get(':nth-child(1) > ul > :nth-child(1) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Web crawling General Data Aggregation');
-    });
-
-    it('17. Test to verify the "Review scraping Customer Reviews" section is present', () => {
-        cy.get(':nth-child(2) > ul > :nth-child(1) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Review scraping Customer Reviews');
-    });
-
-    it('18. Test to verify the "Price Data Scraping Ecommerce: Price & Product Information" section is is present', () => {
-        cy.get(':nth-child(1) > ul > :nth-child(2) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Price Data Scraping Ecommerce: Price & Product Information');
-    });
-
-    it('19. Test to verify the "Hiring Data Scraping Job & Hiring Data" section is is present', () => {
-        cy.get(':nth-child(2) > ul > :nth-child(2) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Hiring Data Scraping Job & Hiring Data');
-    });
-
-    it('20. Test to verify the "Marketing Data Scraping Sales Leads" section is is present', () => {
-        cy.get(':nth-child(1) > ul > :nth-child(3) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Marketing Data Scraping Sales Leads');
-    });
-
-    it('21. Test to verify the "Real estate data scraping Real Estate Data" section is is present', () => {
-        cy.get(':nth-child(2) > ul > :nth-child(3) > .flex > .ml-3 > dl > .text-lg').should('be.visible', 'contain.text', 'Real estate data scraping Real Estate Data');
-    });
-
-    it('21. Test to check "Frequently asked questions" section is present', () => {
-        cy.get('#faqSection > .max-w-6xl > .text-3xl').should('be.visible', 'contain.text', 'Frequently asked questions');
-    });
 });
-

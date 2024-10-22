@@ -13,9 +13,15 @@ describe('API Glosssary Form Page', () => {
     it('2. Test to naviagate to the "Api Glossary" page', () => {
         cy.get(':nth-child(5) > .nav-link').click();
     });
-
-    it('3. Test to  show the "API Glossary" page', () => {
-        cy.visit('https://blog.apilayer.com/api-glossary/');
+    
+    it('3. Test to check "API Glossary" page and actual URl is present', () => {
+        cy.url().then((currentUrl) => {
+            if (!currentUrl.includes('/api-glossary')) {
+              // Redirect to the actual URL if not already there
+              cy.navigateUrlwithCookies('https://blog.apilayer.com/api-glossary/');
+            }
+          });
+          cy.assertPathname('/api-glossary/');
     });
    
     it('4. Test to check the "Glossary text" available or not', () => {
@@ -46,13 +52,10 @@ describe('API Glosssary Form Page', () => {
         cy.get('#s_p').should('have.value', 'filter');
     });
     
-    it('10. test to check "Scroll to Top" button is present', () => {
-        cy.AcceptCookies();
-        cy.get('.scroll-to-top').scrollIntoView();
-        cy.get('.scroll-to-top').should('be.visible');
-    });
-
-    it('11. test to click on "Scroll to Top" button it should scroll to top', () => {
+    it('10. test to click on "Scroll to Top" button it should scroll to top', () => {
+        cy.get('.footer-sidebar').scrollIntoView();
+        // Added wait due to CSS scroll, smooth behaviour, transition time.
+        cy.wait(1000);
         cy.get('.scroll-to-top').click();
         cy.window().its('scrollY').should('equal', 0);
     });

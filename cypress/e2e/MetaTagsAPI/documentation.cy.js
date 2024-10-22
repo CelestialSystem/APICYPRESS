@@ -14,9 +14,7 @@ describe('Meta Tags API Documentation page', () => {
     });
 
     it('3. Test to click "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/meta_tags-api/tabs/api_docs').as('apiRequest');
-        cy.get('.d-md-flex > .d-none').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('meta_tags-api');
     });
 
     it('4. Test to check "Contents:" span visibility and content', () => {

@@ -14,9 +14,7 @@ describe('Image Quality Assessment API Documentation page', () => {
     });
 
     it('3. Test to click "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/image_quality-api/tabs/api_docs').as('apiRequest');
-        cy.get('#documentation-tab').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('image_quality-api');
     });
 
     it('4. Test to check "Contents:" span visibility and content', () => {

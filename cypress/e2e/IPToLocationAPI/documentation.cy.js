@@ -14,9 +14,7 @@ describe('IP To Location API Documentation page', () => {
     });
   
     it('3. Test to click "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/ip_to_location-api/tabs/api_docs').as('apiRequest');
-        cy.get('.d-md-flex > .d-none').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('ip_to_location-api');
     });
 
     it('4. Test to check "content" tab visibility', () => {

@@ -1,4 +1,4 @@
-import { IPAPI_BASE_URL } from '../../resources/data';
+import { IPAPI_BASE_URL, AFFILIATE_IPAPI_URL } from '../../resources/data';
 
 describe('IpApi Affiliate page', () => {
     before(() => {
@@ -125,7 +125,13 @@ describe('IpApi Affiliate page', () => {
     });
 
     it('27. Test to click on "Affiliate" button from footer', () => {
-        cy.get('.custom-container > :nth-child(2) > :nth-child(6)')
-        cy.url().should('eq', 'https://affiliate.ipapi.com/');
+        cy.navigateUrlwithCookies(IPAPI_BASE_URL);
+        cy.get('.custom-container > :nth-child(2) > :nth-child(6) a')
+        .invoke('attr', 'href')  
+        .should('eq', AFFILIATE_IPAPI_URL);
+  
+        cy.get('.custom-container > :nth-child(2) > :nth-child(6) a').click();
+  
+        cy.url().should('eq', AFFILIATE_IPAPI_URL + '/');
     });
 });

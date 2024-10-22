@@ -1,4 +1,4 @@
-import { MEDIASTACK_BASE_URL } from '../../resources/data';
+import { MEDIASTACK_BASE_URL, MEDIA_STACK_AFFILIATE_URL } from '../../resources/data';
 
 describe('MediaStack Affiliates page', () => {
     before(() => {
@@ -129,7 +129,13 @@ describe('MediaStack Affiliates page', () => {
     });
   
     it('27. Test to click on "Affiliate" button from footer', () => {
-        cy.get('.custom-container > :nth-child(2) > :nth-child(6)').click(); // Ensure this selector is correct
-        cy.url().should('eq', 'https://affiliate.mediastack.com/');
+        cy.navigateUrlwithCookies(MEDIASTACK_BASE_URL);
+        cy.get('.custom-container > :nth-child(2) > :nth-child(6) a')
+        .invoke('attr', 'href')  
+        .should('eq', MEDIA_STACK_AFFILIATE_URL);
+  
+        cy.get('.custom-container > :nth-child(2) > :nth-child(6) a').click();
+  
+        cy.url().should('eq', MEDIA_STACK_AFFILIATE_URL + '/');
     });
 });

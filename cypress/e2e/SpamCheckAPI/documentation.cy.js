@@ -14,9 +14,7 @@ describe('Spam Check API Documentation page', () => {
     });
 
     it('3. Test to click "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/spamchecker-api/tabs/api_docs').as('apiRequest');
-        cy.get('.d-md-flex > .d-none').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('spamchecker-api');
     });
 
     it('4. Test to check "Contents:" span visibility and content', () => {

@@ -120,25 +120,25 @@ describe('Ipstack Home page', () => {
         cy.checkTextVisibility('Pricing');
     });
 
-    it('23. Test to click on the "Peopele speack for themselves" section is present', () => {
+    it('26. Test to click on the "Peopele speack for themselves" section is present', () => {
         cy.checkTextVisibility('People speak for themselves');
     });
 
-    it('26. Test to click on the "Explore The Docs" button', () => {
+    it('27. Test to click on the "Explore The Docs" button', () => {
         cy.get('.review-button').click();
         cy.go('back')
     });
 
-    it('27. Test to click on the "Get Free API Key" button', () => {
+    it('28. Test to click on the "Get Free API Key" button', () => {
         cy.get('.review-button-secoundary').click();
         cy.go('back')
     });
 
-    it('28. Test to click on the "IPv4 vs IPv6" section is present', () => {
+    it('29. Test to click on the "IPv4 vs IPv6" section is present', () => {
         cy.checkTextVisibility('IPv4 vs IPv6');
     });
 
-    it('27. Test to click on the "Read the blog" button', () => {
+    it('30. Test to click on the "Read the blog" button', () => {
         cy.get('.ip-banner-btn > a').click();
         cy.go('back')
     });

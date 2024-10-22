@@ -11,10 +11,7 @@ describe('Disposable Email Detection API Documentation page', () => {
     });
 
     it('2. Test to check "Documentation" tab visibility and Test to click "Documentation" tab', () => {
-        cy.componentVisiblityCheck('span', 'Documentation');
-        cy.intercept('GET', '/marketplace/disposable_email-api/tabs/api_docs').as('apiRequest');
-        cy.contains('span', 'Documentation').click();
-        cy.wait('@apiRequest');
+        cy.moveToDoc('disposable_email-api');
     });
 
     it('3. Test to check "Disposable Email Detection API Reference" title is present', () => {

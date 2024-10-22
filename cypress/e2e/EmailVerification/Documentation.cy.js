@@ -10,10 +10,7 @@ describe('Email Verification documentation page', () => {
     });
 
     it('2. Test to click on the "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/email_verification-api/tabs/api_docs').as('apiRequest');
-        cy.get('#documentation-tab').click();
-        cy.wait('@apiRequest');
-        cy.componentVisiblityCheck('#documentation');
+        cy.moveToDoc('email_verification-api');
     });
     
     // cannot test the below URL as this opens new tab

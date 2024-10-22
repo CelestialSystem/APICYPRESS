@@ -10,10 +10,7 @@ describe('App store Documentation page', () => {
     });
 
     it('2. Test to click on the "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/app_store-api/tabs/api_docs').as('apiRequest');
-        cy.get('#documentation-tab').click();
-        cy.wait('@apiRequest');
-        cy.componentVisiblityCheck('#documentation');
+        cy.moveToDoc('app_store-api');
     });
 
     it('3. Test to check and click link "development quickstart guide."', () => {

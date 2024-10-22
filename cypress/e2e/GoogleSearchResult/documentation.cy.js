@@ -14,10 +14,7 @@ describe('Google search result API Documentation page', () => {
     });
   
     it('3. Test to click "Documentation" tab', () => {
-        cy.intercept('GET', '/marketplace/google_search-api/tabs/api_docs').as('apiRequest');
-        cy.get('#documentation-tab').click();
-        cy.wait('@apiRequest');
-        cy.componentVisiblityCheck('#documentation');
+        cy.moveToDoc('google_search-api');
     });
   
     it('4. Test to check "Google Search Results API Reference" title is present', () => {

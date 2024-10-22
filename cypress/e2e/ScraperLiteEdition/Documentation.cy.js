@@ -10,11 +10,7 @@ describe('Scrapper(Lite Edition) Documentation page', () => {
     });
  
     it('2. Test to check "Documentation" tab visibility', () => {
-        cy.intercept('GET', '/marketplace//scraper-api/tabs/api_docs').as('apiRequest');
-        cy.componentVisiblityCheck('.d-md-flex > .d-none');
-        cy.get('#documentation-tab').click();
-        cy.wait('@apiRequest');
-        cy.componentVisiblityCheck('#documentation');
+        cy.moveToDoc('scraper-api');
     });
  
     it('3. Test to click "Documentation" tab', () => {

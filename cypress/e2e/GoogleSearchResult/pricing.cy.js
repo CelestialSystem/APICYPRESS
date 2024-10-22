@@ -26,14 +26,7 @@ describe('Google search result API Pricing page', () => {
     });
 
     it('6. Test to check "Subscribe" button click and "Free Plan" features (100 requests, free for lifetime, no credit card)', () => {
-        cy.get('#pricing .plan').first().within(() => {
-            cy.get('a').contains('Subscribe').click();
-          });
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
-        cy.get('.media-body').contains(' 100 Requests / Monthly ').should('be.visible');
-        cy.get('.media-body').contains(' Free for Lifetime ').should('be.visible');
-        cy.get('.media-body').contains(' No Credit Card Required ').should('be.visible');
+        cy.freePlanCheck('100');
     });
 
     it('7. Test to check "Starter Plan" is present', () => {
@@ -45,13 +38,7 @@ describe('Google search result API Pricing page', () => {
     });
 
     it('9. Test to check "Subscribe" button click and  "Starter Plan" features (6,000 requests, standard support)', () => {
-        cy.get('#pricing .plan').eq(1).within(() => {
-            cy.get('a').contains('Subscribe').click();
-          });
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
-        cy.get('.media-body').contains(' 6,000 Requests / Monthly ').should('be.visible');
-        cy.get('.media-body').contains(' Standard Support ').should('be.visible');
+        cy.starterPlanCheck('19', '6,000');
     });
 
     it('10. Test to check "MOST POPULAR" label on Starter Plan', () => {
@@ -68,13 +55,7 @@ describe('Google search result API Pricing page', () => {
     });
 
     it('13. Test to check "Subscribe" button click and "Pro Plan" features (60,000 requests, standard support)', () => {
-        cy.get('#pricing .plan').eq(2).within(() => {
-            cy.get('a').contains('Subscribe').click();
-          });
-        cy.get('.sidebar-content', { timeout: 7000 }).should('be.visible');
-        cy.get('body').click();
-        cy.get('.media-body').contains(' 60,000 Requests / Monthly ').should('be.visible');
-        cy.get('.media-body').contains(' Standard Support ').should('be.visible');
+        cy.proPlanCheck('149', '60,000');
     });
 
     it('14. Test to check "Custom" Plan is present', () => {

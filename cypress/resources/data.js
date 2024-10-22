@@ -48,3 +48,5 @@ export const IMAGE_UPLOAD_BASE_URL = `${APILAYER_BASE_URL}/marketplace/image_upl
 export const FINANCE_NEWS_BASE_URL = `${APILAYER_BASE_URL}/marketplace/financelayer-api`;
 export const SKILLS_BASE_URL = `${APILAYER_BASE_URL}/marketplace/skills-api`
 export const IMAGE_QUALITY_ASSESSMENT_BASE_URL =  `${APILAYER_BASE_URL}/marketplace/image_quality-api`;
+export const AFFILIATE_IPAPI_URL = 'https://affiliate.ipapi.com';
+export const MEDIA_STACK_AFFILIATE_URL = 'https://affiliate.mediastack.com';

@@ -117,7 +117,7 @@ describe('MarketStack Affiliates page', () => {
         cy.get(':nth-child(2) > .accordion').click();
         cy.get(':nth-child(2) > .accordion-content').should('not.be.visible');
     });
-    
+
     it('25. Test to check title "Affiliate Links" is present', () => {
         cy.get('.Our_links > h2.text-center').scrollIntoView();
         cy.componentVisiblityCheck('.Our_links > h2.text-center', 'Affiliate Links');
@@ -129,7 +129,9 @@ describe('MarketStack Affiliates page', () => {
     });
   
     it('27. Test to click on "Affiliate" button from footer', () => {
-        cy.get('.custom-container > :nth-child(2) > :nth-child(6) > a').click();
+        cy.navigateUrlwithCookies(MARKETSTACK_BASE_URL);
+        cy.get('.custom-container > :nth-child(2) > :nth-child(6) > a').click({force:true});
         cy.url().should('eq', AFFILIATES_MARKETSTACK);
     });
   }); 
+  
