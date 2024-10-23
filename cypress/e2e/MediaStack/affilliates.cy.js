@@ -9,13 +9,9 @@ describe('MediaStack Affiliates page', () => {
       // Check if the "Accept Cookies" button is visible or exists
       cy.AcceptCookies();
     });
-  
-    it('2. Test to check "Affiliate" hyperlink is present', () => {
-        cy.componentVisiblityCheck('.header > .container > ul > :nth-child(4) > a', 'Affiliates');
-    });
 
     it('3. Test to Click on "Affiliate" hyperlink', () => {
-        cy.get('.header > .container > ul > :nth-child(4) > a').click();
+        cy.get('a[title="Affiliate Program"]').should('be.visible').click({ multiple: true });
     });
   
     it('4. Test to Check the title of "Affiliates" page is present', () => {

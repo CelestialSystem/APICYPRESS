@@ -15,23 +15,14 @@ describe('URL Shortener API Info page', () => {
         cy.componentVisiblityCheck('#details');
     });
 
-    it('3. Test to check "What is URL Shortener?" subtitle is present', () => {
+    it('3. Test to check if title text\'s in the page', () => {
         cy.checkTextVisibility('What is URL Shortener?');
-    });
-
-    it('4. Test to check "Why you should use short URLs?" subtitle is present', () => {
         cy.checkTextVisibility('Why you should use short URLs?');
-    });
-
-    it('5. Test to check "What are features of URL Shortener API?" subtitle is present', () => {
         cy.checkTextVisibility('What are features of URL Shortener API?');
-    });
-
-    it('6. Test to check "Easy to track your content performances with URL Shortener API" subtitle is present', () => {
         cy.checkTextVisibility('Easy to track your content performances with URL Shortener API');
     });
 
-    it('7. Test to check "Code Editor" is present', () => {
+    it('4. Test to check "Code Editor" is present', () => {
         cy.componentVisiblityCheck('.w-md-50');
     });
 });

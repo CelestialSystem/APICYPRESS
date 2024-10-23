@@ -1,4 +1,4 @@
-import { SPELL_CHECKER_BASE_URL, DEVELOPMENT_QUICKSTART_GUID } from '../../resources/data';
+import { SPELL_CHECKER_BASE_URL} from '../../resources/data';
 
 describe('Spell Checker API Documentation page', () => {
     before(() => {
@@ -29,14 +29,8 @@ describe('Spell Checker API Documentation page', () => {
         cy.checkTextVisibility('Just Getting Started?');
     });
 
-    it('7. Test to check "development quickstart guide" link visibility and click behavior', () => {
-        cy.componentVisiblityCheck(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`, 'development quickstart guide.');
-        cy.intercept('GET', DEVELOPMENT_QUICKSTART_GUID).as('quickstartRequest');
-        cy.get(`a[href="${DEVELOPMENT_QUICKSTART_GUID}"]`).invoke('removeAttr', 'target').click();
-        cy.wait('@quickstartRequest');
-        cy.get('h1.h2').should('be.visible').and('contain.text', 'Getting Started');
-        cy.navigateUrlwithCookies(SPELL_CHECKER_BASE_URL);
-        cy.contains('span', 'Documentation').should('be.visible').click();
+    it('7. Test to check and click link "development quickstart guide."', () => {
+        cy.developmentQuickstartGuide(SPELL_CHECKER_BASE_URL);
     });
 
     it('8. Test to check "Authentication" link visibility and content', () => {

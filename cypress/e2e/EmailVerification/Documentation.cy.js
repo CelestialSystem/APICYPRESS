@@ -13,34 +13,32 @@ describe('Email Verification documentation page', () => {
         cy.moveToDoc('email_verification-api');
     });
     
-    // cannot test the below URL as this opens new tab
-    // it('3. Test to check and click link "development quickstart guide."', () => {
-        // cy.get('a').contains('development quickstart guide.').click();
-        // cy.location('pathname').should('eq', '/docs/article/getting-started');
-    // });
+    it('3. Test to check and click link "development quickstart guide."', () => {
+        cy.developmentQuickstartGuide(EMAIL_VERIFICATION_BASE_URL);
+    });
     
-    it('3. Test to check for the text "Authentication" & "Email Verification API Reference"', () => {
+    it('4. Test to check for the text "Authentication" & "Email Verification API Reference"', () => {
         cy.checkTextVisibility('Authentication');
         cy.checkTextVisibility('Email Verification API Reference');
     });
 
-    it('4. Test to check if the text "Endpoints" is present', () => {
+    it('5. Test to check if the text "Endpoints" is present', () => {
         cy.checkTextVisibility('Endpoints');
     });
    
-    it('5. Test to check if the text "Rate Limiting" is present', () => {
+    it('6. Test to check if the text "Rate Limiting" is present', () => {
         cy.checkTextVisibility('Rate Limiting');
     });
    
-    it('6. Test to check if the text "Error Codes" is present', () => {
+    it('7. Test to check if the text "Error Codes" is present', () => {
         cy.checkTextVisibility('Error Codes');
     });
    
-    it('7. Test to expand all "Endpoints" documentation', () => {
+    it('8. Test to expand all "Endpoints" documentation', () => {
         cy.get('.card-collapse > h5 > button').click({ multiple: true });
     });
     
-    it('8. Test to close all "Endpoints" documentation', () => {
+    it('9. Test to close all "Endpoints" documentation', () => {
         cy.get('.card-collapse > h5 > button').click({ multiple: true });
     });
 

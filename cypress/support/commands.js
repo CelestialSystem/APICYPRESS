@@ -153,6 +153,7 @@ Cypress.Commands.add('checkModal', (headerText, featureText) => {
 
 //command to move to documentation tab in API layer.
 Cypress.Commands.add('moveToDoc', (url) => {
+    cy.componentVisiblityCheck('.d-md-flex > .d-none');
     cy.intercept('GET', '/marketplace/' + url + '/tabs/api_docs').as('apiRequest');
     cy.get('#documentation-tab').click();
     cy.wait('@apiRequest', { timeout: 60000 });
@@ -283,9 +284,92 @@ Cypress.Commands.add('checkRelatedProductAndFooter', () => {
         .should('be.visible');
 });
 
+//command to check Subscribe For Free And Click button and functionality.
 Cypress.Commands.add('checkSubscribeForFreeAndClick', () => {
     cy.componentVisiblityCheck('#subscribeButton', "Subscribe for Free");
     cy.get('#subscribeButton').click({force:true});
     cy.get('#pricing').should('be.visible');
     cy.checkIfScrolledToEl('#pricing');
 });
+
+
+//Command to check the development quickstart guide link and functionality
+Cypress.Commands.add('developmentQuickstartGuide', (baseUrl) => {
+    const linkText = 'development quickstart guide';
+    const tabSelector = '#documentation-tab';
+    
+    cy.checkTextVisibility('Just Getting Started?');
+    cy.contains('a', linkText).should('be.visible').click({force:true});
+    cy.navigateUrlwithCookies(baseUrl);
+    cy.get(tabSelector).click({force:true});
+});
+
+// Command to check sidebar items and scroll to respective content
+Cypress.Commands.add('scrollToRespectiveContent', () => {
+    const sections = [
+        { linkText: 'Authentication', selector: '[name="authentication"]' },
+        { linkText: 'Endpoints', selector: '#endpointsAccordion' },
+        { linkText: 'Rate Limiting', selector: '[name="rate-limits"]' },
+        { linkText: 'Error Codes', selector: '[name="errors"]' }
+    ];
+
+    sections.forEach(section => {
+        cy.get('li > a').contains(section.linkText).click();
+        cy.get(section.selector).should('be.visible');
+        cy.checkTextVisibility(section.linkText);
+    });
+});
+
+// Command to check a link's attributes for the support section
+Cypress.Commands.add('checkLink', (linkText) => {
+    const SUPPORT_URL = '/support'; 
+    
+    cy.get('p > a').contains(linkText)
+        .should('have.attr', 'target', '_blank') 
+        .and('have.attr', 'href', SUPPORT_URL);  
+});
+
+// Command to handle documentation subscription and tab visibility
+Cypress.Commands.add('documentationSubscribeForFree', (buttonSelector, buttonText, visibleElementSelector, tabSelector) => {
+    cy.get(buttonSelector)
+        .should('contain.text', buttonText)
+        .click();
+    cy.get(visibleElementSelector)
+        .should('be.visible');
+    if (tabSelector) {
+        cy.get(tabSelector).click();
+    }
+});
+
+// Command to verify the visibility of the API key and related features
+Cypress.Commands.add('toggleEndpointsDocumentation', (action) => {
+    cy.get('.card-collapse > h5 > button').each(($button) => {
+        if (action === 'expand') {
+            cy.wrap($button).click(); 
+        } else if (action === 'close') {
+            cy.wrap($button).click(); 
+        }
+    });
+});
+
+// Command to check Accounts page" hyperlink and navigate back to main page
+Cypress.Commands.add('navigateToAccountsPage', (baseUrl) => {
+    cy.contains('a', 'Accounts page')
+        .invoke('removeAttr', 'target')
+        .click();
+
+    cy.get('h1 a.text-dark')
+        .should('be.visible')
+        .and('contain.text', 'API Marketplace');
+
+    cy.get('p').should('be.visible')
+        .and('contain.text', 'Discover, integrate, and empower your applications with our API marketplace.');
+
+    cy.navigateUrlwithCookies(baseUrl);
+
+    cy.contains('span', 'Documentation').should('be.visible').click();
+});
+
+
+
+

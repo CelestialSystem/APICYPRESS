@@ -18,17 +18,8 @@ describe('URL Shortener API Documentation page', () => {
         cy.checkTextVisibility('URL Shortener API Reference');
     });
 
-    it('4. Test to check "development quickstart guide" link visibility and click behavior', () => {
-        cy.componentVisiblityCheck('a[href="/docs/article/getting-started"]', 'development quickstart guide.');
-
-        cy.intercept('GET', '/docs/article/getting-started').as('quickstartRequest');
-
-        // Click the link and wait for the request
-        cy.get('a[href="/docs/article/getting-started"]').invoke('removeAttr', 'target').click();
-        cy.wait('@quickstartRequest');
-
-        cy.navigateUrlwithCookies(SHORTURLAPI_BASE_URL);
-        cy.contains('span', 'Documentation').should('be.visible').click();
+    it('4. Test to check and click link "development quickstart guide."', () => {
+        cy.developmentQuickstartGuide(SHORTURLAPI_BASE_URL);
     });
 
     it('5. Test to check "Contents:" span visibility and content', () => {

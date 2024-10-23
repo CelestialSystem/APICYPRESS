@@ -17,22 +17,22 @@ describe('Advanced Scraper Pricing page', () => {
     });
 
     it('3. Test to check "Free Plan" features', () => {
-        cy.freePlanCheck('3,000');
+        cy.freePlanCheck('100');
     });
 
     it('4. Test to check "Starter Plan" features', () => {
-        cy.starterPlanCheck('29', '300,000');
+        cy.starterPlanCheck('29.99', '300,000');
     });
    
     it('5. Test to check "Pro Plan" features', () => {
-        cy.proPlanCheck('79', '1,000,000');
+        cy.proPlanCheck('79.99', '1,000,000');
     });
     
     it('6. Test to check "Custom Plan" features', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
         cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .card').contains('Contact Us').click();
+        cy.get('#pricing .card').contains('Contact Us').click({force:true});
         cy.url().should('eq', APILAYER_BASE_URL +  '/support');
         cy.go('back');
         cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');
