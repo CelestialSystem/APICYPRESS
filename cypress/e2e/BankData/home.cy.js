@@ -79,7 +79,7 @@ describe('Bank Data Home page', () => {
     });
 
     it('17. Test to check if the text "Join Our Global Community With Bank Data API" is present', () => {
-        cy.checkTextVisibility('Join Our Global Community With Bank Data API');
+        cy.checkTextVisibility('Joint Our Global Community With Bank Data API');
     });
     
     it('18. Test to click & check "Get Bank Data API" button', () => {

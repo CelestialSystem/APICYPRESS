@@ -11,12 +11,12 @@ describe('Resume Parser API Info page', () => {
     });
 
     it('2. Test to click "Api Info" tab', () => {
-        cy.get('#details-tab > .d-md-flex > span').click();
+        cy.get('#details-tab > .d-md-flex > span').click({force:true});
         cy.componentVisiblityCheck('#details');
     });
 
     it('3. should display the description', () => {
-        cy.get('article p').first().should('contain.text', 'Resume parsing API is a hosted service that takes a resume as an input that can be in PDF or MS Word format');
+        cy.checkTextVisibility('Resume parsing API is a hosted service that takes a resume as an input that can be in PDF or MS Word format');
     });
 
     it('4. should display the use cases', () => {

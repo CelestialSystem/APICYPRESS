@@ -292,14 +292,12 @@ Cypress.Commands.add('checkSubscribeForFreeAndClick', () => {
     cy.checkIfScrolledToEl('#pricing');
 });
 
-
 //Command to check the development quickstart guide link and functionality
 Cypress.Commands.add('developmentQuickstartGuide', (baseUrl) => {
-    const linkText = 'development quickstart guide';
+    const linkText = 'development quickstart guide.';
     const tabSelector = '#documentation-tab';
-    
-    cy.checkTextVisibility('Just Getting Started?');
-    cy.contains('a', linkText).should('be.visible').click({force:true});
+    cy.get('.blockquote').contains('Just Getting Started?');
+    cy.get('.blockquote').contains('development quickstart guide.').click({force:true});
     cy.navigateUrlwithCookies(baseUrl);
     cy.get(tabSelector).click({force:true});
 });

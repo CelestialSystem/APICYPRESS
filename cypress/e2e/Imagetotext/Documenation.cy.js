@@ -26,7 +26,7 @@ describe('Image to text Documentation page', () => {
     });
 
     it('7. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(IMAGETOTEXT_BASE_URLL);
+        cy.developmentQuickstartGuide(IMAGETOTEXT_BASE_URL);
     });
 
     it('7. Test to navigate back to url and click on the "Documentation" tab', () => {

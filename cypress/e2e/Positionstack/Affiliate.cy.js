@@ -6,7 +6,8 @@ describe('Positionstack Affiliate page', () => {
     });
 
     it('1. Test to click on the "Affiliate" hyperlink', () => {
-        cy.get('.header > .container > ul > :nth-child(4) > a').click();
+        cy.AcceptCookies();
+        cy.get('.header > .container > ul > :nth-child(4) > a').click({force:true});
         cy.navigateUrlwithCookies("https://affiliate.positionstack.com/")
     });
 
@@ -67,7 +68,7 @@ describe('Positionstack Affiliate page', () => {
     });
 
     it('16. Test to verify by clicking on "Apply Now" button', () => {
-        cy.get('.testimonials > .text-center > .btn').click();
+        cy.get('.testimonials > .text-center > .btn').click({force:true});
     });
 
     it('17. Test to verify the "Positionstack Partner Program" section is present', () => {
@@ -91,9 +92,9 @@ describe('Positionstack Affiliate page', () => {
     });
 
     it('22. Test to verify clicking on the "How do I Join the APIlayer Affiliate program?" is present', () => {
-        cy.get(':nth-child(2) > .accordion > h5').click();
+        cy.get(':nth-child(2) > .accordion > h5').click({force:true});
         cy.componentVisiblityCheck(':nth-child(2) > .accordion-content > :nth-child(1)', 'You can join the APILayer Affiliate Program by visiting the affiliate pages:')
-        cy.get(':nth-child(2) > .accordion > .arrow').click();
+        cy.get(':nth-child(2) > .accordion > .arrow').click({force:true});
     });
 
     it('23. Test to check "Affiliate Links" is present', () => {
@@ -105,7 +106,7 @@ describe('Positionstack Affiliate page', () => {
     });
 
     it('25. Test to check by clicking the "Sign Up Now and Become an Postionstack Affiliate" button and redirect back to "Affiliate" page', () => {
-        cy.get('.container > .btn').click();
+        cy.get('.container > .btn').click({force:true});
         cy.navigateUrlwithCookies('https://affiliate.positionstack.com/');
     });
 });

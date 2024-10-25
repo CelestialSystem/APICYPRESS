@@ -10,26 +10,14 @@ describe('Keyword Extraction API Info page', () => {
     });
 
     it('2. Test to click on the "API info" tab', () => {
-        cy.get('#details-tab > .d-md-flex > span').click();
+        cy.get('#details-tab > .d-md-flex > span').click({force:true});
     });
 
-    it('3. Test to check for the title "What is Keyword Extraction?"', () => {
+    it('3. Test to check for "all the text is visible" in the api info tab', () => {
         cy.checkTextVisibility('What is Keyword Extraction?');
-    });
-
-    it('4. Test to check for the title "How it works"', () => {
         cy.checkTextVisibility('How it works');
-    });
-
-    it('5. Test to check for the title "Use cases for Keyword Extraction API"', () => {
         cy.checkTextVisibility('Use cases for Keyword Extraction API');
-    });
-
-    it('6. Test to check for the title "Language Support"', () => {
         cy.checkTextVisibility('Language Support');
-    });
-
-    it('7. Test to check for the title "Supported languages"', () => {
         cy.checkTextVisibility('Supported languages');
     });
 });

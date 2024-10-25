@@ -7,7 +7,8 @@ describe('Positionstack FAQ page', () => {
     });
 
     it('1. Test to naviagate to the "FAQs" page', () => {
-        cy.get('.header > .container > ul > :nth-child(3) > a').click();
+        cy.AcceptCookies();
+        cy.get('.header > .container > ul > :nth-child(3) > a').click({force:true});
     });
 
     it('2. Test to show the "FAQs" page and check the text "Frequently Asked Questions"', () => {
@@ -20,7 +21,7 @@ describe('Positionstack FAQ page', () => {
 
     it('4. Test to check the "What is postionstack?" question', () => {
         cy.componentVisiblityCheck(':nth-child(1) > ul > :nth-child(1) > .question', 'What is positionstack?');
-        cy.get(':nth-child(1) > ul > :nth-child(1) > .question').click();
+        cy.get(':nth-child(1) > ul > :nth-child(1) > .question').click({force:true});
     });
 
     it('5. Test to check "Geocoding & API" question section', () => {
@@ -29,7 +30,7 @@ describe('Positionstack FAQ page', () => {
 
     it('6. Test to check the "How scalable is the Postionstack API?" question', () => {
         cy.componentVisiblityCheck(':nth-child(2) > ul > :nth-child(1) > .question', 'How scalable is the positionstack API?');
-        cy.get(':nth-child(1) > ul > :nth-child(2) > .question').click();
+        cy.get(':nth-child(1) > ul > :nth-child(2) > .question').click({force:true});
     });
 
     it('7. Test to check "Plans, Pricing & Payment" question section', () => {
@@ -38,7 +39,7 @@ describe('Positionstack FAQ page', () => {
 
     it('8. Test to check the "Which payment methods are supported?" question', () => {
         cy.componentVisiblityCheck(':nth-child(3) > ul > :nth-child(1) > .question', 'Which payment methods are supported?');
-        cy.get(':nth-child(3) > ul > :nth-child(1) > .question').click();
+        cy.get(':nth-child(3) > ul > :nth-child(1) > .question').click({force:true});
     });
 
     it('9. Test to check "API Access & Features" question section', () => {
@@ -47,6 +48,6 @@ describe('Positionstack FAQ page', () => {
 
     it('10. Test to check the "What is an API Request?" question', () => {
         cy.componentVisiblityCheck(':nth-child(4) > ul > :nth-child(1) > .question', 'What is an API Request?');
-        cy.get(':nth-child(4) > ul > :nth-child(1) > .question').click();
+        cy.get(':nth-child(4) > ul > :nth-child(1) > .question').click({force:true});
     });
 });

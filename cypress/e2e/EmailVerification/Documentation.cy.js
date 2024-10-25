@@ -42,7 +42,7 @@ describe('Email Verification documentation page', () => {
         cy.get('.card-collapse > h5 > button').click({ multiple: true });
     });
 
-    it('9. Test to click the side bar items and check if it scroll to respective content', () => {
+    it('10. Test to click the side bar items and check if it scroll to respective content', () => {
         cy.get('li > a').contains('Authentication').click();
         cy.get('[name="authentication"]').should('be.visible');
         cy.get('li > a').contains('Endpoints').click();
@@ -53,13 +53,13 @@ describe('Email Verification documentation page', () => {
         cy.get('[name="errors"]').should('be.visible');
     });
    
-    it('10. Test to click the button " Subscribe for Free "', () => {
+    it('11. Test to click the button " Subscribe for Free "', () => {
         cy.get('#subscribeButton').should('contain.text', 'Subscribe for Free').click();
         cy.get('#pricing').should('be.visible');
         cy.get('#documentation-tab').click();
     });
     
-    it('11. Test to check and click the link "support unit" and "contact for support"', () => {
+    it('12. Test to check and click the link "support unit" and "contact for support"', () => {
         cy.get('p > a').contains('support unit').should('have.attr', 'target', '_blank');
         cy.get('p > a').contains('support unit').should('have.attr', 'href', '/support');
         cy.get('p > a').contains('contact for support').should('have.attr', 'target', '_blank');

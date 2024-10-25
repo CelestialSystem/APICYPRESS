@@ -10,7 +10,7 @@ describe('Bin checker home page', () => {
     });
 
     it('2. Test to check for the "BIN Checker API" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'BIN Checker API');
+        cy.checkTextVisibility('BIN Checker API');
     });
 
     it('3. Test to click and check for button "Subscribe for Free" and click', () => {

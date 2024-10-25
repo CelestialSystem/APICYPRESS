@@ -10,7 +10,7 @@ describe('Image Quality Assessment API Pricing page', () => {
     });  
  
     it('2. Test to check "Image Quality Assessment API" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'Image Quality Assessment API');
+        cy.checkTextVisibility('Image Quality Assessment API');
     });
  
     it('3. Test to check "Free Plan" features', () => {

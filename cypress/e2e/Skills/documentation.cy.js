@@ -13,8 +13,11 @@ describe('Skills API Documentation page', () => {
         cy.moveToDoc('skills-api');
     });
 
-    it('4. Test to check and click link "development quickstart guide."', () => {
-        cy.developmentQuickstartGuide(SKILLS_BASE_URL);
+    it('3. Test to check and click link "development quickstart guide."', () => {
+        cy.contains('a', 'development quickstart guide').should('be.visible');
+        cy.contains('a', 'development quickstart guide').click();
+        cy.checkTextVisibility('Skills API Reference');
+        cy.get('#documentation-tab').click({force:true});
     });
 
     it('4. Test to check "Contents" section is present', () => {
@@ -61,7 +64,7 @@ describe('Skills API Documentation page', () => {
         cy.contains('a', 'Accounts page').should('be.visible');
         cy.contains('a', 'Accounts page').click();
         cy.navigateUrlwithCookies(SKILLS_BASE_URL);
-        cy.get('#documentation-tab').click();
+        cy.get('#documentation-tab').click({force:true});
     });
 
     it('14. Test to click on "GET /" collapsible button and check if collaps heppend or not', () => {
@@ -74,7 +77,7 @@ describe('Skills API Documentation page', () => {
       it('15. Test to click the button " Subscribe for Free " and checking its changing the pricing tab', () => {
         cy.get('#subscribeButton').should('contain.text', 'Subscribe for Free').click();
         cy.get('#pricing').should('be.visible');
-        cy.get('#documentation-tab').click();
+        cy.get('#documentation-tab').click({force:true});
     });
 
     it('16. Test to check and click the link "support unit" and "contact for support"', () => {

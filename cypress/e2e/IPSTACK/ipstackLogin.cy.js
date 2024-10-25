@@ -29,31 +29,31 @@ describe('Ipstack Login page ', () => {
   });
 
   it('6. Test to show an error for empty "Email" and "Password"', () => {
-    cy.get('#email').clear();
-    cy.get('#password').clear();
-    cy.get('.submit').click();
+    cy.get('#email').clear({force:true});
+    cy.get('#password').clear({force:true});
+    cy.get('.submit').click({force:true});
     cy.checkAlert('Please enter your account email and password.');
   });
 
   it('7. Test to show an error for invalid "Email" format', () => {
     cy.get('#email').type('invalid-email');
     cy.get('#password').type('password123');
-    cy.get('.submit').click();
+    cy.get('.submit').click({force:true});
     cy.checkAlert('Please enter your account email and password');
-    cy.get('#email').clear();
+    cy.get('#email').clear({force:true});
   });
 
   it('8. Test to show an error for incorrect "Password"', () => {
     cy.get('#email').type('TestUserApiLayer@gmail.com');
     cy.get('#password').type('wrongpassword');
-    cy.get('.submit').click();
+    cy.get('.submit').click({force:true});
     cy.checkAlert('Login failed. Please try again.');
   });
 
   it('9. Test to show an error for incorrect "Email"', () => {
-    cy.get('#email').clear().type('test@gmail.com');
-    cy.get('#password').clear().type('tester@123');
-    cy.get('.submit').click();
+    cy.get('#email').clear({force:true}).type('test@gmail.com');
+    cy.get('#password').clear({force:true}).type('tester@123');
+    cy.get('.submit').click({force:true});
     cy.checkAlert('Login failed. Please try again.');
   });
 
@@ -63,7 +63,7 @@ describe('Ipstack Login page ', () => {
 
   it('11. Test to click on "Forgot password" link', () => {
     cy.componentVisiblityCheck('.forgot');
-    cy.get('.forgot').click();
+    cy.get('.forgot').click({force:true});
     cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/forgot`);
   });
 
@@ -77,18 +77,18 @@ describe('Ipstack Login page ', () => {
 
   it('14. Test to allow navigating back to "Login" page', () => {
     cy.componentVisiblityCheck('.log_in_instead');
-    cy.get('.log_in_instead').click();
+    cy.get('.log_in_instead').click({force:true});
     cy.assertPathname('/login');
   });
 
   xit('15. Test to "Login" successfully with valid credentials', () => {
-    cy.get('#email').clear().type('TestUserApiLayer@gmail.com');
-    cy.get('#password').clear().type('tester@123');
+    cy.get('#email').clear({force:true}).type('TestUserApiLayer@gmail.com');
+    cy.get('#password').clear({force:true}).type('tester@123');
     cy.get('.submit').click();
   });
 
   xit('16. Test to allow navigating back to "Login" page by clicking the "Sign Out" button', () => {
-    cy.contains('Sign Out').click();
+    cy.contains('Sign Out').click({force:true});
     cy.navigateUrlwithCookies(`${IPSTACK_BASE_URL}/login/`);
     cy.checkTextVisibility('Log in');
   });

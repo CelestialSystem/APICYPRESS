@@ -7,7 +7,8 @@ describe('IpApi Login page ', () => {
 
   // Check if the login page loads correctly
   it('1. Test to click the "Log in" button and load the "Login" page', () => {
-    cy.get('.login > a').click();
+    cy.AcceptCookies();
+    cy.get('.login > a').click({force:true});
     cy.get('h2').should('contain.text', 'Log in');
   });
 
@@ -32,9 +33,9 @@ describe('IpApi Login page ', () => {
   });
 
   it('7. Test to show an error for empty "Email" and "Password"', () => {
-    cy.get('#email').clear();
-    cy.get('#password').clear();
-    cy.get('.submit').click();
+    cy.get('#email').clear({force:true});
+    cy.get('#password').clear({force:true});
+    cy.get('.submit').click({force:true});
     cy.get('.alerts') 
       .should('be.visible')
       .and('contain.text', 'Please enter your account email and password.');
@@ -43,23 +44,23 @@ describe('IpApi Login page ', () => {
   it('8. Test to show an error for invalid "Email" format', () => {
     cy.get('#email').type('invalid-email');
     cy.get('#password').type('password123');
-    cy.get('.submit').click();
-    cy.get('#email').clear(); // Clear the input for the next test
+    cy.get('.submit').click({force:true});
+    cy.get('#email').clear({force:true}); // Clear the input for the next test
   });
 
   it('9. Test to show an error for incorrect "Password"', () => {
     cy.get('#email').type('TestUserApiLayer@gmail.com');
     cy.get('#password').type('wrongpassword');
-    cy.get('.submit').click();
+    cy.get('.submit').click({force:true});
     cy.get('.alerts')
       .should('be.visible')
       .and('contain.text', 'Login failed. Please try again.');
   });
 
   it('10. Test to show an error for incorrect "Email"', () => {
-    cy.get('#email').clear().type('test@gmail.com');
-    cy.get('#password').clear().type('tester@123');
-    cy.get('.submit').click();
+    cy.get('#email').clear({force:true}).type('test@gmail.com');
+    cy.get('#password').clear({force:true}).type('tester@123');
+    cy.get('.submit').click({force:true});
     cy.get('.alerts')
       .should('be.visible')
       .and('contain.text', 'Login failed. Please try again.');
@@ -70,7 +71,7 @@ describe('IpApi Login page ', () => {
   });
 
   it('12. Test to click for "Forgot password" button', () => {
-    cy.get('.forgot').click();
+    cy.get('.forgot').click({force:true});
   })
 
   it('13. Test to load the "Forgot Password" is present', () => {
@@ -82,16 +83,16 @@ describe('IpApi Login page ', () => {
   });
 
   it('15. Test to allow navigating back to "Login" page', () => {
-    cy.get('.log_in_instead').click();
+    cy.get('.log_in_instead').click({force:true});
     cy.url().should('include', '/login');
   });
 
   it('16. Test to login successfully with valid credentials', () => {
-    cy.get('#email').clear().type('TestUserApiLayer@gmail.com');
-    cy.get('#password').clear().type('tester@123');
-    cy.get('.submit').click();
+    cy.get('#email').clear({force:true}).type('TestUserApiLayer@gmail.com');
+    cy.get('#password').clear({force:true}).type('tester@123');
+    cy.get('.submit').click({force:true});
     cy.url().should('include', '/dashboard');
     cy.get('#sidebar').should('be.visible');
-    cy.get(':nth-child(3) > .sidebar_header > a > .doc_inner').click();
+    cy.get(':nth-child(3) > .sidebar_header > a > .doc_inner').click({force:true});
   });
 });

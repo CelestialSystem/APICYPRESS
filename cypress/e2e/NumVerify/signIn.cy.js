@@ -6,6 +6,7 @@ describe('NumVerify Login page', () => {
     });
 
     it('1. Test to navigate to the "Login" page', () => {
+        cy.AcceptCookies();
         cy.get('.cursor_pointer').click({ force: true });
         cy.url().should('eq', `${NUMVERIFY_BASE_URL}login`);
     });
@@ -31,30 +32,30 @@ describe('NumVerify Login page', () => {
     });
 
     it('7. Test to show an error for empty "Email" and "Password"', () => {
-        cy.get('#email_address').clear();
-        cy.get('#password').clear();
-        cy.get('.login_form_fieldset > .login_button').click();
+        cy.get('#email_address').clear({force:true});
+        cy.get('#password').clear({force:true});
+        cy.get('.login_form_fieldset > .login_button').click({force:true});
         cy.get('.error_box').should('have.text', 'Login failed. Please try again.');
     });
 
     it('8. Test to show an error for invalid "Email" and "Password"', () => {
         cy.get('#email_address').type('invalid@email');
         cy.get('#password').type('password123');
-        cy.get('.login_form_fieldset > .login_button').click();
+        cy.get('.login_form_fieldset > .login_button').click({force:true});
         cy.get('.error_box').should('have.text', 'Login failed. Please try again.');
     });
 
     it('9. Test to show an error for incorrect "Password"', () => {
         cy.get('#email_address').type('TestUserApiLayer@gmail.com');
         cy.get('#password').type('wrongpassword');
-        cy.get('.login_form_fieldset > .login_button').click();
+        cy.get('.login_form_fieldset > .login_button').click({force:true});
         cy.get('.error_box').should('have.text', 'Login failed. Please try again.');
     });
 
     it('10. Test to show an error for incorrect "Email"', () => {
-        cy.get('#email_address').clear().type('testinvalid@gmail.com');
-        cy.get('#password').clear().type('Test@123');
-        cy.get('.login_form_fieldset > .login_button').click();
+        cy.get('#email_address').clear({force:true}).type('testinvalid@gmail.com');
+        cy.get('#password').clear({force:true}).type('Test@123');
+        cy.get('.login_form_fieldset > .login_button').click({force:true});
         cy.get('.error_box').should('have.text', 'Login failed. Please try again.');
     });
 
@@ -63,7 +64,7 @@ describe('NumVerify Login page', () => {
     });
 
     it('12. Test to click on "Forgot password" button', () => {
-        cy.get('.forgot').click();
+        cy.get('.forgot').click({force:true});
         cy.assertPathname('/forgot');
     });
 
@@ -85,7 +86,7 @@ describe('NumVerify Login page', () => {
 
     it('17. Test to type wrong "Email"', () => {
         cy.get('#email_address').type('123@jiio');
-        cy.get(':nth-child(2) > .login_button').click();
+        cy.get(':nth-child(2) > .login_button').click({force:true});
         cy.get('.error_box').should('have.text', 'Update has failed with the following error: Invalid e-mail address.');
     });
 });

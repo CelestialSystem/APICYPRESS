@@ -14,14 +14,14 @@ describe('Taxdata APIs Info page ', () => {
     });
 
     it('3. Test to click on the "API info" tab', () => {
-        cy.get('#details-tab > .d-md-flex > span').click();
+        cy.get('#details-tab > .d-md-flex > span').click({force:true});
     });
 
     it('4. Test to check for "Example Request" section', () => {
-        cy.componentVisiblityCheck('article > :nth-child(3)', 'Example Request');
+        cy.checkTextVisibility('Example Request');
     });
 
     it('5. Test to check for "Example Response" section', () => {
-        cy.componentVisiblityCheck('article > :nth-child(5)', 'Example Response');
+        cy.checkTextVisibility('Example Response');
     });
 });

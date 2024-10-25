@@ -34,9 +34,9 @@ describe('Zenscrape Login page  ', () => {
   });
 
   it('6. Test to show an error for empty "Email" and "Password"', () => {
-    cy.get(':nth-child(2) > .col-md-6 > .form-control').clear();
-    cy.get(':nth-child(3) > .col-md-6 > .form-control').clear();
-    cy.get('.btn-primary').click();
+    cy.get(':nth-child(2) > .col-md-6 > .form-control').clear({force:true});
+    cy.get(':nth-child(3) > .col-md-6 > .form-control').clear({force:true});
+    cy.get('.btn-primary').click({force:true});
     cy.get('.alert')
       .should('be.visible')
       .and('contain.text', 'Whoops! Something went wrong!');
@@ -62,8 +62,8 @@ describe('Zenscrape Login page  ', () => {
   });
 
   it('9. Test to show an error for incorrect "Email"', () => {
-    cy.get(':nth-child(2) > .col-md-6 > .form-control').clear().type('testinvalid@gmail.com');
-    cy.get(':nth-child(3) > .col-md-6 > .form-control').clear().type('Test@123');
+    cy.get(':nth-child(2) > .col-md-6 > .form-control').clear({force:true}).type('testinvalid@gmail.com');
+    cy.get(':nth-child(3) > .col-md-6 > .form-control').clear({force:true}).type('Test@123');
     cy.get('.btn-primary').click();
     cy.get('.alert').should('be.visible').and('contain.text', 'Whoops! Something went wrong!');
     cy.get('.alert > ul > li').should('be.visible', 'These credentials do not match our records');

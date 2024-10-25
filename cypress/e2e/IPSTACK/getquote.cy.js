@@ -62,11 +62,18 @@ describe('Ipstack Get Quote page', () => {
         cy.checkAlert('Please provide a valid e-mail address.');
     });
 
+    // it('13. Test to display validation error "Please select your country." after filling the email and clicking submit', () => {
+    //     cy.get(':nth-child(3) > input').type('john.doe@example.com');
+    //     cy.get('.line.submit > .submit').click();
+    //     cy.checkAlert('Please select your country.');
+    // });
+
     it('13. Test to display validation error "Please select your country." after filling the email and clicking submit', () => {
-        cy.get(':nth-child(3) > input').type('john.doe@example.com');
+        cy.get('input[name="email_address"]').type('john.doe@example.com');
         cy.get('.line.submit > .submit').click();
         cy.checkAlert('Please select your country.');
     });
+    
 
     it('14. Test to verify the "Subject" dropdown is already selected as "Sales"', () => {
         cy.get(':nth-child(6) > select').should('have.value', 'Sales').find('option:selected').should('contain.text', 'Sales');

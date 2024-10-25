@@ -63,7 +63,7 @@ describe('Bank Data Pricing page', () => {
         cy.componentVisiblityCheck('#p4 > .content > .listing > li', 'Get all major banks SWIFT and IBAN codes');
     });
     
-    it('6. Test to check if the text "CUSTOM PLAN" is present', () => {
+    it('7. Test to check if the text "CUSTOM PLAN" is present', () => {
         cy.checkTextVisibility('CUSTOM PLAN');
         cy.componentVisiblityCheck('#p5 > .small-box > .plan > .price', 'Volume');
         cy.componentVisiblityCheck('#p5 > .content > .listing > li', 'Any requests volume you need');

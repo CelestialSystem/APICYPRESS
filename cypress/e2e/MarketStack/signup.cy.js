@@ -6,8 +6,9 @@ describe('MarketStack Free Signup page', () => {
     });
 
     it('1. Test to click the "Free Signup" button', () => {
-        cy.get('.cta > a').click({ force: true });
         cy.AcceptCookies();
+        cy.get('.cta > a').click({ force: true });
+        
     });
 
     it('2. Test to redirect to the "Signup" page', () => {
@@ -49,7 +50,7 @@ describe('MarketStack Free Signup page', () => {
     });
 
     it('10. Test to click on the "Yearly Billing" toggle button', () => {
-        cy.get('.yearly').click();
+        cy.get('.yearly').click({force:true});
     });
 
     it('11. Test to check the correct "Subscription Details" for "Yearly" period', () => {
@@ -82,7 +83,7 @@ describe('MarketStack Free Signup page', () => {
     });
 
     it('15. Test to validate that required fields are filled before submission', () => {
-        cy.get('.submit').click();
+        cy.get('.submit').click({force:true});
         cy.checkAlert('There were errors. Please try again!');
     });
 

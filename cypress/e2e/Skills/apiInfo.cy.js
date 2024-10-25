@@ -10,7 +10,7 @@ describe('Skills API Info page', () => {
     });
 
     it('2. Test to click on the "API info" tab', () => {
-        cy.get('#details-tab > .d-md-flex > span').click();
+        cy.get('#details-tab > .d-md-flex > span').click({force:true});
     });
 
     it('3. Test to check for the text "Searchable database of 70.000+ skills well-organized and categorized."', () => {

@@ -7,8 +7,8 @@ describe('Postionstack Signup page', () => {
     });
 
     it('1. Test to click the "SIGN UP FREE" button', () => {
-        cy.get('.cta > a').click({ force: true });
         cy.AcceptCookies();
+        cy.get('.cta > a').click({ force: true });
     });
 
     it('2. Test to redirect to the "Sign up" page', () => {
@@ -50,7 +50,7 @@ describe('Postionstack Signup page', () => {
     });
 
     it('10. Test to click on the "Yearly" billing toggle button', () => {
-        cy.get('.yearly').click();
+        cy.get('.yearly').click({force:true});
     });
 
     it('11. Test to display the correct subscription details for "Yearly" period', () => {
@@ -83,7 +83,7 @@ describe('Postionstack Signup page', () => {
     });
 
     it('15. Test to validate that required fields are filled before submission', () => {
-        cy.get('.submit').click();
+        cy.get('.submit').click({force:true});
         cy.checkAlert('There were errors. Please try again!');
     });
 

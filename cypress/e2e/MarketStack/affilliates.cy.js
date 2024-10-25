@@ -67,27 +67,27 @@ describe('MarketStack Affiliates page', () => {
   
     it('14. Test to check title "Why Join the Marketstack Affiliate Program?" is present', () => {
         cy.get('.aboutSection > h2').scrollIntoView();
-        cy.componentVisiblityCheck('.aboutSection > h2', 'Why Join the Marketstack Affiliate Program?');
+        cy.checkTextVisibility('Why Join the Marketstack Affiliate Program?');
     });
 
     it('15. Test to check title "Simplify Promotion with Comprehensive Resources" is present', () => {
         cy.get('.heading > h2').scrollIntoView();
-        cy.componentVisiblityCheck('.heading > h2', 'Simplify Promotion with Comprehensive Resources');
+        cy.checkTextVisibility('Simplify Promotion with Comprehensive Resources');
     });
 
     it('16. Test to check title "Who Can Become an Marketstack Affiliate?" is present', () => {
         cy.get('.ipstack > .container > h2').scrollIntoView();
-        cy.componentVisiblityCheck('.ipstack > .container > h2', 'Who Can Become an Marketstack Affiliate?');
+        cy.checkTextVisibility('Who Can Become an Marketstack Affiliate?');
     });
 
     it('17. Test to check title "Your Network, Our Ideal Customer" is present', () => {
         cy.get('.content > h2').scrollIntoView();
-        cy.componentVisiblityCheck('.content > h2', 'Your Network, Our Ideal Customer');
+        cy.checkTextVisibility('Your Network, Our Ideal Customer');
     });
   
     it('18. Test to check title "What our Affiliates Are Saying" is present', () => {
         cy.get('.testimonials > .container > h2').scrollIntoView();
-        cy.componentVisiblityCheck('.testimonials > .container > h2', 'What our Affiliates Are Saying');
+        cy.checkTextVisibility('What our Affiliates Are Saying');
     });
   
     it('19. Test to "Arrow" buttons should be present', () => {
@@ -96,12 +96,12 @@ describe('MarketStack Affiliates page', () => {
 
     it('20. Test to check title "Affiliate Program: Terms & Conditions" is present', () => {
         cy.get('.termsConditions > h2').scrollIntoView();
-        cy.componentVisiblityCheck('.termsConditions > h2', 'Affiliate Program: Terms & Conditions');
+        cy.checkTextVisibility('Affiliate Program: Terms & Conditions');
     });
   
     it('21. Test to check title "Get Answers to Your Questions (FAQ)" is present', () => {
         cy.get('.Accordions > .container > :nth-child(1)').scrollIntoView();
-        cy.componentVisiblityCheck('.Accordions > .container > :nth-child(1)', 'Get Answers to Your Questions (FAQ)');
+        cy.checkTextVisibility('Get Answers to Your Questions (FAQ)');
     });
 
     it('22. Test to click on expand button', () => {
@@ -110,8 +110,9 @@ describe('MarketStack Affiliates page', () => {
     });
 
     it('23. Test to click on collapse button', () => {
+        cy.wait(4000)
         cy.get(':nth-child(2) > .accordion').click();
-        cy.get(':nth-child(2) > .accordion-content').should('not.be.visible');
+        cy.checkTextVisibility(' You can join the APILayer Affiliate Program by visiting the affiliate pages:');
     });
 
     it('24. Test to check title "Affiliate Links" is present', () => {

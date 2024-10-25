@@ -6,8 +6,8 @@ describe('NumVerify Free Signup page', () => {
     });
 
     it('1. Test to click the "Free Signup" button', () => {
-        cy.get('.primary > a').click({ force: true });
         cy.AcceptCookies();
+        cy.get('.primary > a').click({ force: true });
     });
 
     it('2. Test to redirect to the "product" page on click of "Sign Up for Free" button', () => {

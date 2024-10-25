@@ -69,16 +69,16 @@ describe('Image Quality Assessment API info page', () => {
     //     cy.get('#details-tab > .d-md-flex > span').click();
     // });
 
-    it('12. Test to check if code blocks is present', () => {
+    it('11. Test to check if code blocks is present', () => {
         cy.componentVisiblityCheck('.language-shell');
         cy.componentVisiblityCheck('.language-javascript');
     });
 
-    it('13. Test to check " Evaluating an image from local file" items are present', () => {
+    it('12. Test to check " Evaluating an image from local file" items are present', () => {
         cy.checkTextVisibility(' Evaluating an image from local file');
     });
 
-    it('14. Test to check "Related Articles" items are present', () => {
+    it('13. Test to check "Related Articles" items are present', () => {
         cy.checkTextVisibility('Related Articles');
     });
 

@@ -6,7 +6,8 @@ describe('IpApi Signup page', () => {
     });
 
     it('1. Test to click the "SIGN UP FREE" button', () => {
-        cy.get(':nth-child(4) > :nth-child(4) > a').click();
+        cy.AcceptCookies();
+        cy.get(':nth-child(4) > :nth-child(4) > a').click( {force:true} );
     });
 
     it('2. Test to redirect to the "Sign Up" page', () => {

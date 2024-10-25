@@ -6,15 +6,16 @@ describe('Positionstack Status page', () => {
     });
 
     it('1. Test to "Accept Cookies" if not already accepted', () => {
+        cy.AcceptCookies();
         cy.get('body').then((body) => {
             if (body.find('.lcc-modal--alert').is(':visible')) {
-                cy.get('.lcc-modal__actions > .js-lcc-accept').click();
+                cy.get('.lcc-modal__actions > .js-lcc-accept').click({force:true});
             }
         });
     });
 
     it('2. Test to click on "Status" hyperlink', () => {
-        cy.get('.status > a').click();
+        cy.get('.status > a').click({force:true});
         cy.visit('https://status.positionstack.com/');
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
@@ -49,7 +50,7 @@ describe('Positionstack Status page', () => {
 
     it('8. Test to check the text "Recent events"', () => {
         cy.componentVisiblityCheck('#logs > .uk-h3', 'Recent events');
-        cy.get('.logo-wrapper > .font-14').click();
+        cy.get('.logo-wrapper > .font-14').click({force:true});
     });
 
     it('9. Test to check the "Monitor row" is present', () => {
@@ -61,7 +62,7 @@ describe('Positionstack Status page', () => {
     });
 
     it('11. Test to click on "Calendar view" button', () => {
-        cy.get('.psp-calendar-link').click();
+        cy.get('.psp-calendar-link').click({force:true});
         cy.componentVisiblityCheck('.monitor-name', 'api.positionstack.com history logs');
         cy.go('back');
     });
@@ -96,7 +97,7 @@ describe('Positionstack Status page', () => {
     });
 
     it('19. Test to click on  "Status update history" button', () => {
-        cy.get('.announcement-empty > .psp-history-link').click();
+        cy.get('.announcement-empty > .psp-history-link').click({force:true});
         cy.assertPathname('/history');
     });
 

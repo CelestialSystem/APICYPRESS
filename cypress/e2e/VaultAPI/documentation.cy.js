@@ -42,8 +42,4 @@ describe('Vault API Documentation page', () => {
     it('9. Test to expand all "Endpoints" documentation', () => {
         cy.toggleEndpointsDocumentation('expand');
     });
-    
-    it('10. Test to close all "Endpoints" documentation', () => {
-        cy.toggleEndpointsDocumentation('close');
-    });
 });

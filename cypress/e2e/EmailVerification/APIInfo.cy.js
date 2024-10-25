@@ -10,7 +10,7 @@ describe('Email Verification API Info page', () => {
     });
 
     it('2. Test to click on the "API info" tab', () => {
-        cy.get('#details-tab > .d-md-flex > span').click();
+        cy.get('#details-tab > .d-md-flex > span').click({force:true});
     });
     
     it('3. Test to check for the text "See it in Action!"', () => {
@@ -31,13 +31,13 @@ describe('Email Verification API Info page', () => {
     });
    
     it('7. Test to click link "subscribing to the service"', () => {
-        cy.get('a').contains('subscribing to the service').click();
+        cy.get('a').contains('subscribing to the service').click({force:true});
         cy.get('#pricing').should('be.visible');
-        cy.get('#details-tab > .d-md-flex > span').click();
+        cy.get('#details-tab > .d-md-flex > span').click({force:true});
     });
     
     it('8. Test to click link "get your API key"', () => {
-        cy.get('a').contains('get your API key').click();
+        cy.get('a').contains('get your API key').click({force:true});
         cy.url().should('eq', `${APILAYER_BASE_URL}/?signin`);
     });
    

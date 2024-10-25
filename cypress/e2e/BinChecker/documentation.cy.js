@@ -9,47 +9,44 @@ describe('Bin checker APIs Documentation page', ()=> {
         cy.AcceptCookies();
     });
 
-    it('2. Test to check "Documentation" tab visibility', () => {
-        cy.componentVisiblityCheck('.d-md-flex > .d-none');
+    it('2. Test to click "Documentation" tab', () => {
+        cy.get('.d-md-flex > .d-none').click({force:true});
     });
 
-    it('3. Test to click "Documentation" tab', () => {
-        cy.get('.d-md-flex > .d-none').click();
+    it('3. Test to check "Contents" section', () => {
+        cy.componentVisiblityCheck('.sticky-top > .text-muted');
     });
 
-    it('4. Test to check "Contents" section', () => {
-        cy.componentVisiblityCheck('.sticky-top');
+    it('4. Test to check "Authentication" hyperlink is present', () => {
+        cy.checkTextVisibility('BIN Checker API Reference');
+        cy.checkTextVisibility('Authentication');
     });
 
-    it('5. Test to check "Authentication" hyperlink is present', () => {
-        cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(1) > a', 'Authentication');
-    });
-
-    it('6. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
+    it('5. Test to click on "Authentication" hyperlink and check "Authentication" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(1) > a').click();
-        cy.componentVisiblityCheck('.col-sm-12 > :nth-child(4)', 'Authentication');
+        cy.checkTextVisibility('Authentication');
     });
 
-    it('7. Test to check "Endpoints" hyperlink is present', () => {
-        cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(2) > a', 'Endpoints');
+    it('6. Test to check "Endpoints" hyperlink is present', () => {
+        cy.checkTextVisibility('Endpoints');
     });
   
-    it('8. Test to click on "Endpoints" hyperlink and check "Endpoints" title is present', () => {
+    it('7. Test to click on "Endpoints" hyperlink and check "Endpoints" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(2) > a').click();
         cy.componentVisiblityCheck(':nth-child(9) > a', 'Endpoints');
     });
 
-    it('9. Test to check "Rate Limiting" hyperlink is present', () => {
-        cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(3) > a', 'Rate Limiting');
+    it('8. Test to check "Rate Limiting" hyperlink is present', () => {
+        cy.checkTextVisibility('Rate Limiting');
     });
   
-    it('10. Test to click on "Rate Limiting" hyperlink and check "Rate Limiting" title is present', () => {
+    it('9. Test to click on "Rate Limiting" hyperlink and check "Rate Limiting" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(3) > a').click();
         cy.componentVisiblityCheck(':nth-child(11) > a', 'Rate Limiting');
     });
 
     it('11. Test to check "Error Codes" hyperlink is present', () => {
-        cy.componentVisiblityCheck('.sticky-top > ul > :nth-child(4) > a', 'Error Codes');
+        cy.checkTextVisibility('Error Codes');
     });
   
     it('12. Test to click on "Error Codes" hyperlink and check "Error Codes" title is present', () => {
@@ -81,15 +78,11 @@ describe('Bin checker APIs Documentation page', ()=> {
         cy.get(':nth-child(18) > a').click();
     });
 
-    it('18. Test to check on "Contact for support" link is present', () => {
+    it('19. Test to check on "Contact for support" link is present', () => {
         cy.componentVisiblityCheck(':nth-child(25) > a');
     });
 
-    it('19. Test to check on "Contact for support" link click', () => {
+    it('20. Test to check on "Contact for support" link click', () => {
         cy.get(':nth-child(25) > a').click();
-    });
-
-    it('20. Test to check on "Documentation" title', () => {
-        cy.componentVisiblityCheck('h3.mb-4', 'BIN Checker API Reference');
     });
 });

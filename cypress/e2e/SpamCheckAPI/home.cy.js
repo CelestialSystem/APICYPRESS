@@ -33,7 +33,7 @@ describe('Spam Check API Home page', () => {
         cy.checkTheDocumentation('Spam Check API Reference');
     });
 
-    it('9. Test to check the "visibility of the review rating section" present and clickable', () => {
+    it('8. Test to check the "visibility of the review rating section" present and clickable', () => {
         cy.checkReviewRating();
     });
 

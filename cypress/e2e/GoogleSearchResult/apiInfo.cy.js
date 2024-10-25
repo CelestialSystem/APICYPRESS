@@ -40,7 +40,7 @@ describe('Google search result API Info page', () => {
         cy.componentVisiblityCheck('.card-deck');
     });
 
-    it('8. Test to check all "titles" and "subtitles" are present', () => {
+    it('9. Test to check all "titles" and "subtitles" are present', () => {
         cy.checkTextVisibility('What is Input Parameters?');
         cy.checkTextVisibility('Specifying the location');
         cy.checkTextVisibility('Specifying the browser language');
