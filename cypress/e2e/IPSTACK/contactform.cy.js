@@ -87,7 +87,7 @@ describe('Ipstack Contact page', () => {
     });
 
     it('18. Test to display validation error "Please select your country." for country code after filling email and click on the submit button', () => {
-        cy.get(':nth-child(3) > input').type('john.doe@example.com');
+        cy.get('input[name="email_address"]').type('john.doe@example.com');
         cy.get('.line.submit > .submit').click();
         cy.checkAlert('Please select your country.');
     });

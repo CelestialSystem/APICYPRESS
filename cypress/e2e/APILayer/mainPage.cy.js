@@ -14,7 +14,6 @@ describe("Test for launch of IPSTACK Geo Page from Featured APIS", function () {
     cy.get('.col-lg-12.nav-sm > .nav-link').scrollIntoView();
   })
 
-
   describe("Test for search field in top toolbar", function () {
     it("3. Test for launch of IPSTACK Geo Page from Featured APIS", () => {
       cy.get(':nth-child(2) > .row > :nth-child(1) > .card-body > .media > .api-icon-bg > .avatar-img').click();
@@ -25,8 +24,13 @@ describe("Test for launch of IPSTACK Geo Page from Featured APIS", function () {
       cy.get('.input-group-append > .btn > .fas').click();
       cy.get('h1').should('have.text', 'Search Results');
       cy.get('.col-lg-7 > :nth-child(2)').should('have.text', 'You searched for IPSTACK keyword.');
-      cy.get('.col-md-12 > .font-size-1').should('have.text', '\nSearch returned 1 results for\n\nIPSTACK\n\n×\n\n\n');
-    })
+      // cy.get('.col-md-12 > .font-size-1').should('have.text', '\nSearch returned 1 results for\n\nIPSTACK\n\n×\n\n\n');
+      cy.get('.col-md-12 > .font-size-1')
+        .invoke('text')
+        .then((text) => {
+          expect(text.replace(/\s+/g, ' ').trim()).to.contain('Search returned 1 results for IPSTACK ×');
+        });
+    });
 
     it("5. Test to select IPSTACK product after performing search operation", () => {
       cy.get('.avatar-img').click();

@@ -23,11 +23,18 @@ describe("Test for Signup and Login for API layer Main page", function () {
       cy.get(':nth-child(2) > p').should('have.text', 'Register now and start using the API marketplace!');
     })
 
-    it('4. Test to update value in "First Name" filed in signup page', () => {
+    it('4. Test to update value in "Full Name" field in signup page', () => {
       cy.get('#signinSrName').should('be.visible');
       cy.get('#signup_form > :nth-child(5) > .input-label').should('have.text', 'Full name');
-      cy.get('#signinSrName').type('Test User')
-    })
+
+      cy.get('body').then(($body) => {
+        if ($body.find('#cookiescript_injected_wrapper').length > 0) {
+          cy.get('#cookiescript_injected_wrapper').invoke('hide');
+        }
+      });
+      cy.get('#signinSrName').scrollIntoView().should('be.visible').type('Test User');
+    });
+
 
     it('5. Test to update "Email Address" in signup page', () => {
       cy.get(':nth-child(6) > .input-label').should('have.text', 'Email address');
@@ -45,13 +52,23 @@ describe("Test for Signup and Login for API layer Main page", function () {
     })
 
     it('8. Test to select "you have read terms" in signup page', () => {
-      cy.get('#tos-accepted > .custom-control > .custom-control-label').should('have.text', "\nI have read, understand, and agree to APILayer's Terms\nof Use & Privacy Statement\n");
+      cy.get('#tos-accepted > .custom-control > .custom-control-label')
+        .invoke('text')
+        .then((text) => {
+          expect(text.replace(/\s+/g, ' ').trim()).to.equal("I have read, understand, and agree to APILayer's Terms of Use & Privacy Statement");
+        });
       cy.get('#tos-accepted > .custom-control > .custom-control-label').click();
+
     })
 
     it('9. Test to select "terms of use" link in signup page', () => {
-      cy.get('[href="https://www.ideracorp.com/legal/apilayer#tabs-2"]').should('have.text', "Terms\nof Use");
+      cy.get('[href="https://www.ideracorp.com/legal/apilayer#tabs-2"]')
+        .invoke('text')
+        .then((text) => {
+          expect(text.replace(/\s+/g, ' ').trim()).to.equal("Terms of Use");
+        });
       cy.get('[href="https://www.ideracorp.com/legal/apilayer#tabs-2"]').click();
+
     })
 
     it('10. Test to select "terms of use" link in signup page', () => {
@@ -71,7 +88,13 @@ describe("Test for Signup and Login for API layer Main page", function () {
 
     it('13. Test to check "I agree" text after selecting Read more in signup page', () => {
       cy.get('#expandableContent > small').should('be.visible');
-      cy.get('#expandableContent > small').should('have.text', "I agree to receive marketing communication from APILayer for product updates, sales services, promotions, news, and events. I can withdraw my consent at any time and update my communication preference at the subscription center from any email received.\n");
+      cy.get('#expandableContent > small')
+        .invoke('text')
+        .then((text) => {
+          expect(text.replace(/\s+/g, ' ').trim()).to.equal(
+            "I agree to receive marketing communication from APILayer for product updates, sales services, promotions, news, and events. I can withdraw my consent at any time and update my communication preference at the subscription center from any email received."
+          );
+        });
     })
 
     xit('14. Test to hide "I agree" text after selecting Read more in signup page', () => {
@@ -113,8 +136,11 @@ describe("Test for Signup and Login for API layer Main page", function () {
     })
 
     it('19. Test to select "Sign Up" button from singup page', () => {
-      cy.get('#signup_button').should('have.text', "\nSign Up for free\n \n\n");
-      // cy.get('#signup_button').click();
+      cy.get('#signup_button')
+        .invoke('text')
+        .then((text) => {
+          expect(text.replace(/\s+/g, ' ').trim()).to.equal('Sign Up for free');
+        });
     })
   });
 });

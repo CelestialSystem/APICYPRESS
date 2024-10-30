@@ -40,7 +40,12 @@ describe('Test Cases for Docs/ Documentation', () => {
     });
 
     it('8. Test to Account Card content should have "Managing payment methods"', () => {
-        cy.get('[href="/docs/article/managing-payment-methods"] > .card-body').should('contains.text', '\n\n\n\n\n\n\nManaging payment methods\n')
+        // cy.get('[href="/docs/article/managing-payment-methods"] > .card-body').contains('Managing payment methods');
+        cy.get('[href="/docs/article/managing-payment-methods"] > .card-body')
+            .invoke('text')
+            .then((text) => {
+                expect(text.replace(/\s+/g, ' ').trim()).to.contain('Managing payment methods');
+            });
     });
 
     // it('9. Test to Click on "FAQ" Card', () => {

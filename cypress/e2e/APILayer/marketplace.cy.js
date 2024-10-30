@@ -71,8 +71,13 @@ describe('Test Cases for marketplace page', () => {
     });
 
     it('14. Test to On click of "See all" button , Browse API marketplace button should be there', () => {
-        cy.get('[style="max-width:809px"] > .col-md-5 > .btn').should('contains.text', '\n\nBrowse API Marketplace\n')
-    });
+        // cy.get('[style="max-width:809px"] > .col-md-5 > .btn').should('contains.text', '\n\nBrowse API Marketplace\n')
+        cy.get('[style="max-width:809px"] > .col-md-5 > .btn')
+            .invoke('text')
+            .then((text) => {
+                expect(text.replace(/\s+/g, ' ').trim()).to.equal('Browse API Marketplace');
+            });
+        });
 
     it('15. Test to On click "Browse API marketplace" button route should change', () => {
         cy.get('[style="max-width:809px"] > .col-md-5 > .btn').click({force: true});

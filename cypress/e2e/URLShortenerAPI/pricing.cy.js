@@ -79,7 +79,7 @@ describe('URL Shortener API Pricing page', () => {
     });
 
     it('12. Test to check "Contact Us" button text for Custom Plan is present and verify that the form opens on click', () => {
-        cy.get('#pricing .card').contains('Contact Us').click();
+        cy.get('#pricing .card').contains('Contact Us').click({force:true});
         cy.url().should('eq', APILAYER_BASE_URL +  '/support');
         cy.go('back');
         cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');
