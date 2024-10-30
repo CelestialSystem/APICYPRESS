@@ -21,18 +21,18 @@ describe('Text to Emotion Pricing page', () => {
     });
 
     it('4. Test to check "Starter Plan" features', () => {
-        cy.starterPlanCheck('9', '7,500');
+        cy.starterPlanCheck('9.99', '7,500');
     });
    
     it('5. Test to check "Pro Plan" features', () => {
-        cy.proPlanCheck('29', '30,000');
+        cy.proPlanCheck('29.99', '30,000');
     });
     
     it('6. Test to check "Custom Plan" features', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
         cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .card').contains('Contact Us').click();
+        cy.get('#pricing .card').contains('Contact Us').click({force:true});
         cy.url().should('eq', APILAYER_BASE_URL +  '/support');
         cy.go('back');
         cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');

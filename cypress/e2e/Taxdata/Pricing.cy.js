@@ -1,4 +1,4 @@
-import { TAXDATA_BASE_URL } from '../../resources/data';
+import { TAXDATA_BASE_URL, APILAYER_BASE_URL } from '../../resources/data';
 
 describe('Taxdata Pricing page', () => {
     before(() => {
@@ -61,12 +61,13 @@ describe('Taxdata Pricing page', () => {
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-header > .btn');
     });
 
-    it('14. Test to check button text for "Contact Us" and redirect to "Contact" page and check the text "Contact Sales & Customer Support"', () => {
-        cy.get(':nth-child(5) > .card > .card-header > .btn').scrollIntoView();
-        cy.componentVisiblityCheck(':nth-child(5) > .card > .card-header > .btn', 'Contact\nUs');
-        cy.get(':nth-child(5) > .card > .card-header > .btn').click({force:true});
-        cy.document().its('readyState').should('eq', 'complete');
-        cy.checkTextVisibility('Contact Sales & Customer Support')
-        cy.navigateUrlwithCookies(TAXDATA_BASE_URL);
+    it('14. Test to check "Custom Plan" features', () => {
+        cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
+        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
+        cy.componentVisiblityCheck('.media-body');
+        cy.get('#pricing .card').contains('Contact Us').click({force:true});
+        cy.url().should('eq', APILAYER_BASE_URL +  '/support');
+        cy.go('back');
+        cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');
     });
 });

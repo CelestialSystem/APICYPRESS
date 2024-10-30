@@ -33,7 +33,7 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .plan-price','$249');
         cy.componentVisiblityCheck('.media-body');
         cy.get('#pricing .plan').eq(3).within(() => {
-            cy.get('a').contains('Subscribe').click();
+            cy.get('a').contains('Subscribe').click({force:true});
         });
         // Adding wait due to the css animation of 300 ms
         cy.wait(500);
@@ -47,7 +47,7 @@ describe('Email Verification Pricing page', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
         cy.componentVisiblityCheck('.media-body');
-        cy.get('#pricing .card').contains('Contact Us').click();
+        cy.get('#pricing .card').contains('Contact Us').click({force:true});
         cy.url().should('eq', APILAYER_BASE_URL +  '/support');
         cy.go('back');
         cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');

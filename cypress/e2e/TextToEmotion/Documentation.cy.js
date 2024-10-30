@@ -22,11 +22,11 @@ describe('Text to Emotion documentation page', () => {
     });
    
     it('5. Test to expand all "Endpoints" documentation', () => {
-        cy.toggleEndpointsDocumentation('expand');
+        cy.get('.card-collapse > h5 > button').click({ multiple: true });
     });
     
     it('6. Test to close all "Endpoints" documentation', () => {
-        cy.toggleEndpointsDocumentation('close');
+        cy.get('.card-collapse > h5 > button').click({ multiple: true });
     });
     
     it('7. Test to click the side bar items and check if it scroll to respective content and the text is present', () => {

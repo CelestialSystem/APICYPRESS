@@ -39,16 +39,7 @@ describe('Finance News Pricing page', () => {
         cy.get('.media-body').contains(' Standard Support ').should('be.visible');
     });
  
-    it('7. Test to check "Custom plan" is present', () => {
-        cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
-        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .font-size-4', 'Volume');
-    });
- 
-    it('8. Test to check features of "Custom plan" is present', () => {
-        cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');
-    });
- 
-    it('9. Test to check "Custom Plan" features', () => {
+    it('7. Test to check "Custom Plan" features', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
         cy.componentVisiblityCheck('.media-body');

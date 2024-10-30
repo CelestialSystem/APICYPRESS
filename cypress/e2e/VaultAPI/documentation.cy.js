@@ -39,7 +39,8 @@ describe('Vault API Documentation page', () => {
         cy.checkLink('contact for support');
     });
 
-    it('9. Test to expand all "Endpoints" documentation', () => {
-        cy.toggleEndpointsDocumentation('expand');
+    it('9. Test to check and click on "Endpoints" hyperlink, then verify title is present', () => {
+        cy.contains('a', 'Endpoints').should('be.visible').click();
+        cy.get('h4.mb-4.mt-4').should('be.visible').and('contain.text', 'Endpoints');
     });
 });

@@ -25,16 +25,7 @@ describe('Image Quality Assessment API Pricing page', () => {
         cy.proPlanCheck('129.99', '150,000');
     });
  
-    it('6. Test to check "Custom plan" is present', () => {
-        cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
-        cy.componentVisiblityCheck('.card > .card-header > .mb-3 > .font-size-4', 'Volume');
-    });
- 
-    it('7. Test to check features of "Custom plan" is present', () => {
-        cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');
-    });
- 
-    it('8. Test to check "Custom Plan" features', () => {
+    it('6. Test to check "Custom Plan" features', () => {
         cy.componentVisiblityCheck('.card > .card-header > .h3', 'Custom Plan');
         cy.componentVisiblityCheck('.card > .card-header > .mb-3 > span','Volume');
         cy.componentVisiblityCheck('.media-body');
