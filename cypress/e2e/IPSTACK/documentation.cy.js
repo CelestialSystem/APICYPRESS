@@ -14,7 +14,7 @@ describe('Ipstack Documentation page', () => {
 
     it('2. Test to check the text "Ipstack API" is present', () => {
         cy.AcceptCookies();
-        cy.checkTextVisibility('Ipstack API');
+        cy.checkTextVisibility('ipstack API');
     });
 
     it('3. Test to check the text "Getting Started" is present', () => {

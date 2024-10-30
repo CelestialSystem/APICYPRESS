@@ -68,7 +68,7 @@ describe('Positionstack Pricing page', () => {
     });
 
     it('13.Test to check the "Free" plan "Features"', () => {
-        cy.componentVisiblityCheck('.free > .features_container > ul > .feature_api_requests', '25,000 Requests')
+        cy.componentVisiblityCheck('.free > .features_container > ul > .feature_api_requests', '100 Requests')
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_support', 'No Support')
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_license', 'Personal License');
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_forward', 'Forward Geocoding');

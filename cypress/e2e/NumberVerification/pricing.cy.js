@@ -34,7 +34,7 @@ describe('Number Verification Pricing page', () => {
     });
   
     it('8. Test to check features of "Enterprise" plan is present', () => {
-        cy.componentVisiblityCheck('#pricing > .row > :nth-child(4) > .card > .card-body > :nth-child(1) > .media-body',  ' 250,000\nRequests / Monthly ');
+        cy.checkTextVisibility('250,000 Requests / Monthly');
         cy.componentVisiblityCheck(':nth-child(4) > .card > .card-body > :nth-child(2) > .media-body', 'Standard Support');
     });
 

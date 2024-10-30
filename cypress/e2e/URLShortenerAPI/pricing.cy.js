@@ -1,4 +1,4 @@
-import { SHORTURLAPI_BASE_URL } from '../../resources/data';
+import { SHORTURLAPI_BASE_URL, APILAYER_BASE_URL} from '../../resources/data';
 
 describe('URL Shortener API Pricing page', () => {
     before(() => {
@@ -56,7 +56,7 @@ describe('URL Shortener API Pricing page', () => {
     
     it('8. Test to check features of "Pro Plan" are present', () => {
         // Check the first feature of "Pro Plan"
-        cy.componentVisiblityCheck('.card .media-body', '600,000\nRequests / Monthly');
+        cy.checkTextVisibility('600,000 Requests / Monthly');
         
         // Check the second feature of "Pro Plan"
         cy.componentVisiblityCheck('.card .media-body', 'Standard Support');
@@ -79,19 +79,10 @@ describe('URL Shortener API Pricing page', () => {
     });
 
     it('12. Test to check "Contact Us" button text for Custom Plan is present and verify that the form opens on click', () => {
-        // Check if the "Contact Us" link is visible and contains the correct text
-        cy.componentVisiblityCheck('.btn.btn-outline-primary', 'Contact\nUs');
-    
-        // Ensure the button is visible before clicking
-        cy.get(':nth-child(3) > .card > .card-header > .btn').should('be.visible').click();
-    
-        // Verify that the document is fully loaded
-        cy.document().should((doc) => {
-            expect(doc.readyState).to.equal('complete');
-        });
-    
-        // Check if the correct header is visible in the new page/form
-        cy.componentVisiblityCheck('h1', 'Contact Sales & Customer Support');
+        cy.get('#pricing .card').contains('Contact Us').click();
+        cy.url().should('eq', APILAYER_BASE_URL +  '/support');
+        cy.go('back');
+        cy.get('.media-body').contains(' Any requests volume you need ').should('be.visible');
     
         // Navigate back to the main page
         cy.navigateUrlwithCookies(SHORTURLAPI_BASE_URL);

@@ -15,7 +15,7 @@ describe('NumVerify Free Signup page', () => {
     });
 
     it('3. Test to click on "Sign Up" button under "Free Plan"', () => {
-        cy.get(':nth-child(1) > .inside > :nth-child(4) > .button').click();
+        cy.get(':nth-child(1) > .inside > :nth-child(4) > .yearly_price_data').click();
         cy.assertPathname('/signup');
     });
 

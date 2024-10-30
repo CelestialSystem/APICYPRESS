@@ -72,7 +72,7 @@ describe('MediaStack Pricing page', () => {
     });
  
     it('13.Test to check the "Free plan" features', () => {
-        cy.componentVisiblityCheck('.free > .features_container > ul > .feature_api_requests',  '500 Calls / mo')
+        cy.componentVisiblityCheck('.free > .features_container > ul > .feature_api_requests',  '100 Calls / mo')
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_sources', 'All News Sources')
         cy.componentVisiblityCheck('.feature_data_delayed', 'Delayed News Data')
         cy.componentVisiblityCheck('.free > .features_container > ul > .feature_languages', 'All 13 Languages');

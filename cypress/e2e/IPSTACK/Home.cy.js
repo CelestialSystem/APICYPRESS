@@ -28,7 +28,7 @@ describe('Ipstack Home page', () => {
     });
 
     it('6. Test to check the text "What is an IP address and why you should consider IPstack" is present', () => {
-        cy.checkTextVisibility('What is an IP address and why you should consider IPstack');
+        cy.checkTextVisibility('What is an IP address and why you should consider ipstack');
     });
 
     it('7. Test to check the text "Powerful APIs. Effortless Integration. Unlimited Possibilities." is present', () => {
@@ -44,7 +44,7 @@ describe('Ipstack Home page', () => {
     });
 
     it('10. Test to check the text "Integrate IPstack API with your website to unlock a multitude of use cases" is present', () => {
-        cy.checkTextVisibility('Integrate IPstack API with your website to unlock a multitude of use cases');
+        cy.checkTextVisibility('Integrate ipstack API with your website to unlock a multitude of use cases');
     });
 
     it('11. Test to click on the tab "Enhancing User Experience"', () => {
@@ -140,6 +140,6 @@ describe('Ipstack Home page', () => {
 
     it('30. Test to click on the "Read the blog" button', () => {
         cy.get('.ip-banner-btn > a').click();
-        cy.go('back')
+        cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
     });
 });

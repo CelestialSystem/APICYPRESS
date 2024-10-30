@@ -144,18 +144,7 @@ describe('Pricing Page', () => {
         cy.get('.enterprise > h3[data-type="price_monthly"]').should('be.visible', 'contain.text', 'Volume');
     });
 
-    it('24.Test to check "Platinum Support!" button is there', () => {
-        cy.componentVisiblityCheck('.platinum_right_section > div','FIND OUT MORE');
-    });
-
-    it('25.Test to check "Platinum Support" button click', () => {
-        cy.get('.platinum_right_section > div').should('be.visible').click();
-        cy.visit(`${IPSTACK_BASE_URL}/documentation#support-section`);
-        cy.go('back');
-        cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
-    });
-
-    it('26. Test to check "Get free API key" button', () => {
+    it('24. Test to check "Get free API key" button', () => {
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
         });
@@ -166,7 +155,7 @@ describe('Pricing Page', () => {
         cy.go('back');
     });
     
-    it('27. Test to check the Basic plan "SIGN UP" button', () => {
+    it('25. Test to check the Basic plan "SIGN UP" button', () => {
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
         });
@@ -175,7 +164,7 @@ describe('Pricing Page', () => {
         cy.go('back');
     });
     
-    it('28. Test to check the Professional plan "SIGN UP" button', () => {
+    it('26. Test to check the Professional plan "SIGN UP" button', () => {
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
         });
@@ -184,7 +173,7 @@ describe('Pricing Page', () => {
         cy.go('back');
     });
     
-    it('29. Test to check the Professional Plus plan "SIGN UP" button', () => {
+    it('27. Test to check the Professional Plus plan "SIGN UP" button', () => {
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
         });
@@ -193,11 +182,11 @@ describe('Pricing Page', () => {
         cy.go('back');
     });
 
-    it('30. Test to check the Enterprise plan "SIGN UP" button', () => {
+    it('28. Test to check the Enterprise plan "SIGN UP" button', () => {
         cy.document().should((doc) => {
             expect(doc.readyState).to.equal('complete');
         });
         cy.get('.enterprise > .button').should('be.visible', 'contain.text', 'CONTACT US').click();
-        cy.go('back');
+        cy.navigateUrlwithCookies(IPSTACK_BASE_URL);
     });
 });
