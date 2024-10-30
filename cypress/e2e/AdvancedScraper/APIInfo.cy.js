@@ -10,14 +10,14 @@ describe('Advanced Scraper API Info page', () => {
     });
 
     it('2. Test to click on the "API Info" tab', () => {
-        cy.get('#details-tab').click();
+        cy.get('#details-tab').click({force:true});
     });
 
     it('3. Test to check and click link "previous Scraper API"', () => {
         cy.get('a').contains('previous Scraper API').click();
         cy.url().should('eq', APILAYER_BASE_URL +  '/marketplace/scraper-api');
         cy.go('back');
-        cy.get('#details-tab').click();
+        cy.get('#details-tab').click({force:true});
     });
 
     it('4. Test to check if text "Advanced web scraper API with rotating IPs (from 170+ countries), browser rendering and JS execution capabilities." is present', () => {

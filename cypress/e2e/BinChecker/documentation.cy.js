@@ -45,44 +45,44 @@ describe('Bin checker APIs Documentation page', ()=> {
         cy.componentVisiblityCheck(':nth-child(11) > a', 'Rate Limiting');
     });
 
-    it('11. Test to check "Error Codes" hyperlink is present', () => {
+    it('10. Test to check "Error Codes" hyperlink is present', () => {
         cy.checkTextVisibility('Error Codes');
     });
   
-    it('12. Test to click on "Error Codes" hyperlink and check "Error Codes" title is present', () => {
+    it('11. Test to click on "Error Codes" hyperlink and check "Error Codes" title is present', () => {
         cy.get('.sticky-top > ul > :nth-child(4) > a').click();
         cy.componentVisiblityCheck(':nth-child(19) > a', 'Error Codes');
     });
 
-    it('13. Test to check on "Just getting started" section', () => {
+    it('12. Test to check on "Just getting started" section', () => {
         cy.componentVisiblityCheck('.blockquote');
     });
 
-    it('14. Test to check and click link "development quickstart guide."', () => {
+    it('13. Test to check and click link "development quickstart guide."', () => {
         cy.developmentQuickstartGuide(BINCHECKER_BASE_URL);
     });
 
-    it('15. Test to check on "Accounts page" link is present', () => {
+    it('14. Test to check on "Accounts page" link is present', () => {
         cy.componentVisiblityCheck('.col-sm-12 > :nth-child(5) > a');
     });
 
-    it('16. Test to check on "Accounts page" link click', () => {
+    it('15. Test to check on "Accounts page" link click', () => {
         cy.get('.col-sm-12 > :nth-child(5) > a').click();
     });
 
-    it('17. Test to check on "Support unit" link is present', () => {
+    it('16. Test to check on "Support unit" link is present', () => {
         cy.componentVisiblityCheck(':nth-child(18) > a');
     });
 
-    it('18. Test to check on "Support unit" link click', () => {
+    it('17. Test to check on "Support unit" link click', () => {
         cy.get(':nth-child(18) > a').click();
     });
 
-    it('19. Test to check on "Contact for support" link is present', () => {
+    it('18. Test to check on "Contact for support" link is present', () => {
         cy.componentVisiblityCheck(':nth-child(25) > a');
     });
 
-    it('20. Test to check on "Contact for support" link click', () => {
+    it('19. Test to check on "Contact for support" link click', () => {
         cy.get(':nth-child(25) > a').click();
     });
 });

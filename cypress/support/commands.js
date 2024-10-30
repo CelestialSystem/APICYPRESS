@@ -155,7 +155,7 @@ Cypress.Commands.add('checkModal', (headerText, featureText) => {
 Cypress.Commands.add('moveToDoc', (url) => {
     cy.componentVisiblityCheck('.d-md-flex > .d-none');
     cy.intercept('GET', '/marketplace/' + url + '/tabs/api_docs').as('apiRequest');
-    cy.get('#documentation-tab').click();
+    cy.get('#documentation-tab').click({force:true});
     cy.wait('@apiRequest', { timeout: 60000 });
     cy.componentVisiblityCheck('#documentation');
 });

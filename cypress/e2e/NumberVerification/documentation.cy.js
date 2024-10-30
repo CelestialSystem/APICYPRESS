@@ -10,7 +10,7 @@ describe('Number Verification Documentation page', () => {
     });
   
     it('2. Test to check "Number Verification API" title is present', () => {
-        cy.componentVisiblityCheck('.h2', 'Number Verification API');
+        cy.checkTextVisibility('Number Verification API');
     });
   
     it('3. Test to click "Documentation" tab', () => {

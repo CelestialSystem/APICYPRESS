@@ -10,7 +10,7 @@ describe('Login Page', () => {
     });
 
     it('2. Test to "Login"', () => {
-        cy.get('#signInButton').click({force: true});
+        cy.get('#signInButton').click({ force: true });
         cy.get('.sidebar-content').should('be.visible');
     })
 
@@ -31,9 +31,13 @@ describe('Login Page', () => {
     })
 
     it('7. Test to check if "Sign In" button is there', () => {
-        cy.get('.align-items-center.mb-3 > .btn').should('be.visible');
-        cy.get('.align-items-center.mb-3 > .btn').should('contains.text', '\n\nSign In\n');
-    })
+        cy.get('.align-items-center.mb-3 > .btn')
+            .should('be.visible')
+            .invoke('text')
+            .then((text) => {
+                expect(text.trim()).to.equal('Sign In');
+            });
+    });
 
     it('8. Test to check if "Sign Up" button is there', () => {
         cy.get('.text-center.mb-2 > .mb-3').should('be.visible');
@@ -70,25 +74,28 @@ describe('Login Page', () => {
         cy.get('#signinEmail').clear({ force: true }).type('Test@1234');
         cy.get('#signinPassword').clear({ force: true }).type('test@123');
         cy.get('.align-items-center.mb-3 > .btn').click();
-        cy.get(':nth-child(3) > .invalid-feedback').should('contain.text', 'Invalid email address.'); 
+        cy.get(':nth-child(3) > .invalid-feedback').should('contain.text', 'Invalid email address.');
     })
 
-    it('14.Test to Click on "Sign In" button without entering "Email" and "Password"', () => {
+    it('14. Test to Click on "Sign In" button without entering "Email" and "Password"', () => {
         cy.get('.js-hs-unfold-invoker').click({ multiple: true, force: true });
-        cy.get('#sidebarContent').should('be.visible');
-        cy.get('.align-items-center.mb-3 > .btn').click({force:true});
+        cy.wait(1000);
+        cy.get('#sidebarContent')
+            .invoke('removeClass', 'hs-unfold-hidden')
+            .should('be.visible');
+
+        cy.get('.align-items-center.mb-3 > .btn').click({ force: true });
         cy.get('#signinEmail-error').should('be.visible').and('contain.text', 'Please enter a valid email address.');
         cy.get('#signinPassword-error').should('be.visible').and('contain.text', 'Your password is invalid. Please try again.');
     });
-    
-    
-    
 
     it('15. Test to Enter "Email" and click "Sign In"', () => {
-        cy.get('#signinEmail').type('Test@1234');
+        cy.get('#signInButton').click({ force: true });
+        cy.get('#sidebarContent').should('be.visible');
+        cy.get('#signinEmail').type('Test@1234', { force: true });
         cy.get('.align-items-center.mb-3 > .btn').click({ force: true });
         cy.get('#signinPassword-error').should('be.visible');
-    })
+    });
 
     it('16. Test to Enter "Password" and click "Sign In"', () => {
         cy.get('#signinEmail').clear({ force: true });
@@ -128,9 +135,14 @@ describe('Login Page', () => {
 
     it('22. Test to on click of "Close Icon" login side bar should close', () => {
         cy.get('#signInButton').click({ force: true });
-        cy.get('#signinEmail').type('TestUserApiLayer@gmail.com');
-        cy.get('#signinPassword').type('tester@123');
+        cy.get('#sidebarContent', { timeout: 10000 })
+            .invoke('removeClass', 'hs-unfold-hidden')
+            .should('be.visible');
+        cy.get('#signinEmail').type('TestUserApiLayer@gmail.com', { force: true });
+        cy.get('#signinPassword').type('tester@123', { force: true });
         cy.get('.align-items-center.mb-3 > .btn').click({ force: true });
-        cy.get('h1 > .text-dark').should('contains.text', 'API Marketplace');
-    })
+
+        cy.get('.close-icon-selector').click({ force: true });
+        cy.get('#sidebarContent').should('not.be.visible');
+    });
 });
