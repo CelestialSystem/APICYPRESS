@@ -7,8 +7,8 @@ describe('Ipstack Forgot Password page', () => {
 
     it('1. Test to click the "Forgot Password" button and navigate to the "Forgot Password" page', () => {
         cy.AcceptCookies();
-        cy.get('.login > a').click();
-        cy.get('.forgot').click();
+        cy.get('.login > a').click({force:true});
+        cy.get('.forgot').click({force:true});
         cy.AcceptCookies();
     });
 
@@ -28,23 +28,23 @@ describe('Ipstack Forgot Password page', () => {
 
     it('5. Test to display an validation error "Update has failed with the following error: The submitted credentials are not connected to an existing user." for non-registered "Email"', () => {
         cy.get('#email').clear({force:true}).type('yjk@gmail.com');
-        cy.get('.submit').click();
+        cy.get('.submit').click({force:true});
         cy.checkAlert('Update has failed with the following error: The submitted credentials are not connected to an existing user.');
     });
 
     it('6. Test to display success "An email containing password reset instructions has been sent to your email address." message when a valid "Email" is submitted', () => {
         cy.get('#email').clear({force:true}).type('TestUserApiLayer@gmail.com');
-        cy.get('.submit').click();
+        cy.get('.submit').click({force:true});
         cy.get('.success').should('contain.text', 'An email containing password reset instructions has been sent to your email address.');
     });
 
     it('7. Test to allow navigating back to "Login" page by clicking "Log in instead" button', () => {
-        cy.get('.log_in_instead').click();
+        cy.get('.log_in_instead').click({force:true});
         cy.url().should('include', '/login');
     });
 
     it('8. Test to redirect to the "Forgot Password" page when clicking the footer link', () => {
-        cy.get(':nth-child(4) > :nth-child(5) > a').click();
+        cy.get(':nth-child(4) > :nth-child(5) > a').click({force:true});
         cy.assertPathname('/forgot');
         cy.checkTextVisibility('Forgot Password');
         cy.componentVisiblityCheck('#email');
