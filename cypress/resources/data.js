@@ -48,3 +48,10 @@ export const IMAGE_UPLOAD_BASE_URL = `${APILAYER_BASE_URL}/marketplace/image_upl
 export const FINANCE_NEWS_BASE_URL = `${APILAYER_BASE_URL}/marketplace/financelayer-api`;
 export const SKILLS_BASE_URL = `${APILAYER_BASE_URL}/marketplace/skills-api`
 export const IMAGE_QUALITY_ASSESSMENT_BASE_URL =  `${APILAYER_BASE_URL}/marketplace/image_quality-api`;
+export const AVIATION_STACK_BASE_URL = 'https://aviationstack.com/';
+export const NUM_VERIFICATION_SIGNUP = 'https://apilayer.com/signup';
+export const IP_INFO_BASE_URL = 'https://ipinfo.info/';
+export const WEATHER_STACK_BASE_URL = 'https://weatherstack.com/';
+export const IP_STACK_BASE_URL = 'https://ipstack.com/';
+export const IP_API_BASE_URL = 'https://ipapi.com/'
+

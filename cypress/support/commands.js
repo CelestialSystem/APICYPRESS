@@ -150,3 +150,19 @@ Cypress.Commands.add('checkModal', (headerText, featureText) => {
     // Added wait of 1 second because there is 3s transition delay added in the css for the model
     cy.wait(1000);
 });
+
+export function generateEmail() {
+    var now = new Date(),
+        year = now.getFullYear(),
+        month = String(now.getMonth() + 1).padStart(2, '0'),
+        day = String(now.getDate()).padStart(2, '0'),
+        hours = String(now.getHours()).padStart(2, '0'),
+        minutes = String(now.getMinutes()).padStart(2, '0'),
+        seconds = String(now.getSeconds()).padStart(2, '0');
+
+        console.log(`TestUser+${year}${month}${day}${hours}${minutes}${seconds}@gmail.com`);
+  
+    return `TestUser+${year}${month}${day}${hours}${minutes}${seconds}@gmail.com`;
+  }
+  
+
