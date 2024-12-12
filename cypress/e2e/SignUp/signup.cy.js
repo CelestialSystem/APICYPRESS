@@ -197,6 +197,34 @@ describe("1. Sign Up Page", function () {
                 cy.checkTextVisibility('Your subscription: Standard Plan');
                 cy.contains('a', 'Sign Out').click();
               });
+            } else  if (['ipinfo'].includes(api_name)) {
+              it('1. Test to upgrade plan', () => {
+                cy.contains('a', 'Upgrade').click(); // Click on upgrade button on sidebar
+                cy.get('.free > .product_container > .main_container > .signup_link').click() // Click on Show Options link on the basic plan section
+                cy.wait(1000);
+                cy.get('.basic37 > .heading > .button').click(); //Click on the upgrade button on the basic plan section
+                cy.wait(1000); // wait for a window to open
+                cy.checkTextVisibility('Please confirm your upgrade by choosing your preferred billing frequency.');
+              });
+          
+              it('2. Test to check basic plan', () => {
+                cy.get('.platinum_upgrade').click(); // Click on the upgrade button in the window
+                cy.checkTextVisibility('Selected: Basic Plan'); // Check plan got updated to Basic Plan
+              });
+          
+              it('3. Test to check signout button click', () => {
+                cy.contains('a', 'Sign Out').click(); // Sign out button click
+                cy.checkTextVisibility('Log in');
+              });
+          
+              it('4. Test to check on login and check the plan is basic', () => {
+                cy.get('#email').type(email);
+                cy.get('#password').type(password);
+                cy.get('.submit').click();
+                cy.contains('a', 'Subscription Plan').click(); // Click on Subscription plan button on sidebar
+                cy.checkTextVisibility('Your subscription: Basic Plan');
+                cy.contains('a', 'Sign Out').click();
+              });
             }
           });
           

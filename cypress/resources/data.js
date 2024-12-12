@@ -53,5 +53,5 @@ export const NUM_VERIFICATION_SIGNUP = 'https://apilayer.com/signup';
 export const IP_INFO_BASE_URL = 'https://ipinfo.info/';
 export const WEATHER_STACK_BASE_URL = 'https://weatherstack.com/';
 export const IP_STACK_BASE_URL = 'https://ipstack.com/';
-export const IP_API_BASE_URL = 'https://ipapi.com/'
+export const IP_API_BASE_URL = 'https://ipapi.com/';
 
